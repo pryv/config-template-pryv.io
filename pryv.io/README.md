@@ -4,7 +4,7 @@
 This directory contains the configuration files for ${DOMAIN}. 
 
 
-# Installation Information
+# Installation information
 
 | Service | hostname | IP address 
 | --- | -------- | ---------  |
@@ -30,6 +30,11 @@ After you have adapted the installation, use the following to install the servic
 * Run `./script/build ${DOMAIN}` to generate archives `DOMAIN-ROLE.tgz` that you will copy to the corresponding machines (ROLE here is `reg`, `core` or `static`)
 * Extract the configuration files using `tar -xzf DOMAIN-ROLE.tgz --strip-components=1`
 * Follow the `INSTALL.md` guide 
+
+
+## Update
+
+To apply changes in the configuration files, follow the instructions in the `UPDATE.md` guide.
 
 
 # Overview
