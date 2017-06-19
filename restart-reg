@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+[[ -e reg.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
+
+# Configuration and data files are all below this root.
+export PRYV_CONF_ROOT=$PWD/reg
+
+echo "Running Pryv/reg component."
+exec docker-compose -f reg.yml restart -d

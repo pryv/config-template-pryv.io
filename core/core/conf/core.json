@@ -1,0 +1,66 @@
+{
+  "env": "production",
+  "nightlyScriptCronTime": "00 15 2 * * *",
+  "http": {
+    "ip": "0.0.0.0",
+    "port": "9000"
+  },
+  "database": {
+    "authUser": "${MONGO_USER}",
+    "authPassword": "${MONGO_PASSWORD}",
+    "host": "mongodb",
+    "port": 27017,
+    "name": "pryv-node"
+  },
+  "eventFiles": {
+    "attachmentsDirPath": "/app/data/attachments",
+    "previewsDirPath": "/app/data/previews"
+  },
+  "eventTypes": {
+    "sourceURL": "https://pryv.github.io/event-types/flat.json"
+  },
+  "register": {
+    "secret": "${REGISTER_SECRET}" // key used by reg to make calls on /system
+  },
+  "auth": {
+    "adminAccessKey": "${CORE_N_AUTH_KEY}",
+    "trustedApps": "*@https://*.${DOMAIN}",
+    "sessionMaxAge": 1209600000,
+    "ssoCookieDomain": ".${DOMAIN}",
+    "ssoCookieSignSecret": "${SSO_COOKIE_SECRET}",
+    "filesReadTokenSecret": "${FILES_READ_TOKEN_SECRET}",
+    "passwordResetRequestMaxAge": 3600000,
+    "passwordResetPageURL": "https://sw.${DOMAIN}/access/reset-password.html"
+  },
+  "services": {
+    "register": {
+      "url": "https://reg.${DOMAIN}",
+      "key": "${REGISTER_SECRET}"
+    },
+    "email": { // optional
+      "url": "https://mandrillapp.com",
+      "key": "${MANDRILL_API_KEY}",
+      "sendMessagePath": "/api/1.0/messages/send-template.json",
+      "welcomeTemplate": "welcome-email",
+      "resetPasswordTemplate": "reset-password"
+    }
+  },
+  "logs": {
+    "console": {
+      "active": true,
+      "level": "info", // {debug, info, error} - preferred "info"
+      "colorize": true
+    },
+    "file": {
+      "active": true,
+      "level": "error", // {debug, info, error} - preferred "info"
+      "path": "/app/log/core.log",
+      "maxFileBytes": 4096,
+      "maxNbFiles": 20
+    },
+    "airbrake": {
+      "active": false,
+      "key": "${AIRBRAKE_API_KEY}"
+    }
+  }
+}
