@@ -74,6 +74,8 @@ Per language:
 - CORE_N_DISPLAYED_DESCRIPTION_LANGUAGE_N
 
 
+## v1.1 to v1.2 upgrade notes
+
 Configuration files for Static-web and Core can be adapted directly to the new format.
 The configuration of Register has been split into reg and dns.
 
