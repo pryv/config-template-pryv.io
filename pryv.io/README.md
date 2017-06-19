@@ -18,7 +18,7 @@ ${DOMAIN}
  
 ### Name servers: 
 
-dns1.${DOMAIN} or ${DNS_1_HOSTNAME}
+dns1.${DOMAIN} or ${DNS_1_HOSTNAME}  
 dns2.${DOMAIN} or ${DNS_2_HOSTNAME}
 
 
