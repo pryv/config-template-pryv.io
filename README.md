@@ -1,13 +1,14 @@
+in the `pryv.io/` folder, you will find the template configuration files for a pryv.io scale installation.
+ 
+ 
+# Usage
 
-# Summary
+* Copy this repository content in new repository `config-DOMAIN`
+* Replace the installation variables in the configuration files. You may replace most of those values by making a *find/replace* for ${VAR_NAME}.  
+* Update general information in `pryv.io/README.md`
+* If needed, update container versions in `pryv.io/{core,reg,static}.yml`
+* Follow the Usage instructions in `pryv.io/README.md`
 
-This directory contains the configuration files for ${DOMAIN}. 
-
-# Note
-
-Please update components versions in {core,reg,static}.yml
-
-Add your SSL certificates in ROLE/nginx/conf/secret
 
 # Installation Information
 
@@ -26,9 +27,10 @@ Name servers:
 dns1.${DOMAIN}
 dns2.${DOMAIN}
 
+
 # Overview
 
-This directory contains docker compose YAML files for creating a scale
+`pryv.li/` contains docker compose YAML files for creating a pryv.io scale
 installation with standard directory structure. 
 
 In general, YAML files will assume that the configuration file root is at 

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Builds distribution tarballs for the configuration given by DOMAIN.
+#
+#   scripts/build DOMAIN
+#
+
+DOMAIN=$1
+
+function build_role() {
+  role=$1
+
+  tar czf "$DOMAIN-$role.tgz" pryv.io/$role.yml pryv.io/$role pryv.io/run-$role pryv.io/restart-$role
+}
+
+build_role "static"
+build_role "reg"
+build_role "core"

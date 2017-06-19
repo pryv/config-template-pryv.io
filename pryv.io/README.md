@@ -22,6 +22,16 @@ Name servers:
 dns1.${DOMAIN} or ${DNS_1_HOSTNAME}
 dns2.${DOMAIN} or ${DNS_2_HOSTNAME}
 
+
+# Usage
+
+After you have adapted the installation, use the following to install the services on the prepared machines.  
+
+* Run `./script/build ${DOMAIN}` to generate archives `DOMAIN-ROLE.tgz` that you will copy to the corresponding machines (ROLE here is `reg`, `core` or `static`)
+* Extract the configuration files using `tar -xzf DOMAIN-ROLE.tgz --strip-components=1`
+* Follow the `INSTALL.md` guide 
+
+
 # Overview
 
 This directory contains docker compose YAML files for creating a scale
