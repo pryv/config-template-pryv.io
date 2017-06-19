@@ -47,9 +47,9 @@
               "name": "${ZONE_N_DISPLAYED_NAME}", "localizedName": { "${LANGUAGE_N}": "${ZONE_N_DISPLAYED_NAME_LANGUAGE_N}" },
               "hostings": {
                 "${CORE_N_NAME}": {
-                  "url": "${CORE_N_DISPLAYED_URL}", // displayed by registration page when core is selected
+                  "url": "${CORE_N_HOSTING_PROVIDER_URL}", // displayed by registration page when core is selected
                   "name": "${CORE_N_DISPLAYED_NAME}", // currently not used
-                  "description": "${CORE_N_DISPLAYED_DESCRIPTION", // displayed next to url when core is selected
+                  "description": "${CORE_N_HOSTING_PROVIDER_DESCRIPTION", // displayed next to url when core is selected
                   "localizedDescription": { } 
                 }
               }

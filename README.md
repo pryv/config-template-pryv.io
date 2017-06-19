@@ -3,7 +3,7 @@
 In the `pryv.io/` folder, you will find the template configuration files for a pryv.io scale installation.
  
  
-# Usage
+## Usage
 
 * Copy this repository content in new repository `config-DOMAIN`
 * Replace the [installation variables](#installation-variables) in the configuration files. You may replace most of those values by making a *find/replace* for ${VAR_NAME}.  
@@ -12,7 +12,7 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
 * Follow the Usage instructions in `pryv.io/README.md`
 
 
-# Overview
+## Overview
 
 `pryv.io/` contains docker compose YAML files for creating a pryv.io scale
 installation with standard directory structure. 
@@ -35,7 +35,7 @@ domain. You will need to copy and customize the files for the client before
 distribution. 
 
 
-# Installation variables
+## Installation variables
 
 Global
 - DOMAIN: (eg.: pryv.me)
@@ -52,20 +52,20 @@ Global
 - MONGO_PASSWORD *(optional)*: password for MongoDB connection
 
 Per Core
-- CORE_N_NAME 
-- CORE_N_URL
+- CORE_N_NAME: legible identifier for core machine 
+- CORE_N_URL: fully qualified URL by which the core is reachable, defined either in the `pryv.net` DNS zone file or in the `dns.json` config file
 - CORE_N_AUTH_KEY: key used by register to make calls on cores' /system path
-- CORE_N_DISPLAYED_URL
-- CORE_N_DISPLAYED_NAME
-- CORE_N_DISPLAYED_DESCRIPTION
+- CORE_N_HOSTING_PROVIDER_URL: URL of hosting provider at which the core is hosted, displayed on the registration page when the location is selected   
+- CORE_N_DISPLAYED_NAME: Currently not used
+- CORE_N_HOSTING_PROVIDER_DESCRIPTION: Hosting provider slogan, displayed on the registration page when the location is selected
 
 Per region
-- REGION_N
-- REGION_N_DISPLAYED_NAME
+- REGION_N: legible identifier for region, eg.: `europe`
+- REGION_N_DISPLAYED_NAME: region name displayed in drop-down choice for hosting location, eg.: `Europe` 
 
 Per zone
-- ZONE_N
-- ZONE_N_DISPLAYED_NAME
+- ZONE_N: legible identifier for zone, eg.: `switzerland`. A region can have multiple zones.
+- ZONE_N_DISPLAYED_NAME: zone name displayed in drop-down choice for hosting location, eg.: `Switzerland`. Multiple cores in the same zone will appear multiple times with the same name.
 
 Per language:
 - LANGUAGE_N
@@ -73,8 +73,6 @@ Per language:
 - ZONE_N_DISPLAYED_NAME_LANGUAGE_N
 - CORE_N_DISPLAYED_DESCRIPTION_LANGUAGE_N
 
-
-You may replace most of those values by making a *find/replace* for ${VAR_NAME}
 
 Configuration files for Static-web and Core can be adapted directly to the new format.
 The configuration of Register has been split into reg and dns.
