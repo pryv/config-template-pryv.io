@@ -1,10 +1,9 @@
+# Pryv.io scalable configuration files
 
-# Summary
-
-This directory contains the configuration files for ${DOMAIN}. 
+This directory contains the configuration files for the ${DOMAIN} pryv.io scalable installation. 
 
 
-# Installation information
+## Installation information
 
 | Service | hostname | IP address 
 | --- | -------- | ---------  |
@@ -13,17 +12,17 @@ This directory contains the configuration files for ${DOMAIN}.
 | Static-web | *optional* | **TODO**
 
  
-Domain name: 
+### Domain name: 
 
 ${DOMAIN}
  
-Name servers: 
+### Name servers: 
 
 dns1.${DOMAIN} or ${DNS_1_HOSTNAME}
 dns2.${DOMAIN} or ${DNS_2_HOSTNAME}
 
 
-# Usage
+## Usage
 
 After you have adapted the installation, use the following to install the services on the prepared machines.  
 
@@ -32,12 +31,12 @@ After you have adapted the installation, use the following to install the servic
 * Follow the `INSTALL.md` guide 
 
 
-## Update
+### Update
 
 To apply changes in the configuration files, follow the instructions in the `UPDATE.md` guide.
 
 
-# Overview
+## Overview
 
 This directory contains docker compose YAML files for creating a scale
 installation with standard directory structure. 
