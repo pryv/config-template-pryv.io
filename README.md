@@ -1,4 +1,6 @@
-in the `pryv.io/` folder, you will find the template configuration files for a pryv.io scale installation.
+# Pryv.io scalable configuration template
+
+In the `pryv.io/` folder, you will find the template configuration files for a pryv.io scale installation.
  
  
 # Usage
