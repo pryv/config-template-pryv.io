@@ -39,22 +39,27 @@ distribution.
 
 Global
 - DOMAIN: (eg.: pryv.me)
-- REGISTER_SECRET: key used by cores to make calls on register's /system path
+- REGISTER_SYSTEM_KEY: key used by cores to make calls on register's /system path
+- REGISTER_ADMIN_KEY_N: key(s) used by admins to make calls on register's /admin methods
+- CORE_SYSTEM_KEY: key used by register to make calls on cores' /system path
 - SSO_COOKIE_SECRET: used by cores to secure cookie
 - FILES_READ_TOKEN_SECRET: used by cores to secure file tokens
-- MANDRILL_API_KEY *(optional)*: API key for Mandrill mailing service 
-- AIRBRAKE_API_KEY *(optional)*: API key for Airbrake error monitoring service
-- ADMIN_KEY_N: key(s) used by admins to make calls on register's /admin methods
 - STATIC_WEB_IP: IP address of static-web
 - REG_IP: IP address of register
 - CORE_N_IP: IP address of core N
 - MONGO_USER *(optional)*: username for MongoDB connection
 - MONGO_PASSWORD *(optional)*: password for MongoDB connection
 
+Global extra services
+- MANDRILL_API_KEY *(optional)*: API key for Mandrill mailing service 
+- AIRBRAKE_CORE_API_KEY *(optional)*: API key for Airbrake error monitoring service
+- AIRBRAKE_REG_API_KEY *(optional)*: API key for Airbrake error monitoring service
+- AIRBRAKE_PREVIEW_API_KEY *(optional)*: API key for Airbrake error monitoring service
+- AIRBRAKE_APP-WEB_API_KEY *(optional)*: API key for Airbrake error monitoring service
+
 Per Core
 - CORE_N_NAME: legible identifier for core machine 
 - CORE_N_URL: fully qualified URL by which the core is reachable, defined either in the `pryv.net` DNS zone file or in the `dns.json` config file
-- CORE_N_AUTH_KEY: key used by register to make calls on cores' /system path
 - CORE_N_HOSTING_PROVIDER_URL: URL of hosting provider at which the core is hosted, displayed on the registration page when the location is selected   
 - CORE_N_DISPLAYED_NAME: Currently not used
 - CORE_N_HOSTING_PROVIDER_DESCRIPTION: Hosting provider slogan, displayed on the registration page when the location is selected

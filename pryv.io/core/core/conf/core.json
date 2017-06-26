@@ -20,10 +20,10 @@
     "sourceURL": "https://pryv.github.io/event-types/flat.json"
   },
   "register": {
-    "secret": "${REGISTER_SECRET}" // key used by reg to make calls on /system
+    "secret": "${REGISTER_SYSTEM_KEY}" // key used by reg to make calls on /system
   },
   "auth": {
-    "adminAccessKey": "${CORE_N_AUTH_KEY}",
+    "adminAccessKey": "${CORE_AUTH_KEY}",
     "trustedApps": "*@https://*.${DOMAIN}",
     "sessionMaxAge": 1209600000,
     "ssoCookieDomain": ".${DOMAIN}",
@@ -35,7 +35,7 @@
   "services": {
     "register": {
       "url": "https://reg.${DOMAIN}",
-      "key": "${REGISTER_SECRET}"
+      "key": "${REGISTER_SYSTEM_KEY}"
     },
     "email": { // optional
       "url": "https://mandrillapp.com",

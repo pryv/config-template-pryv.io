@@ -4,8 +4,8 @@
    },
   "auth": {
     "authorizedKeys": {
-      "${ADMIN_KEY_N}": { "roles": ["admin"] }, // can contain identifier such as "perki|KEY"
-      "${REGISTER_SECRET}": { "roles": ["system"] } // key used by reg to make calls on /system
+      "${REGISTER_ADMIN_KEY_N}": { "roles": ["admin"] }, // can contain identifier such as "perki|KEY"
+      "${REGISTER_SYSTEM_KEY}": { "roles": ["system"] } // key used by reg to make calls on /system
     }
   },
   "redis": {
@@ -33,7 +33,7 @@
       "${CORE_N_NAME}": [
         {
           "base_url": "${CORE_N_URL}", // in this form: "http[s]://hostname/"
-          "authorization": "${CORE_N_AUTH_KEY}"
+          "authorization": "${CORE_AUTH_KEY}"
         }
       ]
     },
