@@ -1,0 +1,414 @@
+version: 1.0.0
+domain: DOMAIN
+extraDomains:
+  - DOMAIN
+redis:
+  password: MyRecordedLife
+coreDefaults:
+  systemKey: OVERRIDE_ME
+dns:
+  listeningIp: 0.0.0.0
+  listeningPort: 53
+  domainA: 95.142.162.223 # IP address of www.TLD. Should send to service homepage, eg. pryv.com
+  entries:
+    -
+      name: www # should point to same as domainA
+      type: alias
+      value: stswww-gandi-fr-01.pryv.net
+    -
+      name: sw # for app-web & pop-up login
+      type: alias
+      value: stswww-gandi-fr-01.pryv.net
+    -
+      name: reg
+      type: alias
+      value: streg-gandi-fr-01.pryv.net
+    -
+      name: service # useful to store services configuration possibily on a separate machine, currently still on register
+      type: alias
+      value: streg-gandi-fr-01.pryv.net
+    -
+      name: access # for login, here for optional splitting, as "service"
+      type: alias
+      value: streg-gandi-fr-01.pryv.net
+    -
+      name: bridges
+      type: alias
+      value: stbridgemulti-amazon-use-01.pryv.net
+    -
+      name: import # legacy csv importer
+      type: alias
+      value: gpaas3.dc0.gandi.net
+    -
+      name: ifttt
+      type: alias
+      value: stifttt-amazon-use-01.pryv.net
+    -
+      name: l # for test purposes, meant to disappear
+      type: ip
+      value: 127.0.0.1
+    -
+      name: local # for test purposes, meant to disappear
+      type: ip
+      value: 127.0.0.1
+    -
+      name: reglocal # for test purposes, meant to disappear
+      type: ip
+      value: 127.0.0.1
+  nameServers:
+    -
+      name: streg-gandi-fr-01.pryv.net
+      ip: 95.142.162.223
+    -
+      name: streg-gandi-lu-01.pryv.net
+      ip: 213.167.242.177
+  server:
+    ssl: false
+    port: 9000
+cores:
+  -
+    hostnameOrIp: stact-exoscale-ch-01.pryv.net
+    hosting: exoscale.ch-ch # must match entry in "hostings"
+  -
+    hostnameOrIp: stact-exoscale-ch-02.pryv.net
+    hosting: exoscale.ch-ch2
+  -
+    hostnameOrIp: stcore-azure-euw-01.pryv.net
+    hosting: azure.com-nl
+hostings:
+  regions:
+    europe:
+      name: Europe
+      localizedName:
+        fr: Europe
+      zones:
+        france:
+          name: France
+          localizedName:
+            fr: France
+          hostings:
+            gandi.net-fr:
+              url: 'http://gandi.net'
+              name: Gandi
+              description: 'No bullshit'
+              localizedDescription: {}
+        netherlands:
+          name: Netherlands
+          localizedName:
+            fr: 'Pays Bas'
+          hostings:
+            azure.com-nl:
+              url: 'https://azure.microsoft.com/en-us/'
+              name: 'Microsoft Azure'
+              description: 'The cloud for modern business'
+              localizedDescription: {}
+        switzerland:
+          name: Switzerland
+          localizedName:
+            fr: Suisse
+          hostings:
+            exoscale.ch-ch:
+              url: 'https://www.exoscale.ch'
+              name: Exoscale
+              description: 'A safe home - Swiss quality'
+              localizedDescription: {}
+            exoscale.ch-ch2:
+              url: 'https://www.exoscale.ch'
+              name: 'Exoscale DSlike'
+              description: 'A safe home - Swiss quality'
+              localizedDescription: {}
+    north-america:
+      name: 'North America'
+      localizedName:
+        fr: 'Amérique du Nord'
+      zones:
+        usa-east:
+          name: 'East-coast USA'
+          localizedName:
+            fr: 'USA cote est'
+          hostings:
+            gandi.net-us:
+              url: 'http://gandi.net'
+              name: Gandi
+              description: 'No bullshit'
+              localizedDescription: {}
+        usa-west:
+          name: 'West-coast USA'
+          localizedName:
+            fr: 'USA cote ouest'
+          hostings:
+            joyent.net-usw:
+              url: 'http://joyent.com'
+              name: Joyent
+              description: 'High performance'
+              localizedDescription: {}
+    asia:
+      name: Asia
+      localizedName:
+        fr: Asie
+      zones:
+        hk:
+          name: Hong-Kong
+          localizedName: {}
+          hostings:
+            fengqi.asia-hk:
+              url: 'http://fengqi.asia'
+              name: Fengqi.asia
+              description: 'We Make Your Business Fly'
+              localizedDescription: {}
+    australia:
+      name: 'Australia (Coming soon)'
+      localizedName:
+        fr: 'Australie (bientôt disponible)'
+      zones: {}
+mongo:
+  host: localhost
+  port: 27017
+  databaseName: pryv-node
+eventTypes:
+  sourceURL: 'http://api.pryv.com/event-types/flat.json'
+coreApi:
+  mongo:
+    username: api-server
+    password: WeEN69namES+
+  eventFiles:
+    attachmentsDirPath: /var/pryv/data/api-server-files/attachments
+    previewsDirPath: /var/pryv/data/api-server-files/previews
+  http:
+    ip: 127.0.0.1
+    port: 9000
+    noSSL: true
+  auth:
+    adminAccessKey: ZSBt6e5xash
+    trustedApps: '*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*'
+    browserIdAudience: 'https://{username}.DOMAIN:443'
+    sessionMaxAge: 1209600000
+    ssoCookieDomain: .DOMAIN
+    ssoCookieSignSecret: ZUsdufvh%asrd
+    filesReadTokenSecret: 'Ct=btq-*N5-_j&Z'
+    passwordResetRequestMaxAge: 3600000
+    passwordResetPageURL: 'https://sw.DOMAIN/access/reset-password.html'
+  logs:
+    console:
+      active: true
+      level: info
+      colorize: false
+    file:
+      active: false
+      level: error
+      path: /var/pryv/data/logs/service-core-api.log
+      maxFileBytes: 4096
+      maxNbFiles: 20
+preview:
+  http:
+    ip: 127.0.0.1
+    port: 10000
+    noSSL: true
+  mongo:
+    username: browser-server
+    password: troW!hiLl~63
+  eventFiles:
+    attachmentsDirPath: /var/pryv/data/api-server-files/attachments
+    previewsDirPath: /var/pryv/data/api-server-files/previews
+  logs:
+    console:
+      active: true
+      level: info
+      colorize: false
+    file:
+      active: false
+      level: error
+      path: /var/pryv/data/logs/service-core-preview.log
+      maxFileBytes: 4096
+      maxNbFiles: 20
+  auth:
+    sessionMaxAge: 1209600000
+swww:
+  http:
+    port: 9000
+    certsPathAndKey: false
+    ip: 127.0.0.1
+  http2:
+    port: 9001
+    certsPathAndKey: false
+    ip: 127.0.0.1
+  browserBootstrap:
+    fields:
+      browser-source: 'https://sw.DOMAIN/browser'
+  redirect:
+    port: 0
+register:
+  hostnameOrIP: 'https://reg.DOMAIN'
+  systemKeys:
+    - UNdrMmb9PJZkF82z
+  adminKeys:
+    - evelina|72DH63hgsd
+    - perki|ghjfsduz743
+  http:
+    static:
+      url: 'https://www.pryv.com' # redirect address from reg.DOMAIN
+      access: 'https://sw.DOMAIN/access/v1/access.html'
+    register:
+      url: 'https://reg.DOMAIN'
+  service: # prototype for /service/infos content
+    name: 'Pryv Lab staging'
+    support: 'mailto:support@pryv.com'
+    terms: 'http://pryv.com/terms-of-use/'
+  server:
+    ssl: 'false'
+    ip: 127.0.0.1
+    port: 9000
+  appList:
+    pryv-ios-app:
+      displayName: 'Pryv for iOS'
+      description: 'Capture and browse pictures, notes, values etc. while on the go'
+      iconURL: 'https://sw.DOMAIN/apps/pryv-ios-app/icon512.png'
+      appURL: 'https://itunes.apple.com/us/app/pryv/id826320447'
+      active: false
+      onboarding: false
+      category: Other
+      settingsPageURL: ""
+    pryv-csv-importer:
+      displayName: 'CSV Importer'
+      description: 'Import existing data from CSV files'
+      iconURL: 'https://sw.DOMAIN/apps/pryv-csv-importer/icon512.png'
+      appURL: 'http://pryv.github.io/dev-tools/csv-importer'
+      active: false
+      onboarding: false
+      category: Other
+      support:
+        - iPad
+        - iPhone
+        - Web
+      settingsPageURL: 'http://pryv.github.io/dev-tools/csv-importer'
+    ifttt-all:
+      displayName: IFTTT
+      description: 'Connect Pryv to over 100 other products and services with Pryv Recipes on IFTTT'
+      iconURL: 'https://sw.DOMAIN/apps/ifttt-all/icon512.png'
+      appURL: 'https://ifttt.com/pryv'
+      active: false
+      onboarding: false
+      category: Other
+      support:
+        - iPad
+        - iPhone
+        - Web
+      settingsPageURL: 'https://ifttt.com/pryv'
+    bridge-twitter:
+      displayName: Twitter
+      description: 'Pryv selected tweets from my <strong>Twitter</strong> account.'
+      iconURL: 'https://sw.DOMAIN/apps/bridge-twitter/icon512.png'
+      appURL: 'https://bridges.DOMAIN:4443/'
+      active: true
+      onboarding: true
+      category: Thoughts
+      position: 1
+      support:
+        - iPad
+        - iPhone
+        - Web
+      settingsPageURL: 'https://bridges.DOMAIN:4443/'
+      trustedConnection: true
+    bridge-withings:
+      displayName: Withings
+      description: 'Pryv my <strong>Withings</strong> measures.'
+      iconURL: 'https://sw.DOMAIN/apps/bridge-withings/icon512.png'
+      appURL: 'http://bridges.DOMAIN:5443/'
+      active: true
+      onboarding: true
+      category: 'Health & Activity'
+      position: 2
+      support:
+        - iPad
+        - iPhone
+        - Web
+      settingsPageURL: 'http://bridges.DOMAIN:5443/'
+      trustedConnection: true
+    bridge-misfit:
+      displayName: Misfit
+      description: 'Pryv activities from my <strong>Misfit Shine</strong>.'
+      iconURL: 'https://sw.DOMAIN/apps/bridge-misfit/icon512.png'
+      appURL: 'https://bridges.DOMAIN:6443/'
+      active: true
+      onboarding: true
+      position: 3
+      support:
+        - iPad
+        - iPhone
+        - Web
+      category: 'Health & Activity'
+      settingsPageURL: 'https://bridges.DOMAIN:6443/'
+      trustedConnection: true
+    bridge-moves:
+      displayName: Moves
+      description: 'Pryv the places I track with the <strong>Moves</strong> app.'
+      iconURL: 'https://sw.DOMAIN/apps/bridge-moves/icon512.png'
+      appURL: 'https://bridges.DOMAIN:7443/'
+      active: true
+      onboarding: true
+      category: Location
+      position: 3
+      support:
+        - iPad
+        - iPhone
+        - Web
+      settingsPageURL: 'https://bridges.DOMAIN:7443/'
+      trustedConnection: true
+    bridge-ihealth:
+      displayName: iHealth
+      description: 'Pryv my health data with <strong>iHealth</strong> app.'
+      iconURL: 'https://sw.DOMAIN/apps/bridge-ihealth/icon512.png'
+      appURL: 'https://bridges.DOMAIN:8443/'
+      active: true
+      onboarding: true
+      category: 'Health & Activity'
+      position: 3
+      support:
+        - iPad
+        - iPhone
+        - Web
+      settingsPageURL: 'https://bridges.DOMAIN:8443/'
+      trustedConnection: true
+    pryv-integration-osx:
+      displayName: 'Pryv OSX'
+      description: 'Integrate Pryv with your desktop'
+      iconURL: 'https://sw.DOMAIN/apps/pryv-integration-osx/icon512.png'
+      appURL: 'https://itunes.apple.com/app/pryv/id881452044'
+      active: false
+      onboarding: false
+      category: Other
+      support:
+        - iPad
+        - iPhone
+        - Web
+      settingsPageURL: ""
+extra:
+  dns:
+    mail:
+      -
+        name: spool.mail.gandi.net
+        ip: 217.70.184.6
+        ttl: 10800
+        priority: 10
+      -
+        name: fb.mail.gandi.net
+        ip: 217.70.184.162
+        ttl: 10800
+        priority: 50
+  coreApi:
+    services:
+      email:
+        url: 'https://mandrillapp.com'
+        key: RcVRdxyEdBTqfE1aMw-W9g
+        sendMessagePath: /api/1.0/messages/send-template.json
+        welcomeTemplate: welcome-email
+        resetPasswordTemplate: reset-password
+  airbrake:
+    coreApi:
+      active: true
+      key: b8c25b40b24ca7468b4f3b005d3a6622
+    preview:
+      active: true
+      key: b763d6590bbd73e8a62798a0ea3eff2b
+    register:
+      key: 88ec825519c81c3a248a5d19284970a0
