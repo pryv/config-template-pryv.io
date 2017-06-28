@@ -32,7 +32,7 @@ let config = {
       port: 9000
     }
   },
-  cores: filterCores(registerConfig.net.aaservers, 
+  cores: filterCores(registerConfig.net.aaservers,
     registerConfig.net.AAservers_domain),
   hostings: registerConfig.net.aahostings,
   mongo: {
@@ -112,7 +112,7 @@ function filterDataType(source) {
   const keys = Object.keys(source);
   keys.forEach((k) => {
     output.push({
-      
+
     })
   });
   return output;
@@ -123,9 +123,9 @@ function filterCores(source, secondayDomain) { // aaservers
   const keys = Object.keys(source);
   keys.forEach((k) => {
     output.push({
-      hostnameOrIp: source[k][0].base_name + '.' 
-        + secondayDomain,
-      hostingProvider: k
+      hostnameOrIp: source[k][0].base_name + '.'
+      + secondayDomain,
+      hosting: k
     })
   })
   return output;
