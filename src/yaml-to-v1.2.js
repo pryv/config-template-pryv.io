@@ -158,6 +158,10 @@ coreConfig.eventFiles = {
   attachmentsDirPath: '/app/data/attachments',
   previewsDirPath: '/app/data/previews'
 };
+previewConfig.eventFiles = {
+  attachmentsDirPath: '/app/data/attachments',
+  previewsDirPath: '/app/data/previews'
+};
 coreConfig.eventTypes = 'https://api.pryv.com/event-types/flat.json'; // apply httpS
 // delete coreConfig.auth.browserIdAudience;
 dnsConfig.port = 5353;
