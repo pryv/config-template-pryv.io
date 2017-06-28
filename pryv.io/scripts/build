@@ -7,12 +7,14 @@ set -e
 #   scripts/build DOMAIN
 #
 
-DOMAIN=$1
+domain=$1
 
 function build_role() {
   role=$1
 
-  tar czf "$DOMAIN-$role.tgz" $role.yml $role run-$role restart-$role
+  COPYFILE_DISABLE=1 tar vzcf "$domain-$role.tgz" \
+    --exclude .DS_Store \
+    $role.yml $role run-$role restart-$role
 }
 
 build_role "static"
