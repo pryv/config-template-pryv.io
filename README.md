@@ -5,8 +5,10 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
  
 ## Usage
 
+*Prerequisites*: Node v6+
+
 * Copy this repository content in new repository `config-DOMAIN`
-* Replace the installation variables in the `pryv.io/config.yml` file. If migrating from a v1.1 installation, see [here](#upgrade-from-v1.1).
+* Replace the [installation variables](#installation-variables) in the `pryv.io/config.yml` file. If migrating from a v1.1 installation, see [here](#upgrade-from-v1.1).
 * run `npm run fromYaml` to generate v1.2 compatible configuration files in `pryv.io/fromYaml/`.
 * Update **Installation information** in `pryv.io/README.md`
 * If needed, update container versions in `pryv.io/{core,reg,static}.yml`
@@ -48,62 +50,23 @@ distribution.
 
 ## Installation variables
 
-Global
-- DOMAIN: (eg.: pryv.me)
-- REGISTER_SYSTEM_KEY: key used by cores to make calls on register's /system path
-- REGISTER_ADMIN_KEY_N: key(s) used by admins to make calls on register's /admin methods
-- CORE_SYSTEM_KEY: key used by register to make calls on cores' /system path
-- SSO_COOKIE_SECRET: used by cores to secure cookie
-- FILES_READ_TOKEN_SECRET: used by cores to secure file tokens
-- STATIC_WEB_IP: IP address of static-web
-- REG_IP: IP address of register
-- CORE_N_IP: IP address of core N
-- MONGO_USER *(optional)*: username for MongoDB connection
-- MONGO_PASSWORD *(optional)*: password for MongoDB connection
-
-Global extra services
-- MANDRILL_API_KEY *(optional)*: API key for Mandrill mailing service 
-- AIRBRAKE_CORE_API_KEY *(optional)*: API key for Airbrake error monitoring service
-- AIRBRAKE_REG_API_KEY *(optional)*: API key for Airbrake error monitoring service
-- AIRBRAKE_PREVIEW_API_KEY *(optional)*: API key for Airbrake error monitoring service
-- AIRBRAKE_APP-WEB_API_KEY *(optional)*: API key for Airbrake error monitoring service
-
-Per Core
-- CORE_N_NAME: legible identifier for core machine 
-- CORE_N_URL: fully qualified URL by which the core is reachable, defined either in the `pryv.net` DNS zone file or in the `dns.json` config file
-- CORE_N_HOSTING_PROVIDER_URL: URL of hosting provider at which the core is hosted, displayed on the registration page when the location is selected   
-- CORE_N_DISPLAYED_NAME: Currently not used
-- CORE_N_HOSTING_PROVIDER_DESCRIPTION: Hosting provider slogan, displayed on the registration page when the location is selected
-
-Per region
-- REGION_N: legible identifier for region, eg.: `europe`
-- REGION_N_DISPLAYED_NAME: region name displayed in drop-down choice for hosting location, eg.: `Europe` 
-
-Per zone
-- ZONE_N: legible identifier for zone, eg.: `switzerland`. A region can have multiple zones.
-- ZONE_N_DISPLAYED_NAME: zone name displayed in drop-down choice for hosting location, eg.: `Switzerland`. Multiple cores in the same zone will appear multiple times with the same name.
-
-Per language:
-- LANGUAGE_N
-- REGION_N_NAME_DISPLAYED_LANGUAGE_N
-- ZONE_N_DISPLAYED_NAME_LANGUAGE_N
-- CORE_N_DISPLAYED_DESCRIPTION_LANGUAGE_N
+Replace specifics with generic ones & find a way to comment or explain it.
 
 
-## v1.1 to v1.2 upgrade notes
+### v1.1 to v1.2 upgrade notes
 
 Configuration files for Static-web and Core can be adapted directly to the new format.
 The configuration of Register has been split into reg and dns.
 
 
-### Databases passwords
+#### Databases passwords
 
 Cores v1.1 had passwords as they were not isolated from the public network interface. In the containerized version,
 MongoDB runs in a container whose network interface is exclusively reachable from the core & preview containers.  
 Therefore we don't use username/password credentials anymore
 
 
-### DNS/Register config format changes
+#### DNS/Register config format changes
 
 The dns:staticDataInDomain config has had many changes:
 - sw, reg are not configured by alias anymore, but by IP address only
