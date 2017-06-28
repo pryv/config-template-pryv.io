@@ -168,9 +168,9 @@ mongo:
 eventTypes:
   sourceURL: 'http://api.pryv.com/event-types/flat.json'
 coreApi:
-  mongo:
+  mongo: # for v1.2 dockerized, we recommend not to use credentials as MongoDB has no public interface
     username: api-server
-    password: WeEN69namES+
+    password: OVERRIDE_ME
   eventFiles:
     attachmentsDirPath: /var/pryv/data/api-server-files/attachments
     previewsDirPath: /var/pryv/data/api-server-files/previews
@@ -179,13 +179,12 @@ coreApi:
     port: 9000
     noSSL: true
   auth:
-    adminAccessKey: ZSBt6e5xash
     trustedApps: '*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*'
     browserIdAudience: 'https://{username}.DOMAIN:443'
     sessionMaxAge: 1209600000
     ssoCookieDomain: .DOMAIN
-    ssoCookieSignSecret: ZUsdufvh%asrd
-    filesReadTokenSecret: 'Ct=btq-*N5-_j&Z'
+    ssoCookieSignSecret: OVERRIDE_ME
+    filesReadTokenSecret: OVERRIDE_ME
     passwordResetRequestMaxAge: 3600000
     passwordResetPageURL: 'https://sw.DOMAIN/access/reset-password.html'
   logs:
@@ -204,9 +203,9 @@ preview:
     ip: 127.0.0.1
     port: 10000
     noSSL: true
-  mongo:
+  mongo: # for v1.2 dockerized, we recommend not to use credentials as MongoDB has no public interface
     username: browser-server
-    password: troW!hiLl~63
+    password: OVERRIDE_ME
   eventFiles:
     attachmentsDirPath: /var/pryv/data/api-server-files/attachments
     previewsDirPath: /var/pryv/data/api-server-files/previews
@@ -240,10 +239,10 @@ swww:
 register:
   hostnameOrIP: 'https://reg.DOMAIN'
   systemKeys:
-    - UNdrMmb9PJZkF82z
+    - OVERRIDE_ME
   adminKeys:
-    - evelina|72DH63hgsd
-    - perki|ghjfsduz743
+    - username1|OVERRIDE_ME
+    - username2|OVERRIDE_ME
   http:
     static:
       url: 'https://www.pryv.com' # redirect address from reg.DOMAIN
@@ -399,16 +398,16 @@ extra:
     services:
       email:
         url: 'https://mandrillapp.com'
-        key: RcVRdxyEdBTqfE1aMw-W9g
+        key: OVERRIDE_ME
         sendMessagePath: /api/1.0/messages/send-template.json
         welcomeTemplate: welcome-email
         resetPasswordTemplate: reset-password
   airbrake:
     coreApi:
       active: true
-      key: b8c25b40b24ca7468b4f3b005d3a6622
+      key: OVERRIDE_ME
     preview:
       active: true
-      key: b763d6590bbd73e8a62798a0ea3eff2b
+      key: OVERRIDE_ME
     register:
-      key: 88ec825519c81c3a248a5d19284970a0
+      key: OVERRIDE_ME

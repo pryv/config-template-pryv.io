@@ -170,7 +170,7 @@ eventTypes:
 coreApi:
   mongo:
     username: api-server
-    password: WeEN69namES+
+    password: OVERRIDE_ME
   eventFiles:
     attachmentsDirPath: /var/pryv/data/api-server-files/attachments
     previewsDirPath: /var/pryv/data/api-server-files/previews
@@ -179,13 +179,12 @@ coreApi:
     port: 9000
     noSSL: true
   auth:
-    adminAccessKey: ZSBt6e5xash
     trustedApps: '*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*'
     browserIdAudience: 'https://{username}.DOMAIN:443'
     sessionMaxAge: 1209600000
     ssoCookieDomain: .DOMAIN
-    ssoCookieSignSecret: ZUsdufvh%asrd
-    filesReadTokenSecret: 'Ct=btq-*N5-_j&Z'
+    ssoCookieSignSecret: OVERRIDE_ME
+    filesReadTokenSecret: OVERRIDE_ME
     passwordResetRequestMaxAge: 3600000
     passwordResetPageURL: 'https://sw.DOMAIN/access/reset-password.html'
   logs:
