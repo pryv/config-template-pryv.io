@@ -55,27 +55,39 @@ Replace specifics with generic ones & find a way to comment or explain it.
 
 ### v1.1 to v1.2 upgrade notes
 
-Configuration files for Static-web and Core can be adapted directly to the new format.
-The configuration of Register has been split into reg and dns.
+#### Modifications
+
+A few modifications are applied during the upgrade, they can be found [here](https://github.com/pryv/config-template-pryv.io-scale/blob/master/src/yaml-to-v1.2.js#L149)
+
+* Port for dns and preview have been changed
+* `eventFiles` & `logs/file/path` paths are different and will be for docker & classical deployments.
+* logs.console/file have different values on active, level & colorize
+* register.server.ip (=127.0.0.1) is deleted as it is now in docker network
+* swww.http.ip (=127.0.0.1) is deleted as it is now in docker network
+
+
+#### Propositions to change
+
+* http.noSSL parameter is present but unused!!! -> to ignore
+* in core: `nightlyScriptCronTime` doesn't appear as it was matching the default value assigned in config.js. -> Remove it from config
+* env: is missing, but apiServer & preview are in production by default. -> Remove it from config
+* auth.browserIdAudience is not found in core -> to delete?
+
+
+#### To discuss
+
+* in dns.json: 
+	* store machines ip adresses?  
+	* store cores ip adresses, giving them either a name depending on their position in the cores array or some other pattern.
+* in DNS source code (v1.1 & v1.2): domainA is not found
+* airbrake uses *active* in coreApi, preview, but *disable* in register
+* What is `http2` in static-web
+* Do we keep database passwords or disable them during upgrade?
 
 
 #### Databases passwords
 
-Cores v1.1 had passwords as they were not isolated from the public network interface. In the containerized version,
+MongoDB on v1.1 had a password as it was not isolated from the public network interface. In the containerized version,
 MongoDB runs in a container whose network interface is exclusively reachable from the core & preview containers.  
-Therefore we don't use username/password credentials anymore
-
-
-#### DNS/Register config format changes
-
-The dns:staticDataInDomain config has had many changes:
-- sw, reg are not configured by alias anymore, but by IP address only
-- coreN is included now
-- service and access pointed to sw's alias, but are missing now
-- "import" pointed to "gpaas3.dc0.gandi.net" is now missing
-- bridges entries "bridges" & "ifttt" are missing now
-- "l", "local" & "reglocal" pointing to "127.0.0.1" are now missing
-
-dns:nameserver is missing
-dns:mail as well
-service is gone
+Therefore we don't use username/password credentials anymore.
+-> Do we keep them or disable them during upgrade?
