@@ -68,9 +68,9 @@ A few modifications are applied during the upgrade, they can be found [here](htt
 
 #### Propositions to change
 
-* http.noSSL parameter is present but unused!!! -> to ignore
-* in core: `nightlyScriptCronTime` doesn't appear as it was matching the default value assigned in config.js. -> Remove it from config
-* env: is missing, but apiServer & preview are in production by default. -> Remove it from config
+* http.noSSL is not used -> to delete?
+* in core: `nightlyScriptCronTime` doesn't appear as it was matching the default value assigned in config.js. -> Remove it from config or leave it 
+* env: is missing, but apiServer & preview are in production by default. -> delete it?
 * auth.browserIdAudience is not found in core -> to delete?
 
 
@@ -79,10 +79,14 @@ A few modifications are applied during the upgrade, they can be found [here](htt
 * in dns.json: 
 	* store machines ip adresses?  
 	* store cores ip adresses, giving them either a name depending on their position in the cores array or some other pattern.
-* in DNS source code (v1.1 & v1.2): domainA is not found
+* in DNS source code (v1.1 & v1.2): domainA is not found, even in versions before dec 2016 (see branch release-1.1)
 * airbrake uses *active* in coreApi, preview, but *disable* in register
 * What is `http2` in static-web
 * Do we keep database passwords or disable them during upgrade?
+* Variables with usable default values (eg. `nightlyScriptCronTime`, `http.ip`, `server.ip`): 
+	* omit variables when we want to use these default values  
+	* keep them in the `config.yml` for easier reading  
+	* leave them in the `config.yml`, but commented out (we might have issue with indentation)
 
 
 #### Databases passwords
