@@ -90,4 +90,3 @@ A few modifications are applied during the upgrade, they can be found [here](htt
 MongoDB on v1.1 had a password as it was not isolated from the public network interface. In the containerized version,
 MongoDB runs in a container whose network interface is exclusively reachable from the core & preview containers.  
 Therefore we don't use username/password credentials anymore.
--> Do we keep them or disable them during upgrade?
