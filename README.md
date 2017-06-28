@@ -6,10 +6,21 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
 ## Usage
 
 * Copy this repository content in new repository `config-DOMAIN`
-* Replace the [installation variables](#installation-variables) in the configuration files. You may replace most of those values by making a *find/replace* for ${VAR_NAME}.  
+* Replace the installation variables in the `pryv.io/config.yml` file. If migrating from a v1.1 installation, see [here](#upgrade-from-v1.1).
+* run `npm run fromYaml` to generate v1.2 compatible configuration files in `pryv.io/fromYaml/`.
 * Update **Installation information** in `pryv.io/README.md`
 * If needed, update container versions in `pryv.io/{core,reg,static}.yml`
 * Follow the Usage instructions in `pryv.io/README.md`
+
+
+### Upgrade from v1.1
+
+* Copy the following files in `v1.1-config/`:
+ * `registration-server.config.json`
+ * `service-core-api.config.json`
+ * `service-core-preview.config.json`
+ * `static-web.config.json`
+* Run `npm run toYaml` to generate the `pryv.io/config.yml`
 
 
 ## Overview
