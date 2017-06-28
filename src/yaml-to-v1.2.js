@@ -104,7 +104,8 @@ function formatEntries(entries) {
 let coreConfig = sourceConfig.coreApi;
 coreConfig.register = {
   secret: sourceConfig.register.systemKeys[0],
-}
+};
+coreConfig.auth.adminAccessKey = sourceConfig.coreDefaults.systemKey;
 coreConfig.eventTypes = sourceConfig.eventTypes;
 coreConfig.services = {
   register: {

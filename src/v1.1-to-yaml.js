@@ -48,7 +48,7 @@ let config = {
     },
     eventFiles: coreConfig.eventFiles,
     http: coreConfig.http,
-    auth: coreConfig.auth,
+    auth: _.pick(coreConfig.auth, ['trustedApps', 'browserIdAudience', 'sessionMaxAge', 'ssoCookieDomain', 'ssoCookieSignSecret', 'filesReadTokenSecret', 'passwordResetRequestMaxAge', 'passwordResetPageURL']),
     logs: {
       console: coreConfig.logs.console,
       file: coreConfig.logs.file
