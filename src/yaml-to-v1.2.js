@@ -163,7 +163,7 @@ dnsConfig.port = 5353;
 delete registerConfig.server.ip;
 delete swwwConfig.http.ip;
 
-writeOutput(__dirname + '/../pryv.io/test/');
+writeOutput(__dirname + '/../pryv.io/fromYaml/');
 
 function writeOutput(folder) {
   fs.writeFileSync(folder + 'register.json', JSON.stringify(registerConfig, null, 2));
