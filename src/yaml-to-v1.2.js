@@ -184,12 +184,12 @@ delete registerConfig.server.ip;
 
 delete swwwConfig.http.ip;
 
-writeOutput(__dirname + '/../pryv.io/fromYaml/');
+writeOutput(__dirname + '/../pryv.io/');
 
 function writeOutput(folder) {
-  fs.writeFileSync(folder + 'register.json', JSON.stringify(registerConfig, null, 2));
-  fs.writeFileSync(folder + 'dns.json', JSON.stringify(dnsConfig, null, 2));
-  fs.writeFileSync(folder + 'core.json', JSON.stringify(coreConfig, null, 2));
-  fs.writeFileSync(folder + 'preview.json', JSON.stringify(previewConfig, null, 2));
-  fs.writeFileSync(folder + 'static.json', JSON.stringify(swwwConfig, null, 2));
+  fs.writeFileSync(folder + 'reg/register/conf/register.json', JSON.stringify(registerConfig, null, 2));
+  fs.writeFileSync(folder + 'reg/dns/conf/dns.json', JSON.stringify(dnsConfig, null, 2));
+  fs.writeFileSync(folder + 'core/core/conf/core.json', JSON.stringify(coreConfig, null, 2));
+  fs.writeFileSync(folder + 'core/preview/conf/preview.json', JSON.stringify(previewConfig, null, 2));
+  fs.writeFileSync(folder + 'static/static/conf/static.json', JSON.stringify(swwwConfig, null, 2));
 }
