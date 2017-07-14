@@ -122,7 +122,6 @@ coreConfig.database = {
   port: sourceConfig.mongo.port,
   name: sourceConfig.mongo.databaseName
 }
-coreConfig.airbrake = sourceConfig.extra.airbrake.coreApi;
 delete coreConfig.mongo;
 
 // ##########################
@@ -135,8 +134,8 @@ previewConfig.database = {
   host: sourceConfig.mongo.host,
   port: sourceConfig.mongo.port,
   name: sourceConfig.mongo.databaseName
-},
-  previewConfig.logs.airbrake = sourceConfig.extra.airbrake.preview;
+};
+previewConfig.logs.airbrake = sourceConfig.extra.airbrake.preview;
 
 delete previewConfig.mongo;
 
@@ -150,6 +149,8 @@ let swwwConfig = sourceConfig.swww;
 // #####  Adjustments  ######
 // ##########################
 
+// Core
+
 //delete coreConfig.http.noSSL;
 coreConfig.database.host = 'mongodb';
 // delete coreConfig.nightlyScriptCronTime;
@@ -158,14 +159,29 @@ coreConfig.eventFiles = {
   attachmentsDirPath: '/app/data/attachments',
   previewsDirPath: '/app/data/previews'
 };
+coreConfig.logs.file.path = '/app/log/core.log';
+coreConfig.logs.airbrake.projectId = '95887';
+coreConfig.eventTypes.sourceURL = 'https://api.pryv.com/event-types/flat.json'; // apply httpS
+// delete coreConfig.auth.browserIdAudience;
+coreConfig.http.ip = '0.0.0.0';
+
+// preview
+
 previewConfig.eventFiles = {
   attachmentsDirPath: '/app/data/attachments',
   previewsDirPath: '/app/data/previews'
 };
-coreConfig.eventTypes = 'https://api.pryv.com/event-types/flat.json'; // apply httpS
-// delete coreConfig.auth.browserIdAudience;
+
+// DNS
+
 dnsConfig.port = 5353;
+
+// Register
+
 delete registerConfig.server.ip;
+
+// Static-web
+
 delete swwwConfig.http.ip;
 
 writeOutput(__dirname + '/../pryv.io/fromYaml/');
