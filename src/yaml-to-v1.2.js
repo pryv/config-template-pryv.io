@@ -164,6 +164,8 @@ coreConfig.logs.airbrake.projectId = '95887';
 coreConfig.eventTypes.sourceURL = 'https://api.pryv.com/event-types/flat.json'; // apply httpS
 // delete coreConfig.auth.browserIdAudience;
 coreConfig.http.ip = '0.0.0.0';
+delete coreConfig.database.authUser;
+delete coreConfig.database.authPassword;
 
 // preview
 
@@ -171,6 +173,12 @@ previewConfig.eventFiles = {
   attachmentsDirPath: '/app/data/attachments',
   previewsDirPath: '/app/data/previews'
 };
+previewConfig.logs.airbrake.projectId = '95888';
+previewConfig.http.ip = '0.0.0.0';
+previewConfig.http.port = 9000;
+previewConfig.database.host = 'mongodb';
+delete previewConfig.database.authUser;
+delete previewConfig.database.authPassword;
 
 // DNS
 
