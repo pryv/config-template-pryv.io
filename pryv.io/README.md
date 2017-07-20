@@ -24,7 +24,12 @@ dns2.${DOMAIN} or ${DNS_2_HOSTNAME}
 
 ## Usage
 
-After you have adapted the installation, use the following to install the services on the prepared machines.  
+After you have adapted the configuration files and completed the installation details, copy the SSL certificate files (stored on 1Password) `DOMAIN-bundle.crt`, `DOMAIN-ca.pem`, `DOMAIN-cert.crt` and `DOMAIN-key.pem` into:  
+- `core/nginx/conf/secret/`  
+- `reg/nginx/conf/secret/`  
+- `static/nginx/conf/secret/`
+
+then use the following to install the services on the prepared machines.  
 
 * Run `./script/build ${DOMAIN}` to generate archives `DOMAIN-ROLE.tgz` that you will copy to the corresponding machines (ROLE here is `reg`, `core` or `static`)
 * Extract the configuration files using `tar -xzf DOMAIN-ROLE.tgz`
