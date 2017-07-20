@@ -52,6 +52,10 @@ distribution.
 
 Replace specifics with generic ones & find a way to comment or explain it.
 
+### NGINX config: core-specific
+
+For each core, in files `core/nginx/conf/site-443.conf` and `core/nginx/conf/site-3443.conf` replace the field `server:server_name`, the second name in the `.pryv.net` domain should be adapted for each deployed core.
+
 
 ### v1.1 to v1.2 upgrade notes
 
