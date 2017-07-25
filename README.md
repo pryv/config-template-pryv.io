@@ -9,6 +9,7 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
 
 * Copy this repository content in new repository `config-DOMAIN`
 * Replace the [installation variables](#installation-variables) in the `pryv.io/config.yml` file. If migrating from a v1.1 installation, copy the `config.yml` file you have generated.
+* run `npm install` to download dependencies.
 * run `npm run fromYaml` to generate v1.2 compatible configuration files from the `pryv.io/config.yml` source.
 * If needed, update container versions in `pryv.io/{core,reg,static}.yml`
 * Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
