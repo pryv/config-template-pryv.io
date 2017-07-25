@@ -4,7 +4,6 @@
   "description": "configuration file translator from YAML to v1.2 containerized compatible",
   "main": "src/generate.js",
   "scripts": {
-    "toYaml": "node src/v1.1-to-yaml.js",
     "fromYaml": "node src/yaml-to-v1.2.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

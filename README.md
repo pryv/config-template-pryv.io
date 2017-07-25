@@ -8,21 +8,10 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
 *Prerequisites*: Node v6+
 
 * Copy this repository content in new repository `config-DOMAIN`
-* Replace the [installation variables](#installation-variables) in the `pryv.io/config.yml` file. If migrating from a v1.1 installation, see [#Upgrade from v1.1](#upgrade-from-v11) below.
-* run `npm run fromYaml` to generate v1.2 compatible configuration files in `pryv.io/fromYaml/`.
-* Update **Installation information** in `pryv.io/README.md`
+* Replace the [installation variables](#installation-variables) in the `pryv.io/config.yml` file. If migrating from a v1.1 installation, copy the `config.yml` file you have generated.
+* run `npm run fromYaml` to generate v1.2 compatible configuration files from the `pryv.io/config.yml` source.
 * If needed, update container versions in `pryv.io/{core,reg,static}.yml`
-* Follow the Usage instructions in `pryv.io/README.md`
-
-
-### Upgrade from v1.1
-
-* Copy the following files in `v1.1-config/`:
- * `registration-server.config.json`
- * `service-core-api.config.json`
- * `service-core-preview.config.json`
- * `static-web.config.json`
-* Run `npm run toYaml` to generate the `pryv.io/config.yml`
+* Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
 
 
 ## Overview
@@ -48,7 +37,7 @@ domain. You will need to copy and customize the files for the client before
 distribution. 
 
 
-## Installation variables
+## Installation variables (in development - need fresh config.yml file with variables to replace)
 
 Replace specifics with generic ones & find a way to comment or explain it.
 
