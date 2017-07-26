@@ -77,11 +77,11 @@ configuration.
 To launch the installation, you will first need to log in to the distribution
 host for the Pryv docker images. You should have received a set of credentials
 with the delivery of the configuration files. The following assumes that you
-have a user id (${USER_ID}) and a secret (${SECRET}).
+have a user id (${DIST_USER_ID}) and a secret (${DIST_SECRET}).
 
 To log in, type: 
 
-    $ docker login -u ${USER_ID} -p ${SECRET} pryvsa-docker-release.bintray.io
+    $ docker login -u ${DIST_USER_ID} -p ${DIST_SECRET} pryvsa-docker-release.bintray.io
     
 Once this completes, you're ready to launch the pryv component. To launch the
 installation, you should type
