@@ -9,10 +9,10 @@ Please run these commands and compare the output with the contents of this
 manual: 
 
     $ docker -v
-    Docker version 1.13.1, build 092cba3
+    Docker version 17.05.0-ce, build 89658be
     
     $ docker-compose -v
-    docker-compose version 1.11.2, build dfed245
+    docker-compose version 1.13.0, build 1719ceb
     
 If your DNS is set up correctly, the following command should yield the fully
 qualified domain name of the machine you intend to use as a central Pryv
