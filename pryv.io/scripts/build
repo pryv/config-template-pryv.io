@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+SCRIPT_FOLDER=$(cd $(dirname "$0"); pwd)
+cd $SCRIPT_FOLDER/.. # pryv.io
+
 set -e
 
 # Builds distribution tarballs for the configuration given by DOMAIN.
@@ -12,7 +15,7 @@ domain=$1
 function build_role() {
   role=$1
 
-  COPYFILE_DISABLE=1 tar vzcf "$domain-$role.tgz" \
+  COPYFILE_DISABLE=1 tar vzcf "tarballs/$domain-$role.tgz" \
     --exclude .DS_Store \
     $role.yml $role run-$role restart-$role
 }
