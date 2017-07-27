@@ -12,6 +12,7 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
 * run `npm install` to download dependencies.
 * run `npm run fromYaml` to generate v1.2 compatible configuration files from the `pryv.io/config.yml` source.
 * If needed, update container versions in `pryv.io/{core,reg,static}.yml`
+* Generate tarballs from config files using `./scripts/build ${DOMAIN}`
 * Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
 
 
