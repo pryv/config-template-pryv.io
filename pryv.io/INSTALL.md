@@ -36,7 +36,7 @@ something like `'/var/pryv'`. For the purposes of this document, we'll refer to
 that location as ${PRYV_CONF_ROOT}. Then follow these steps: 
 
   * Copy the configuration tarball to the root of the directory. 
-  * Untar the configuration in place. 
+  * Untar the configuration in place. (`tar xzf ${DOMAIN}-${ROLE}.tgz`) 
 
 You should have three directory entries now: 
 
