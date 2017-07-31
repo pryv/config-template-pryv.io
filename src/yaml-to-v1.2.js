@@ -63,14 +63,13 @@ function filterAuthorizedKeys(source) { // authorizedKeys
 // ##########################
 let dnsConfig = {
   dns: {
-    port: sourceConfig.dns.listeningPort,
     ip: sourceConfig.dns.listeningIp,
     name: 'reg.' + sourceConfig.domain,
     domain: sourceConfig.domain,
     domains: sourceConfig.extraDomains,
     staticDataInDomain: formatEntries(sourceConfig.dns.entries),
     domainA: sourceConfig.dns.domainA,
-    nameserver: sourceConfig.dns.nameServers
+    nameserver: sourceConfig.dns.nameServers,
   },
   redis: {
     host: 'redis',
@@ -182,7 +181,7 @@ delete previewConfig.database.authPassword;
 
 // DNS
 
-dnsConfig.port = 5353;
+dnsConfig.dns.port = 5353;
 
 // Register
 
