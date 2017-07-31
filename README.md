@@ -1,6 +1,6 @@
-# Pryv.io scalable configuration template
+# Pryv.io configuration template
 
-In the `pryv.io/` folder, you will find the template configuration files for a pryv.io scale installation.
+In the `pryv.io/` folder, you will find the template configuration files for a pryv.io installation.
  
  
 ## Usage
@@ -18,8 +18,7 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
 
 ## Overview
 
-`pryv.io/` contains docker compose YAML files for creating a pryv.io scale
-installation with standard directory structure. 
+`pryv.io/` contains docker compose YAML files for creating a pryv.io installation with standard directory structure. 
 
 In general, YAML files will assume that the configuration file root is at 
 `/var/pryv/`. You should reference this directory as ${PRYV_CONFIG_ROOT} in the
@@ -52,7 +51,7 @@ For each core, in files `core/nginx/conf/site-443.conf` and `core/nginx/conf/sit
 
 #### Modifications
 
-A few modifications are applied during the upgrade, they can be found [here](https://github.com/pryv/config-template-pryv.io-scale/blob/master/src/yaml-to-v1.2.js#L149)
+A few modifications are applied during the upgrade, they can be found [here](https://github.com/pryv/config-template-pryv.io/blob/master/src/yaml-to-v1.2.js#L149)
 
 * Port for dns and preview have been changed
 * `eventFiles` & `logs/file/path` paths are different and will be for docker & classical deployments.
