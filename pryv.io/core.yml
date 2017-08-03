@@ -4,7 +4,8 @@ services:
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.0"
     networks: 
       - frontend
-    ports: 
+    ports:
+      - "80:80"
       - "443:443"
       - "3443:3443"
     volumes: 
