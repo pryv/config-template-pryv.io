@@ -17,8 +17,7 @@ registerConfig.net = {
 };
 registerConfig.redis = {
   host: 'redis',
-  port: 6379,
-  password: sourceConfig.redis.password
+  port: 6379
 };
 registerConfig.airbrake = sourceConfig.extra.airbrake.register;
 
@@ -63,20 +62,21 @@ function filterAuthorizedKeys(source) { // authorizedKeys
 // ##########################
 let dnsConfig = {
   dns: {
+    port: 5353,
     ip: sourceConfig.dns.listeningIp,
     name: 'reg.' + sourceConfig.domain,
     domain: sourceConfig.domain,
     domains: sourceConfig.extraDomains,
     staticDataInDomain: formatEntries(sourceConfig.dns.entries),
     domainA: sourceConfig.dns.domainA,
-    nameserver: sourceConfig.dns.nameServers,
+    nameserver: sourceConfig.dns.nameServers
   },
   redis: {
     host: 'redis',
-    port: 6379,
-    password: sourceConfig.redis.password
+    port: 6379
   },
-  server: sourceConfig.dns.server
+  server: sourceConfig.dns.server,
+  airbrake: sourceConfig.extra.airbrake.dns
 };
 
 function formatEntries(entries) {
@@ -178,10 +178,6 @@ previewConfig.http.port = 9000;
 previewConfig.database.host = 'mongodb';
 delete previewConfig.database.authUser;
 delete previewConfig.database.authPassword;
-
-// DNS
-
-dnsConfig.dns.port = 5353;
 
 // Register
 
