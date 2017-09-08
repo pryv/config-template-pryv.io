@@ -14,6 +14,7 @@ services:
     links: 
       - core
       - preview
+    restart: always
 
   core: 
     image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.1"
@@ -26,6 +27,7 @@ services:
       - ${PRYV_CONF_ROOT}/core/data/:/app/data/
     links: 
       - mongodb
+    restart: always
     
   preview: 
     image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.1"
@@ -39,6 +41,7 @@ services:
       - ${PRYV_CONF_ROOT}/core/data/:/app/data/
     links: 
       - mongodb
+    restart: always
 
   mongodb: 
     image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.0"
@@ -48,6 +51,7 @@ services:
       - ${PRYV_CONF_ROOT}/mongodb/conf/:/app/conf/
       - ${PRYV_CONF_ROOT}/mongodb/log/:/app/log/
       - ${PRYV_CONF_ROOT}/mongodb/data/:/app/data/
+    restart: always
     
 networks:
   frontend:
