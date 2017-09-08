@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   nginx: 
-    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.0"
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.7"
     networks: 
       - frontend
     ports:
@@ -17,7 +17,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.1"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.11"
     networks: 
       - frontend
       - backend
@@ -30,7 +30,7 @@ services:
     restart: always
     
   preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.1"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.11"
     networks: 
       - frontend
       - backend
@@ -44,7 +44,7 @@ services:
     restart: always
 
   mongodb: 
-    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.0"
+    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.7"
     networks: 
       - backend
     volumes: 
