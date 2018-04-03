@@ -1,7 +1,7 @@
-version: '2.1'
+version: '2.2'
 services:
   nginx: 
-    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.7"
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
     networks: 
       - frontend
     ports:
@@ -14,10 +14,11 @@ services:
     links: 
       - core
       - preview
+      - condensate
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.11"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.19"
     networks: 
       - frontend
       - backend
@@ -28,9 +29,10 @@ services:
     links: 
       - mongodb
     restart: always
+    hostname: "$HOSTNAME"
     
   preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.11"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.19"
     networks: 
       - frontend
       - backend
@@ -42,15 +44,27 @@ services:
     links: 
       - mongodb
     restart: always
+    hostname: "$HOSTNAME"
 
   mongodb: 
-    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.7"
+    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.13"
     networks: 
       - backend
     volumes: 
       - ${PRYV_CONF_ROOT}/mongodb/conf/:/app/conf/
       - ${PRYV_CONF_ROOT}/mongodb/log/:/app/log/
       - ${PRYV_CONF_ROOT}/mongodb/data/:/app/data/
+    restart: always
+
+  condensate:
+    image: "pryvsa-docker-release.bintray.io/pryv/condensate:0.0.5"
+    networks:
+      - frontend
+    volumes:
+      - ${PRYV_CONF_ROOT}/condensate/conf/:/app/conf/
+      - ${PRYV_CONF_ROOT}/condensate/log/:/app/log/
+    links:
+      - core
     restart: always
     
 networks:

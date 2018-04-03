@@ -1,0 +1,139 @@
+{
+  "hostnameOrIP": "https://reg.DOMAIN",
+  "http": {
+    "static": {
+      "url": "https://www.COMPANY_WEBSITE",
+      "access": "https://sw.DOMAIN/access/access.html"
+    },
+    "register": {
+      "url": "https://reg.DOMAIN"
+    }
+  },
+  "service": {
+    "name": "PLATFORM_NAME",
+    "support": "SUPPORT_LINK_IF_ANY",
+    "terms": "TERMS_OF_USE_LINK_IF_ANY"
+  },
+  "server": {
+    "ssl": "false",
+    "port": 9000
+  },
+  "auth": {
+    "authorizedKeys": {
+      "REGISTER_SYSTEM_KEY_1": {
+        "roles": [
+          "system"
+        ]
+      },
+      "REGISTER_ADMIN_KEY_1": {
+        "roles": [
+          "admin"
+        ]
+      }
+    }
+  },
+  "dns": {
+    "port": 5353,
+    "ip": "0.0.0.0",
+    "name": "reg.DOMAIN",
+    "domain": "DOMAIN",
+    "domains": [
+      "DOMAIN"
+    ],
+    "staticDataInDomain": {
+      "www": {
+        "alias": {
+          "name": "SERVICE_WEBSITE_IP_ADRESS"
+        }
+      },
+      "sw": {
+        "alias": {
+          "name": "STATIC_WEB_HOSTNAME"
+        }
+      },
+      "reg": {
+        "alias": {
+          "name": "REG_MASTER_HOSTNAME"
+        }
+      },
+      "service": {
+        "alias": {
+          "name": "REG_MASTER_HOSTNAME"
+        }
+      },
+      "access": {
+        "alias": {
+          "name": "REG_MASTER_HOSTNAME"
+        }
+      }
+    },
+    "domain_A": "SERVICE_WEBSITE_IP_ADRESS",
+    "nameserver": [
+      {
+        "name": "REG_MASTER_HOSTNAME",
+        "ip": "REG_MASTER_IP_ADRESS"
+      },
+      {
+        "name": "REG_SLAVE_HOSTNAME",
+        "ip": "REG_SLAVE_IP_ADRESS"
+      }
+    ],
+    "mail": [
+      {
+        "name": "spool.mail.gandi.net",
+        "ip": "217.70.184.6",
+        "ttl": 10800,
+        "priority": 10
+      },
+      {
+        "name": "fb.mail.gandi.net",
+        "ip": "217.70.184.162",
+        "ttl": 10800,
+        "priority": 50
+      }
+    ]
+  },
+  "net": {
+    "aaservers": {
+      "CORE_HOSTING_1": [
+        {
+          "base_url": "https://CORE_2_HOSTNAME_OR_IP/",
+          "authorization": "OVVERRIDE_ME"
+        }
+      ]
+    },
+    "aahostings": {
+      "regions": {
+        "europe": {
+          "name": "Europe",
+          "localizedName": {
+            "fr": "Europe"
+          },
+          "zones": {
+            "switzerland": {
+              "name": "Switzerland",
+              "localizedName": {
+                "fr": "Suisse"
+              },
+              "hostings": {
+                "CORE_HOSTING_1": {
+                  "url": "https://hosting-provider.com",
+                  "name": "Hosting provider name",
+                  "description": "Hosting provider slogan",
+                  "localizedDescription": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  },
+  "airbrake": {
+    "disable": true
+  }
+}

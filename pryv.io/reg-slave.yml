@@ -1,50 +1,56 @@
 
 version: '2.1'
 services:
-  nginx: 
-    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.0"
-    networks: 
+  nginx:
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
+    networks:
       - frontend
-    ports: 
+    ports:
       - "443:443"
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/nginx/conf/:/app/conf/
       - ${PRYV_CONF_ROOT}/nginx/log/:/app/log/
-    links: 
+    links:
       - register
-  
-  dns: 
-    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.0"
+    restart: always
+
+  dns:
+    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.19"
     ports:
       - "53:5353/udp"
-    networks: 
+    networks:
       - frontend
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/dns/conf/:/app/conf/
       - ${PRYV_CONF_ROOT}/dns/log/:/app/log/
     links:
       - redis
-          
-  register: 
-    image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.0"
-    networks: 
+    restart: always
+    hostname: "$HOSTNAME"
+
+  register:
+    image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.19"
+    networks:
       - frontend
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/register/conf/:/app/conf/
       - ${PRYV_CONF_ROOT}/register/log/:/app/log/
     links:
       - redis
+    restart: always
+    hostname: "$HOSTNAME"
 
-  redis: 
-    image: "pryvsa-docker-release.bintray.io/pryv/redis:1.2.0"
-    networks: 
+  redis:
+    image: "pryvsa-docker-release.bintray.io/pryv/redis:1.2.13"
+    networks:
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/redis/conf/:/app/conf/
       - ${PRYV_CONF_ROOT}/redis/data/:/app/data/
       - ${PRYV_CONF_ROOT}/redis/log/:/app/log/
+    restart: always
 
 networks:
   frontend:

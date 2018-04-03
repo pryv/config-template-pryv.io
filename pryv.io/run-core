@@ -5,5 +5,8 @@
 # Configuration and data files are all below this root.
 export PRYV_CONF_ROOT=$PWD/core
 
+# Airbrake host
+export HOSTNAME=$HOSTNAME
+
 echo "Running Pryv/core component."
 exec docker-compose -f core.yml up -d 

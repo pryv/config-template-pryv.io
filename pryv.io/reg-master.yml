@@ -1,0 +1,61 @@
+
+version: '2.1'
+services:
+  nginx: 
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
+    networks: 
+      - frontend
+    ports: 
+      - "443:443"
+    volumes: 
+      - ${PRYV_CONF_ROOT}/nginx/conf/:/app/conf/
+      - ${PRYV_CONF_ROOT}/nginx/log/:/app/log/
+    links: 
+      - register
+    restart: always
+  
+  dns: 
+    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.19"
+    ports:
+      - "53:5353/udp"
+    networks: 
+      - frontend
+      - backend
+    volumes: 
+      - ${PRYV_CONF_ROOT}/dns/conf/:/app/conf/
+      - ${PRYV_CONF_ROOT}/dns/log/:/app/log/
+    links:
+      - redis
+    restart: always
+    hostname: "$HOSTNAME"
+          
+  register: 
+    image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.19"
+    networks: 
+      - frontend
+      - backend
+    volumes: 
+      - ${PRYV_CONF_ROOT}/register/conf/:/app/conf/
+      - ${PRYV_CONF_ROOT}/register/log/:/app/log/
+    links:
+      - redis
+    restart: always
+    hostname: "$HOSTNAME"
+
+  redis: 
+    image: "pryvsa-docker-release.bintray.io/pryv/redis:1.2.13"
+    networks: 
+      - backend
+    #ports:  # used if reg-slave is defined
+    #  - "10.8.0.1:6379:6379"
+    volumes: 
+      - ${PRYV_CONF_ROOT}/redis/conf/:/app/conf/
+      - ${PRYV_CONF_ROOT}/redis/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/redis/log/:/app/log/
+    restart: always
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge

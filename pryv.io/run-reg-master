@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+[[ -e reg-master.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
+
+# Configuration and data files are all below this root.
+export PRYV_CONF_ROOT=$PWD/reg
+
+# Airbrake host
+export HOSTNAME=$HOSTNAME
+
+echo "Running Pryv/reg component."
+exec docker-compose -f reg-master.yml up -d
