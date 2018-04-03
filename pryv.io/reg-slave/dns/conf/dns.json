@@ -98,7 +98,7 @@
       "CORE_HOSTING_1": [
         {
           "base_url": "https://CORE_2_HOSTNAME_OR_IP/",
-          "authorization": "OVVERRIDE_ME"
+          "authorization": "OVERRIDE_ME_CORE_SYSTEM_KEY"
         }
       ]
     },

@@ -5,7 +5,7 @@ extraDomains:
 redis:
   password:
 coreDefaults:
-  systemKey: OVVERRIDE_ME
+  systemKey: OVERRIDE_ME_CORE_SYSTEM_KEY
 dns:
   listeningIp: 0.0.0.0
   listeningPort: 53
