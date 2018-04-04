@@ -8,7 +8,7 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
 *Prerequisites*: Node v6+, Yarn v1+
 
 1. Copy this repository content in new repository `config-DOMAIN`
-2. Replace the platform-specific variables in the `pryv.io/config.yml` file.
+2. Replace the [platform-specific variables](#variables) in the `pryv.io/config.yml` file.
 3. Run `yarn install` to download dependencies.
 4. Run `yarn fromYaml` to generate v1.2 compatible configuration files from the `pryv.io/config.yml` source.
 5. Replace the remaining (mostly NGINX) `DOMAIN` to your domain.
