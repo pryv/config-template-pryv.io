@@ -2,11 +2,5 @@
 
 [[ -e core.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
 
-# Configuration and data files are all below this root.
-export PRYV_CONF_ROOT=$PWD/core
-
-# Airbrake host
-export HOSTNAME=$HOSTNAME
-
 echo "Running Pryv/core component."
 exec docker-compose -f core.yml up -d 

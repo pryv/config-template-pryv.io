@@ -9,8 +9,8 @@ services:
       - "443:443"
       - "3443:3443"
     volumes: 
-      - ${PRYV_CONF_ROOT}/nginx/conf/:/app/conf/
-      - ${PRYV_CONF_ROOT}/nginx/log/:/app/log/
+      - ./core/nginx/conf/:/app/conf/
+      - ./core/nginx/log/:/app/log/
     links: 
       - core
       - preview
@@ -23,9 +23,9 @@ services:
       - frontend
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/core/conf/:/app/conf/
-      - ${PRYV_CONF_ROOT}/core/log/:/app/log/
-      - ${PRYV_CONF_ROOT}/core/data/:/app/data/
+      - ./core/core/conf/:/app/conf/
+      - ./core/core/log/:/app/log/
+      - ./core/core/data/:/app/data/
     links: 
       - mongodb
     restart: always
@@ -37,10 +37,10 @@ services:
       - frontend
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/preview/log/:/app/log/
-      - ${PRYV_CONF_ROOT}/preview/conf/:/app/conf/
+      - ./core/preview/log/:/app/log/
+      - ./core/preview/conf/:/app/conf/
       # Not an error: Preview accesses core's data directory readonly. 
-      - ${PRYV_CONF_ROOT}/core/data/:/app/data/
+      - ./core/core/data/:/app/data/
     links: 
       - mongodb
     restart: always
@@ -51,9 +51,9 @@ services:
     networks: 
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/mongodb/conf/:/app/conf/
-      - ${PRYV_CONF_ROOT}/mongodb/log/:/app/log/
-      - ${PRYV_CONF_ROOT}/mongodb/data/:/app/data/
+      - ./core/mongodb/conf/:/app/conf/
+      - ./core/mongodb/log/:/app/log/
+      - ./core/mongodb/data/:/app/data/
     restart: always
 
   condensate:
@@ -61,8 +61,8 @@ services:
     networks:
       - frontend
     volumes:
-      - ${PRYV_CONF_ROOT}/condensate/conf/:/app/conf/
-      - ${PRYV_CONF_ROOT}/condensate/log/:/app/log/
+      - ./core/condensate/conf/:/app/conf/
+      - ./core/condensate/log/:/app/log/
     links:
       - core
     restart: always

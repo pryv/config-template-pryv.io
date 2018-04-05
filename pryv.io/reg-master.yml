@@ -8,8 +8,8 @@ services:
     ports: 
       - "443:443"
     volumes: 
-      - ${PRYV_CONF_ROOT}/nginx/conf/:/app/conf/
-      - ${PRYV_CONF_ROOT}/nginx/log/:/app/log/
+      - ./reg/nginx/conf/:/app/conf/
+      - ./reg/nginx/log/:/app/log/
     links: 
       - register
     restart: always
@@ -22,8 +22,8 @@ services:
       - frontend
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/dns/conf/:/app/conf/
-      - ${PRYV_CONF_ROOT}/dns/log/:/app/log/
+      - ./reg/dns/conf/:/app/conf/
+      - ./reg/dns/log/:/app/log/
     links:
       - redis
     restart: always
@@ -35,8 +35,8 @@ services:
       - frontend
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/register/conf/:/app/conf/
-      - ${PRYV_CONF_ROOT}/register/log/:/app/log/
+      - ./reg/register/conf/:/app/conf/
+      - ./reg/register/log/:/app/log/
     links:
       - redis
     restart: always
@@ -49,9 +49,9 @@ services:
     #ports:  # used if reg-slave is defined
     #  - "10.8.0.1:6379:6379"
     volumes: 
-      - ${PRYV_CONF_ROOT}/redis/conf/:/app/conf/
-      - ${PRYV_CONF_ROOT}/redis/data/:/app/data/
-      - ${PRYV_CONF_ROOT}/redis/log/:/app/log/
+      - ./reg/redis/conf/:/app/conf/
+      - ./reg/redis/data/:/app/data/
+      - ./reg/redis/log/:/app/log/
     restart: always
 
 networks:
