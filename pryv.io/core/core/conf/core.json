@@ -40,7 +40,7 @@
     }
   },
   "updates": {
-    "ignoreProtectedFields": true
+    "ignoreProtectedFields": false
   },
   "register": {
     "secret": "REGISTER_SYSTEM_KEY_1"

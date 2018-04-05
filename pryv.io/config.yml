@@ -114,7 +114,7 @@ coreApi:
       maxFileBytes: 10000000000
       maxNbFiles: 1
   updates:
-    ignoreProtectedFields: true
+    ignoreProtectedFields: false
 preview:
   http:
     ip: 127.0.0.1
