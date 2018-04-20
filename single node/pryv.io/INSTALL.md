@@ -43,8 +43,8 @@ All services use Nginx to terminate inbound HTTPS connections. You should have o
 
 Your certificate files must be placed in this location: 
 
-  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/pryv-n4a.ch-bundle.crt` 
-  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/pryv-n4a.ch-key.pem`
+  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/DOMAIN-bundle.crt` 
+  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/DOMAIN-key.pem`
 
 If you wish to store the files in a different location,  please edit the nginx server configuration files in `pryv/nginx/conf/nginx.conf` to point to the files. 
 
@@ -66,6 +66,6 @@ This command will download the docker images that belong to your release from th
 
 # Closing Remarks
 
-You should now have a working docker installation. You can test this by directing a browser at [https://sw.pryv-n4a.ch/access/register.html](https://sw.pryv-n4a.ch/access/register.html) and filling in the form. 
+You should now have a working docker installation. You can test this by directing a browser at [https://sw.DOMAIN/access/register.html](https://sw.DOMAIN/access/register.html) and filling in the form. 
 
 If you need support, please contact your account manager @ Pryv. We're glad to help you with any questions you might have. 
