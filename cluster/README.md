@@ -1,6 +1,6 @@
 # Pryv.io configuration template
 
-In the `pryv.io/` folder, you will find the template configuration files for a pryv.io installation.
+In the `pryv.io/` folder, you will find the template configuration files for a pryv.io cluster installation.
  
  
 ## Usage
