@@ -1,0 +1,95 @@
+{
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  },
+  "server": {
+    "ssl": false,
+    "port": 9000
+  },
+  "http": {
+    "static": {
+      "url": "https://sw.pryv.com",
+      "access": "https://sw.DOMAIN/access/access.html"
+    },
+    "register": {
+      "url": "https://reg.DOMAIN"
+    }
+  },
+  "hostnameOrIP": "https://reg.DOMAIN",
+  "auth": {
+    "authorizedKeys": {
+      "REG_ADMIN_KEY": { "roles": ["admin"]},
+      "REG_SYSTEM_KEY": {"roles": ["system"]}
+    }
+  },
+  "dns": {
+    "port": 5353,
+    "ip": "0.0.0.0",
+    "name": "reg.DOMAIN",
+    "domain": "DOMAIN",
+    "domains": [
+      "DOMAIN"
+    ],
+    "staticDataInDomain": {
+      "www": {
+        "alias": [
+          {
+            "name": "sw.DOMAIN"
+          }
+        ]
+      },
+      "sw": {
+        "ip": "MACHINE_IP_ADRESS"
+      },
+      "core1": {
+        "ip": "MACHINE_IP_ADRESS"
+      },
+      "reg": {
+        "ip": "MACHINE_IP_ADRESS"
+      },
+      "access": {
+        "ip": "MACHINE_IP_ADRESS"
+      }
+    }
+  },
+  "net": {
+    "aaservers": {
+      "pilot": [
+        {
+          "base_url": "https://core1.DOMAIN",
+          "authorization": "CORE_ADMIN_KEY"
+        }
+      ]
+    },
+    "aahostings": {
+      "regions": {
+        "pilot": {
+          "name": "Pilot",
+          "localizedName": {
+            "fr": "Pilot"
+          },
+          "zones": {
+            "pilot": {
+              "name": "Pilot Core",
+              "localizedName": {
+                "fr": "Pilot Core"
+              },
+              "hostings": {
+                "pilot": {
+                  "url": "http://pryv.com",
+                  "name": "Self-Contained Pilot Core",
+                  "description": "Local core inside the pilot deploy",
+                  "localizedDescription": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "airbrake": {
+    "disable": true
+  }
+}

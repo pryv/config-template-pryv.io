@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Builds distribution tarballs for the configuration given by DIRNAME. 
+#
+#   scripts/build DIRNAME
+#
+
+dirname=`dirname "$0"`
+root=$dirname/pryv.io
+
+function build_role() {
+  role=$1
+  
+  tar czf "$root/tarballs/$dirname-$role.tgz" \
+    $root/$role.yml  \
+    $root/$role \
+    $root/run-$role \
+    $root/stop-containers
+}
+
+build_role "pryv"
