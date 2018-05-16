@@ -1,8 +1,8 @@
 # Pryv.io configuration template
 
 In the `pryv.io/` folder, you will find the template configuration files for a pryv.io single node installation.
- 
- 
+
+
 ## Usage
 
 1. Copy this repository content in new repository `config-DOMAIN`
@@ -12,6 +12,24 @@ In the `pryv.io/` folder, you will find the template configuration files for a p
 8. If needed, update docker image versions in `pryv.io/{core,reg,static}.yml`.
 9. Generate tarballs from config files using `./pryv.io/build ${DOMAIN}`.
 10. Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
+
+### Local Usage
+
+In [/pryv.io/pryv/nginx/conf/nginx.conf], uncomment the following lines:  
+
+```
+# ssl_certificate      /app/conf/secret/rec.la-bundle.crt;
+# ssl_certificate_key  /app/conf/secret/rec.la-key.pem;
+```
+
+and comment out the following ones:
+
+```
+ssl_certificate      /app/conf/secret/DOMAIN-bundle.crt;
+ssl_certificate_key  /app/conf/secret/DOMAIN-key.pem;
+```
+
+Then set the DOMAIN as rec.la in the variables below. You can leave the keys as-is, since the components will communicate locally.
 
 ### Variables
 

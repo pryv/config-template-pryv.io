@@ -1,2 +1,7 @@
 *-key.pem
 *-bundle.crt
+
+!rec.la-bundle.crt 
+!rec.la-ca.pem     
+!rec.la-cert.crt   
+!rec.la-key.pem
