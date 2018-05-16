@@ -18,7 +18,7 @@
     "sourceURL": "https://pryv.github.io/event-types/flat.json"
   },
   "register": {
-    "secret": "REG_SYSTEM_KEY"
+    "secret": "REGISTER_SYSTEM_KEY_1"
   },
   "auth": {
     "adminAccessKey": "CORE_ADMIN_KEY",
@@ -33,7 +33,7 @@
   "services": {
     "register": {
       "url": "https://reg.DOMAIN",
-      "key": "REG_SYSTEM_KEY"
+      "key": "REGISTER_SYSTEM_KEY_1"
     },
     "email": {
       "url": "https://mandrillapp.com",
@@ -65,7 +65,7 @@
     },
     "airbrake": {
       "active": false,
-      "key": "OVERRIDE ME"
+      "key": "OVERRIDE_ME"
     }
   }
 }

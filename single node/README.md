@@ -36,7 +36,7 @@ Then set the DOMAIN as rec.la in the variables below. You can leave the keys as-
 These values need to be replaced in the configuration. If possible, obtain these from the customer to do the replace operation.
 
 * DOMAIN: the domain of the platform (eg.: pryv.me)
-* CORE_SYSTEM_KEY: key to make system calls on cores
+* CORE_ADMIN_KEY: key to make admin calls on cores
 * REGISTER_SYSTEM_KEY_1: key to make system calls on register
 * REGISTER_ADMIN_KEY_1: key to make admin calls on register
 * SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website

@@ -19,8 +19,8 @@
   "hostnameOrIP": "https://reg.DOMAIN",
   "auth": {
     "authorizedKeys": {
-      "REG_ADMIN_KEY": { "roles": ["admin"]},
-      "REG_SYSTEM_KEY": {"roles": ["system"]}
+      "REGISTER_ADMIN_KEY_1": { "roles": ["admin"]},
+      "REGISTER_SYSTEM_KEY_1": {"roles": ["system"]}
     }
   },
   "dns": {
@@ -40,16 +40,16 @@
         ]
       },
       "sw": {
-        "ip": "MACHINE_IP_ADRESS"
+        "ip": "MACHINE_IP_ADDRESS"
       },
       "core1": {
-        "ip": "MACHINE_IP_ADRESS"
+        "ip": "MACHINE_IP_ADDRESS"
       },
       "reg": {
-        "ip": "MACHINE_IP_ADRESS"
+        "ip": "MACHINE_IP_ADDRESS"
       },
       "access": {
-        "ip": "MACHINE_IP_ADRESS"
+        "ip": "MACHINE_IP_ADDRESS"
       }
     }
   },
