@@ -16,7 +16,7 @@ You might have to use `docker-ce` and your versions can be newer:
 
 If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv registry server: 
 
-    $ dig NS kinntek.io
+    $ dig NS DOMAIN
 
 Normally, your NS records should resolve to the names you gave to the registry server you intend to set up. Please check if your A records exist and point to the same machine. 
 ​    
