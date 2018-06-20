@@ -40,6 +40,16 @@
     "domains": [
       "DOMAIN"
     ],
+    "nameserver": [
+      {
+        "name": "dns1.DOMAIN",
+        "ip": "REG_MASTER_IP_ADRESS"
+      },
+      {
+        "name": "dns2.DOMAIN",
+        "ip": "REG_SLAVE_IP_ADRESS"
+      }
+    ],
     "staticDataInDomain": {
       "www": {
         "alias": {
