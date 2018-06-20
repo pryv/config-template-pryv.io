@@ -1,5 +1,7 @@
 *-key.pem
 *-bundle.crt
+*-ca.pem
+*-cert.pem
 
 !rec.la-bundle.crt 
 !rec.la-ca.pem     
