@@ -9,7 +9,7 @@
   },
   "http": {
     "static": {
-      "url": "https://sw.pryv.com",
+      "url": "CUSTOMER_WEBSITE_URL",
       "access": "https://sw.DOMAIN/access/access.html"
     },
     "register": {
@@ -30,6 +30,16 @@
     "domain": "DOMAIN",
     "domains": [
       "DOMAIN"
+    ],
+    "nameserver": [
+      {
+        "name": "dns1.DOMAIN",
+        "ip": "MACHINE_IP_ADDRESS"
+      },
+      {
+        "name": "dns2.DOMAIN",
+        "ip": "MACHINE_IP_ADDRESS"
+      }
     ],
     "staticDataInDomain": {
       "www": {

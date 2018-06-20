@@ -31,6 +31,16 @@
     "domains": [
       "DOMAIN"
     ],
+    "nameserver": [
+      {
+        "name": "dns1.DOMAIN",
+        "ip": "MACHINE_IP_ADDRESS"
+      },
+      {
+        "name": "dns2.DOMAIN",
+        "ip": "MACHINE_IP_ADDRESS"
+      }
+    ],
     "staticDataInDomain": {
       "www": {
         "alias": [
