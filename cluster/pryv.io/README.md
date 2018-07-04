@@ -26,6 +26,6 @@ To compress configuration files in tarballs, run `./scripts/build DOMAIN`. This 
 
 ## Guides
 
-* [INSTALL.md](https://github.com/pryv/config-template-pryv.io/blob/master/pryv.io/INSTALL.md) contains the instructions to install the Core, Register and Static-web software on the dedicated machines.
+* [INSTALL.md](https://github.com/pryv/config-template-pryv.io/blob/master/cluster/pryv.io/INSTALL.md) contains the instructions to install the Core, Register and Static-web software on the dedicated machines.
  
-* [UPDATE.md](https://github.com/pryv/config-template-pryv.io/blob/master/pryv.io/UPDATE.md) contains the instructions to reboot the containers.
+* [UPDATE.md](https://github.com/pryv/config-template-pryv.io/blob/master/cluster/pryv.io/UPDATE.md) contains the instructions to reboot the containers.
