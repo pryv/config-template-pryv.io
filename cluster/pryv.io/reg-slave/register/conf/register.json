@@ -53,7 +53,7 @@
     "staticDataInDomain": {
       "www": {
         "alias": {
-          "name": "SERVICE_WEBSITE_IP_ADRESS"
+          "name": "SERVICE_WEBSITE_IP_ADDRESS"
         }
       },
       "sw": {
@@ -77,7 +77,7 @@
         }
       }
     },
-    "domain_A": "SERVICE_WEBSITE_IP_ADRESS",
+    "domain_A": "SERVICE_WEBSITE_IP_ADDRESS",
     "nameserver": [
       {
         "name": "REG_MASTER_HOSTNAME",

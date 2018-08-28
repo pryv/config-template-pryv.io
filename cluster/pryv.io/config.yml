@@ -9,12 +9,12 @@ coreDefaults:
 dns:
   listeningIp: 0.0.0.0
   listeningPort: 53
-  domain_A: SERVICE_WEBSITE_IP_ADRESS
+  domain_A: SERVICE_WEBSITE_IP_ADDRESS
   entries:
     -
       name: www
       type: alias
-      value: SERVICE_WEBSITE_IP_ADRESS
+      value: SERVICE_WEBSITE_IP_ADDRESS
     -
       name: sw
       type: alias
