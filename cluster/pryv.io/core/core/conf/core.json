@@ -17,7 +17,7 @@
     "filesReadTokenSecret": "OVERRIDE_ME",
     "passwordResetRequestMaxAge": 3600000,
     "passwordResetPageURL": "https://sw.DOMAIN/access/reset-password.html",
-    "adminAccessKey": "OVERRIDE_ME_CORE_SYSTEM_KEY"
+    "adminAccessKey": "CORE_SYSTEM_KEY"
   },
   "audit": {
     "forceKeepHistory": true,
