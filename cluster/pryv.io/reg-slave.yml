@@ -8,8 +8,8 @@ services:
     ports:
       - "443:443"
     volumes:
-      - ./reg/nginx/conf/:/app/conf/
-      - ./reg/nginx/log/:/app/log/
+      - ./reg-slave/nginx/conf/:/app/conf/
+      - ./reg-slave/nginx/log/:/app/log/
     links:
       - register
     restart: always
@@ -22,8 +22,8 @@ services:
       - frontend
       - backend
     volumes:
-      - ./reg/dns/conf/:/app/conf/
-      - ./reg/dns/log/:/app/log/
+      - ./reg-slave/dns/conf/:/app/conf/
+      - ./reg-slave/dns/log/:/app/log/
     links:
       - redis
     restart: always
@@ -35,8 +35,8 @@ services:
       - frontend
       - backend
     volumes:
-      - ./reg/register/conf/:/app/conf/
-      - ./reg/register/log/:/app/log/
+      - ./reg-slave/register/conf/:/app/conf/
+      - ./reg-slave/register/log/:/app/log/
     links:
       - redis
     restart: always
@@ -47,9 +47,9 @@ services:
     networks:
       - backend
     volumes:
-      - ./reg/redis/conf/:/app/conf/
-      - ./reg/redis/data/:/app/data/
-      - ./reg/redis/log/:/app/log/
+      - ./reg-slave/redis/conf/:/app/conf/
+      - ./reg-slave/redis/data/:/app/data/
+      - ./reg-slave/redis/log/:/app/log/
     restart: always
 
 networks:
