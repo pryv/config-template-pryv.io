@@ -46,8 +46,8 @@ services:
     image: "pryvsa-docker-release.bintray.io/pryv/redis:1.2.13"
     networks: 
       - backend
-    #ports:  # used if reg-slave is defined
-    #  - "10.8.0.1:6379:6379"
+    ports:  # used if reg-slave is defined
+      - "REGISTER_MASTER_VPN_IP_ADDRESS:6379:6379"
     volumes: 
       - ./reg-master/redis/conf/:/app/conf/
       - ./reg-master/redis/data/:/app/data/
