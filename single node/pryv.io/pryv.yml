@@ -2,7 +2,7 @@
 version: '2.1'
 services:
   dns:
-    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.19"
+    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.21"
     ports:
       - "53:5353/udp"
     networks:
@@ -27,12 +27,11 @@ services:
     links:
       - core
       - preview
-      - static
       - register
     restart: always
 
   register:
-    image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.19"
+    image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.21"
     networks:
       - frontend
       - backend
