@@ -1,56 +1,56 @@
 version: '2.2'
 services:
-  nginx: 
+  nginx:
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
-    networks: 
+    networks:
       - frontend
     ports:
       - "80:80"
       - "443:443"
       - "3443:3443"
-    volumes: 
+    volumes:
       - ./core/nginx/conf/:/app/conf/
       - ./core/nginx/log/:/app/log/
-    links: 
+    links:
       - core
       - preview
       - condensate
     restart: always
 
-  core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.19"
-    networks: 
+  core:
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.20"
+    networks:
       - frontend
       - backend
-    volumes: 
+    volumes:
       - ./core/core/conf/:/app/conf/
       - ./core/core/log/:/app/log/
       - ./core/core/data/:/app/data/
-    links: 
-      - mongodb
-    restart: always
-    hostname: "$HOSTNAME"
-    
-  preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.19"
-    networks: 
-      - frontend
-      - backend
-    volumes: 
-      - ./core/preview/log/:/app/log/
-      - ./core/preview/conf/:/app/conf/
-      # Not an error: Preview accesses core's data directory readonly. 
-      - ./core/core/data/:/app/data/
-    links: 
+    links:
       - mongodb
     restart: always
     hostname: "$HOSTNAME"
 
-  mongodb: 
-    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.13"
-    networks: 
+  preview:
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.20"
+    networks:
+      - frontend
       - backend
-    volumes: 
+    volumes:
+      - ./core/preview/log/:/app/log/
+      - ./core/preview/conf/:/app/conf/
+      # Not an error: Preview accesses core's data directory readonly.
+      - ./core/core/data/:/app/data/
+    links:
+      - mongodb
+    restart: always
+    hostname: "$HOSTNAME"
+
+  mongodb:
+    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.13"
+    networks:
+      - backend
+    volumes:
       - ./core/mongodb/conf/:/app/conf/
       - ./core/mongodb/log/:/app/log/
       - ./core/mongodb/data/:/app/data/
@@ -66,7 +66,7 @@ services:
     links:
       - core
     restart: always
-    
+
 networks:
   frontend:
     driver: bridge
