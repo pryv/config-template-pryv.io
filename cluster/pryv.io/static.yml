@@ -1,24 +1,16 @@
 version: '2.1'
 services:
-  nginx: 
+  nginx:
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
-    networks: 
+    networks:
       - frontend
-    ports: 
+    ports:
       - "443:443"
-    volumes: 
+    volumes:
       - ./static/nginx/conf/:/app/conf/
       - ./static/nginx/log/:/app/log/
-    links: 
+    links:
       - static
-    restart: always
-
-  static: 
-    image: "pryvsa-docker-release.bintray.io/pryv/static:1.2.13"
-    volumes: 
-      - ./static/static/conf/:/app/conf/
-    networks: 
-      - frontend
     restart: always
 
 networks:

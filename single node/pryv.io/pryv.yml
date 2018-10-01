@@ -47,13 +47,6 @@ services:
     image: "pryvsa-docker-release.bintray.io/pryv/redis:1.2.13"
     networks:
       - backend
-
-  static:
-    image: "pryvsa-docker-release.bintray.io/pryv/static:1.2.13"
-    volumes:
-      - ${PRYV_CONF_ROOT}/static/conf/:/app/conf/
-    networks:
-      - frontend
     restart: always
 
   core:
