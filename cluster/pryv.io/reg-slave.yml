@@ -15,7 +15,7 @@ services:
     restart: always
 
   dns:
-    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.19"
+    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.21"
     ports:
       - "53:5353/udp"
     networks:
@@ -30,7 +30,7 @@ services:
     hostname: "$HOSTNAME"
 
   register:
-    image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.19"
+    image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.21"
     networks:
       - frontend
       - backend
