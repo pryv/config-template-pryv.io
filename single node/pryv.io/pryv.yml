@@ -12,6 +12,7 @@ services:
       - ${PRYV_CONF_ROOT}/dns/conf/:/app/conf/
     links:
       - redis
+    restart: always
 
   nginx:
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
@@ -28,6 +29,7 @@ services:
       - preview
       - static
       - register
+    restart: always
 
   register:
     image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.19"
@@ -39,6 +41,7 @@ services:
     links:
       - core # This is special to the single config
       - redis
+    restart: always
 
   redis:
     image: "pryvsa-docker-release.bintray.io/pryv/redis:1.2.13"
@@ -51,6 +54,7 @@ services:
       - ${PRYV_CONF_ROOT}/static/conf/:/app/conf/
     networks:
       - frontend
+    restart: always
 
   core:
     image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.20"
@@ -62,6 +66,7 @@ services:
       - ${PRYV_CONF_ROOT}/core/data/:/app/data/
     links:
       - mongodb
+    restart: always
 
   preview:
     image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.20"
@@ -73,11 +78,13 @@ services:
       - ${PRYV_CONF_ROOT}/core/data/:/app/data/
     links:
       - mongodb
+    restart: always
 
   mongodb:
     image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.13"
     networks:
       - backend
+    restart: always
 
 networks:
   frontend:
