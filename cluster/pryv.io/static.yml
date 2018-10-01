@@ -9,8 +9,6 @@ services:
     volumes:
       - ./static/nginx/conf/:/app/conf/
       - ./static/nginx/log/:/app/log/
-    links:
-      - static
     restart: always
 
 networks:
