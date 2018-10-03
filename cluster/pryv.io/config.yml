@@ -156,7 +156,7 @@ register:
     - REGISTER_ADMIN_KEY_1
   http:
     static:
-      url: 'https://www.COMPANY_WEBSITE'
+      url: 'COMPANY_WEBSITE'
       access: 'https://sw.DOMAIN/access/access.html'
     register:
       url: 'https://reg.DOMAIN'
