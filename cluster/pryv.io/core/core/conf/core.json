@@ -42,9 +42,6 @@
   "updates": {
     "ignoreProtectedFields": false
   },
-  "register": {
-    "secret": "REGISTER_SYSTEM_KEY_1"
-  },
   "eventTypes": {
     "sourceURL": "https://api.pryv.com/event-types/flat.json"
   },
