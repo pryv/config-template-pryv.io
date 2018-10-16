@@ -1,31 +1,37 @@
-# Pryv.io configuration files
+# Pryv.io configuration template
 
-This directory contains the configuration files for a pryv.io installation. 
+In the `pryv.io/` folder, you will find the template configuration files for a pryv.io cluster installation.
 
 ## Usage
 
-### Update configuration files
+*Prerequisites*: Node v6+, Yarn v1+
 
-*Prerequisites:* Yarn v0.27+, Node v8+
+1. Copy this repository content in new repository `config-DOMAIN`
+2. Replace the [platform-specific variables](#variables) in the `pryv.io/config.yml` file.
+3. Run `yarn install` to download dependencies.
+4. Run `yarn fromYaml` to generate v1.2 compatible configuration files from the `pryv.io/config.yml` source.
+5. Replace the remaining (mostly NGINX) `DOMAIN` to your domain.
+6. In `pryv.io/static/nginx/conf/site.conf`, change the proxying for route `/access/` to `https://pryv.github.io/app-web-auth2/DOMAIN/`.
+7. On the [app-web-auth2 repository gh-pages branch](https://github.com/pryv/app-web-auth2/), create a symlink to the latest version named `DOMAIN`. Or tell the customer to fork the repository, make a push on the `#gh-pages` branch and create the link there. You should then set the proxying in point 6 to `https://CUSTOMER.github.io/app-web-auth2/DOMAIN/`
+8. If needed, update docker image versions in `pryv.io/{core,reg,static}.yml`.
+9. Generate tarballs from config files using `./scripts/build ${DOMAIN}`.
+10. Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
 
-Modify `config.yml`, then run `yarn fromYaml` to update the files in `core/`, `reg-master/`, `reg-slave/` & `static/`. 
+### Variables
 
-We are currently in a transition phase where we wish to simplify our configuration files. `config.yml` is the ongoing work of what we are tending to and the `src/yaml-to-v1.2.js` script does the translation into the current format. 
+These values need to be replaced in the configuration. If possible, obtain these from the customer to do the replace operation.
 
-### Sync files to remote hosts
-To sync files with remote hosts use: `./scripts/sync-to-remote ${ROLE}` where ROLE is either: cores, static, reg-master or reg-slave
-
-### Sync files from remote hosts
-Use `rsync -av HOST:PATH_TO_FOLDER PATH_TO_FOLDER`
-
-### Generate necessary files to install service
-To compress configuration files in tarballs, run `./scripts/build DOMAIN`. This will generate the following files in `tarballs/`:
-- DOMAIN-core.tgz
-- DOMAIN-reg.tgz
-- DOMAIN-static.tgz
-
-## Guides
-
-* [INSTALL.md](https://github.com/pryv/config-template-pryv.io/blob/master/cluster/pryv.io/INSTALL.md) contains the instructions to install the Core, Register and Static-web software on the dedicated machines.
- 
-* [UPDATE.md](https://github.com/pryv/config-template-pryv.io/blob/master/cluster/pryv.io/UPDATE.md) contains the instructions to reboot the containers.
+* DOMAIN: the domain of the platform (eg.: pryv.me)
+* CORE_SYSTEM_KEY: key to make system calls on cores
+* REGISTER_SYSTEM_KEY_1: key to make system calls on register
+* REGISTER_ADMIN_KEY_1: key to make admin calls on register
+* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website
+* STATIC_WEB_HOSTNAME: hostname of static-web machine
+* REG_MASTER_HOSTNAME: hostname of master register machine
+* REG_MASTER_IP_ADDRESS: IP address of master register machine
+* REG_MASTER_VPN_IP_ADRESS: IP address of master register on a secure line between it and slave register (can be a private network)
+* REG_SLAVE_HOSTNAME: hostname of slave register machine
+* REG_SLAVE_IP_ADDRESS: IP address of slave register machine
+* CORE_1_HOSTNAME_OR_IP (add more if needed): hostname or IP address of core machine
+* CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
+* OVERRIDE_ME: single appearance values that need to be replaced with a strong key
