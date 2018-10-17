@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# the paths are currently hardcoded as they are not unified across the remote hosts
+
+####
+####    do not EVER use the '--delete' option as the user data is in the synchronized directory scope
+####
+
+RSYNC_OPTIONS="--recursive --times --human-readable --verbose"
+
+echo "Syncing bluebutton machine"
+
+rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' bluebutton bluebutton.yml run-bluebutton restart-bluebutton stop-containers stbluebutton-azure-nl-01.pryv.net:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*"
