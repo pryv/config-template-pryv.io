@@ -1,70 +1,80 @@
-version: '2.2'
+version: '3'
 services:
-  nginx:
+  reverse_proxy: 
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
-    networks:
+    networks: 
       - frontend
-    ports:
+    ports: 
       - "80:80"
       - "443:443"
-      - "3443:3443"
-    volumes:
-      - ./core/nginx/conf/:/app/conf/
+    volumes: 
+      - ./core/nginx/conf/:/app/conf/:ro
       - ./core/nginx/log/:/app/log/
-    links:
+    links: 
       - core
+      - hfs
       - preview
-      - condensate
     restart: always
 
-  core:
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.2.20"
+  core: 
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.3.34"
     networks:
       - frontend
       - backend
-    volumes:
-      - ./core/core/conf/:/app/conf/
+    volumes: 
+      - ./core/core/conf/:/app/conf/:ro
+      - ./core/core/data/:/app/data/
       - ./core/core/log/:/app/log/
-      - ./core/core/data/:/app/data/
-    links:
+    environment: 
+      - NUM_PROCS=2
+    links: 
       - mongodb
     restart: always
-    hostname: "$HOSTNAME"
 
-  preview:
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.2.20"
+  preview: 
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.3.34"
+    networks: 
+      - frontend
+      - backend
+    volumes: 
+      - ./core/preview/conf/:/app/conf/:ro
+      - ./core/core/data/:/app/data/
+    links: 
+      - mongodb
+    restart: always
+
+   hfs:
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.3.34"
     networks:
       - frontend
       - backend
     volumes:
-      - ./core/preview/log/:/app/log/
-      - ./core/preview/conf/:/app/conf/
-      # Not an error: Preview accesses core's data directory readonly.
-      - ./core/core/data/:/app/data/
+      - ./core/hfs/conf/:/app/conf/:ro
+      - ./core/hfs/data/:/app/data/
+      - ./core/hfs/log/:/app/log/
+    environment:
+      - NUM_PROCS=2
     links:
+      - influxdb
       - mongodb
     restart: always
-    hostname: "$HOSTNAME"
 
   mongodb:
     image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.2.13"
     networks:
       - backend
     volumes:
-      - ./core/mongodb/conf/:/app/conf/
-      - ./core/mongodb/log/:/app/log/
+      - ./core/mongodb/conf/:/app/conf/:ro
       - ./core/mongodb/data/:/app/data/
+      - ./core/mongodb/log/:/app/log/
     restart: always
 
-  condensate:
-    image: "pryvsa-docker-release.bintray.io/pryv/condensate:0.0.5"
+  influxdb:
+    image: "influxdb:1.2.2"
     networks:
-      - frontend
+      - backend
     volumes:
-      - ./core/condensate/conf/:/app/conf/
-      - ./core/condensate/log/:/app/log/
-    links:
-      - core
+      - ${PRYV_CONF_ROOT}/influxdb/data/:/var/lib/influxdb
     restart: always
 
 networks:

@@ -77,37 +77,13 @@
         }
       }
     },
-    "domain_A": "SERVICE_WEBSITE_IP_ADDRESS",
-    "nameserver": [
-      {
-        "name": "REG_MASTER_HOSTNAME",
-        "ip": "REG_MASTER_IP_ADRESS"
-      },
-      {
-        "name": "REG_SLAVE_HOSTNAME",
-        "ip": "REG_SLAVE_IP_ADRESS"
-      }
-    ],
-    "mail": [
-      {
-        "name": "spool.mail.gandi.net",
-        "ip": "217.70.184.6",
-        "ttl": 10800,
-        "priority": 10
-      },
-      {
-        "name": "fb.mail.gandi.net",
-        "ip": "217.70.184.162",
-        "ttl": 10800,
-        "priority": 50
-      }
-    ]
+    "domain_A": "SERVICE_WEBSITE_IP_ADDRESS"
   },
   "net": {
     "aaservers": {
       "CORE_HOSTING_1": [
         {
-          "base_url": "https://CORE_2_HOSTNAME_OR_IP/",
+          "base_url": "https://CORE_1_HOSTNAME/",
           "authorization": "CORE_SYSTEM_KEY"
         }
       ]
