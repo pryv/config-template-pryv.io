@@ -156,7 +156,7 @@ register:
     - perki|ghjfsduz743
   http:
     static:
-      url: 'https://www.COMPANY_WEBSITE'
+      url: 'https://pryv.com'
       access: 'https://sw.pryv.li/access/access.html'
     register:
       url: 'https://reg.pryv.li'
