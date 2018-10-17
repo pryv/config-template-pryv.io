@@ -28,8 +28,8 @@ These values need to be replaced in the configuration. If possible, obtain these
 * SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website
 * STATIC_WEB_IP_ADDRESS: hostname of static-web machine
 * REG_MASTER_IP_ADDRESS: IP address of master register machine
-* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (can be a private network)
+* REG_MASTER_VPN_IP_ADRESS: IP address of master register on a secure line between it and slave register (can be a private network)
 * REG_SLAVE_IP_ADDRESS: IP address of slave register machine
-* CORE_1_IP_ADDRESS (add more if needed): IP address of core machine 1
+* CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
 * CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
 * OVERRIDE_ME: single appearance values that need to be replaced with a strong key
