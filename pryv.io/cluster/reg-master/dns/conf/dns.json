@@ -11,8 +11,8 @@
   },
   "service": {
     "name": "PLATFORM_NAME",
-    "support": "SUPPORT_LINK_IF_ANY",
-    "terms": "TERMS_OF_USE_LINK_IF_ANY"
+    "support": "SUPPORT_LINK",
+    "terms": "TERMS_OF_USE_LINK"
   },
   "server": {
     "ssl": "false",

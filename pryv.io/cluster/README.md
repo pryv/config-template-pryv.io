@@ -33,3 +33,11 @@ These values need to be replaced in the configuration. If possible, obtain these
 * CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
 * CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
 * OVERRIDE_ME: single appearance values that need to be replaced with a strong key
+
+#### optional variables
+
+These fields will be available in https://reg.DOMAIN/service/infos
+
+* PLATFORM_NAME
+* SUPPORT_LINK
+* TERMS_OF_USE_LINK
