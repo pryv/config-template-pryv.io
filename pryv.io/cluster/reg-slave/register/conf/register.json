@@ -10,9 +10,9 @@
     }
   },
   "service": {
-    "name": "PLATFORM_NAME",
-    "support": "SUPPORT_LINK_IF_ANY",
-    "terms": "TERMS_OF_USE_LINK_IF_ANY"
+    "name": "Pryv Lab staging",
+    "support": "http://pryv.com/helpdesk",
+    "terms": "http://pryv.com/pryv-lab-terms-of-use/"
   },
   "server": {
     "ssl": "false",
