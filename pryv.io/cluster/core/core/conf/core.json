@@ -45,7 +45,7 @@
     }
   },
   "updates": {
-    "ignoreProtectedFields": false
+    "ignoreProtectedFields": true
   },
   "audit": {
     "forceKeepHistory": true,
