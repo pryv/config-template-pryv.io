@@ -136,23 +136,23 @@
               },
               "hostings": {
                 "stcore-azure-nl-01": {
-                  "url": "https://azure.microsoft.com/",
+                  "url": "https://azure.microsoft.com",
                   "name": "Microsoft Azure - 1",
                   "description": "Azure. Cloud for all.",
                   "localizedDescription": {}
                 },
                 "stcore-azure-nl-02": {
-                  "url": "https://azure.microsoft.com/",
-                  "name": "Microsoft Azure - 1",
+                  "url": "https://azure.microsoft.com",
+                  "name": "Microsoft Azure - 2",
                   "description": "Azure. Cloud for all.",
                   "localizedDescription": {}
                 },
                 "stcore-azure-nl-03": {
-                  "url": "https://azure.microsoft.com/",
-                  "name": "Microsoft Azure - 1",
+                  "url": "https://azure.microsoft.com",
+                  "name": "Microsoft Azure - 3",
                   "description": "Azure. Cloud for all.",
                   "localizedDescription": {}
-                },
+                }
               }
             }
           }
