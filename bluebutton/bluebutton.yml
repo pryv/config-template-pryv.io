@@ -15,7 +15,7 @@ services:
     restart: always
 
   bluebutton:
-    image: "pryvsa-docker-release.bintray.io/pryv/bluebutton:1.0.8"
+    image: "pryvsa-docker-release.bintray.io/pryv/bluebutton:1.0.10"
     networks:
       - frontend
     volumes:
