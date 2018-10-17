@@ -20,7 +20,7 @@
   "auth": {
     "trustedApps": "*@https://*.rec.la*, *@https://*.pryv.li*, *@https://pryv.github.io*",
     "sessionMaxAge": 1209600000,
-    "ssoCookiepryv.li": ".pryv.li",
+    "ssoCookieDomain": ".pryv.li",
     "ssoCookieSignSecret": "ZUsdufvh%asrd",
     "filesReadTokenSecret": "Ct=btq-*N5-_j&Z",
     "passwordResetRequestMaxAge": 3600000,
