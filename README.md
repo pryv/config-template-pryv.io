@@ -10,7 +10,7 @@ Please use this template as basis for future customer deployments and keep this 
 4. Remove the temporary local repository you created in step 2: `cd ..`, `rm -rf config-template-pryv.io.git`
 5. clone the new repository to work on it: `git clone git@github.com:pryv/config-DOMAIN.git`
 
-You will find instructions regarding variables and other settings in the directories [pryv.io/cluster](pryvio/cluster/) and [pryv.io/single node](pryv.io/single\ node/).
+You will find instructions regarding variables and other settings in the directories [pryv.io/cluster](pryv.io/cluster/) and [pryv.io/single-node](pryv.io/single&#32;node/).
 
 ### Versions
 
