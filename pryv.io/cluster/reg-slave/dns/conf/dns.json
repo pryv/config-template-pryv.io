@@ -2,7 +2,7 @@
   "hostnameOrIP": "https://reg.DOMAIN",
   "http": {
     "static": {
-      "url": "https://www.COMPANY_WEBSITE",
+      "url": "COMPANY_WEBSITE",
       "access": "https://sw.DOMAIN/access/access.html"
     },
     "register": {
@@ -52,29 +52,28 @@
     ],
     "staticDataInDomain": {
       "www": {
-        "alias": {
-          "name": "SERVICE_WEBSITE_IP_ADDRESS"
-        }
+        "ip": "SERVICE_WEBSITE_IP_ADDRESS"
       },
       "sw": {
-        "alias": {
-          "name": "STATIC_WEB_HOSTNAME"
-        }
+        "ip": "STATIC_WEB_IP_ADDRESS"
       },
       "reg": {
-        "alias": {
-          "name": "REG_MASTER_HOSTNAME"
-        }
+        "ip": "REG_MASTER_IP_ADDRESS"
       },
       "service": {
-        "alias": {
-          "name": "REG_MASTER_HOSTNAME"
-        }
+        "ip": "REG_MASTER_IP_ADDRESS"
       },
       "access": {
-        "alias": {
-          "name": "REG_MASTER_HOSTNAME"
-        }
+        "ip": "REG_MASTER_IP_ADDRESS"
+      },
+      "dns1": {
+        "ip": "REG_MASTER_IP_ADDRESS"
+      },
+      "dns2": {
+        "ip": "REG_SLAVE_IP_ADDRESS"
+      },
+      "co1": {
+        "ip": "CORE_1_IP_ADDRESS"
       }
     },
     "domain_A": "SERVICE_WEBSITE_IP_ADDRESS"
@@ -83,7 +82,7 @@
     "aaservers": {
       "CORE_HOSTING_1": [
         {
-          "base_url": "https://CORE_1_HOSTNAME/",
+          "base_url": "https://co1.DOMAIN/",
           "authorization": "CORE_SYSTEM_KEY"
         }
       ]
