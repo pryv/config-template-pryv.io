@@ -1,0 +1,60 @@
+version: '3'
+services:
+  reverse_proxy: 
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
+    networks: 
+      - frontend
+    ports: 
+      - "443:443"
+    volumes: 
+      - ./reg-master/nginx/conf/:/app/conf/:ro
+      - ./reg-master/nginx/log/:/app/log/
+    links:
+      - register
+    restart: always
+
+  register: 
+    image: "pryvsa-docker-release.bintray.io/pryv/register:1.2.21"
+    networks: 
+      - frontend
+      - backend
+    volumes: 
+      - ./reg-master/register/conf/:/app/conf/:ro
+      - ./reg-master/register/log/:/app/log/
+    links: 
+      - redis
+    restart: always
+    hostname: "$HOSTNAME"
+
+  dns: 
+    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.21"
+    ports: 
+      - "53:5353/udp"
+    networks: 
+      - frontend
+      - backend
+    volumes: 
+      - ./reg-master/dns/conf/:/app/conf/:ro
+      - ./reg-master/dns/log/:/app/log/
+    links: 
+      - redis
+    restart: always
+    hostname: "$HOSTNAME"
+
+  redis: 
+    image: "pryvsa-docker-release.bintray.io/pryv/redis:1.2.13"
+    networks: 
+      - backend
+    ports:  # used if reg-slave is defined
+      - "REGISTER_MASTER_VPN_IP_ADDRESS:6379:6379"
+    volumes: 
+      - ./reg-master/redis/conf/:/app/conf/:ro
+      - ./reg-master/redis/data/:/app/data/
+      - ./reg-master/redis/log/:/app/log/
+    restart: always
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge

@@ -1,0 +1,68 @@
+{
+  "env": "production",
+  "nightlyScriptCronTime": "00 15 2 * * *",
+  "http": {
+    "ip": "0.0.0.0",
+    "port": "9000"
+  },
+  "database": {
+    "host": "mongodb",
+    "port": 27017,
+    "name": "pryv-node"
+  },
+  "eventFiles": {
+    "attachmentsDirPath": "/app/data/attachments",
+    "previewsDirPath": "/app/data/previews"
+  },
+  "eventTypes": {
+    "sourceURL": "https://pryv.github.io/event-types/flat.json"
+  },
+  "auth": {
+    "adminAccessKey": "CORE_SYSTEM_KEY",
+    "trustedApps": "*@https://*.DOMAIN, *@https://*.pryv.me*, *@http://pryv.github.io, *@https://*.rec.la",
+    "sessionMaxAge": 1209600000,
+    "ssoCookieDomain": ".DOMAIN",
+    "ssoCookieSignSecret": "OVERRIDE_ME",
+    "filesReadTokenSecret": "OVERRIDE_ME",
+    "passwordResetRequestMaxAge": 3600000,
+    "passwordResetPageURL": "https://sw.DOMAIN/access/reset-password.html"
+  },
+  "services": {
+    "register": {
+      "url": "https://reg.DOMAIN",
+      "key": "REGISTER_SYSTEM_KEY_1"
+    },
+    "email": {
+      "url": "https://mandrillapp.com",
+      "key": "RcVRdxyEdBTqfE1aMw",
+      "sendMessagePath": "/api/1.0/messages/send-template.json",
+      "welcomeTemplate": "welcome-email",
+      "resetPasswordTemplate": "reset-password"
+    }
+  },
+  "updates": {
+    "ignoreProtectedFields": false
+  },
+  "audit": {
+    "forceKeepHistory": false,
+    "deletionMode": "keep-authors"
+  },
+  "logs": {
+    "console": {
+      "active": true,
+      "level": "info",
+      "colorize": true
+    },
+    "file": {
+      "active": true,
+      "level": "info",
+      "path": "/app/log/core.log",
+      "maxFileBytes": 10000000000,
+      "maxNbFiles": 1
+    },
+    "airbrake": {
+      "active": false,
+      "key": "OVERRIDE_ME"
+    }
+  }
+}

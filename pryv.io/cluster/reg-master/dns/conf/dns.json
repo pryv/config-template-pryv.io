@@ -1,0 +1,124 @@
+{
+  "hostnameOrIP": "https://reg.DOMAIN",
+  "http": {
+    "static": {
+      "url": "COMPANY_WEBSITE",
+      "access": "https://sw.DOMAIN/access/access.html"
+    },
+    "register": {
+      "url": "https://reg.DOMAIN"
+    }
+  },
+  "service": {
+    "name": "PLATFORM_NAME",
+    "support": "SUPPORT_LINK_IF_ANY",
+    "terms": "TERMS_OF_USE_LINK_IF_ANY"
+  },
+  "server": {
+    "ssl": "false",
+    "port": 9000
+  },
+  "auth": {
+    "authorizedKeys": {
+      "REGISTER_SYSTEM_KEY_1": {
+        "roles": [
+          "system"
+        ]
+      },
+      "REGISTER_ADMIN_KEY_1": {
+        "roles": [
+          "admin"
+        ]
+      }
+    }
+  },
+  "dns": {
+    "port": 5353,
+    "ip": "0.0.0.0",
+    "name": "reg.DOMAIN",
+    "domain": "DOMAIN",
+    "domains": [
+      "DOMAIN"
+    ],
+    "nameserver": [
+      {
+        "name": "dns1.DOMAIN",
+        "ip": "REG_MASTER_IP_ADRESS"
+      },
+      {
+        "name": "dns2.DOMAIN",
+        "ip": "REG_SLAVE_IP_ADRESS"
+      }
+    ],
+    "staticDataInDomain": {
+      "www": {
+        "ip": "SERVICE_WEBSITE_IP_ADDRESS"
+      },
+      "sw": {
+        "ip": "STATIC_WEB_IP_ADDRESS"
+      },
+      "reg": {
+        "ip": "REG_MASTER_IP_ADDRESS"
+      },
+      "service": {
+        "ip": "REG_MASTER_IP_ADDRESS"
+      },
+      "access": {
+        "ip": "REG_MASTER_IP_ADDRESS"
+      },
+      "dns1": {
+        "ip": "REG_MASTER_IP_ADDRESS"
+      },
+      "dns2": {
+        "ip": "REG_SLAVE_IP_ADDRESS"
+      },
+      "co1": {
+        "ip": "CORE_1_IP_ADDRESS"
+      }
+    },
+    "domain_A": "SERVICE_WEBSITE_IP_ADDRESS"
+  },
+  "net": {
+    "aaservers": {
+      "CORE_HOSTING_1": [
+        {
+          "base_url": "https://co1.DOMAIN/",
+          "authorization": "CORE_SYSTEM_KEY"
+        }
+      ]
+    },
+    "aahostings": {
+      "regions": {
+        "europe": {
+          "name": "Europe",
+          "localizedName": {
+            "fr": "Europe"
+          },
+          "zones": {
+            "switzerland": {
+              "name": "Switzerland",
+              "localizedName": {
+                "fr": "Suisse"
+              },
+              "hostings": {
+                "CORE_HOSTING_1": {
+                  "url": "https://hosting-provider.com",
+                  "name": "Hosting provider name",
+                  "description": "Hosting provider slogan",
+                  "localizedDescription": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  },
+  "airbrake": {
+    "disable": true
+  }
+}
