@@ -43,7 +43,7 @@ services:
       - mongodb
     restart: always
 
-   hfs:
+  hfs:
     image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.3.34"
     networks:
       - frontend
@@ -74,7 +74,7 @@ services:
     networks:
       - backend
     volumes:
-      - ${PRYV_CONF_ROOT}/influxdb/data/:/var/lib/influxdb
+      - ./core/influxdb/data/:/var/lib/influxdb
     restart: always
 
 networks:
