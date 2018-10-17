@@ -19,7 +19,7 @@
   },
   "auth": {
     "adminAccessKey": "CORE_SYSTEM_KEY",
-    "trustedApps": "*@https://*.DOMAIN, *@https://*.pryv.me*, *@http://pryv.github.io, *@https://*.rec.la",
+    "trustedApps": "*@https://*.DOMAIN, *@http://pryv.github.io, *@https://*.rec.la",
     "sessionMaxAge": 1209600000,
     "ssoCookieDomain": ".DOMAIN",
     "ssoCookieSignSecret": "OVERRIDE_ME",
