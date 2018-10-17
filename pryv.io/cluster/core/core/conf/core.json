@@ -17,12 +17,8 @@
   "eventTypes": {
     "sourceURL": "https://api.pryv.com/event-types/flat.json"
   },
-  "register": {
-    "secret": "REGISTER_SYSTEM_KEY_1"
-  },
   "auth": {
     "trustedApps": "*@https://*.rec.la*, *@https://*.pryv.li*, *@https://pryv.github.io*",
-    "browserIdAudience": "https://{username}.pryv.li:443",
     "sessionMaxAge": 1209600000,
     "ssoCookiepryv.li": ".pryv.li",
     "ssoCookieSignSecret": "ZUsdufvh%asrd",
@@ -52,7 +48,7 @@
     "ignoreProtectedFields": false
   },
   "audit": {
-    "forceKeepHistory": false,
+    "forceKeepHistory": true,
     "deletionMode": "keep-authors"
   },
   "logs": {
