@@ -22,19 +22,19 @@ if [ $1 == "cores" ]; then
   echo "###############################"
   echo "Syncing stcore-azure-nl-01.pryv.net"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core restart-core stop-containers stcore-azure-nl-01.pryv.net:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers stcore-azure-nl-01.pryv.net:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
 
   echo "###############################"
   echo "Syncing stcore-azure-nl-02.pryv.net"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core restart-core stop-containers stcore-azure-nl-02.pryv.net:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers stcore-azure-nl-02.pryv.net:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-02.pryv.net:/etc/logrotate.d/pryv
 
   echo "###############################"
   echo "Syncing stcore-azure-nl-03.pryv.net"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core restart-core stop-containers stcore-azure-nl-03.pryv.net:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers stcore-azure-nl-03.pryv.net:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-03.pryv.net:/etc/logrotate.d/pryv
 fi
 
@@ -45,7 +45,7 @@ if [ $1 == "reg-master" ]; then
   echo "Syncing streg-azure-nl-01.pryv.net"
   echo "###############################"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master/ streg-azure-nl-01.pryv.net:/var/pryv/reg --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master.yml run-reg-master restart-reg-master stop-containers streg-azure-nl-01.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master.yml run-reg-master stop-containers streg-azure-nl-01.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf streg-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
 fi
 
@@ -56,7 +56,7 @@ if [ $1 == "reg-slave" ]; then
   echo "Syncing streg-azure-nl-02.pryv.net"
   echo "###############################"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave/ streg-azure-nl-02.pryv.net:/var/pryv/reg --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave.yml run-reg-slave restart-reg-slave stop-containers client-streg-azure-nl-02.ovpn connect-vpn-client-to-master streg-azure-nl-02.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave.yml run-reg-slave stop-containers client-streg-azure-nl-02.ovpn connect-vpn-client-to-master streg-azure-nl-02.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf streg-azure-nl-02.pryv.net:/etc/logrotate.d/pryv
 fi
 
@@ -67,6 +67,6 @@ if [ $1 == "static" ]; then
   echo "Syncing stswww-azure-nl-01.pryv.net"
   echo "###############################"
 
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static static.yml run-static restart-static stop-containers stswww-azure-nl-01.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static static.yml run-static stop-containers stswww-azure-nl-01.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static.logrotate.conf stswww-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
 fi
