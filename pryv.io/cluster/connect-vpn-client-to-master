@@ -1,0 +1,1 @@
+openvpn --config client-streg-azure-nl-02.ovpn &
