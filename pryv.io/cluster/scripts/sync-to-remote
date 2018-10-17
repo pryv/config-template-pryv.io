@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+# the first argument should be role to copy
+# ex.: sync-files.sh core/reg-master/reg-slave
+
+# the paths are currently hardcoded as they are not unified accross the remote hosts
+
+if [ $1 != "cores" ] && [ $1 != "reg-master" ] && [ $1 != "reg-slave" ] && [ $1 != "static" ]; then
+  echo "please specify which role: core, reg-master, reg-slave or static";
+  exit 1;
+fi
+
+####
+####    do not EVER use the '--delete' option as the user data is in the synchronized directory scope
+####
+
+RSYNC_OPTIONS="--recursive --times --human-readable --verbose"
+
+if [ $1 == "cores" ]; then
+  echo "Syncing core machines"
+
+  echo "###############################"
+  echo "Syncing stcore-azure-nl-01.pryv.net"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core restart-core stop-containers stcore-azure-nl-01.pryv.net:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
+
+  echo "###############################"
+  echo "Syncing stcore-azure-nl-02.pryv.net"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core restart-core stop-containers stcore-azure-nl-02.pryv.net:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-02.pryv.net:/etc/logrotate.d/pryv
+
+  echo "###############################"
+  echo "Syncing stcore-azure-nl-03.pryv.net"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core restart-core stop-containers stcore-azure-nl-03.pryv.net:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-03.pryv.net:/etc/logrotate.d/pryv
+fi
+
+if [ $1 == "reg-master" ]; then
+  echo "Syncing master register"
+
+  echo "###############################"
+  echo "Syncing streg-azure-nl-01.pryv.net"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master/ streg-azure-nl-01.pryv.net:/var/pryv/reg --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master.yml run-reg-master restart-reg-master stop-containers streg-azure-nl-01.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf streg-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
+fi
+
+if [ $1 == "reg-slave" ]; then
+  echo "Syncing slave register"
+
+  echo "###############################"
+  echo "Syncing streg-azure-nl-02.pryv.net"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave/ streg-azure-nl-02.pryv.net:/var/pryv/reg --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave.yml run-reg-slave restart-reg-slave stop-containers client-streg-azure-nl-02.ovpn connect-vpn-client-to-master streg-azure-nl-02.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf streg-azure-nl-02.pryv.net:/etc/logrotate.d/pryv
+fi
+
+if [ $1 == "static" ]; then
+  echo "Syncing static-web machine"
+
+  echo "###############################"
+  echo "Syncing stswww-azure-nl-01.pryv.net"
+  echo "###############################"
+
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static static.yml run-static restart-static stop-containers stswww-azure-nl-01.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static.logrotate.conf stswww-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
+fi
