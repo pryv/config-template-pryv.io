@@ -1,7 +1,7 @@
 version: 1.0.0
-domain: DOMAIN
-extraDomains:
-  - DOMAIN
+pryv.li: pryv.li
+extrapryv.lis:
+  - pryv.li
 redis:
   password: OVERRIDE_ME # password on redis is not necessary now as redis has no public interface when containerized
 coreDefaults:
@@ -9,10 +9,10 @@ coreDefaults:
 dns:
   listeningIp: 0.0.0.0
   listeningPort: 53
-  domainA: 95.142.162.223 # IP address of www.TLD. Should send to service homepage, eg. pryv.com
+  pryv.liA: 95.142.162.223 # IP address of www.TLD. Should send to service homepage, eg. pryv.com
   entries:
     -
-      name: www # should point to same as domainA (above)
+      name: www # should point to same as pryv.liA (above)
       type: alias
       value: stswww-gandi-fr-01.pryv.net
     -
@@ -179,14 +179,14 @@ coreApi:
     port: 9000
     noSSL: true
   auth:
-    trustedApps: '*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*'
-    browserIdAudience: 'https://{username}.DOMAIN:443'
+    trustedApps: '*@https://*.rec.la*, *@https://*.pryv.li*, *@https://pryv.github.io*'
+    browserIdAudience: 'https://{username}.pryv.li:443'
     sessionMaxAge: 1209600000
-    ssoCookieDomain: .DOMAIN
+    ssoCookiepryv.li: .pryv.li
     ssoCookieSignSecret: OVERRIDE_ME
     filesReadTokenSecret: OVERRIDE_ME
     passwordResetRequestMaxAge: 3600000
-    passwordResetPageURL: 'https://sw.DOMAIN/access/reset-password.html'
+    passwordResetPageURL: 'https://sw.pryv.li/access/reset-password.html'
   logs:
     console:
       active: true
@@ -233,11 +233,11 @@ swww:
     ip: 127.0.0.1
   browserBootstrap:
     fields:
-      browser-source: 'https://sw.DOMAIN/browser'
+      browser-source: 'https://sw.pryv.li/browser'
   redirect:
     port: 0
 register:
-  hostnameOrIP: 'https://reg.DOMAIN'
+  hostnameOrIP: 'https://reg.pryv.li'
   systemKeys:
     - OVERRIDE_ME
   adminKeys:
@@ -245,10 +245,10 @@ register:
     - username2|OVERRIDE_ME
   http:
     static:
-      url: 'https://www.pryv.com' # redirect address from reg.DOMAIN
-      access: 'https://sw.DOMAIN/access/v1/access.html'
+      url: 'https://www.pryv.com' # redirect address from reg.pryv.li
+      access: 'https://sw.pryv.li/access/v1/access.html'
     register:
-      url: 'https://reg.DOMAIN'
+      url: 'https://reg.pryv.li'
   service: # prototype for /service/infos content
     name: 'Pryv Lab staging'
     support: 'mailto:support@pryv.com'
@@ -261,7 +261,7 @@ register:
     pryv-ios-app:
       displayName: 'Pryv for iOS'
       description: 'Capture and browse pictures, notes, values etc. while on the go'
-      iconURL: 'https://sw.DOMAIN/apps/pryv-ios-app/icon512.png'
+      iconURL: 'https://sw.pryv.li/apps/pryv-ios-app/icon512.png'
       appURL: 'https://itunes.apple.com/us/app/pryv/id826320447'
       active: false
       onboarding: false
@@ -270,7 +270,7 @@ register:
     pryv-csv-importer:
       displayName: 'CSV Importer'
       description: 'Import existing data from CSV files'
-      iconURL: 'https://sw.DOMAIN/apps/pryv-csv-importer/icon512.png'
+      iconURL: 'https://sw.pryv.li/apps/pryv-csv-importer/icon512.png'
       appURL: 'http://pryv.github.io/dev-tools/csv-importer'
       active: false
       onboarding: false
@@ -283,7 +283,7 @@ register:
     ifttt-all:
       displayName: IFTTT
       description: 'Connect Pryv to over 100 other products and services with Pryv Recipes on IFTTT'
-      iconURL: 'https://sw.DOMAIN/apps/ifttt-all/icon512.png'
+      iconURL: 'https://sw.pryv.li/apps/ifttt-all/icon512.png'
       appURL: 'https://ifttt.com/pryv'
       active:/v false
       onboarding: false
@@ -296,8 +296,8 @@ register:
     bridge-twitter:
       displayName: Twitter
       description: 'Pryv selected tweets from my <strong>Twitter</strong> account.'
-      iconURL: 'https://sw.DOMAIN/apps/bridge-twitter/icon512.png'
-      appURL: 'https://bridges.DOMAIN:4443/'
+      iconURL: 'https://sw.pryv.li/apps/bridge-twitter/icon512.png'
+      appURL: 'https://bridges.pryv.li:4443/'
       active: true
       onboarding: true
       category: Thoughts
@@ -306,13 +306,13 @@ register:
         - iPad
         - iPhone
         - Web
-      settingsPageURL: 'https://bridges.DOMAIN:4443/'
+      settingsPageURL: 'https://bridges.pryv.li:4443/'
       trustedConnection: true
     bridge-withings:
       displayName: Withings
       description: 'Pryv my <strong>Withings</strong> measures.'
-      iconURL: 'https://sw.DOMAIN/apps/bridge-withings/icon512.png'
-      appURL: 'http://bridges.DOMAIN:5443/'
+      iconURL: 'https://sw.pryv.li/apps/bridge-withings/icon512.png'
+      appURL: 'http://bridges.pryv.li:5443/'
       active: true
       onboarding: true
       category: 'Health & Activity'
@@ -321,13 +321,13 @@ register:
         - iPad
         - iPhone
         - Web
-      settingsPageURL: 'http://bridges.DOMAIN:5443/'
+      settingsPageURL: 'http://bridges.pryv.li:5443/'
       trustedConnection: true
     bridge-misfit:
       displayName: Misfit
       description: 'Pryv activities from my <strong>Misfit Shine</strong>.'
-      iconURL: 'https://sw.DOMAIN/apps/bridge-misfit/icon512.png'
-      appURL: 'https://bridges.DOMAIN:6443/'
+      iconURL: 'https://sw.pryv.li/apps/bridge-misfit/icon512.png'
+      appURL: 'https://bridges.pryv.li:6443/'
       active: true
       onboarding: true
       position: 3
@@ -336,13 +336,13 @@ register:
         - iPhone
         - Web
       category: 'Health & Activity'
-      settingsPageURL: 'https://bridges.DOMAIN:6443/'
+      settingsPageURL: 'https://bridges.pryv.li:6443/'
       trustedConnection: true
     bridge-moves:
       displayName: Moves
       description: 'Pryv the places I track with the <strong>Moves</strong> app.'
-      iconURL: 'https://sw.DOMAIN/apps/bridge-moves/icon512.png'
-      appURL: 'https://bridges.DOMAIN:7443/'
+      iconURL: 'https://sw.pryv.li/apps/bridge-moves/icon512.png'
+      appURL: 'https://bridges.pryv.li:7443/'
       active: true
       onboarding: true
       category: Location
@@ -351,13 +351,13 @@ register:
         - iPad
         - iPhone
         - Web
-      settingsPageURL: 'https://bridges.DOMAIN:7443/'
+      settingsPageURL: 'https://bridges.pryv.li:7443/'
       trustedConnection: true
     bridge-ihealth:
       displayName: iHealth
       description: 'Pryv my health data with <strong>iHealth</strong> app.'
-      iconURL: 'https://sw.DOMAIN/apps/bridge-ihealth/icon512.png'
-      appURL: 'https://bridges.DOMAIN:8443/'
+      iconURL: 'https://sw.pryv.li/apps/bridge-ihealth/icon512.png'
+      appURL: 'https://bridges.pryv.li:8443/'
       active: true
       onboarding: true
       category: 'Health & Activity'
@@ -366,12 +366,12 @@ register:
         - iPad
         - iPhone
         - Web
-      settingsPageURL: 'https://bridges.DOMAIN:8443/'
+      settingsPageURL: 'https://bridges.pryv.li:8443/'
       trustedConnection: true
     pryv-integration-osx:
       displayName: 'Pryv OSX'
       description: 'Integrate Pryv with your desktop'
-      iconURL: 'https://sw.DOMAIN/apps/pryv-integration-osx/icon512.png'
+      iconURL: 'https://sw.pryv.li/apps/pryv-integration-osx/icon512.png'
       appURL: 'https://itunes.apple.com/app/pryv/id881452044'
       active: false
       onboarding: false

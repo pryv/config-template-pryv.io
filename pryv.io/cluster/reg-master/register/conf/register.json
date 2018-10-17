@@ -1,12 +1,12 @@
 {
-  "hostnameOrIP": "https://reg.DOMAIN",
+  "hostnameOrIP": "https://reg.pryv.li",
   "http": {
     "static": {
-      "url": "https://www.COMPANY_WEBSITE",
-      "access": "https://sw.DOMAIN/access/access.html"
+      "url": "https://www.pryv.com",
+      "access": "https://sw.pryv.li/access/access.html"
     },
     "register": {
-      "url": "https://reg.DOMAIN"
+      "url": "https://reg.pryv.li"
     }
   },
   "service": {
@@ -20,12 +20,12 @@
   },
   "auth": {
     "authorizedKeys": {
-      "REGISTER_SYSTEM_KEY_1": {
+      "UNdrMmb9PJZkF82z": {
         "roles": [
           "system"
         ]
       },
-      "REGISTER_ADMIN_KEY_1": {
+      "perki|ghjfsduz743": {
         "roles": [
           "admin"
         ]
@@ -35,57 +35,55 @@
   "dns": {
     "port": 5353,
     "ip": "0.0.0.0",
-    "name": "reg.DOMAIN",
-    "domain": "DOMAIN",
+    "name": "reg.pryv.li",
+    "domain": "pryv.li",
     "domains": [
-      "DOMAIN"
+      "pryv.li"
     ],
     "nameserver": [
       {
-        "name": "dns1.DOMAIN",
+        "name": "dns1.pryv.li",
         "ip": "REG_MASTER_IP_ADRESS"
       },
       {
-        "name": "dns2.DOMAIN",
+        "name": "dns2.pryv.li",
         "ip": "REG_SLAVE_IP_ADRESS"
       }
     ],
     "staticDataInDomain": {
       "www": {
         "alias": {
-          "name": "SERVICE_WEBSITE_IP_ADDRESS"
+          "name": "https://pryv.com"
         }
       },
       "sw": {
-        "alias": {
-          "name": "STATIC_WEB_HOSTNAME"
-        }
+        "ip": "13.94.244.125"
       },
       "reg": {
-        "alias": {
-          "name": "REG_MASTER_HOSTNAME"
-        }
+        "ip": "13.94.242.168"
       },
       "service": {
-        "alias": {
-          "name": "REG_MASTER_HOSTNAME"
-        }
+        "ip": "13.94.242.168"
       },
       "access": {
-        "alias": {
-          "name": "REG_MASTER_HOSTNAME"
-        }
+        "ip": "13.94.242.168"
+      },
+      "dns1": {
+        "ip": "13.94.242.168"
+      },
+      "dns2": {
+        "ip": "52.166.63.91"
       }
     },
-    "domain_A": "SERVICE_WEBSITE_IP_ADDRESS",
+    "domain_A": "217.70.184.38",
     "nameserver": [
       {
-        "name": "REG_MASTER_HOSTNAME",
-        "ip": "REG_MASTER_IP_ADRESS"
+        "name": "dns1.pryv.li",
+        "ip": "13.94.242.168"
       },
       {
-        "name": "REG_SLAVE_HOSTNAME",
-        "ip": "REG_SLAVE_IP_ADRESS"
+        "name": "dns2.pryv.li",
+        "ip": "52.166.63.91"
       }
     ],
     "mail": [
@@ -108,7 +106,7 @@
       "CORE_HOSTING_1": [
         {
           "base_url": "https://CORE_2_HOSTNAME_OR_IP/",
-          "authorization": "CORE_SYSTEM_KEY"
+          "authorization": "ZSBt6e5xash"
         }
       ]
     },

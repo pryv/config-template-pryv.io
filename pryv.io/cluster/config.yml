@@ -1,15 +1,15 @@
 version: 1.0.0
-domain: DOMAIN
-extraDomains:
-  - DOMAIN
+pryv.li: pryv.li
+extrapryv.lis:
+  - pryv.li
 redis:
   password:
 coreDefaults:
-  systemKey: CORE_SYSTEM_KEY
+  systemKey: ZSBt6e5xash
 dns:
   listeningIp: 0.0.0.0
   listeningPort: 53
-  domain_A: SERVICE_WEBSITE_IP_ADDRESS
+  pryv.li_A: 217.70.184.38
   entries:
     -
       name: www
@@ -93,14 +93,14 @@ coreApi:
     port: 9000
     noSSL: true
   auth:
-    trustedApps: '*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*'
-    browserIdAudience: 'https://{username}.DOMAIN:443'
+    trustedApps: '*@https://*.rec.la*, *@https://*.pryv.li*, *@https://pryv.github.io*'
+    browserIdAudience: 'https://{username}.pryv.li:443'
     sessionMaxAge: 1209600000
-    ssoCookieDomain: .DOMAIN
+    ssoCookiepryv.li: .pryv.li
     ssoCookieSignSecret: OVERRIDE_ME
     filesReadTokenSecret: OVERRIDE_ME
     passwordResetRequestMaxAge: 3600000
-    passwordResetPageURL: 'https://sw.DOMAIN/access/reset-password.html'
+    passwordResetPageURL: 'https://sw.pryv.li/access/reset-password.html'
   audit:
     forceKeepHistory: true
     deletionMode: 'keep-authors'
@@ -145,21 +145,21 @@ swww:
     certsPathAndKey: false
   browserBootstrap:
     fields:
-      browser-source: 'https://sw.DOMAIN/browser'
+      browser-source: 'https://sw.pryv.li/browser'
   redirect:
     port: 0
 register:
-  hostnameOrIP: 'https://reg.DOMAIN'
+  hostnameOrIP: 'https://reg.pryv.li'
   systemKeys:
-    - REGISTER_SYSTEM_KEY_1
+    - UNdrMmb9PJZkF82z
   adminKeys:
-    - REGISTER_ADMIN_KEY_1
+    - perki|ghjfsduz743
   http:
     static:
       url: 'https://www.COMPANY_WEBSITE'
-      access: 'https://sw.DOMAIN/access/access.html'
+      access: 'https://sw.pryv.li/access/access.html'
     register:
-      url: 'https://reg.DOMAIN'
+      url: 'https://reg.pryv.li'
   service:
     name: 'PLATFORM_NAME'
     support: 'SUPPORT_LINK_IF_ANY'

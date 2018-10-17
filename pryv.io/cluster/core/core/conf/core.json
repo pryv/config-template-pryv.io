@@ -9,15 +9,15 @@
     "noSSL": true
   },
   "auth": {
-    "trustedApps": "*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*",
-    "browserIdAudience": "https://{username}.DOMAIN:443",
+    "trustedApps": "*@https://*.rec.la*, *@https://*.pryv.li*, *@https://pryv.github.io*",
+    "browserIdAudience": "https://{username}.pryv.li:443",
     "sessionMaxAge": 1209600000,
-    "ssoCookieDomain": ".DOMAIN",
-    "ssoCookieSignSecret": "OVERRIDE_ME",
-    "filesReadTokenSecret": "OVERRIDE_ME",
+    "ssoCookiepryv.li": ".pryv.li",
+    "ssoCookieSignSecret": "ZUsdufvh%asrd",
+    "filesReadTokenSecret": "Ct=btq-*N5-_j&Z",
     "passwordResetRequestMaxAge": 3600000,
-    "passwordResetPageURL": "https://sw.DOMAIN/access/reset-password.html",
-    "adminAccessKey": "CORE_SYSTEM_KEY"
+    "passwordResetPageURL": "https://sw.pryv.li/access/reset-password.html",
+    "adminAccessKey": "ZSBt6e5xash"
   },
   "audit": {
     "forceKeepHistory": true,
@@ -47,8 +47,8 @@
   },
   "services": {
     "register": {
-      "url": "https://reg.DOMAIN",
-      "key": "REGISTER_SYSTEM_KEY_1"
+      "url": "https://reg.pryv.li",
+      "key": "UNdrMmb9PJZkF82z"
     },
     "email": {
       "url": "https://mandrillapp.com",
