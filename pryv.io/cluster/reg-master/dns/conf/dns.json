@@ -72,6 +72,26 @@
       },
       "co3": {
         "ip": "52.166.117.110"
+      },
+      "bridges": {
+        "alias": {
+          "name": "stbridgemulti-amazon-use-01.pryv.net"
+        }
+      },
+      "import": {
+        "alias": {
+          "name": "gpaas3.dc0.gandi.net"
+        }
+      },
+      "ifttt": {
+        "alias": {
+          "name": "stifttt-amazon-use-01.pryv.net"
+        }
+      },
+      "bluebutton": {
+        "alias": {
+          "name": "stbluebutton-azure-nl-01.pryv.net"
+        }
       }
     },
     "domain_A": "217.70.184.38",
