@@ -17,9 +17,6 @@
   "eventTypes": {
     "sourceURL": "https://pryv.github.io/event-types/flat.json"
   },
-  "register": {
-    "secret": "REGISTER_SYSTEM_KEY_1"
-  },
   "auth": {
     "adminAccessKey": "CORE_SYSTEM_KEY",
     "trustedApps": "*@https://*.DOMAIN, *@https://*.pryv.me*, *@http://pryv.github.io, *@https://*.rec.la",
