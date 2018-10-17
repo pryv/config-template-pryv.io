@@ -44,7 +44,7 @@ if [ $1 == "reg-master" ]; then
   echo "###############################"
   echo "Syncing streg-azure-nl-01.pryv.net"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master/ streg-azure-nl-01.pryv.net:/var/pryv/reg --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master/ streg-azure-nl-01.pryv.net:/var/pryv/reg-master --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master.yml run-reg-master stop-containers streg-azure-nl-01.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf streg-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
 fi
@@ -55,7 +55,7 @@ if [ $1 == "reg-slave" ]; then
   echo "###############################"
   echo "Syncing streg-azure-nl-02.pryv.net"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave/ streg-azure-nl-02.pryv.net:/var/pryv/reg --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave/ streg-azure-nl-02.pryv.net:/var/pryv/reg-slave --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave.yml run-reg-slave stop-containers client-streg-azure-nl-02.ovpn connect-vpn-client-to-master streg-azure-nl-02.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf streg-azure-nl-02.pryv.net:/etc/logrotate.d/pryv
 fi
