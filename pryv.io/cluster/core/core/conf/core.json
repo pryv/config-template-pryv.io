@@ -1,12 +1,24 @@
 {
+  "env": "production",
+  "nightlyScriptCronTime": "00 15 2 * * *",
+  "http": {
+    "ip": "0.0.0.0",
+    "port": "9000"
+  },
+  "database": {
+    "host": "mongodb",
+    "port": 27017,
+    "name": "pryv-node"
+  },
   "eventFiles": {
     "attachmentsDirPath": "/app/data/attachments",
     "previewsDirPath": "/app/data/previews"
   },
-  "http": {
-    "ip": "0.0.0.0",
-    "port": 9000,
-    "noSSL": true
+  "eventTypes": {
+    "sourceURL": "https://api.pryv.com/event-types/flat.json"
+  },
+  "register": {
+    "secret": "REGISTER_SYSTEM_KEY_1"
   },
   "auth": {
     "trustedApps": "*@https://*.rec.la*, *@https://*.pryv.li*, *@https://pryv.github.io*",
@@ -18,32 +30,6 @@
     "passwordResetRequestMaxAge": 3600000,
     "passwordResetPageURL": "https://sw.pryv.li/access/reset-password.html",
     "adminAccessKey": "ZSBt6e5xash"
-  },
-  "audit": {
-    "forceKeepHistory": true,
-    "deletionMode": "keep-authors"
-  },
-  "logs": {
-    "console": {
-      "active": false
-    },
-    "file": {
-      "active": true,
-      "level": "info",
-      "path": "/app/log/core.log",
-      "maxFileBytes": 10000000000,
-      "maxNbFiles": 1
-    },
-    "airbrake": {
-      "active": false,
-      "projectId": "95887"
-    }
-  },
-  "updates": {
-    "ignoreProtectedFields": false
-  },
-  "eventTypes": {
-    "sourceURL": "https://api.pryv.com/event-types/flat.json"
   },
   "services": {
     "register": {
@@ -62,9 +48,29 @@
       }
     }
   },
-  "database": {
-    "host": "mongodb",
-    "port": 27017,
-    "name": "pryv-node"
+  "updates": {
+    "ignoreProtectedFields": false
+  },
+  "audit": {
+    "forceKeepHistory": false,
+    "deletionMode": "keep-authors"
+  },
+  "logs": {
+    "console": {
+      "active": true,
+      "level": "info",
+      "colorize": true
+    },
+    "file": {
+      "active": true,
+      "level": "info",
+      "path": "/app/log/core.log",
+      "maxFileBytes": 10000000000,
+      "maxNbFiles": 1
+    },
+    "airbrake": {
+      "active": false,
+      "key": "95887"
+    }
   }
 }

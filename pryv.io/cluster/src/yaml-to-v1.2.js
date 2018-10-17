@@ -2,15 +2,24 @@ const YAML = require('yamljs');
 const fs = require('fs');
 const _ = require('lodash');
 
-let sourceConfig = YAML.load(__dirname + '/../pryv.io/config.yml');
+let sourceConfig = YAML.load(__dirname + '/../config.yml');
 
 // ##########################
-// #######  Register  #######
+// ####  Register & DNS  ####
 // ##########################
 let registerConfig = filterAuthorizedKeys(sourceConfig.register);
 registerConfig.dns = {
-  domain: sourceConfig.domain
+  port: 5353,
+  ip: sourceConfig.dns.listeningIp,
+  name: 'reg.' + sourceConfig.domain,
+  domain: sourceConfig.domain,
+  domains: sourceConfig.extraDomains,
+  staticDataInDomain: formatEntries(sourceConfig.dns.entries),
+  domain_A: sourceConfig.dns.domain_A,
+  nameserver: sourceConfig.dns.nameServers,
+  mail: sourceConfig.dns.mail
 };
+
 registerConfig.net = {
   aaservers: filterCores(sourceConfig),
   aahostings: sourceConfig.hostings
@@ -23,7 +32,7 @@ registerConfig.airbrake = sourceConfig.extra.airbrake.register;
 
 
 function filterCores(source) { // cores
-  let aaservers = {}
+  let aaservers = {};
   source.cores.forEach((c) => {
     aaservers[c.hosting] = [
       {
@@ -36,7 +45,7 @@ function filterCores(source) { // cores
 }
 
 function filterAuthorizedKeys(source) { // authorizedKeys
-  let registerConfig = _.cloneDeep(source)
+  let registerConfig = _.cloneDeep(source);
   let output = {};
   registerConfig.systemKeys.forEach((k) => {
     output[k] = {
@@ -55,29 +64,6 @@ function filterAuthorizedKeys(source) { // authorizedKeys
   };
   return registerConfig;
 }
-
-
-// ##########################
-// ##########  DNS  #########
-// ##########################
-let dnsConfig = {
-  dns: {
-    port: 5353,
-    ip: sourceConfig.dns.listeningIp,
-    name: 'reg.' + sourceConfig.domain,
-    domain: sourceConfig.domain,
-    domains: sourceConfig.extraDomains,
-    staticDataInDomain: formatEntries(sourceConfig.dns.entries),
-    domainA: sourceConfig.dns.domainA,
-    nameserver: sourceConfig.dns.nameServers
-  },
-  redis: {
-    host: 'redis',
-    port: 6379
-  },
-  server: sourceConfig.dns.server,
-  airbrake: sourceConfig.extra.airbrake.dns
-};
 
 function formatEntries(entries) {
   let output = {};
@@ -187,11 +173,13 @@ delete registerConfig.server.ip;
 
 delete swwwConfig.http.ip;
 
-writeOutput(__dirname + '/../pryv.io/');
+writeOutput(__dirname + '/../');
 
 function writeOutput(folder) {
-  fs.writeFileSync(folder + 'reg/register/conf/register.json', JSON.stringify(registerConfig, null, 2));
-  fs.writeFileSync(folder + 'reg/dns/conf/dns.json', JSON.stringify(dnsConfig, null, 2));
+  fs.writeFileSync(folder + 'reg-master/register/conf/register.json', JSON.stringify(registerConfig, null, 2));
+  fs.writeFileSync(folder + 'reg-master/dns/conf/dns.json', JSON.stringify(registerConfig, null, 2));
+  fs.writeFileSync(folder + 'reg-slave/register/conf/register.json', JSON.stringify(registerConfig, null, 2));
+  fs.writeFileSync(folder + 'reg-slave/dns/conf/dns.json', JSON.stringify(registerConfig, null, 2));
   fs.writeFileSync(folder + 'core/core/conf/core.json', JSON.stringify(coreConfig, null, 2));
   fs.writeFileSync(folder + 'core/preview/conf/preview.json', JSON.stringify(previewConfig, null, 2));
   fs.writeFileSync(folder + 'static/static/conf/static.json', JSON.stringify(swwwConfig, null, 2));

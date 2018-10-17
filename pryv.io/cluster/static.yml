@@ -1,13 +1,13 @@
-version: '2.1'
+version: '3'
 services:
-  nginx:
+  reverse_proxy:
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
     networks:
       - frontend
     ports:
       - "443:443"
     volumes:
-      - ./static/nginx/conf/:/app/conf/
+      - ./static/nginx/conf/:/app/conf/:ro
       - ./static/nginx/log/:/app/log/
     restart: always
 

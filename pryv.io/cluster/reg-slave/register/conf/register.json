@@ -40,16 +40,6 @@
     "domains": [
       "pryv.li"
     ],
-    "nameserver": [
-      {
-        "name": "dns1.pryv.li",
-        "ip": "REG_MASTER_IP_ADRESS"
-      },
-      {
-        "name": "dns2.pryv.li",
-        "ip": "REG_SLAVE_IP_ADRESS"
-      }
-    ],
     "staticDataInDomain": {
       "www": {
         "alias": {
@@ -73,6 +63,15 @@
       },
       "dns2": {
         "ip": "52.166.63.91"
+      },
+      "co1": {
+        "ip": "104.46.37.100"
+      },
+      "co2": {
+        "ip": "13.94.243.69"
+      },
+      "co3": {
+        "ip": "52.166.117.110"
       }
     },
     "domain_A": "217.70.184.38",
@@ -103,9 +102,21 @@
   },
   "net": {
     "aaservers": {
-      "CORE_HOSTING_1": [
+      "stcore-azure-nl-01": [
         {
-          "base_url": "https://CORE_2_HOSTNAME_OR_IP/",
+          "base_url": "https://co1.pryv.li/",
+          "authorization": "ZSBt6e5xash"
+        }
+      ],
+      "stcore-azure-nl-02": [
+        {
+          "base_url": "https://co2.pryv.li/",
+          "authorization": "ZSBt6e5xash"
+        }
+      ],
+      "stcore-azure-nl-03": [
+        {
+          "base_url": "https://co3.pryv.li/",
           "authorization": "ZSBt6e5xash"
         }
       ]
@@ -124,12 +135,24 @@
                 "fr": "Suisse"
               },
               "hostings": {
-                "CORE_HOSTING_1": {
-                  "url": "https://hosting-provider.com",
-                  "name": "Hosting provider name",
-                  "description": "Hosting provider slogan",
+                "stcore-azure-nl-01": {
+                  "url": "https://azure.microsoft.com/",
+                  "name": "Microsoft Azure - 1",
+                  "description": "Azure. Cloud for all.",
                   "localizedDescription": {}
-                }
+                },
+                "stcore-azure-nl-02": {
+                  "url": "https://azure.microsoft.com/",
+                  "name": "Microsoft Azure - 1",
+                  "description": "Azure. Cloud for all.",
+                  "localizedDescription": {}
+                },
+                "stcore-azure-nl-03": {
+                  "url": "https://azure.microsoft.com/",
+                  "name": "Microsoft Azure - 1",
+                  "description": "Azure. Cloud for all.",
+                  "localizedDescription": {}
+                },
               }
             }
           }
