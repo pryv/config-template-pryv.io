@@ -34,10 +34,10 @@ dns:
   nameServers:
     -
       name: REG_MASTER_HOSTNAME
-      ip: REG_MASTER_IP_ADRESS
+      ip: REG_MASTER_IP_ADDRESS
     -
       name: REG_SLAVE_HOSTNAME
-      ip: REG_SLAVE_IP_ADRESS
+      ip: REG_SLAVE_IP_ADDRESS
   mail:
     -
        name: 'spool.mail.gandi.net'
