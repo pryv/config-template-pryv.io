@@ -1,5 +1,6 @@
 version: '3'
 services:
+
   reverse_proxy: 
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.2.13"
     networks: 
@@ -41,6 +42,7 @@ services:
     volumes: 
       - ./core/preview/conf/:/app/conf/:ro
       - ./core/core/data/:/app/data/
+      - ./core/preview/log:/app/log/
     links: 
       - mongodb
     restart: always
