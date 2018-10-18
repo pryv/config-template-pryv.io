@@ -34,10 +34,14 @@
     },
     "email": {
       "url": "https://mandrillapp.com",
-      "key": "RcVRdxyEdBTqfE1aMw",
+      "key": "RcVRdxyEdBTqfE1aMw-W9g",
       "sendMessagePath": "/api/1.0/messages/send-template.json",
       "welcomeTemplate": "welcome-email",
-      "resetPasswordTemplate": "reset-password"
+      "resetPasswordTemplate": "reset-password",
+      "enabled": {
+        "welcome": true,
+        "resetPassword": true
+      }
     }
   },
   "updates": {
