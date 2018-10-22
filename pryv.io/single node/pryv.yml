@@ -6,7 +6,6 @@ services:
     networks:
       - frontend
     ports:
-      - "80:80"
       - "443:443"
     volumes:
       - ./pryv/nginx/conf/:/app/conf/:ro
