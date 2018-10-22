@@ -19,7 +19,7 @@
   },
   "auth": {
     "adminAccessKey": "CORE_ADMIN_KEY",
-    "trustedApps": "*@http://pryv.github.io, *@https://*.DOMAIN",
+    "trustedApps": "*@https://*.DOMAIN, *@http://pryv.github.io, *@https://*.rec.la",
     "sessionMaxAge": 1209600000,
     "ssoCookieDomain": ".DOMAIN",
     "ssoCookieSignSecret": "OVERRIDE_ME",
@@ -33,15 +33,15 @@
       "key": "REGISTER_SYSTEM_KEY_1"
     },
     "email": {
-      "url": "https://mandrillapp.com",
-      "key": "RcVRdxyEdBTqfE1aMw-W9g",
-      "sendMessagePath": "/api/1.0/messages/send-template.json",
+      "enabled": {
+        "welcome": false,
+        "resetPassword": false
+      },
       "welcomeTemplate": "welcome-email",
       "resetPasswordTemplate": "reset-password",
-      "enabled": {
-        "welcome": true,
-        "resetPassword": true
-      }
+      "method": "microservice",
+      "url": "http://mail:9000/sendmail/",
+      "key": "CORE_MAIL_KEY"
     }
   },
   "updates": {
@@ -55,10 +55,10 @@
     },
     "file": {
       "active": true,
-      "level": "error",
+      "level": "info",
       "path": "/app/log/core.log",
-      "maxFileBytes": 100000000,
-      "maxNbFiles": 7
+      "maxFileBytes": 4096,
+      "maxNbFiles": 20
     },
     "airbrake": {
       "active": false,

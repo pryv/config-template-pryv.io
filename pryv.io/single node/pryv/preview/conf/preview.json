@@ -25,13 +25,14 @@
     "file": {
       "active": true,
       "level": "error",
-      "path": "/app/log/previews.log",
-      "maxFileBytes": 100000000,
-      "maxNbFiles": 7
+      "path": "/app/log/preview.log",
+      "maxFileBytes": 4096,
+      "maxNbFiles": 20
     },
     "airbrake": {
       "active": false,
-      "key": "OVERRIDE_ME"
+      "key": "OVERRIDE_ME",
+      "projectId": "OVERRIDE_ME"
     }
   }
 }

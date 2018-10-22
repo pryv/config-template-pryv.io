@@ -1,36 +1,10 @@
 {
-  "redis": {
-    "host": "redis",
-    "port": 6379
-  },
-  "server": {
-    "ssl": false,
-    "port": 9000
-  },
-  "http": {
-    "static": {
-      "url": "CUSTOMER_WEBSITE_URL",
-      "access": "https://sw.DOMAIN/access/access.html"
-    },
-    "register": {
-      "url": "https://reg.DOMAIN"
-    }
-  },
-  "hostnameOrIP": "https://reg.DOMAIN",
-  "auth": {
-    "authorizedKeys": {
-      "REGISTER_ADMIN_KEY_1": { "roles": ["admin"]},
-      "REGISTER_SYSTEM_KEY_1": {"roles": ["system"]}
-    }
-  },
   "dns": {
     "port": 5353,
     "ip": "0.0.0.0",
-    "name": "reg.DOMAIN",
+    "name": "local.DOMAIN",
     "domain": "DOMAIN",
-    "domains": [
-      "DOMAIN"
-    ],
+    "domains": ["DOMAIN"],
     "nameserver": [
       {
         "name": "dns1.DOMAIN",
@@ -45,29 +19,74 @@
       "www": {
         "alias": [
           {
-            "name": "sw.DOMAIN"
+            "name": "local.DOMAIN"
           }
         ]
       },
       "sw": {
-        "ip": "MACHINE_IP_ADDRESS"
-      },
-      "core1": {
-        "ip": "MACHINE_IP_ADDRESS"
+        "alias": [
+          {
+            "name": "local.DOMAIN"
+          }
+        ]
       },
       "reg": {
-        "ip": "MACHINE_IP_ADDRESS"
-      },
-      "access": {
+        "alias": [
+          {
+            "name": "local.DOMAIN"
+          }
+        ]
+      }, 
+      "mail": {
+        "alias": [
+          {
+            "name": "local.DOMAIN"
+          }
+        ]
+      }, 
+      "cr1": {
+        "alias": [
+          {
+            "name": "local.DOMAIN"
+          }
+        ]
+      }, 
+      "local": {
         "ip": "MACHINE_IP_ADDRESS"
       }
     }
+  },
+  "auth": {
+    "authorizedKeys": {
+      "REGISTER_ADMIN_KEY_1": { "roles": ["admin"]},
+      "REGISTER_SYSTEM_KEY_1": {"roles": ["system"]}
+    }
+  },
+  "redis": {
+    "host": "redis",
+    "port": 6379
+  },
+  "airbrake": {
+    "disable": true
+  },
+  "http": {
+    "static": {
+      "url": "https://sw.DOMAIN",
+      "access": "https://sw.DOMAIN/access/access.html"
+    },
+    "register": {
+      "url": "https://reg.DOMAIN"
+    }
+  },
+  "server": {
+    "ssl": false,
+    "port": 9000
   },
   "net": {
     "aaservers": {
       "pilot": [
         {
-          "base_url": "https://core1.DOMAIN",
+          "base_url": "https://cr1.DOMAIN/",
           "authorization": "CORE_ADMIN_KEY"
         }
       ]
@@ -87,7 +106,7 @@
               },
               "hostings": {
                 "pilot": {
-                  "url": "http://pryv.com",
+                  "url": "http://DOMAIN",
                   "name": "Self-Contained Pilot Core",
                   "description": "Local core inside the pilot deploy",
                   "localizedDescription": {}
@@ -99,7 +118,21 @@
       }
     }
   },
-  "airbrake": {
-    "disable": true
-  }
+  "appList": {
+    "test-a": {
+      "displayName": "Test app A",
+      "description": "Test app A description",
+      "iconURL": "http://placehold.it/150&text=A",
+      "appURL": "https://pryv.com",
+      "settingsPageURL": "https://api.pryv.com"
+    },
+    "test-b": {
+      "displayName": "Test app B",
+      "description": "Test app B description",
+      "iconURL": "http://placehold.it/150&text=B",
+      "appURL": "https://pryv.com",
+      "settingsPageURL": "https://api.pryv.com"
+    }
+  },
+  "hostnameOrIP": "https://reg.DOMAIN"
 }

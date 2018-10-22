@@ -2,8 +2,5 @@
 
 [[ -e pryv.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
 
-# Configuration and data files are all below this root.
-export PRYV_CONF_ROOT=$PWD/pryv
-
 echo "Running Pryv/core component."
 exec docker-compose -f pryv.yml up -d
