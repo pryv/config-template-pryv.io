@@ -2,7 +2,7 @@
   "dns": {
     "port": 5353,
     "ip": "0.0.0.0",
-    "name": "local.DOMAIN",
+    "name": "reg.DOMAIN",
     "domain": "DOMAIN",
     "domains": ["DOMAIN"],
     "nameserver": [

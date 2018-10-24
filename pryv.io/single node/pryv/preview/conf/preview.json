@@ -26,8 +26,8 @@
       "active": true,
       "level": "error",
       "path": "/app/log/preview.log",
-      "maxFileBytes": 4096,
-      "maxNbFiles": 20
+      "maxFileBytes": 100000000,
+      "maxNbFiles": 1
     },
     "airbrake": {
       "active": false,
