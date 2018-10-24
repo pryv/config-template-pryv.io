@@ -2,7 +2,7 @@
   "hostnameOrIP": "https://reg.DOMAIN",
   "http": {
     "static": {
-      "url": "COMPANY_WEBSITE",
+      "url": "https://sw.DOMAIN",
       "access": "https://sw.DOMAIN/access/access.html"
     },
     "register": {

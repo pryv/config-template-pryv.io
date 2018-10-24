@@ -1,0 +1,39 @@
+{
+  "logs": {
+    "prefix": "",
+    "console": { 
+      "active": true,
+      "level": "warn",
+      "colorize": true 
+    }, 
+    "file": {
+      "active": false
+    }
+  },
+  "email": {
+    "from": {
+      "name": "EMAIL_FROM_TEXT",
+      "address": "EMAIL_FROM_EMAIL"
+    }
+  },
+  "smtp": {
+    "host": "SMTP_SERVER",
+    "port": "SMTP_PORT",
+    "auth": {
+      "user": "SMTP_USERNAME",
+      "pass": "SMTP_PASSWORD"
+    }
+  },
+  "sendmail": {
+    "active": false,
+    "path": "sendmail"
+  },
+  "http": {
+    "ip": "0.0.0.0",
+    "port": 9000,
+    "auth": "CORE_MAIL_KEY"
+  },
+  "templates": {
+    "defaultLang": "en"
+  }
+}
