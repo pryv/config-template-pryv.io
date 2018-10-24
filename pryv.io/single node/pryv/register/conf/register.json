@@ -4,7 +4,9 @@
     "ip": "0.0.0.0",
     "name": "reg.DOMAIN",
     "domain": "DOMAIN",
-    "domains": ["DOMAIN"],
+    "domains": [
+      "DOMAIN"
+    ],
     "nameserver": [
       {
         "name": "dns1.DOMAIN",
@@ -36,21 +38,21 @@
             "name": "local.DOMAIN"
           }
         ]
-      }, 
+      },
       "mail": {
         "alias": [
           {
             "name": "local.DOMAIN"
           }
         ]
-      }, 
+      },
       "cr1": {
         "alias": [
           {
             "name": "local.DOMAIN"
           }
         ]
-      }, 
+      },
       "local": {
         "ip": "MACHINE_IP_ADDRESS"
       }
@@ -58,8 +60,16 @@
   },
   "auth": {
     "authorizedKeys": {
-      "REGISTER_ADMIN_KEY_1": { "roles": ["admin"]},
-      "REGISTER_SYSTEM_KEY_1": {"roles": ["system"]}
+      "REGISTER_ADMIN_KEY_1": {
+        "roles": [
+          "admin"
+        ]
+      },
+      "REGISTER_SYSTEM_KEY_1": {
+        "roles": [
+          "system"
+        ]
+      }
     }
   },
   "redis": {
@@ -134,5 +144,6 @@
       "settingsPageURL": "https://api.pryv.com"
     }
   },
-  "hostnameOrIP": "https://reg.DOMAIN"
+  "hostnameOrIP": "https://reg.DOMAIN",
+  "invitationTokens": null
 }

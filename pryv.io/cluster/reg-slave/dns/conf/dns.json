@@ -120,5 +120,6 @@
   },
   "airbrake": {
     "disable": true
-  }
+  },
+  "invitationTokens": null
 }

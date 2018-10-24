@@ -134,5 +134,6 @@
       "settingsPageURL": "https://api.pryv.com"
     }
   },
-  "hostnameOrIP": "https://reg.DOMAIN"
+  "hostnameOrIP": "https://reg.DOMAIN",
+  "invitationTokens": null
 }
