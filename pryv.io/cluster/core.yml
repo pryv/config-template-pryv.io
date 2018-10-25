@@ -51,7 +51,7 @@ services:
     volumes: 
       - ./core/preview/conf/:/app/conf/:ro
       - ./core/core/data/:/app/data/
-      - ./core/preview/log:/app/log/
+      - ./core/preview/log/:/app/log/
     links: 
       - mongodb
     restart: always
