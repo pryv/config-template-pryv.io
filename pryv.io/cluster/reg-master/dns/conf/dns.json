@@ -304,5 +304,6 @@
       "settingsPageURL": "https://bridges.pryv.li:8443/",
       "trustedConnection": true
     }
-  }
+  },
+  "invitationTokens": null
 }

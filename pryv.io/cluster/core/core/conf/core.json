@@ -33,15 +33,15 @@
       "key": "UNdrMmb9PJZkF82z"
     },
     "email": {
-      "url": "https://mandrillapp.com",
-      "key": "RcVRdxyEdBTqfE1aMw-W9g",
-      "sendMessagePath": "/api/1.0/messages/send-template.json",
-      "welcomeTemplate": "welcome-email",
-      "resetPasswordTemplate": "reset-password",
       "enabled": {
         "welcome": false,
-        "resetPassword": true
-      }
+        "resetPassword": false
+      },
+      "welcomeTemplate": "welcome-email",
+      "resetPasswordTemplate": "reset-password",
+      "method": "microservice",
+      "url": "http://mail:9000/sendmail/",
+      "key": "CORE_MAIL_KEY"
     }
   },
   "updates": {
