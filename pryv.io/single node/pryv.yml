@@ -103,7 +103,7 @@ services:
     volumes:
       - ./pryv/preview/conf/:/app/conf/:ro
       - ./pryv/core/data/:/app/data/
-      - ./pryv/preview/log:/app/log/
+      - ./pryv/preview/log/:/app/log/
     links:
       - mongodb
     restart: always
