@@ -34,14 +34,9 @@
     },
     "email": {
       "enabled": {
-        "welcome": false,
-        "resetPassword": false
-      },
-      "welcomeTemplate": "welcome-email",
-      "resetPasswordTemplate": "reset-password",
-      "method": "microservice",
-      "url": "http://mail:9000/sendmail/",
-      "key": "CORE_MAIL_KEY"
+        "welcome": true,
+        "resetPassword": true
+      }
     }
   },
   "updates": {
