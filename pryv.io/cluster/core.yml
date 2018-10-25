@@ -39,8 +39,8 @@ services:
     networks: 
       - frontend
     volumes: 
-      - ./pryv/mail/conf/:/app/conf/:ro
-      - ./pryv/mail/templates/:/app/bin/templates/:ro
+      - ./core/mail/conf/:/app/conf/:ro
+      - ./core/mail/templates/:/app/bin/templates/:ro
     restart: always
 
   preview: 
