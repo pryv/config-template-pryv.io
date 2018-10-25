@@ -6,7 +6,7 @@
 # the paths are currently hardcoded as they are not unified accross the remote hosts
 
 if [ $1 != "cores" ] && [ $1 != "reg-master" ] && [ $1 != "reg-slave" ] && [ $1 != "static" ]; then
-  echo "please specify which role: core, reg-master, reg-slave or static";
+  echo "please specify which role: cores, reg-master, reg-slave or static";
   exit 1;
 fi
 
