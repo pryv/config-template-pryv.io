@@ -11,17 +11,19 @@
     }
   },
   "email": {
-    "from": {
-      "name": "EMAIL_FROM_TEXT",
-      "address": "EMAIL_FROM_EMAIL"
+    "message": {
+      "from": {
+        "name": "Pryv",
+        "address": "support@pryv.com"
+      }
     }
   },
   "smtp": {
-    "host": "SMTP_SERVER",
-    "port": "SMTP_PORT",
+    "host": "smtp.mandrillapp.com",
+    "port": "587",
     "auth": {
-      "user": "SMTP_USERNAME",
-      "pass": "SMTP_PASSWORD"
+      "user": "tech@pryv.com",
+      "pass": "RcVRdxyEdBTqfE1aMw-W9g"
     }
   },
   "sendmail": {
@@ -31,7 +33,7 @@
   "http": {
     "ip": "0.0.0.0",
     "port": 9000,
-    "auth": "CORE_MAIL_KEY"
+    "auth": "SHW1z85eGEErEzmZ"
   },
   "templates": {
     "defaultLang": "en"

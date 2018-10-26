@@ -37,10 +37,9 @@
         "welcome": true,
         "resetPassword": true
       },
-      "method": "mandrill",
-      "url": "https://mandrillapp.com",
-      "key": "RcVRdxyEdBTqfE1aMw-W9g",
-      "sendMessagePath": "/api/1.0/messages/send-template.json",
+      "method": "microservice",
+      "url": "http://mail:9000/sendmail/",
+      "key": "SHW1z85eGEErEzmZ",
       "welcomeTemplate": "welcome-email",
       "resetPasswordTemplate": "reset-password"
     }
