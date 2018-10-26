@@ -11,9 +11,11 @@
     }
   },
   "email": {
-    "from": {
-      "name": "EMAIL_FROM_TEXT",
-      "address": "EMAIL_FROM_EMAIL"
+    "message": {
+      "from": {
+        "name": "EMAIL_FROM_TEXT",
+        "address": "EMAIL_FROM_EMAIL"
+      }
     }
   },
   "smtp": {
