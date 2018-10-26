@@ -1,6 +1,6 @@
 version: 1.0.0
-pryv.li: pryv.li
-extrapryv.lis:
+domain: pryv.li
+extraDomains:
   - pryv.li
 redis:
   password:
@@ -9,7 +9,7 @@ coreDefaults:
 dns:
   listeningIp: 0.0.0.0
   listeningPort: 53
-  pryv.li_A: 217.70.184.38
+  domain_A: 217.70.184.38
   entries:
     -
       name: www

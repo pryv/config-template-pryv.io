@@ -1,6 +1,6 @@
 version: 1.0.0
-pryv.li: pryv.li
-extrapryv.lis:
+domain: pryv.li
+extraDomains:
   - pryv.li
 redis:
   password: OVERRIDE_ME # password on redis is not necessary now as redis has no public interface when containerized
@@ -9,10 +9,10 @@ coreDefaults:
 dns:
   listeningIp: 0.0.0.0
   listeningPort: 53
-  pryv.liA: 95.142.162.223 # IP address of www.TLD. Should send to service homepage, eg. pryv.com
+  domain_A: 95.142.162.223 # IP address of www.TLD. Should send to service homepage, eg. pryv.com
   entries:
     -
-      name: www # should point to same as pryv.liA (above)
+      name: www # should point to same as domainA (above)
       type: alias
       value: stswww-gandi-fr-01.pryv.net
     -
@@ -182,7 +182,7 @@ coreApi:
     trustedApps: '*@https://*.rec.la*, *@https://*.pryv.li*, *@https://pryv.github.io*'
     browserIdAudience: 'https://{username}.pryv.li:443'
     sessionMaxAge: 1209600000
-    ssoCookiepryv.li: .pryv.li
+    ssoCookieDomain: .pryv.li
     ssoCookieSignSecret: OVERRIDE_ME
     filesReadTokenSecret: OVERRIDE_ME
     passwordResetRequestMaxAge: 3600000
