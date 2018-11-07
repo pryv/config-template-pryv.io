@@ -51,9 +51,6 @@
       }
     ],
     "staticDataInDomain": {
-      "www": {
-        "ip": "SERVICE_WEBSITE_IP_ADDRESS"
-      },
       "sw": {
         "ip": "STATIC_WEB_IP_ADDRESS"
       },

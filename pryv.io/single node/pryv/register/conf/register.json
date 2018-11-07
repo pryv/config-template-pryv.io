@@ -18,13 +18,6 @@
       }
     ],
     "staticDataInDomain": {
-      "www": {
-        "alias": [
-          {
-            "name": "local.DOMAIN"
-          }
-        ]
-      },
       "sw": {
         "alias": [
           {

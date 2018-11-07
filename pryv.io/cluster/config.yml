@@ -11,11 +11,6 @@ dns:
   listeningPort: 53
   domain_A: SERVICE_WEBSITE_IP_ADDRESS
   entries:
-    -
-      name: www
-      type: alias
-      value: SERVICE_WEBSITE_IP_ADDRESS
-    -
       name: sw
       type: alias
       value: STATIC_WEB_HOSTNAME
