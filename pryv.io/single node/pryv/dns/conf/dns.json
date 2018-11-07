@@ -47,7 +47,8 @@
       "local": {
         "ip": "MACHINE_IP_ADDRESS"
       }
-    }
+    },
+    "domain_A": "SERVICE_WEBSITE_IP_ADDRESS"
   },
   "auth": {
     "authorizedKeys": {
