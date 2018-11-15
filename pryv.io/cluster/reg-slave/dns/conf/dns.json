@@ -40,6 +40,9 @@
     "domains": [
       "DOMAIN"
     ],
+    "certificateAuthorityAuthorization": {
+      "issuer": "letsencrypt.org"
+    },
     "nameserver": [
       {
         "name": "dns1.DOMAIN",
