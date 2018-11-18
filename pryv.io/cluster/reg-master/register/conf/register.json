@@ -99,7 +99,7 @@
               },
               "hostings": {
                 "CORE_HOSTING_1": {
-                  "url": "https://hosting-provider.com",
+                  "url": "https://hostingprovider.com",
                   "name": "Hosting provider name",
                   "description": "Hosting provider slogan",
                   "localizedDescription": {}
