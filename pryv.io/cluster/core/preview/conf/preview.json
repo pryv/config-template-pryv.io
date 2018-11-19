@@ -22,13 +22,6 @@
       "level": "info",
       "colorize": false
     },
-    "file": {
-      "active": true,
-      "level": "info",
-      "path": "/app/log/preview.log",
-      "maxFileBytes": 10000000000,
-      "maxNbFiles": 1
-    },
     "airbrake": {
       "active": false,
       "key": "OVERRIDE_ME",
