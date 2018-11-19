@@ -40,6 +40,9 @@
     "domains": [
       "DOMAIN"
     ],
+    "certificateAuthorityAuthorization": {
+      "issuer": "letsencrypt.org"
+    },
     "nameserver": [
       {
         "name": "dns1.DOMAIN",
@@ -77,7 +80,7 @@
   },
   "net": {
     "aaservers": {
-      "core1": [
+      "CORE_HOSTING_1": [
         {
           "base_url": "https://co1.DOMAIN/",
           "authorization": "CORE_SYSTEM_KEY"
@@ -98,7 +101,7 @@
                 "fr": "Suisse"
               },
               "hostings": {
-                "core1": {
+                "CORE_HOSTING_1": {
                   "url": "https://hostingprovider.com",
                   "name": "Hosting provider name",
                   "description": "Hosting provider slogan",
