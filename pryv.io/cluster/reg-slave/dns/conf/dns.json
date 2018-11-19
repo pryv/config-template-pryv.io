@@ -40,6 +40,9 @@
     "domains": [
       "pryv.li"
     ],
+    "certificateAuthorityAuthorization": {
+      "issuer": "letsencrypt.org"
+    },
     "staticDataInDomain": {
       "www": {
         "alias": {
