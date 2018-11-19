@@ -24,7 +24,6 @@ services:
     links: 
       - redis
     restart: always
-    hostname: "$HOSTNAME"
 
   dns: 
     image: "pryvsa-docker-release.bintray.io/pryv/dns:1.2.23"
@@ -39,7 +38,6 @@ services:
     links: 
       - redis
     restart: always
-    hostname: "$HOSTNAME"
 
   redis: 
     image: "pryvsa-docker-release.bintray.io/pryv/redis:1.2.13"

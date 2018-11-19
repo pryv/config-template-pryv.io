@@ -77,7 +77,7 @@
   },
   "net": {
     "aaservers": {
-      "CORE_HOSTING_1": [
+      "core1": [
         {
           "base_url": "https://co1.DOMAIN/",
           "authorization": "CORE_SYSTEM_KEY"
@@ -98,8 +98,8 @@
                 "fr": "Suisse"
               },
               "hostings": {
-                "CORE_HOSTING_1": {
-                  "url": "https://hosting-provider.com",
+                "core1": {
+                  "url": "https://hostingprovider.com",
                   "name": "Hosting provider name",
                   "description": "Hosting provider slogan",
                   "localizedDescription": {}
