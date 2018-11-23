@@ -12,6 +12,16 @@ Please use this template as basis for future customer deployments and keep this 
 
 You will find instructions regarding variables and other settings in the directories [pryv.io/cluster](pryv.io/cluster/) and [pryv.io/single-node](pryv.io/single-node/).
 
+### Update
+
+In the clone repository, add this template repository as a secondary remote: `git remote add template git@github.com:pryv/config-template-pryv.io.git`
+
+Then each time, you wish to apply an update, run:
+1. `git fetch template master`
+2. `git merge template/master`
+3. resolve conflicts
+4. use update
+
 ### Versions
 
 - **1.3**: v1.3 has been merged into master
