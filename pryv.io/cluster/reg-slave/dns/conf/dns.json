@@ -189,7 +189,8 @@
   },
   "airbrake": {
     "disable": false,
-    "key": "88ec825519c81c3a248a5d19284970a0"
+    "key": "88ec825519c81c3a248a5d19284970a0",
+    "projectId": "95889"
   },
   "appList": {
     "pryv-csv-importer": {
