@@ -12,7 +12,7 @@ Please use this template as basis for future customer deployments and keep this 
 
 You will find instructions regarding variables and other settings in the directories [pryv.io/cluster](pryv.io/cluster/) and [pryv.io/single-node](pryv.io/single-node/).
 
-### Update
+### Update clone from template
 
 In the clone repository, add this template repository as a secondary remote: `git remote add template git@github.com:pryv/config-template-pryv.io.git`
 
@@ -21,6 +21,15 @@ Then each time, you wish to apply an update, run:
 2. `git merge template/master`
 3. resolve conflicts
 4. use update
+
+### Update instructions to customers
+
+When sending a new release to customers, please include these instructions:
+
+1. Backup your configuration to allow rolling back.
+2. Replace the configuration files for "docker-compose" by the new files in this release. 
+3. Take your installation down ('docker-compose -f FILE down') and then recreate it from the new binaries: 'docker-compose -f FILE up -d'. This makes sure nothing lingers in docker. 
+4. Verify the new release. 
 
 ### Versions
 
