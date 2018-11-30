@@ -51,6 +51,7 @@ services:
     volumes: 
       - ./pryv/redis/conf/:/app/conf/:ro
       - ./pryv/redis/data/:/app/data/
+      - ./pryv/redis/log/:/app/log/
     restart: always
   # Register role END ----------------------------------------------------------
 
@@ -115,6 +116,7 @@ services:
       - backend
     volumes: 
       - ./pryv/mongodb/data/:/app/data/
+      - ./pryv/mongodb/log/:/app/log/
     restart: always
 
   influxdb: 
