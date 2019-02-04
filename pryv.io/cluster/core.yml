@@ -28,7 +28,7 @@ services:
       - ./core/core/data/:/app/data/
       - ./core/core/log/:/app/log/
     environment: 
-      - NUM_PROCS=2
+      - NUM_PROCS=4
     links: 
       - mongodb
     restart: always
