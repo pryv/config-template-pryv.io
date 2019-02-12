@@ -44,8 +44,8 @@ if [ $1 == "reg-master" ]; then
   echo "###############################"
   echo "Syncing streg-azure-nl-01.pryv.net"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master reg-master.yml run-reg-master stop-containers streg-azure-nl-01.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf streg-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master reg-master.yml run-reg-master stop-containers 185.19.30.198:/var/pryv --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf 185.19.30.198:/etc/logrotate.d/pryv
 fi
 
 if [ $1 == "reg-slave" ]; then
