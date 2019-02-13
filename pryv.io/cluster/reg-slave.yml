@@ -6,6 +6,7 @@ services:
       - frontend
     ports: 
       - "443:443"
+      - "80:80"
     volumes: 
       - ./reg-slave/nginx/conf/:/app/conf/:ro
       - ./reg-slave/nginx/log/:/app/log/
