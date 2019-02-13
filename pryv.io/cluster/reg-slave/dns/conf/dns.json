@@ -62,13 +62,10 @@
         "ip": "185.19.30.198"
       },
       "co1": {
-        "ip": "104.46.37.100"
+        "ip": "89.145.167.179"
       },
       "co2": {
-        "ip": "13.94.243.69"
-      },
-      "co3": {
-        "ip": "52.166.117.110"
+        "ip": "89.145.166.17"
       },
       "bridges": {
         "alias": {
@@ -119,21 +116,15 @@
   },
   "net": {
     "aaservers": {
-      "stcore-azure-nl-01": [
+      "core-pryv-li-exoscale-ch-01": [
         {
           "base_url": "https://co1.pryv.li/",
           "authorization": "ZSBt6e5xash"
         }
       ],
-      "stcore-azure-nl-02": [
+      "core-pryv-li-exoscale-ch-02": [
         {
           "base_url": "https://co2.pryv.li/",
-          "authorization": "ZSBt6e5xash"
-        }
-      ],
-      "stcore-azure-nl-03": [
-        {
-          "base_url": "https://co3.pryv.li/",
           "authorization": "ZSBt6e5xash"
         }
       ]
@@ -147,27 +138,21 @@
           },
           "zones": {
             "netherlands": {
-              "name": "Netherlands",
+              "name": "Switzerland",
               "localizedName": {
-                "fr": "Pay-Bas"
+                "fr": "Suisse"
               },
               "hostings": {
-                "stcore-azure-nl-01": {
-                  "url": "https://azure.microsoft.com",
-                  "name": "Microsoft Azure - 1 - A4v2 instance",
-                  "description": "Azure. Cloud for all.",
+                "core-pryv-li-exoscale-ch-01": {
+                  "url": "https://exoscale.ch",
+                  "name": "Large",
+                  "description": "Le meilleur et le moins cher",
                   "localizedDescription": {}
                 },
-                "stcore-azure-nl-02": {
-                  "url": "https://azure.microsoft.com",
-                  "name": "Microsoft Azure - 2 - A4v2 instance",
-                  "description": "Azure. Cloud for all.",
-                  "localizedDescription": {}
-                },
-                "stcore-azure-nl-03": {
-                  "url": "https://azure.microsoft.com",
-                  "name": "Microsoft Azure - 3 - F4 instance - SSD",
-                  "description": "Azure. Cloud for all.",
+                "core-pryv-li-exoscale-ch-02": {
+                  "url": "https://exoscale.ch",
+                  "name": "Large",
+                  "description": "Le meilleur et le moins cher",
                   "localizedDescription": {}
                 }
               }

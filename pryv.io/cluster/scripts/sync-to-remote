@@ -20,22 +20,16 @@ if [ $1 == "cores" ]; then
   echo "Syncing core machines"
 
   echo "###############################"
-  echo "Syncing stcore-azure-nl-01.pryv.net"
+  echo "Syncing co-pryv-li-exoscale-ch-01.pryv.net"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers stcore-azure-nl-01.pryv.net:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-01.pryv.net:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers 89.145.167.179:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf 89.145.167.179:/etc/logrotate.d/pryv
 
   echo "###############################"
-  echo "Syncing stcore-azure-nl-02.pryv.net"
+  echo "Syncing co-pryv-li-exoscale-ch-02.pryv.net"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers stcore-azure-nl-02.pryv.net:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-02.pryv.net:/etc/logrotate.d/pryv
-
-  echo "###############################"
-  echo "Syncing stcore-azure-nl-03.pryv.net"
-  echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers stcore-azure-nl-03.pryv.net:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf stcore-azure-nl-03.pryv.net:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers 89.145.166.17:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf 89.145.166.17:/etc/logrotate.d/pryv
 fi
 
 if [ $1 == "reg-master" ]; then
