@@ -21,6 +21,14 @@ These values need to be replaced in the configuration. If possible, obtain these
 * MACHINE_IP_ADDRESS: IP address of machine running pryv.io
 * OVERRIDE_ME: single appearance values that need to be replaced with a strong key
 
+#### optional variables
+
+These fields will be available in https://reg.DOMAIN/service/infos
+
+* PLATFORM_NAME
+* SUPPORT_LINK
+* TERMS_OF_USE_LINK
+
 ### Local Usage
 
 In [pryv/nginx/conf/nginx.conf], uncomment the following lines:  
