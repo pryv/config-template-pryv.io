@@ -2,20 +2,16 @@
 
 In the `pryv.io/` folder, you will find the template configuration files for a pryv.io single node installation.
 
-
 ## Usage
 
-1. Copy this repository content in new repository `config-DOMAIN`
-2. Replace the [platform-specific variables](#variables) in the `pryv.io/**/conf/*.{json|conf}` files. Use `Replace in path` or equivalent in a IDE.
-6. In `pryv.io/static/nginx/conf/site.conf`, change the proxying for route `/access/` to `https://pryv.github.io/app-web-auth2/DOMAIN/`.
-7. On the [app-web-auth2 repository gh-pages branch](https://github.com/pryv/app-web-auth2/), create a symlink to the latest version named `DOMAIN`. Or tell the customer to fork the repository, make a push on the `#gh-pages` branch and create the link there. You should then set the proxying in point 3 to `https://CUSTOMER.github.io/app-web-auth2/DOMAIN/`
-8. If needed, update docker image versions in `pryv.io/{core,reg,static}.yml`.
-9. Generate tarballs from config files using `./pryv.io/build ${DOMAIN}`.
-10. Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
+1. Replace the [platform-specific variables](#variables) in the `pryv/**/conf/*.{json|conf}` files. Use `Replace in path` or equivalent in a IDE.
+2. If needed, update docker image versions in `{core,reg,static}.yml`.
+3. Generate tarballs from config files using `./build ${DOMAIN}`.
+4. Follow the instructions in `INSTALL.md` to install and run the software on the dedicated machines.
 
 ### Local Usage
 
-In [/pryv.io/pryv/nginx/conf/nginx.conf], uncomment the following lines:  
+In [pryv/nginx/conf/nginx.conf], uncomment the following lines:  
 
 ```
 # ssl_certificate      /app/conf/secret/rec.la-bundle.crt;
