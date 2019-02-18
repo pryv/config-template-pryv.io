@@ -1,5 +1,5 @@
 
-This manual contains installation instructions for a three-server setup of Pryv.
+This manual contains installation instructions for a single server setup of Pryv.
 You should have prepared your server with the Installation Prerequisites manual
 first. 
 
@@ -27,7 +27,7 @@ Please create a directory where all your Pryv data should live. We suggest somet
   * Copy the configuration tarball to the root of the directory. 
   * Untar the configuration in place. 
 
-You should have the three following entries now: 
+You should have the four following entries now: 
 
   * A file called `run-pryv`. This is your startup script. 
   * A file called `pryv.yml`. This is the docker-compose script that is 
@@ -41,12 +41,12 @@ You should have the three following entries now:
 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
-Your certificate files must be placed in this location: 
+Your certificate files must be placed in these locations: 
 
   - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/DOMAIN-bundle.crt` 
   - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/DOMAIN-key.pem`
 
-If you wish to store the files in a different location,  please edit the nginx server configuration files in `pryv/nginx/conf/nginx.conf` to point to the files. 
+If you wish to store the files in a different location, please edit the nginx server configuration files in `pryv/nginx/conf/nginx.conf` to point to the files. 
 
 # Launching the Installation
 
@@ -58,7 +58,7 @@ To log in, type:
 
 You will be prompted for a username and password. Please enter the credentials you were provided.
 
-Once this completes, you're ready to launch the pryv component. To launch the installation, you should type
+Once this completes, you're ready to launch the pryv component. To launch the installation, you should type:  
 
     $ sudo ./run-pryv
 
