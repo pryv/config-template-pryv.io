@@ -3,6 +3,8 @@
 *-ca.pem
 *-cert.pem
 
+*.tgz
+
 !rec.la-bundle.crt 
 !rec.la-ca.pem     
 !rec.la-cert.crt   
