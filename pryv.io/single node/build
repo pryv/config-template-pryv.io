@@ -2,22 +2,15 @@
 
 set -e
 
-# Builds distribution tarballs for the configuration given by DIRNAME. 
-#
-#   scripts/build DIRNAME
-#
-
-dirname=`dirname "$0"`
-root=$dirname/pryv.io
 
 function build_role() {
-  role=$1
+  role="pryv"
   
-  tar czf "$root/tarballs/$dirname-$role.tgz" \
-    $root/$role.yml  \
-    $root/$role \
-    $root/run-$role \
-    $root/stop-containers
+  tar czf "pryv-single-node.tgz" \
+    $role.yml  \
+    $role \
+    run-$role \
+    stop-containers
 }
 
 build_role "pryv"
