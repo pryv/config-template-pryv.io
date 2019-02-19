@@ -5,9 +5,10 @@ In the current folder, you will find the template configuration files for a Pryv
 ## Usage
 
 1. Replace the [platform-specific variables](#variables) files within this directory.
-2. If needed, update docker image versions in `pryv.io/{core,reg,static}.yml`.
-3. Generate tarballs in `tarballs/` from config files using `./scripts/build ${DOMAIN}`.
-4. Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
+2. If you are using a single register machine, remove `REG_MASTER_VPN_IP_ADDRESS` part from the `reg-master.yml` file.
+3. If needed, update docker image versions in `pryv.io/{core,reg,static}.yml`.
+4. Generate tarballs in `tarballs/` from config files using `./scripts/build ${DOMAIN}`.
+5. Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
 
 ### Variables
 
