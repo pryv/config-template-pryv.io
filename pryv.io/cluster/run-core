@@ -1,6 +1,18 @@
 #!/usr/bin/env bash
 
+set -e
+
 [[ -e core.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
+
+echo "Setting up data and log folders permissions."
+
+chown -R 9999:9999 ./core/core/data
+chown -R 9999:9999 ./core/core/log
+
+chown -R 9999:9999 ./core/hfs/data
+chown -R 9999:9999 ./core/hfs/log
+
+chown -R 9999:9999 ./core/preview/log
 
 echo "Running Pryv/core component."
 exec docker-compose -f core.yml up -d 
