@@ -1,0 +1,22 @@
+ #!/usr/bin/env bash
+
+set -e
+
+echo "Ensuring data and log folders permissions for core..."
+
+chown -R 9999:9999 ./core/core/data
+chown -R 9999:9999 ./core/core/log
+
+chown -R 9999:9999 ./core/hfs/data
+chown -R 9999:9999 ./core/hfs/log
+
+chown -R 9999:9999 ./core/influxdb/data
+
+chown -R 9999:9999 ./core/mongodb/data
+chown -R 9999:9999 ./core/mongodb/log
+
+chown -R 9999:9999 ./core/nginx/log
+
+chown -R 9999:9999 ./core/preview/log
+
+echo "Done!"

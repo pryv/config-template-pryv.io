@@ -1,0 +1,10 @@
+ #!/usr/bin/env bash
+
+set -e
+
+echo "Ensuring data and log folders permissions for reg-master."
+
+chown -R 9999:9999 ./reg-master/redis/data
+chown -R 9999:9999 ./reg-master/redis/log
+
+echo "Done!"
