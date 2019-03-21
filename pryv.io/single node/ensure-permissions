@@ -1,0 +1,47 @@
+ #!/usr/bin/env bash
+
+set -e
+
+echo "Ensuring data and log folders permissions..."
+
+echo "pryv/core"
+
+chown -R 9999:9999 ./pryv/core/data
+chown -R 9999:9999 ./pryv/core/log
+
+echo "pryv/mongodb"
+
+chown -R 9999:9999 ./pryv/mongodb/data
+chown -R 9999:9999 ./pryv/mongodb/log
+
+echo "pryv/hfs"
+
+chown -R 9999:9999 ./pryv/hfs/data
+chown -R 9999:9999 ./pryv/hfs/log
+
+echo "pryv/influxdb"
+
+chown -R 9999:9999 ./pryv/influxdb/data
+
+echo "pryv/preview"
+
+chown -R 9999:9999 ./pryv/preview/log
+
+echo "pryv/nginx"
+
+chown -R 9999:9999 ./pryv/nginx/log
+
+echo "pryv/register"
+
+chown -R 9999:9999 ./pryv/register/log
+
+echo "pryv/dns"
+
+chown -R 9999:9999 ./pryv/dns/log
+
+echo "pryv/redis"
+
+chown -R 9999:9999 ./pryv/redis/data
+chown -R 9999:9999 ./pryv/redis/log
+
+echo "Done!"
