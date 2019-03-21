@@ -2,9 +2,23 @@
 
 set -e
 
-echo "Ensuring data and log folders permissions for reg-master."
+echo "Ensuring data and log folders permissions for reg-master..."
+
+echo "reg-master/register"
+
+chown -R 9999:9999 ./reg-master/register/log
+
+echo "reg-master/dns"
+
+chown -R 9999:9999 ./reg-master/dns/log
+
+echo "reg-master/redis"
 
 chown -R 9999:9999 ./reg-master/redis/data
 chown -R 9999:9999 ./reg-master/redis/log
+
+echo "reg-master/nginx"
+
+chown -R 9999:9999 ./reg-master/nginx/log
 
 echo "Done!"
