@@ -29,6 +29,9 @@ Please create a directory where all your Pryv data should live. We suggest somet
 
 You should have the four following entries now: 
 
+  * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
+  * A file called `ensure-permissions`. This script ensures that the correct
+    permissions are set for data and log directories.
   * A file called `run-pryv`. This is your startup script. 
   * A file called `pryv.yml`. This is the docker-compose script that is 
     used to launch the service. 
@@ -58,7 +61,11 @@ To log in, type:
 
 You will be prompted for a username and password. Please enter the credentials you were provided.
 
-Once this completes, you're ready to launch the pryv component. To launch the installation, you should type:  
+Once this completes, set the required permissions on data and log directories by running the following script:
+
+    $ sudo ./ensure-permissions
+
+You're now ready to launch the pryv component. To launch the installation, you should type:  
 
     $ sudo ./run-pryv
 

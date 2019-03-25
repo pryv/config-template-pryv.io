@@ -34,10 +34,13 @@ Please create a directory where all your Pryv data should live. We suggest somet
 
 You should have the three following entries now: 
 
+  * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
+  * A file called `ensure-permissions-${ROLE}`. This script ensures that the correct 
+    permissions are set for data and log directories.
   * A file called `run-${ROLE}`. This is your startup script. 
-  * A file called `${ROLE}.yml` - this is the docker-compose script that is 
+  * A file called `${ROLE}.yml`. This is the docker-compose script that is 
     used to launch the service. 
-  * A directory called ${ROLE} - this contains configuration and data
+  * A directory called ${ROLE}. This contains configuration and data
     directories that will be mapped as volumes in the various docker 
     containers. 
   * A file called `stop-containers`. This script stops all running containers.
@@ -65,9 +68,11 @@ To log in, type:
 
     $ docker login pryvsa-docker-release.bintray.io
 
-You will be prompted for a username and password. Please enter the credentials you were provided.
+Once this completes, set the required permissions on data and log directories by running the following script:
 
-Once this completes, you're ready to launch the pryv component. To launch the installation, you should type:  
+    $ sudo ./ensure-permissions-${ROLE}
+
+You're now ready to launch the pryv component. To launch the installation, you should type:  
 
     $ sudo ./run-${ROLE}
     
