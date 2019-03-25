@@ -68,6 +68,8 @@ To log in, type:
 
     $ docker login pryvsa-docker-release.bintray.io
 
+You will be prompted for a username and password. Please enter the credentials you were provided.
+
 Once this completes, set the required permissions on data and log directories by running the following script:
 
     $ sudo ./ensure-permissions-${ROLE}
