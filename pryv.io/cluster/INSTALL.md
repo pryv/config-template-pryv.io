@@ -16,7 +16,7 @@ You might have to use `docker-ce` and your versions can be newer:
 
 If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv registry server: 
 
-    $ dig NS DOMAIN
+    $ dig NS ${DOMAIN}
 
 Normally, your NS records should resolve to the names you gave to the registry server you intend to set up. Please check if your A records exist and point to the same machine. 
     
@@ -48,12 +48,12 @@ All services use Nginx to terminate inbound HTTPS connections. You should have o
 
 Your certificate files must be placed in these locations for the respective roles:  
 
-  * core: `core/nginx/conf/secret/MYPRYVDOMAIN-bundle.crt`, 
-    `core/nginx/conf/secret/MYPRYVDOMAIN-key.pem`
-  * static: `static/nginx/conf/secret/MYPRYVDOMAIN-bundle.crt`,
-    `static/nginx/conf/secret/MYPRYVDOMAIN-key.pem`
-  * reg: `reg/nginx/conf/secret/MYPRYVDOMAIN-bundle.crt`, 
-    `reg/nginx/conf/secret/MYPRYVDOMAIN-key.pem`
+  * core: `core/nginx/conf/secret/${DOMAIN}-bundle.crt`, 
+    `core/nginx/conf/secret/${DOMAIN}-key.pem`
+  * static: `static/nginx/conf/secret/${DOMAIN}-bundle.crt`,
+    `static/nginx/conf/secret/${DOMAIN}-key.pem`
+  * reg: `reg/nginx/conf/secret/${DOMAIN}-bundle.crt`, 
+    `reg/nginx/conf/secret/${DOMAIN}-key.pem`
 
 If you wish to store the files in a different location, please edit the nginx server configuration files in `${ROLE}/nginx/conf/nginx.conf` to point to the files.   
 
@@ -75,6 +75,6 @@ This command will download the docker images that belong to your release from th
 
 # Closing Remarks
 
-You should now have a working docker installation. You can test this by directing a browser at [https://sw.DOMAIN/access/register.html](https://sw.DOMAIN/access/register.html) and filling in the form. 
+You should now have a working docker installation. You can test this by directing a browser at [https://sw.${DOMAIN}/access/register.html](https://sw.${DOMAIN}/access/register.html) and filling in the form. 
 
 If you need support, please contact your account manager @ Pryv. We're glad to help you with any questions you might have. 
