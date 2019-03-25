@@ -9,26 +9,13 @@ echo "core/core"
 chown -R 9999:9999 ./core/core/data
 chown -R 9999:9999 ./core/core/log
 
-echo "core/mongodb"
-
-chown -R 9999:9999 ./core/mongodb/data
-chown -R 9999:9999 ./core/mongodb/log
-
 echo "core/hfs"
 
 chown -R 9999:9999 ./core/hfs/data
 chown -R 9999:9999 ./core/hfs/log
 
-echo "core/influxdb"
-
-chown -R 9999:9999 ./core/influxdb/data
-
 echo "core/preview"
 
 chown -R 9999:9999 ./core/preview/log
-
-echo "core/nginx"
-
-chown -R 9999:9999 ./core/nginx/log
 
 echo "Done!"
