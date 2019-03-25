@@ -2,11 +2,10 @@
 
 ## Summary
 
-In this document, we present a tool which allows to delete Pryv.io users;
+In this document, we present a tool which allows to delete Pryv.io users:
 **pryv-cli delete-user**.
 
-This deletion command is meant to run on a Pryv.io 'core' machine,
-and has the effect of removing all user data, namely:
+This deletion command is meant to run on a Pryv.io 'core' machine, and has the effect of removing all user data, namely:
 
   - MongoDB collections (accesses, events, streams, followedSlices, profile, user)
   - Attachments and previews files
@@ -15,46 +14,51 @@ and has the effect of removing all user data, namely:
 
 ## Setup
 
-The easiest way to run **pryv-cli** is through a docker container. To make this 
-easier in day to day life, here's a useful shell alias: 
+The easiest way to run **pryv-cli** is through a docker container. To make this easier, we suggest to define the following shell alias: 
 
 ```shell
 $ alias pryv-cli='docker run --read-only \
-  -v ${PRYVIO_CORE_CONF_DIR}:/app/conf/:ro \
-  -v ${PRYVIO_CORE_DATA_DIR}:/app/data/ \
+  -v ${PRYV_CONF_ROOT}/core/:/app/conf/:ro \
+  -v ${PRYV_CONF_ROOT}/core/core/data/:/app/data/ \
   --network ${DOCKER_BACKEND_NETWORK} -ti \
-  pryvsa-docker-release.bintray.io/pryv/cli:${PRYVIO_CLI_LATEST_VERSION} $*'
+  pryvsa-docker-release.bintray.io/pryv/cli:${PRYVIO_CORE_VERSION} $*'
 ```
 
-The 'core' machine should have a configuration directory where all Pryv.io
-configuration files reside. The alias above assume that these files are located
-in the folder `PRYVIO_CORE_CONF_DIR`.
+The 'core' machine should have a directory where all Pryv.io configuration files reside. The alias above assume that these files are located in the folder `PRYV_CONF_ROOT`.
 
-Similarly, we refer to the path where the 'core' machine holds Pryv.io data
-as `PRYVIO_CORE_DATA_DIR`.
-
-Now, run this command to find the backend network bridge for the Pryv.io installation:
+Now, run this command to find the name of `${DOCKER_BACKEND_NETWORK}` for your Pryv.io installation:
 
 ```shell
 $ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+b31ec5197df9        bridge              bridge              local
+b5f5dc7e7bec        host                host                local
+8811ef2345c1        none                null                local
+3367ee3c2c52        pryv_backend        bridge              local
+b4d0330a724e        pryv_frontend       bridge              local
 ```
 
-This will list a few networks; the network you're looking for combines the 
-name for your installation with the postfix '**_backend**'.
-We refer to this network as `DOCKER_BACKEND_NETWORK`.
+This will list a few networks; the network you are looking for combines the name of the `${PRYV_CONF_ROOT}` directory with the postfix '**_backend**'. In the example above, it is `pryv_backend`. We refer to this network as `${DOCKER_BACKEND_NETWORK}`.
 
-Finally, make sure that the version of the pryv/cli docker image you are using,
-refered to as `PRYVIO_CLI_LATEST_VERSION`, matches the one of the pryv/core
-docker image currently deployed (you can check by running `docker ps`).
+Finally, make sure that the version of the `pryv/cli` docker image you are using, refered to as `{PRYVIO_CORE_VERSION}`, matches the one of the `pryv/core` docker image currently deployed (you can check by running `docker ps`).
 
-Here is a concrete example of a pryv-cli alias for a **cluster** Pryv.io platform
-(at the time of writing, pryv/core and pryv/cli were in version 1.3.53) :
+```shell
+$ docker ps
+dd10e3bebcbd        pryvsa-docker-release.bintray.io/pryv/nginx:1.3.36
+885a22dddd46        pryvsa-docker-release.bintray.io/pryv/core:1.3.51
+2133eb1224aa        pryvsa-docker-release.bintray.io/pryv/preview:1.3.51
+6ead8971d298        pryvsa-docker-release.bintray.io/pryv/hfs:1.3.51
+373150e9ba9c        pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.36
+11c5fcd7b14b        influxdb:1.2.2
+```
+
+Here is a concrete example of a pryv-cli alias command for a **cluster** Pryv.io platform (at the time of writing, `pryv/core` and `pryv/cli` were in version 1.3.53) :
 
 ```shell
 $ alias pryv-cli='docker run --read-only \
-  -v /var/pryv/pryv.io/core/:/app/conf/:ro \
-  -v /var/pryv/pryv.io/core/core/data/:/app/data/ \
-  --network pryvio_backend -ti \
+  -v /var/pryv/core/:/app/conf/:ro \
+  -v /var/pryv/core/core/data/:/app/data/ \
+  --network pryv_backend -ti \
   pryvsa-docker-release.bintray.io/pryv/cli:1.3.53 $*'
 ```
 
@@ -72,9 +76,6 @@ To remove a Pryv.io user, use the following command:
 $ pryv-cli delete-user <username>
 ```
 
-The first time you run it, it will download the docker image from the distribution
-platform; all subsequent runs will be instant. 
+The first time you run it, it will download the docker image from the distribution platform; all subsequent runs will execute immediately. 
 
-We further assume that you hold a valid Pryv.io license and that you're 
-authorised to operate on the machine. Some operations - especially deleting 
-users - are permanent. Please exercise proper care. 
+We further assume that you hold a valid Pryv.io license and that you're authorised to operate on the machine. Some operations - especially deleting users - are permanent. Please exercise proper care. 
