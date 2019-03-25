@@ -17,7 +17,9 @@ function build_role() {
 
   COPYFILE_DISABLE=1 tar vzcf "tarballs/$domain-$role.tgz" \
     --exclude .DS_Store \
-    $role.yml $role run-$role stop-containers
+    $role.yml $role run-$role stop-containers \
+    ensure-permissions-core \
+    delete-user.md
 }
 
 build_role "static"
