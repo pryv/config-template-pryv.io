@@ -18,4 +18,9 @@ echo "core/preview"
 
 chown -R 9999:9999 ./core/preview/log
 
+echo "core/mongodb"
+
+chown -R 999:999 ./core/mongodb/data
+chown -R 999:999 ./core/mongodb/log
+
 echo "Done!"

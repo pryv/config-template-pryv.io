@@ -18,4 +18,9 @@ echo "pryv/preview"
 
 chown -R 9999:9999 ./pryv/preview/log
 
+echo "pryv/mongodb"
+
+chown -R 999:999 ./pryv/mongodb/data
+chown -R 999:999 ./pryv/mongodb/log
+
 echo "Done!"
