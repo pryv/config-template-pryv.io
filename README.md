@@ -33,6 +33,8 @@ When sending a new release to customers, please include these instructions:
 
 ### Versions
 
+- **1.4**: v1.4 is currently tested, available on [its own branch](https://github.com/pryv/config-template-pryv.io/tree/release-1.4)
+
 - **1.3**: v1.3 has been merged into master
 
 - **v1.2**: v1.2 available on branch [release-1.2](https://github.com/pryv/config-template-pryv.io/tree/release-1.2)

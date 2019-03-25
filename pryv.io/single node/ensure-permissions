@@ -1,0 +1,26 @@
+ #!/usr/bin/env bash
+
+set -e
+
+echo "Ensuring data and log folders permissions..."
+
+echo "pryv/core"
+
+chown -R 9999:9999 ./pryv/core/data
+chown -R 9999:9999 ./pryv/core/log
+
+echo "pryv/hfs"
+
+chown -R 9999:9999 ./pryv/hfs/data
+chown -R 9999:9999 ./pryv/hfs/log
+
+echo "pryv/preview"
+
+chown -R 9999:9999 ./pryv/preview/log
+
+echo "pryv/mongodb"
+
+chown -R 999:999 ./pryv/mongodb/data
+chown -R 999:999 ./pryv/mongodb/log
+
+echo "Done!"

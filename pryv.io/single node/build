@@ -10,7 +10,9 @@ function build_role() {
     $role.yml  \
     $role \
     run-$role \
-    stop-containers
+    stop-containers \
+    delete-user.md \
+    ensure-permissions
 }
 
 build_role "pryv"

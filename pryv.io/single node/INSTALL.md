@@ -16,7 +16,7 @@ You might have to use `docker-ce` and your versions can be newer:
 
 If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv registry server: 
 
-    $ dig NS DOMAIN
+    $ dig NS ${DOMAIN}
 
 Normally, your NS records should resolve to the names you gave to the registry server you intend to set up. Please check if your A records exist and point to the same machine. 
 ​    
@@ -29,6 +29,9 @@ Please create a directory where all your Pryv data should live. We suggest somet
 
 You should have the four following entries now: 
 
+  * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
+  * A file called `ensure-permissions`. This script ensures that the correct
+    permissions are set for data and log directories.
   * A file called `run-pryv`. This is your startup script. 
   * A file called `pryv.yml`. This is the docker-compose script that is 
     used to launch the service. 
@@ -43,8 +46,8 @@ All services use Nginx to terminate inbound HTTPS connections. You should have o
 
 Your certificate files must be placed in these locations: 
 
-  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/DOMAIN-bundle.crt` 
-  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/DOMAIN-key.pem`
+  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/${DOMAIN}-bundle.crt` 
+  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/${DOMAIN}-key.pem`
 
 If you wish to store the files in a different location, please edit the nginx server configuration files in `pryv/nginx/conf/nginx.conf` to point to the files. 
 
@@ -58,7 +61,11 @@ To log in, type:
 
 You will be prompted for a username and password. Please enter the credentials you were provided.
 
-Once this completes, you're ready to launch the pryv component. To launch the installation, you should type:  
+Once this completes, set the required permissions on data and log directories by running the following script:
+
+    $ sudo ./ensure-permissions
+
+You're now ready to launch the pryv component. To launch the installation, you should type:  
 
     $ sudo ./run-pryv
 
@@ -66,6 +73,6 @@ This command will download the docker images that belong to your release from th
 
 # Closing Remarks
 
-You should now have a working docker installation. You can test this by directing a browser at [https://sw.DOMAIN/access/register.html](https://sw.DOMAIN/access/register.html) and filling in the form. 
+You should now have a working docker installation. You can test this by directing a browser at [https://sw.${DOMAIN}/access/register.html](https://sw.${DOMAIN}/access/register.html) and filling in the form. 
 
 If you need support, please contact your account manager @ Pryv. We're glad to help you with any questions you might have. 
