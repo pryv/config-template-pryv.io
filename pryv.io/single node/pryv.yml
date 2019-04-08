@@ -57,7 +57,7 @@ services:
 
   # Core role START ------------------------------------------------------------
   core:
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.3"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.5"
     networks:
       - frontend
       - backend
@@ -73,7 +73,7 @@ services:
     restart: always
 
   mail: 
-    image: "pryvsa-docker-release.bintray.io/pryv/mail:1.0.3"
+    image: "pryvsa-docker-release.bintray.io/pryv/mail:1.1.3"
     networks: 
       - frontend
     volumes: 
@@ -82,7 +82,7 @@ services:
     restart: always
 
   hfs: 
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.3"
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.5"
     networks: 
       - frontend
       - backend
@@ -98,7 +98,7 @@ services:
     restart: always
 
   preview:
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.3"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.5"
     networks:
       - frontend
       - backend
