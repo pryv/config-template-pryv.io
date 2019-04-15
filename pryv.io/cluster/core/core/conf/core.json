@@ -39,7 +39,7 @@
       "welcomeTemplate": "welcome-email",
       "resetPasswordTemplate": "reset-password",
       "method": "microservice",
-      "url": "http://mail:9000/sendmail/",
+      "url": "https://mail.DOMAIN/sendmail/",
       "key": "CORE_MAIL_KEY"
     }
   },
