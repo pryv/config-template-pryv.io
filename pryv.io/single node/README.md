@@ -17,17 +17,18 @@ These values need to be replaced in the configuration. If possible, obtain these
 * CORE_ADMIN_KEY: key to make admin calls on cores
 * REGISTER_SYSTEM_KEY_1: key to make system calls on register
 * REGISTER_ADMIN_KEY_1: key to make admin calls on register
-* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website
 * MACHINE_IP_ADDRESS: IP address of machine running pryv.io
 * OVERRIDE_ME: single appearance values that need to be replaced with a strong key
 
 #### optional variables
 
+* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://DOMAIN
+
 These fields will be available in https://reg.DOMAIN/service/infos
 
-* PLATFORM_NAME
-* SUPPORT_LINK
-* TERMS_OF_USE_LINK
+* PLATFORM_NAME: field `name`
+* SUPPORT_LINK: ield `support`
+* TERMS_OF_USE_LINK: ield `terms`
 
 ### Local Usage
 
