@@ -18,7 +18,6 @@ These values need to be replaced in the configuration. If possible, obtain these
 * CORE_SYSTEM_KEY: key to make system calls on cores
 * REGISTER_SYSTEM_KEY_1: key to make system calls on register
 * REGISTER_ADMIN_KEY_1: key to make admin calls on register
-* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://DOMAIN
 * STATIC_WEB_IP_ADDRESS: hostname of static-web machine
 * REG_MASTER_IP_ADDRESS: IP address of master register machine
 * REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (can be a private network)
@@ -29,8 +28,10 @@ These values need to be replaced in the configuration. If possible, obtain these
 
 #### optional variables
 
+* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://DOMAIN
+
 These fields will be available in https://reg.DOMAIN/service/infos
 
-* PLATFORM_NAME
-* SUPPORT_LINK
-* TERMS_OF_USE_LINK
+* PLATFORM_NAME: field `name`
+* SUPPORT_LINK: ield `support`
+* TERMS_OF_USE_LINK: ield `terms`
