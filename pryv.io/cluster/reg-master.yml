@@ -51,6 +51,15 @@ services:
       - ./reg-master/redis/log/:/app/log/
     restart: always
 
+  mail: 
+    image: "pryvsa-docker-release.bintray.io/pryv/mail:1.1.3"
+    networks: 
+      - frontend
+    volumes: 
+      - ./reg-master/mail/conf/:/app/conf/:ro
+      - ./reg-master/mail/templates/:/app/bin/templates/:ro
+    restart: always
+
 networks:
   frontend:
     driver: bridge
