@@ -37,10 +37,8 @@
         "resetPassword": true
       },
       "method": "microservice",
-      "url": "http://mail:9000/sendmail/",
-      "key": "SHW1z85eGEErEzmZ",
-      "welcomeTemplate": "welcome-email",
-      "resetPasswordTemplate": "reset-password"
+      "url": "https://mail.pryv.li/sendmail/",
+      "key": "SHW1z85eGEErEzmZ"
     }
   },
   "updates": {

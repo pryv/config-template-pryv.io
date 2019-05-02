@@ -1,0 +1,41 @@
+{
+  "logs": {
+    "prefix": "",
+    "console": { 
+      "active": true,
+      "level": "warn",
+      "colorize": true 
+    }, 
+    "file": {
+      "active": false
+    }
+  },
+  "email": {
+    "message": {
+      "from": {
+        "name": "Pryv",
+        "address": "support@pryv.com"
+      }
+    }
+  },
+  "smtp": {
+    "host": "smtp.mandrillapp.com",
+    "port": "587",
+    "auth": {
+      "user": "tech@pryv.com",
+      "pass": "RcVRdxyEdBTqfE1aMw-W9g"
+    }
+  },
+  "sendmail": {
+    "active": false,
+    "path": "/usr/sbin/sendmail"
+  },
+  "http": {
+    "ip": "0.0.0.0",
+    "port": 9000,
+    "auth": "SHW1z85eGEErEzmZ"
+  },
+  "templates": {
+    "defaultLang": "en"
+  }
+}

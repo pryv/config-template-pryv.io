@@ -13,27 +13,27 @@
   "email": {
     "message": {
       "from": {
-        "name": "Pryv",
-        "address": "support@pryv.com"
+        "name": "EMAIL_FROM_TEXT",
+        "address": "EMAIL_FROM_EMAIL"
       }
     }
   },
   "smtp": {
-    "host": "smtp.mandrillapp.com",
-    "port": "587",
+    "host": "SMTP_SERVER",
+    "port": "SMTP_PORT",
     "auth": {
-      "user": "tech@pryv.com",
-      "pass": "RcVRdxyEdBTqfE1aMw-W9g"
+      "user": "SMTP_USERNAME",
+      "pass": "SMTP_PASSWORD"
     }
   },
   "sendmail": {
     "active": false,
-    "path": "sendmail"
+    "path": "/usr/sbin/sendmail"
   },
   "http": {
     "ip": "0.0.0.0",
     "port": 9000,
-    "auth": "SHW1z85eGEErEzmZ"
+    "auth": "CORE_MAIL_KEY"
   },
   "templates": {
     "defaultLang": "en"

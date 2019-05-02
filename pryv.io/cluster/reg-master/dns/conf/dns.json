@@ -55,6 +55,9 @@
       "reg": {
         "ip": "185.19.30.198"
       },
+      "mail": {
+        "ip": "REG_MASTER_IP_ADDRESS"
+      },
       "service": {
         "ip": "185.19.30.198"
       },
