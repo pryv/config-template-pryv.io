@@ -60,6 +60,9 @@
       "reg": {
         "ip": "REG_MASTER_IP_ADDRESS"
       },
+      "mail": {
+        "ip": "REG_MASTER_IP_ADDRESS"
+      },
       "service": {
         "ip": "REG_MASTER_IP_ADDRESS"
       },
