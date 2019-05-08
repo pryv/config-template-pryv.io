@@ -38,7 +38,9 @@
       },
       "method": "microservice",
       "url": "https://mail.pryv.li/sendmail/",
-      "key": "SHW1z85eGEErEzmZ"
+      "key": "SHW1z85eGEErEzmZ",
+      "welcomeTemplate": "welcome-email",
+      "resetPasswordTemplate": "reset-password"
     }
   },
   "updates": {
