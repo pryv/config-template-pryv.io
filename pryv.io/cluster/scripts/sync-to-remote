@@ -5,8 +5,8 @@
 
 # the paths are currently hardcoded as they are not unified accross the remote hosts
 
-if [ $1 != "cores" ] && [ $1 != "reg-master" ] && [ $1 != "reg-slave" ] && [ $1 != "static" ]; then
-  echo "please specify which role: cores, reg-master, reg-slave or static";
+if [ $1 != "cores" ] && [ $1 != "core1" ] && [ $1 != "core2" ] && [ $1 != "reg-master" ] && [ $1 != "reg-slave" ] && [ $1 != "static" ]; then
+  echo "please specify which role: cores, core1, core2, reg-master, reg-slave or static";
   exit 1;
 fi
 
@@ -16,14 +16,18 @@ fi
 
 RSYNC_OPTIONS="--recursive --times --human-readable --verbose"
 
-if [ $1 == "cores" ]; then
-  echo "Syncing core machines"
+if [ $1 == "cores" ] || [ $1 == "core1" ]; then
+  echo "Syncing core machine"
 
   echo "###############################"
   echo "Syncing co-pryv-li-exoscale-ch-01.pryv.net"
   echo "###############################"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers 89.145.167.179:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf 89.145.167.179:/etc/logrotate.d/pryv
+fi
+
+if [ $1 == "cores" ] || [ $1 == "core2" ]; then
+  echo "Syncing core machine"
 
   echo "###############################"
   echo "Syncing co-pryv-li-exoscale-ch-02.pryv.net"
