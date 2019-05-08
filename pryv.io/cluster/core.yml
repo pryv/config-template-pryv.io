@@ -17,6 +17,19 @@ services:
       - preview
     restart: always
 
+  core_router:
+    image: "pryvsa-docker-release.bintray.io/pryv/router:0.1.17"
+    networks:
+      - frontend
+    links:
+      - core
+    environment:
+      ROUTER_LOG: info
+    volumes:
+      - /dev/log:/dev/log
+    command: --core-audit core:3000 --core-audit core:3001
+    restart: always
+
   core: 
     image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.6"
     networks:
