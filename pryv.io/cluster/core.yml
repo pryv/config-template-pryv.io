@@ -2,7 +2,7 @@ version: '3'
 services:
 
   reverse_proxy: 
-    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.36"
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.38"
     networks: 
       - frontend
     ports: 
@@ -16,6 +16,19 @@ services:
       - hfs
       - preview
       - condensate
+    restart: always
+
+  core_router:
+    image: "pryvsa-docker-release.bintray.io/pryv/router:0.1.17"
+    networks:
+      - frontend
+    links:
+      - core
+    environment:
+      ROUTER_LOG: info
+    volumes:
+      - /dev/log:/dev/log
+    command: --core-audit core:3000 --core-audit core:3001 --core-audit core:3002 --core-audit core:3003
     restart: always
 
   core: 
@@ -66,7 +79,7 @@ services:
     hostname: "$HOSTNAME"
 
   mongodb:
-    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.36"
+    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.38"
     networks:
       - backend
     volumes:
