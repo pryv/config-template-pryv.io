@@ -77,10 +77,10 @@ if [ $1 == "certs" ]; then
   echo "Syncing SSL certificates"
 
   echo "###############################"
-  echo "Back-up old certificates"
+  echo "Back-up old certificates (from reg-master)"
   echo "###############################"
 
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' $CORE1:/var/pryv/pryv.li/core/nginx/conf/secret/ ../../certs/backup/`date +%s` --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' $REGM:/var/pryv/reg-master/nginx/conf/secret/ ../../certs/backup/`date +%s` --exclude ".DS_Store" --exclude ".*"
 
   echo "###############################"
   echo "Syncing new certificates"
