@@ -1,0 +1,17 @@
+.DS_Store
+.idea/
+node_modules/
+fromYaml/
+
+*.tgz
+
+*-key.pem
+*-bundle.crt
+*-ca.pem
+*-cert.pem
+
+!rec.la-bundle.crt
+!rec.la-ca.pem
+!rec.la-cert.crt
+!rec.la-key.pem
+
