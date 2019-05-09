@@ -86,11 +86,6 @@
         "alias": {
           "name": "stifttt-amazon-use-01.pryv.net"
         }
-      },
-      "bluebutton": {
-        "alias": {
-          "name": "stbluebutton-azure-nl-01.pryv.net"
-        }
       }
     },
     "domain_A": "217.70.184.38",
