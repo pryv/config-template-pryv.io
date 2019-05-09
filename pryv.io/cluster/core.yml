@@ -32,7 +32,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.6"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.8"
     networks:
       - frontend
       - backend
@@ -48,7 +48,7 @@ services:
     hostname: "$HOSTNAME"
 
   preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.6"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.8"
     networks: 
       - frontend
       - backend
@@ -62,7 +62,7 @@ services:
     hostname: "$HOSTNAME"
 
   hfs:
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.6"
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.8"
     networks:
       - frontend
       - backend
