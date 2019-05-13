@@ -67,13 +67,14 @@ services:
       - ./pryv/core/log/:/app/log/
     environment: 
       - NUM_PROCS=2
+      - STARTING_PORT=3000
     links:
       - mongodb
       - mail
     restart: always
 
   core_router:
-    image: "pryvsa-docker-release.bintray.io/pryv/router:0.1.17"
+    image: "pryvsa-docker-release.bintray.io/pryv/router:0.1.18"
     networks:
       - frontend
     links:
