@@ -1,0 +1,5 @@
+.DS_Store
+.idea/
+certs/*
+!certs/.gitkeep
+!certs/backup/.gitkeep

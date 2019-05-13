@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 
 # the first argument should be role to copy
-# ex.: sync-files.sh core/reg-master/reg-slave
+# ex.: sync-to-remote cores
+
+CORE1="co-pryv-li-exoscale-ch-01.pryv.net"
+CORE2="co-pryv-li-exoscale-ch-02.pryv.net"
+REGM="reg-pryv-li-exoscale-ch-01.pryv.net"
+REGS="streg-azure-nl-02.pryv.net" # ! old machine !
+STATIC="sw-pryv-li-exoscale-ch-01.pryv.net"
 
 # the paths are currently hardcoded as they are not unified accross the remote hosts
 
-if [ $1 != "cores" ] && [ $1 != "core1" ] && [ $1 != "core2" ] && [ $1 != "reg-master" ] && [ $1 != "reg-slave" ] && [ $1 != "static" ]; then
-  echo "please specify which role: cores, core1, core2, reg-master, reg-slave or static";
+if [ $# -ne 1 ]; then
+  echo "Please specify which role: cores, core1, core2, reg-master, reg-slave, static or certs";
   exit 1;
 fi
 
@@ -20,49 +26,69 @@ if [ $1 == "cores" ] || [ $1 == "core1" ]; then
   echo "Syncing core machine"
 
   echo "###############################"
-  echo "Syncing co-pryv-li-exoscale-ch-01.pryv.net"
+  echo "Syncing $CORE1"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers 89.145.167.179:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf 89.145.167.179:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers $CORE1:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf $CORE1:/etc/logrotate.d/pryv
 fi
 
 if [ $1 == "cores" ] || [ $1 == "core2" ]; then
   echo "Syncing core machine"
 
   echo "###############################"
-  echo "Syncing co-pryv-li-exoscale-ch-02.pryv.net"
+  echo "Syncing $CORE2"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers 89.145.166.17:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf 89.145.166.17:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers $CORE2:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf $CORE2:/etc/logrotate.d/pryv
 fi
 
 if [ $1 == "reg-master" ]; then
   echo "Syncing master register"
 
   echo "###############################"
-  echo "Syncing reg-pryv-li-exoscale-ch-01.pryv.net"
+  echo "Syncing $REGM"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master reg-master.yml run-reg-master stop-containers 185.19.30.198:/var/pryv --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf 185.19.30.198:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-master reg-master.yml run-reg-master stop-containers $REGM:/var/pryv --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf $REGM:/etc/logrotate.d/pryv
 fi
 
 if [ $1 == "reg-slave" ]; then
   echo "Syncing slave register"
 
   echo "###############################"
-  echo "Syncing streg-azure-nl-02.pryv.net (old machine)"
+  echo "Syncing $REGS"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave reg-slave.yml run-reg-slave stop-containers client-streg-azure-nl-02.ovpn connect-vpn-client-to-master streg-azure-nl-02.pryv.net:/var/pryv --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf streg-azure-nl-02.pryv.net:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg-slave reg-slave.yml run-reg-slave stop-containers client-streg-azure-nl-02.ovpn connect-vpn-client-to-master $REGS:/var/pryv --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf $REGS:/etc/logrotate.d/pryv
 fi
 
 if [ $1 == "static" ]; then
   echo "Syncing static-web machine"
 
   echo "###############################"
-  echo "Syncing sw-pryv-li-exoscale-ch-01.pryv.net"
+  echo "Syncing $STATIC"
   echo "###############################"
 
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static static.yml run-static stop-containers 185.19.28.119:/var/pryv --exclude ".DS_Store" --exclude ".*"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static.logrotate.conf 185.19.28.119:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static static.yml run-static stop-containers $STATIC:/var/pryv --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static.logrotate.conf $STATIC:/etc/logrotate.d/pryv
+fi
+
+if [ $1 == "certs" ]; then
+  echo "Syncing SSL certificates"
+
+  echo "###############################"
+  echo "Back-up old certificates (from reg-master)"
+  echo "###############################"
+
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' $REGM:/var/pryv/reg-master/nginx/conf/secret/ ../../certs/backup/`date +%s` --exclude ".DS_Store" --exclude ".*"
+
+  echo "###############################"
+  echo "Syncing new certificates"
+  echo "###############################"
+
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $CORE1:/var/pryv/pryv.li/core/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $CORE2:/var/pryv/pryv.li/core/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $REGM:/var/pryv/reg-master/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $REGS:/var/pryv/reg-slave/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $STATIC:/var/pryv/static/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
 fi
