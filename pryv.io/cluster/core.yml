@@ -19,7 +19,7 @@ services:
     restart: always
 
   core_router:
-    image: "pryvsa-docker-release.bintray.io/pryv/router:0.1.17"
+    image: "pryvsa-docker-release.bintray.io/pryv/router:0.1.18"
     networks:
       - frontend
     links:
@@ -42,6 +42,7 @@ services:
       - ./core/core/log/:/app/log/
     environment: 
       - NUM_PROCS=4
+      - STARTING_PORT=3000
     links: 
       - mongodb
     restart: always
