@@ -41,6 +41,7 @@ services:
       - ./core/core/log/:/app/log/
     environment: 
       - NUM_PROCS=2
+      - STARTING_PORT=3000
     links: 
       - mongodb
     restart: always
