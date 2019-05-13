@@ -30,6 +30,8 @@ if [ $1 == "cores" ] || [ $1 == "core1" ]; then
   echo "###############################"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers $CORE1:/var/pryv/pryv.li  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf $CORE1:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.logrotate.conf $CORE1:/etc/logrotate.d/pryv-router.logrotate.conf
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.rsyslog.conf $CORE1:/etc/rsyslog.d/pryv-router.rsyslog.conf
 fi
 
 if [ $1 == "cores" ] || [ $1 == "core2" ]; then
@@ -40,6 +42,8 @@ if [ $1 == "cores" ] || [ $1 == "core2" ]; then
   echo "###############################"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core core.yml run-core stop-containers $CORE2:/var/pryv/pryv.li --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf $CORE2:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.logrotate.conf $CORE2:/etc/logrotate.d/pryv-router.logrotate.conf
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.rsyslog.conf $CORE2:/etc/rsyslog.d/pryv-router.rsyslog.conf
 fi
 
 if [ $1 == "reg-master" ]; then
