@@ -14,6 +14,9 @@
     "support": "SUPPORT_LINK",
     "terms": "TERMS_OF_USE_LINK"
   },
+  "eventTypes": {
+    "sourceURL": "http://api.pryv.com/event-types/flat.json"
+  },
   "server": {
     "ssl": "false",
     "port": 9000
