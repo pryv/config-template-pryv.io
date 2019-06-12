@@ -60,7 +60,7 @@ Your certificate files must be placed in these locations for the respective role
 
 If you wish to store the files in a different location, please edit the nginx server configuration files in `${ROLE}/nginx/conf/nginx.conf` to point to the files.   
 
-If you changed service/infos you should have changed the info.serial in [service-register]/source/routes/service.js
+Don't forget to update 'serial' if you edit reg-master/register/conf/register.json
 
 # Launching the Installation
 
