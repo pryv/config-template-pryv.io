@@ -12,7 +12,7 @@
     "authPassword": ""
   },
   "nats": {
-    "uri": "nats://singlenode_core_1:4222"
+    "uri": "nats://core:4222"
   },
   "logs": {
     "console": {

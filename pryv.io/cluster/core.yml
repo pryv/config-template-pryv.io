@@ -80,12 +80,12 @@ services:
     hostname: "$HOSTNAME"
 
   webhooks:
-    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.10-49-g7948c43"
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.10-52-g92c55ae"
     networks:
       - backend
     volumes: 
-      - ./core/core/conf/:/app/conf/:ro
-      - ./core/core/log/:/app/log/
+      - ./core/webhooks/conf/:/app/conf/:ro
+      - ./core/webhooks/log/:/app/log/
     links: 
       - mongodb
     restart: always
