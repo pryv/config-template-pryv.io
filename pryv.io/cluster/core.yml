@@ -80,7 +80,7 @@ services:
     hostname: "$HOSTNAME"
 
   webhooks:
-    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.10-40-gab949b1"
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.10-49-g7948c43"
     networks:
       - backend
     volumes: 
