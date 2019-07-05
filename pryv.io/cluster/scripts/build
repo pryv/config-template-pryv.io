@@ -19,7 +19,9 @@ function build_role() {
     --exclude .DS_Store \
     $role.yml $role run-$role stop-containers \
     ensure-permissions-core \
-    delete-user.md
+    delete-user.md \
+    README.md \
+    INSTALL.md
 }
 
 build_role "static"

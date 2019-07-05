@@ -12,7 +12,9 @@ function build_role() {
     run-$role \
     stop-containers \
     delete-user.md \
-    ensure-permissions
+    ensure-permissions \
+    README.md \
+    INSTALL.md
 }
 
 build_role "pryv"
