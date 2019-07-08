@@ -21,14 +21,10 @@
   "auth": {
     "authorizedKeys": {
       "UNdrMmb9PJZkF82z": {
-        "roles": [
-          "system"
-        ]
+        "roles": ["system"]
       },
       "perki|ghjfsduz743": {
-        "roles": [
-          "admin"
-        ]
+        "roles": ["admin"]
       }
     }
   },
@@ -37,9 +33,7 @@
     "ip": "0.0.0.0",
     "name": "reg.pryv.li",
     "domain": "pryv.li",
-    "domains": [
-      "pryv.li"
-    ],
+    "domains": ["pryv.li"],
     "certificateAuthorityAuthorization": {
       "issuer": "letsencrypt.org"
     },
@@ -82,7 +76,7 @@
       },
       "ifttt": {
         "alias": {
-          "name": "stifttt-amazon-use-01.pryv.net"
+          "name": "ifttt.pryv.me"
         }
       }
     },
@@ -178,11 +172,7 @@
       "active": false,
       "onboarding": false,
       "category": "Other",
-      "support": [
-        "iPad",
-        "iPhone",
-        "Web"
-      ],
+      "support": ["iPad", "iPhone", "Web"],
       "settingsPageURL": "http://pryv.github.io/dev-tools/csv-importer"
     },
     "ifttt-all": {
@@ -193,11 +183,7 @@
       "active": false,
       "onboarding": false,
       "category": "Other",
-      "support": [
-        "iPad",
-        "iPhone",
-        "Web"
-      ],
+      "support": ["iPad", "iPhone", "Web"],
       "settingsPageURL": "https://ifttt.com/pryv"
     },
     "bridge-twitter": {
@@ -209,11 +195,7 @@
       "onboarding": true,
       "category": "Thoughts",
       "position": 1,
-      "support": [
-        "iPad",
-        "iPhone",
-        "Web"
-      ],
+      "support": ["iPad", "iPhone", "Web"],
       "settingsPageURL": "https://bridges.pryv.li:4443/",
       "trustedConnection": true
     },
@@ -226,11 +208,7 @@
       "onboarding": true,
       "category": "Health & Activity",
       "position": 2,
-      "support": [
-        "iPad",
-        "iPhone",
-        "Web"
-      ],
+      "support": ["iPad", "iPhone", "Web"],
       "settingsPageURL": "http://bridges.pryv.li:5443/",
       "trustedConnection": true
     },
@@ -242,11 +220,7 @@
       "active": true,
       "onboarding": true,
       "position": 3,
-      "support": [
-        "iPad",
-        "iPhone",
-        "Web"
-      ],
+      "support": ["iPad", "iPhone", "Web"],
       "category": "Health & Activity",
       "settingsPageURL": "https://bridges.pryv.li:6443/",
       "trustedConnection": true
@@ -260,11 +234,7 @@
       "onboarding": true,
       "category": "Location",
       "position": 3,
-      "support": [
-        "iPad",
-        "iPhone",
-        "Web"
-      ],
+      "support": ["iPad", "iPhone", "Web"],
       "settingsPageURL": "https://bridges.pryv.li:7443/",
       "trustedConnection": true
     },
@@ -277,11 +247,7 @@
       "onboarding": true,
       "category": "Health & Activity",
       "position": 3,
-      "support": [
-        "iPad",
-        "iPhone",
-        "Web"
-      ],
+      "support": ["iPad", "iPhone", "Web"],
       "settingsPageURL": "https://bridges.pryv.li:8443/",
       "trustedConnection": true
     }
