@@ -18,7 +18,7 @@ services:
     restart: always
 
   core_router:
-    image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.1"
+    image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.2"
     networks:
       - frontend
     links:
@@ -31,7 +31,7 @@ services:
     restart: always
 
   core_audit:
-  image: "pryvsa-docker-release.bintray.io/pryv/audit:0.0.9"
+  image: "pryvsa-docker-release.bintray.io/pryv/audit:0.0.12"
   networks:
     - frontend
   links:
