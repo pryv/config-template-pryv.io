@@ -28,7 +28,7 @@
   },
   "services": {
     "register": {
-      "url": "https://reg.DOMAIN",
+      "url": "http://register:9000",
       "key": "REGISTER_SYSTEM_KEY_1"
     },
     "email": {
