@@ -1,6 +1,8 @@
 {
-  "coreEndpoint": "http://core:3000",
-  "logsLocation": "/app/audit/logs",
+  "core": {
+    "url": "http://core:3000"
+  },
+  "dataFolder": "/app/data", 
   "http": {
     "port": 5000,
     "ip": "0.0.0.0"
