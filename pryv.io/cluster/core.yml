@@ -31,16 +31,16 @@ services:
     restart: always
 
   core_audit:
-  image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.0"
-  networks:
-    - frontend
-  links:
-    - core
-  volumes:
-    - ./core/audit/conf/:/app/conf/:ro
-    - ./core/audit/log/:/app/log/
-    - /var/log/pryv/audit/pryvio_core/:/app/data/
-  restart: always
+    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.0"
+    networks:
+      - frontend
+    links:
+      - core
+    volumes:
+      - ./core/audit/conf/:/app/conf/:ro
+      - ./core/audit/log/:/app/log/
+      - /var/log/pryv/audit/pryvio_core/:/app/data/
+    restart: always
 
   core: 
     image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.11"
