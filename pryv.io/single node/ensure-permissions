@@ -23,4 +23,7 @@ echo "pryv/mongodb"
 chown -R 999:999 ./pryv/mongodb/data
 chown -R 999:999 ./pryv/mongodb/log
 
+echo "pryv/audit"
+chmod -R 755 /var/log/pryv/audit/
+
 echo "Done!"
