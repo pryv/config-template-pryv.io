@@ -31,8 +31,20 @@ services:
     command: --core-audit core:3000 --core-audit core:3001 --core-audit core:3002 --core-audit core:3003
     restart: always
 
+  core_audit:
+  image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.0"
+  networks:
+    - frontend
+  links:
+    - core
+  volumes:
+    - ./core/audit/conf/:/app/conf/:ro
+    - ./core/audit/log/:/app/log/
+    - /var/log/pryv/audit/pryvio_core/:/app/data/
+  restart: always
+
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.10"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.11"
     networks:
       - frontend
       - backend
@@ -49,7 +61,7 @@ services:
     hostname: "$HOSTNAME"
 
   preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.10"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.11"
     networks: 
       - frontend
       - backend
@@ -63,7 +75,7 @@ services:
     hostname: "$HOSTNAME"
 
   hfs:
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.10"
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.11"
     networks:
       - frontend
       - backend
