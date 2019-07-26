@@ -44,7 +44,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.11"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.12"
     networks:
       - frontend
       - backend
