@@ -19,7 +19,7 @@ services:
     restart: always
 
   core_router:
-    image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.0"
+    image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.2"
     networks:
       - frontend
     links:
@@ -29,6 +29,18 @@ services:
     volumes:
       - /dev/log:/dev/log
     command: --core-audit core:3000 --core-audit core:3001 --core-audit core:3002 --core-audit core:3003
+    restart: always
+
+  core_audit:
+    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.0"
+    networks:
+      - frontend
+    links:
+      - core
+    volumes:
+      - ./core/audit/conf/:/app/conf/:ro
+      - ./core/audit/log/:/app/log/
+      - /var/log/pryv/audit/pryvio_core/:/app/data/
     restart: always
 
   core: 
@@ -111,7 +123,7 @@ services:
   condensate:
     image: "pryvsa-docker-release.bintray.io/pryv/condensate:0.0.5"
     networks:
-       - frontend
+      - frontend
     volumes:
       - ./core/condensate/conf/:/app/conf/:ro
       

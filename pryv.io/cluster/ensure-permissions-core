@@ -23,4 +23,7 @@ echo "core/mongodb"
 chown -R 999:999 ./core/mongodb/data
 chown -R 999:999 ./core/mongodb/log
 
+echo "core/audit"
+chmod -R 755 /var/log/pryv/audit/
+
 echo "Done!"
