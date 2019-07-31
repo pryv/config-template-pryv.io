@@ -49,18 +49,18 @@ Finally, make sure that the version of the `pryv/cli` docker image you are using
 ```shell
 $ docker ps
 ...
-885a22dddd46        pryvsa-docker-release.bintray.io/pryv/core:1.3.53
+885a22dddd46        pryvsa-docker-release.bintray.io/pryv/core:1.4.13
 ...
 ```
 
-Here is a concrete example of a pryv-cli alias command for a **cluster** Pryv.io platform (at the time of writing, `pryv/core` and `pryv/cli` were in version 1.3.53) :
+Here is a concrete example of a pryv-cli alias command for a **cluster** Pryv.io platform (at the time of writing, `pryv/core` and `pryv/cli` were in version 1.4.13) :
 
 ```shell
 $ alias pryv-cli='docker run --read-only \
   -v /var/pryv/core/:/app/conf/:ro \
   -v /var/pryv/core/core/data/:/app/data/ \
   --network pryv_backend -ti \
-  pryvsa-docker-release.bintray.io/pryv/cli:1.3.53 $*'
+  pryvsa-docker-release.bintray.io/pryv/cli:1.4.13 $*'
 ```
 
 ## Usage
