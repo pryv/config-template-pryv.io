@@ -44,7 +44,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.10-40-gab949b1"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.10-66-gfbc6618"
     networks:
       - frontend
       - backend
@@ -92,7 +92,7 @@ services:
     hostname: "$HOSTNAME"
 
   webhooks:
-    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.10-55-g3231167"
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.10-66-gfbc6618"
     networks:
       - backend
     volumes: 
