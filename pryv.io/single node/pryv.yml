@@ -57,7 +57,7 @@ services:
 
   # Core role START ------------------------------------------------------------
   core:
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.13"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.14"
     networks:
       - frontend
       - backend
@@ -108,7 +108,7 @@ services:
     restart: always
 
   hfs: 
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.11"
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.14"
     networks: 
       - frontend
       - backend
@@ -122,9 +122,20 @@ services:
       - influxdb
       - mongodb
     restart: always
+  
+  webhooks:
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.14"
+    networks:
+      - backend
+    volumes: 
+      - ./core/core/conf/:/app/conf/:ro
+      - ./core/core/log/:/app/log/
+    links: 
+      - mongodb
+    restart: always
 
   preview:
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.11"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.14"
     networks:
       - frontend
       - backend
