@@ -2,14 +2,18 @@
   "env": "production",
   "webhooks": {
     "minIntervalMs": 5000,
-    "maxRetries": 5
+    "maxRetries": 5,
+    "runsSize": 20
   },
   "mongodb": {
-    "host": "127.0.0.1",
+    "host": "mongodb",
     "port": 27017,
     "name": "pryv-node",
     "authUser": "",
     "authPassword": ""
+  },
+  "nats": {
+    "uri": "nats://core:4222"
   },
   "logs": {
     "console": {
@@ -18,11 +22,7 @@
       "colorize": true
     },
     "file": {
-      "active": true,
-      "level": "error",
-      "path": "/app/log/webhooks.log",
-      "maxFileBytes": 20000000000,
-      "maxNbFiles": 1
+      "active": false
     },
     "airbrake": {
       "active": false,
