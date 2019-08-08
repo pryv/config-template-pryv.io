@@ -128,8 +128,8 @@ services:
     networks:
       - backend
     volumes: 
-      - ./core/core/conf/:/app/conf/:ro
-      - ./core/core/log/:/app/log/
+      - ./pryv/webhooks/conf/:/app/conf/:ro
+      - ./pryv/webhooks/log/:/app/log/
     links: 
       - mongodb
     restart: always

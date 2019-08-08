@@ -92,8 +92,8 @@ services:
     networks:
       - backend
     volumes: 
-      - ./core/core/conf/:/app/conf/:ro
-      - ./core/core/log/:/app/log/
+      - ./core/webhooks/conf/:/app/conf/:ro
+      - ./core/webhooks/log/:/app/log/
     links: 
       - mongodb
     restart: always
