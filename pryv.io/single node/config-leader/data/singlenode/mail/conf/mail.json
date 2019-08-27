@@ -1,0 +1,41 @@
+{
+  "logs": {
+    "prefix": "",
+    "console": { 
+      "active": true,
+      "level": "warn",
+      "colorize": true 
+    }, 
+    "file": {
+      "active": false
+    }
+  },
+  "email": {
+    "message": {
+      "from": {
+        "name": "MAIL_FROM_NAME",
+        "address": "MAIL_FROM_ADDRESS"
+      }
+    }
+  },
+  "smtp": {
+    "host": "MAIL_SMTP_HOST",
+    "port": "MAIL_SMTP_PORT",
+    "auth": {
+      "user": "MAIL_SMTP_USER",
+      "pass": "MAIL_SMTP_PASS"
+    }
+  },
+  "sendmail": {
+    "active": false,
+    "path": "/usr/sbin/sendmail"
+  },
+  "http": {
+    "ip": "0.0.0.0",
+    "port": 9000,
+    "auth": "CORE_MAIL_KEY"
+  },
+  "templates": {
+    "defaultLang": "en"
+  }
+}

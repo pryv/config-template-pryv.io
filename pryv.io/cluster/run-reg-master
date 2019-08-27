@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-[[ -e reg-master.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
-
-echo "Running Pryv/reg component."
-exec docker-compose -f reg-master.yml up -d

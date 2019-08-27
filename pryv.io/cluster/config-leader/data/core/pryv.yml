@@ -1,0 +1,126 @@
+version: '3.5'
+services:
+
+  reverse_proxy: 
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.38"
+    networks: 
+      - frontend
+    ports: 
+      - "80:80"
+      - "443:443"
+    volumes: 
+      - ./nginx/conf/:/app/conf/:ro
+      - ./nginx/log/:/app/log/
+    links: 
+      - core
+      - hfs
+      - preview
+      - condensate
+    restart: always
+
+  core_router:
+    image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.2"
+    networks:
+      - frontend
+    links:
+      - core
+    environment:
+      ROUTER_LOG: info
+    volumes:
+      - /dev/log:/dev/log
+    command: --core-audit core:3000 --core-audit core:3001
+    restart: always
+
+  core_audit:
+    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.0"
+    networks:
+      - frontend
+    links:
+      - core
+    volumes:
+      - ./audit/conf/:/app/conf/:ro
+      - ./audit/log/:/app/log/
+      - /var/log/pryv/audit/pryvio_core/:/app/data/
+    restart: always
+
+  core: 
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.14"
+    networks:
+      - frontend
+      - backend
+    volumes: 
+      - ./core/conf/:/app/conf/:ro
+      - ./core/data/:/app/data/
+      - ./core/log/:/app/log/
+    environment: 
+      - NUM_PROCS=2
+      - STARTING_PORT=3000
+    links: 
+      - mongodb
+    restart: always
+
+  preview: 
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.14"
+    networks: 
+      - frontend
+      - backend
+    volumes: 
+      - ./preview/conf/:/app/conf/:ro
+      - ./core/data/:/app/data/
+      - ./preview/log/:/app/log/
+    links: 
+      - mongodb
+    restart: always
+
+  hfs:
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.14"
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ./hfs/conf/:/app/conf/:ro
+      - ./hfs/data/:/app/data/
+      - ./hfs/log/:/app/log/
+    environment:
+      - NUM_PROCS=2
+    links:
+      - influxdb
+      - mongodb
+    restart: always
+
+  webhooks:
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.14"
+    networks:
+      - backend
+    volumes: 
+      - ./webhooks/conf/:/app/conf/:ro
+      - ./webhooks/log/:/app/log/
+    links: 
+      - mongodb
+    restart: always
+
+  mongodb:
+    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.38"
+    networks:
+      - backend
+    volumes:
+      - ./mongodb/conf/:/app/conf/:ro
+      - ./mongodb/data/:/app/data/
+      - ./mongodb/log/:/app/log/
+    restart: always
+
+  influxdb:
+    image: "influxdb:1.2.2"
+    networks:
+      - backend
+    volumes:
+      - ./influxdb/data/:/var/lib/influxdb
+    restart: always
+      
+networks:
+  frontend:
+    driver: bridge
+    name: pryv_frontend
+  backend:
+    driver: bridge
+    name: pryv_backend

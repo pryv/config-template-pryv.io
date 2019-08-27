@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+[[ -e config-follower.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
+
+echo "Running Pryv/config-follower component."
+
+mkdir -p ./pryv
+sudo chown 9999:9999 ./pryv
+
+#Create pipe
+pipePath=$(pwd)/config-follower/scripts
+mkdir -p "$pipePath"
+mypipe=$pipePath/mypipe
+[ -p "$mypipe" ] || mkfifo -m 0600 "$mypipe"
+
+#listen to pipe
+#It'll get some command to launch ./run-pryv
+tail -f "$mypipe" | sh &
+
+#start config-follower
+#It'll :
+# - get config from config-leader
+# - create config directory structure (if needed)
+# - start ./run-pryv by sending command to the pipe
+docker-compose -f config-follower.yml up -d

@@ -1,0 +1,22 @@
+{
+  "logs": {
+    "prefix": "config-follower",
+    "console": {
+      "active": true,
+      "level": "info",
+      "colorize": true
+    },
+    "file": {
+      "active": false
+    }
+  },
+  "services": {
+    "config_leader": {
+      "url": "http://config-leader:7000"
+    }
+  },
+  "machines": [{"name": "pryv", "key": "FOLLOWER_SINGLENODE_MACHINE_KEY"}],
+  "pipePath" : "/app/scripts/mypipe",
+  "runPryvPath" : "/app/scripts/run-pryv.sh",
+  "configPath": "/app"
+}

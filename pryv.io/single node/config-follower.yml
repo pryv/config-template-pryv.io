@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+  config-follower:
+    image: "pryvsa-docker-release.bintray.io/pryv/config-follower:0.0.3"
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ./pryv:/app/pryv/
+      - ./config-follower/conf/:/app/conf/
+      - ./config-follower/scripts/:/app/scripts/
+    restart: always
+networks:
+  frontend:
+    driver: bridge
+    name: pryv_frontend
+  backend:
+    driver: bridge
+    name: pryv_backend
