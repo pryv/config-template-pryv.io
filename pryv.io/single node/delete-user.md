@@ -44,12 +44,9 @@ Finally, make sure that the version of the `pryv/cli` docker image you are using
 
 ```shell
 $ docker ps
-dd10e3bebcbd        pryvsa-docker-release.bintray.io/pryv/nginx:1.3.36
-885a22dddd46        pryvsa-docker-release.bintray.io/pryv/core:1.3.51
-2133eb1224aa        pryvsa-docker-release.bintray.io/pryv/preview:1.3.51
-6ead8971d298        pryvsa-docker-release.bintray.io/pryv/hfs:1.3.51
-373150e9ba9c        pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.36
-11c5fcd7b14b        influxdb:1.2.2
+...
+885a22dddd46        pryvsa-docker-release.bintray.io/pryv/core:1.3.53
+...
 ```
 
 Here is a concrete example of a pryv-cli alias command for a **single node** Pryv.io platform (at the time of writing, `pryv/core` and `pryv/cli` were in version 1.3.53) :

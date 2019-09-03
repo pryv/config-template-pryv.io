@@ -1,18 +1,18 @@
 # Pryv.io configuration template
 
-In the current folder, you will find the template configuration files for a Pryv.io cluster installation.
+In the data folder of the configuration leader service (config-leader/data/), you will find the template configuration files for a Pryv.io cluster installation.
 
 ## Usage
 
 1. Replace the [platform-specific variables](#variables).
-2. If you are using a single register machine, remove `REG_MASTER_VPN_IP_ADDRESS` part from the `reg-master.yml` file.
-3. If needed, update docker image versions in `pryv/pryv.yml`.
+2. If you are using a single register machine, remove `REG_MASTER_VPN_IP_ADDRESS` part from the `config-leader/data/reg-master/pryv.yml` file.
+3. If needed, update docker image versions in `config-leader/data/{role}/pryv.yml`.
 4. Generate tarballs in `tarballs/` from config files using `./scripts/build ${DOMAIN}`.
-5. Follow the instructions in `pryv.io/INSTALL.md` to install and run the software on the dedicated machines.
+5. Follow the instructions in `INSTALL.md` to install and run the software.
 
 ### Variables
 
-These values need to be replaced in the service-config-leader configuration (in /config-leader/conf/config-leader.json), within the 'platform' object.
+These values need to be replaced in the config-leader configuration (in /config-leader/conf/config-leader.json), within the 'platform' object.
 If possible, obtain these from the customer to do the replace operation.
 
 * DOMAIN: the domain of the platform (eg.: pryv.me)

@@ -32,9 +32,9 @@ You should have the four following entries now:
   * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
   * A file called `ensure-permissions`. This script ensures that the correct
     permissions are set for data and log directories.
+  * The files `run-config-leader` and `config-leader.yml`. This is the script and docker-compose file that is used to launch the leader configuration service. 
+  * The files `run-config-follower` and `config-follower.yml`. This is the script and docker-compose file that is used to launch the leader configuration service. 
   * A file called `run-pryv`. This is your startup script. 
-  * A file called `pryv.yml`. This is the docker-compose script that is 
-    used to launch the service. 
   * A directory called `pryv`. This contains configuration and data
     directories that will be mapped as volumes in the various docker 
     containers. 
@@ -65,9 +65,18 @@ Once this completes, set the required permissions on data and log directories by
 
     $ sudo ./ensure-permissions
 
-You're now ready to launch the pryv component. To launch the installation, you should type:  
+You're now ready to launch the pryv components. First, run the service-config-leader: 
 
-    $ sudo ./run-pryv
+    $ sudo ./run-config-leader
+
+Then, run the service-config-follower, which will pull the necessary configuration files
+ from the leader and start the pryv components.
+
+  $ sudo ./run-config-follower
+
+Now that the configuration is ready, you can launch the platform:
+
+  $ sudo ./run-pryv
 
 This command will download the docker images that belong to your release from the docker repository and launch the component. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 

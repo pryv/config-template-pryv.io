@@ -2,19 +2,20 @@
 
 set -e
 
+domain=$1
 
 function build_role() {
-  role="pryv"
-  
-  tar czf "pryv-single-node.tgz" \
-    $role.yml  \
-    $role \
-    run-$role \
-    stop-containers \
-    delete-user.md \
+  role=$1
+
+  COPYFILE_DISABLE=1 tar vzcf "tarballs/$domain-$role.tgz" \
+    --exclude .DS_Store \
+    config-follower.yml config-follower run-config-follower \
+    config-leader.yml config-leader run-config-leader \
+    pryv run-pryv stop-containers \
     ensure-permissions \
+    delete-user.md \
     README.md \
     INSTALL.md
 }
 
-build_role "pryv"
+build_role "singlenode"

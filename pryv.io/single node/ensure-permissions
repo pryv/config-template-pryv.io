@@ -4,26 +4,26 @@ set -e
 
 echo "Ensuring data and log folders permissions..."
 
-echo "pryv/core"
+echo "core"
 
 chown -R 9999:9999 ./pryv/core/data
 chown -R 9999:9999 ./pryv/core/log
 
-echo "pryv/hfs"
+echo "hfs"
 
 chown -R 9999:9999 ./pryv/hfs/data
 chown -R 9999:9999 ./pryv/hfs/log
 
-echo "pryv/preview"
+echo "preview"
 
 chown -R 9999:9999 ./pryv/preview/log
 
-echo "pryv/mongodb"
+echo "mongodb"
 
 chown -R 999:999 ./pryv/mongodb/data
 chown -R 999:999 ./pryv/mongodb/log
 
-echo "pryv/audit"
+echo "audit"
 chmod -R 755 /var/log/pryv/audit/
 
 echo "Done!"

@@ -17,14 +17,12 @@ function build_role() {
 
   COPYFILE_DISABLE=1 tar vzcf "tarballs/$domain-$role.tgz" \
     --exclude .DS_Store \
-    $role.yml $role run-$role stop-containers \
+    $role.yml $role run-$role stop-containers pryv run-pryv \
     ensure-permissions-core \
     delete-user.md \
     README.md \
     INSTALL.md
 }
 
-build_role "static"
-build_role "reg-master"
-build_role "reg-slave"
-build_role "core"
+build_role "config-follower"
+build_role "config-leader"

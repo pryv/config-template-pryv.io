@@ -1,17 +1,18 @@
 # Pryv.io configuration template
 
-In the `pryv.io/` folder, you will find the template configuration files for a pryv.io single node installation.
+In the data folder of the configuration leader service (config-leader/data/), you will find the template configuration files for a Pryv.io single node installation.
 
 ## Usage
 
-1. Replace the [platform-specific variables](#variables) in the `pryv/**/conf/*.{json|conf}` files. Use `Replace in path` or equivalent in a IDE.
-2. If needed, update docker image versions in `{core,reg,static}.yml`.
+1. Replace the [platform-specific variables](#variables).
+2. If needed, update docker image versions in `config-leader/data/singlenode/pryv.yml`.
 3. Generate tarballs from config files using `./build ${DOMAIN}`.
-4. Follow the instructions in `INSTALL.md` to install and run the software on the dedicated machines.
+4. Follow the instructions in `INSTALL.md` to install and run the software.
 
 ### Variables
 
-These values need to be replaced in the configuration. If possible, obtain these from the customer to do the replace operation.
+These values need to be replaced in the config-leader configuration (in /config-leader/conf/config-leader.json), within the 'platform' object.
+If possible, obtain these from the customer to do the replace operation.
 
 * DOMAIN: the domain of the platform (eg.: pryv.me)
 * CORE_ADMIN_KEY: key to make admin calls on cores
@@ -32,7 +33,7 @@ These fields will be available in https://reg.DOMAIN/service/infos
 
 ### Local Usage
 
-In [pryv/nginx/conf/nginx.conf], uncomment the following lines:  
+In [config-leader/data/singlenode/nginx/conf/nginx.conf], uncomment the following lines:  
 
 ```
 # ssl_certificate      /app/conf/secret/rec.la-bundle.crt;
