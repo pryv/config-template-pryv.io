@@ -42,10 +42,23 @@
     "MAIL_SMTP_USER": "MAIL_SMTP_USER",
     "MAIL_SMTP_PASS": "MAIL_SMTP_PASS"
   },
-  "machines": {
-    "FOLLOWER_CORE_MACHINE_KEY": "core",
-    "FOLLOWER_REG_MASTER_MACHINE_KEY": "reg-master",
-    "FOLLOWER_REG_SLAVE_MACHINE_KEY": "reg-slave",
-    "FOLLOWER_STATIC_MACHINE_KEY": "static"
+  "adminKey": "4dmink3y",
+  "followers": {
+    "FOLLOWER_CORE_KEY": {
+      "url": "FOLLOWER_CORE_URL",
+      "role": "core"
+    },
+    "FOLLOWER_REG_MASTER_KEY": {
+      "url": "FOLLOWER_REG_MASTER_URL",
+      "role": "core"
+    },
+    "FOLLOWER_REG_SLAVE_KEY": {
+      "url": "FOLLOWER_REG_SLAVE_URL",
+      "role": "reg-master"
+    },
+    "FOLLOWER_STATIC_KEY": {
+      "url": "FOLLOWER_STATIC_URL",
+      "role": "reg-slave"
+    }
   }
 }

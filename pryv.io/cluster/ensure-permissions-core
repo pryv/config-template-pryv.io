@@ -4,26 +4,26 @@ set -e
 
 echo "Ensuring data and log folders permissions for core..."
 
-echo "core/core"
+echo "core"
 
-chown -R 9999:9999 ./core/core/data
-chown -R 9999:9999 ./core/core/log
+chown -R 9999:9999 ./pryv/core/data
+chown -R 9999:9999 ./pryv/core/log
 
-echo "core/hfs"
+echo "hfs"
 
-chown -R 9999:9999 ./core/hfs/data
-chown -R 9999:9999 ./core/hfs/log
+chown -R 9999:9999 ./pryv/hfs/data
+chown -R 9999:9999 ./pryv/hfs/log
 
-echo "core/preview"
+echo "preview"
 
-chown -R 9999:9999 ./core/preview/log
+chown -R 9999:9999 ./pryv/preview/log
 
-echo "core/mongodb"
+echo "mongodb"
 
-chown -R 999:999 ./core/mongodb/data
-chown -R 999:999 ./core/mongodb/log
+chown -R 999:999 ./pryv/mongodb/data
+chown -R 999:999 ./pryv/mongodb/log
 
-echo "core/audit"
+echo "audit"
 chmod -R 755 /var/log/pryv/audit/
 
 echo "Done!"

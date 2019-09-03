@@ -3,4 +3,4 @@
 [[ -e config-leader.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
 
 echo "Running Pryv/config-leader component."
-docker-compose -f config-leader.yml up -d --force-recreate
+docker-compose -f config-leader.yml up -d

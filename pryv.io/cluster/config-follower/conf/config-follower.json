@@ -1,4 +1,8 @@
 {
+  "http": {
+    "port": 6000,
+    "ip": "0.0.0.0"
+  },
   "logs": {
     "prefix": "config-follower",
     "console": {
@@ -10,13 +14,11 @@
       "active": false
     }
   },
-  "services": {
-    "config_leader": {
-      "url": "CONFIG_LEADER_URL"
-    }
+  "leader": {
+    "url": "CONFIG_LEADER_URL",
+    "auth": "FOLLOWER_${ROLE}_KEY"
   },
-  "machines": [{"name": "pryv", "key": "FOLLOWER_MACHINE_KEY"}],
-  "pipePath" : "/app/scripts/mypipe",
-  "runPryvPath" : "/app/scripts/run-pryv.sh",
-  "configPath": "/app"
+  "paths": {
+    "dataFolder": "/app/pryv"  
+  }
 }

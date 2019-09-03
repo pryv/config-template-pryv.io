@@ -51,14 +51,14 @@ All services use Nginx to terminate inbound HTTPS connections. You should have o
 
 Your certificate files must be placed in these locations for the respective roles:  
 
-  * core: `core/nginx/conf/secret/${DOMAIN}-bundle.crt`, 
-    `core/nginx/conf/secret/${DOMAIN}-key.pem`
-  * static: `static/nginx/conf/secret/${DOMAIN}-bundle.crt`,
-    `static/nginx/conf/secret/${DOMAIN}-key.pem`
-  * reg: `reg/nginx/conf/secret/${DOMAIN}-bundle.crt`, 
-    `reg/nginx/conf/secret/${DOMAIN}-key.pem`
+  * core: `pryv/nginx/conf/secret/${DOMAIN}-bundle.crt`, 
+    `pryv/nginx/conf/secret/${DOMAIN}-key.pem`
+  * static: `pryv/nginx/conf/secret/${DOMAIN}-bundle.crt`,
+    `pryv/nginx/conf/secret/${DOMAIN}-key.pem`
+  * reg: `pryv/nginx/conf/secret/${DOMAIN}-bundle.crt`, 
+    `pryv/nginx/conf/secret/${DOMAIN}-key.pem`
 
-If you wish to store the files in a different location, please edit the nginx server configuration files in `${ROLE}/nginx/conf/nginx.conf` to point to the files.   
+If you wish to store the files in a different location, please edit the nginx server configuration files in `pryv/nginx/conf/nginx.conf` to point to the files.   
 
 # Launching the Installation
 
@@ -74,11 +74,16 @@ Once this completes, set the required permissions on data and log directories by
 
     $ sudo ./ensure-permissions-${ROLE}
 
-You're now ready to launch the pryv component. To launch the installation, you should type:  
+You're now ready to launch the pryv components. First, run the service-config-leader: 
 
-    $ sudo ./run-${ROLE}
+    $ sudo ./run-config-leader
+
+Then, run the service-config-follower(s), which will pull the necessary configuration files
+and start the pryv components.
+
+  $ sudo ./run-config-follower
     
-This command will download the docker images that belong to your release from the docker repository and launch the component. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
+This command will download the docker images that belong to your release from the docker repository and launch the components. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 
 # Closing Remarks
 
