@@ -46,6 +46,11 @@
   "updates": {
     "ignoreProtectedFields": false
   },
+  "webhooks": {
+    "minIntervalMs": 5000,
+    "maxRetries": 5,
+    "runsSize": 20
+  },
   "logs": {
     "console": {
       "active": true,
