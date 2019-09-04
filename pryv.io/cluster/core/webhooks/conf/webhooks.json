@@ -1,10 +1,5 @@
 {
   "env": "production",
-  "webhooks": {
-    "minIntervalMs": 5000,
-    "maxRetries": 5,
-    "runsSize": 20
-  },
   "mongodb": {
     "host": "mongodb",
     "port": 27017,
