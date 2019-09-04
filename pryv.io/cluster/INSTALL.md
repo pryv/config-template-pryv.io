@@ -43,7 +43,7 @@ You should have the three following entries now:
   * A directory called `pryv`. This contains configuration and data
     directories that will be mapped as volumes in the various docker 
     containers.
-  * A file called `stop-containers`. This script stops all running containers.
+  * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running containers.
 
 # Completing the Configuration
 
