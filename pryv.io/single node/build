@@ -9,9 +9,9 @@ function build_role() {
 
   COPYFILE_DISABLE=1 tar vzcf "tarballs/$domain-$role.tgz" \
     --exclude .DS_Store \
-    config-follower.yml config-follower run-config-follower \
-    config-leader.yml config-leader run-config-leader \
-    pryv run-pryv stop-containers \
+    config-follower.yml config-follower run-config-follower stop-config-follower \
+    config-leader.yml config-leader run-config-leader stop-config-leader \
+    pryv run-pryv stop-pryv \
     ensure-permissions \
     delete-user.md \
     README.md \
