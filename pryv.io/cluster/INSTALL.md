@@ -60,6 +60,8 @@ Your certificate files must be placed in these locations for the respective role
 
 If you wish to store the files in a different location, please edit the nginx server configuration files in `${ROLE}/nginx/conf/nginx.conf` to point to the files.   
 
+Don't forget to update 'serial' if you edit reg-master/register/conf/register.json
+
 # Launching the Installation
 
 To launch the installation, you will first need to log in to the distribution host for the Pryv docker images. You should have received a set of credentials with the delivery of the configuration files. The following assumes that you have a user id (${USER_ID}) and a secret (${SECRET}).
