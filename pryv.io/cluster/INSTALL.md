@@ -35,7 +35,7 @@ Please create a directory where all your Pryv data should live. We suggest somet
 You should have the three following entries now: 
 
   * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
-  * A file called `ensure-permissions-${ROLE}`. This script ensures that the correct 
+  * A file called `ensure-permissions`. This script ensures that the correct 
     permissions are set for data and log directories.
   * The files `run-config-leader` and `config-leader.yml`. This is the script and docker-compose file that is used to launch the leader configuration service. 
   * The files `run-config-follower` and `config-follower.yml`. This is the script and docker-compose file that is used to launch the leader configuration service. 
@@ -72,7 +72,7 @@ You will be prompted for a username and password. Please enter the credentials y
 
 Once this completes, set the required permissions on data and log directories by running the following script:
 
-    $ sudo ./ensure-permissions-${ROLE}
+    $ sudo ./ensure-permissions
 
 You're now ready to launch the pryv components. First, run the service-config-leader: 
 
