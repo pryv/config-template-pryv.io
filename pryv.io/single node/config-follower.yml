@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   config-follower:
-    image: "pryvsa-docker-release.bintray.io/pryv/config-follower:0.0.5"
+    image: "pryvsa-docker-release.bintray.io/pryv/config-follower:0.0.6"
     networks:
       - frontend
       - backend
