@@ -2,7 +2,7 @@
 version: '3.5'
 services:
   config-leader:
-    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:0.0.12"
+    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:0.0.13"
     networks:
       - frontend
       - backend
