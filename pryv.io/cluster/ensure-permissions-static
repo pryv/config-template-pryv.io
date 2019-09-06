@@ -1,0 +1,8 @@
+ #!/usr/bin/env bash
+
+echo "Ensuring data and log folders permissions"
+
+sudo chown -R 9999:9999 ./pryv
+sudo chown -R 9999:9999 ./config-follower
+
+echo "Done!"
