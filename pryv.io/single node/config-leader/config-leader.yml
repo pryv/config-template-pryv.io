@@ -7,9 +7,9 @@ services:
       - frontend
       - backend
     volumes:
-      - ../config-leader/conf/:/app/conf/
-      - ../config-leader/log/:/app/log/
-      - ../config-leader/data/:/app/data/
+      - ./conf/:/app/conf/
+      - ./log/:/app/log/
+      - ./data/:/app/data/
     restart: always
 
 networks:
