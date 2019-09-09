@@ -19,6 +19,6 @@
     "auth": "FOLLOWER_SINGLENODE_KEY"
   },
   "paths": {
-    "dataFolder": "/app/pryv"  
+    "dataFolder": "/app/pryv/"  
   }
 }

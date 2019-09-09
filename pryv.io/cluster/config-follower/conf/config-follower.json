@@ -19,6 +19,6 @@
     "auth": "FOLLOWER_${ROLE}_KEY"
   },
   "paths": {
-    "dataFolder": "/app/pryv"  
+    "dataFolder": "/app/pryv/"  
   }
 }

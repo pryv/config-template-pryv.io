@@ -1,1 +1,1 @@
-docker-compose -f config-follower.yml down
+docker-compose -f config-follower/config-follower.yml down
