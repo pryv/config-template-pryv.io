@@ -4,7 +4,6 @@ echo "Ensuring data and log folders permissions"
 
 sudo chown -R 9999:9999 ./pryv
 sudo chown -R 9999:9999 ./config-follower
-sudo chown -R 999:999 ./pryv/mongodb
 sudo chmod -R 755 /var/log/pryv/audit/
 
 echo "Done!"
