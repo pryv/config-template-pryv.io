@@ -6,7 +6,7 @@ In the data folder of the configuration leader service (config-leader/data/), yo
 
 1. Replace the [platform-specific variables](#variables).
 2. If you are using a single register machine, remove `REG_MASTER_VPN_IP_ADDRESS` part from the `config-leader/data/reg-master/pryv.yml` file.
-3. If needed, update docker image versions in `config-leader/data/{role}/pryv.yml`.
+3. If needed, update docker image versions in `config-leader/data/${ROLE}/pryv.yml`.
 4. Generate tarballs in `tarballs/` from config files using `./scripts/build ${DOMAIN}`.
 5. Follow the instructions in `INSTALL.md` to install and run the software.
 
