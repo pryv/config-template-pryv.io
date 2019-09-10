@@ -80,7 +80,7 @@ services:
 
   core_router:
     image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.2"
-    container_name: pryvio_outer
+    container_name: pryvio_router
     networks:
       - frontend
     links:
