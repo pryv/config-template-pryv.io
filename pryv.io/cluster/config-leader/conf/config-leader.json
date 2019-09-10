@@ -45,20 +45,20 @@
   "adminKey": "LEADER_ADMIN_KEY",
   "followers": {
     "FOLLOWER_CORE_KEY": {
-      "url": "FOLLOWER_CORE_URL",
+      "url": "https://co1.${DOMAIN}",
       "role": "core"
     },
     "FOLLOWER_REG_MASTER_KEY": {
-      "url": "FOLLOWER_REG_MASTER_URL",
-      "role": "core"
-    },
-    "FOLLOWER_REG_SLAVE_KEY": {
-      "url": "FOLLOWER_REG_SLAVE_URL",
+      "url": "https://reg.${DOMAIN}",
       "role": "reg-master"
     },
-    "FOLLOWER_STATIC_KEY": {
-      "url": "FOLLOWER_STATIC_URL",
+    "FOLLOWER_REG_SLAVE_KEY": {
+      "url": "https://reg.${DOMAIN}",
       "role": "reg-slave"
+    },
+    "FOLLOWER_STATIC_KEY": {
+      "url": "https://sw.${DOMAIN}",
+      "role": "static"
     }
   }
 }

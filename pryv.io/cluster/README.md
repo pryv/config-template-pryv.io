@@ -27,7 +27,7 @@ If possible, obtain these from the customer to do the replace operation.
 * CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
 * OVERRIDE_ME: single appearance values that need to be replaced with a strong key
 
-#### optional variables
+#### Optional variables
 
 * SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://DOMAIN
 

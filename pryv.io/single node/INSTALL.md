@@ -27,13 +27,13 @@ Please create a directory where all your Pryv data should live. We suggest somet
   * Copy the configuration tarball to the root of the directory. 
   * Untar the configuration in place. 
 
-You should have the four following entries now: 
+You should have the following entries now: 
 
   * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
   * A file called `ensure-permissions`. This script ensures that the correct
     permissions are set for data and log directories.
-  * The files `run-config-leader` and `config-leader.yml`. This is the script and docker-compose file that is used to launch the leader configuration service. 
-  * The files `run-config-follower` and `config-follower.yml`. This is the script and docker-compose file that is used to launch the leader configuration service. 
+  * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that is used to launch the configuration leader service. 
+  * The file `run-config-follower` and folder `config-follower`. This is the script and configuration files that is used to launch the configuration follower service. 
   * A file called `run-pryv`. This is your startup script. 
   * A directory called `pryv`. This contains configuration and data
     directories that will be mapped as volumes in the various docker 
@@ -42,14 +42,28 @@ You should have the four following entries now:
 
 # Completing the Configuration
 
+## Leader-follower setup
+
+The configuration leader service will communicate with the configuration follower service in order to setup the necessary configuration files for your Pryv.io platform.
+
+Follower can be declared through the leader configuration, as follows:
+  - Set a symmetric key to authenticate the follower in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` as `followers:FOLLOWER_SINGLENODE_KEY`
+  - Set the symmetric key defined above in the follower configuration in `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json` after `leader:auth`
+
+Also, you can set an admin key for the configuration follower service in:
+
+  - `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` after `adminKey`
+
+## SSL certificates
+
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
 Your certificate files must be placed in these locations: 
 
-  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/${DOMAIN}-bundle.crt` 
-  - `${PRYV_CONF_ROOT}/pryv/nginx/conf/secret/${DOMAIN}-key.pem`
+  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-bundle.crt` 
+  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-key.pem`
 
-If you wish to store the files in a different location, please edit the nginx server configuration files in `pryv/nginx/conf/nginx.conf` to point to the files. 
+If you wish to store the files in a different location, please edit the nginx server configuration files in `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/nginx.conf` to point to the files. 
 
 # Launching the Installation
 
@@ -65,12 +79,12 @@ Once this completes, set the required permissions on data and log directories by
 
     $ sudo ./ensure-permissions
 
-You're now ready to launch the pryv components. First, run the service-config-leader: 
+You're now ready to launch the pryv components. First, run the configuration leader service: 
 
     $ sudo ./run-config-leader
 
-Then, run the service-config-follower, which will pull the necessary configuration files
- from the leader and start the pryv components.
+Then, run the configuration follower service, which will pull the necessary configuration files
+ from the leader.
 
   $ sudo ./run-config-follower
 

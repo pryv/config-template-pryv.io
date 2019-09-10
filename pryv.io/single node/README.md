@@ -21,7 +21,7 @@ If possible, obtain these from the customer to do the replace operation.
 * MACHINE_IP_ADDRESS: IP address of machine running pryv.io
 * OVERRIDE_ME: single appearance values that need to be replaced with a strong key
 
-#### optional variables
+#### Optional variables
 
 * SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://DOMAIN
 

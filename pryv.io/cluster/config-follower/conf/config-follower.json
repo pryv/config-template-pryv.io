@@ -15,7 +15,7 @@
     }
   },
   "leader": {
-    "url": "https://lead.DOMAIN",
+    "url": "https://lead.${DOMAIN}",
     "auth": "FOLLOWER_${ROLE}_KEY"
   },
   "paths": {
