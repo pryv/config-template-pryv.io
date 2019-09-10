@@ -14,15 +14,24 @@ domain=$1
 
 function build_role() {
   role=$1
+  filesList="config-follower run-config-follower stop-config-follower \
+    pryv run-pryv stop-pryv \
+    ensure-permissions-${role} \
+    delete-user.md \
+    README.md \
+    INSTALL.md"
+
+  # Add config-leader files for reg-master only
+  if [ $role == "reg-master" ]; then
+    filesList+=" config-leader run-config-leader stop-config-leader"
+  fi
 
   COPYFILE_DISABLE=1 tar vzcf "tarballs/$domain-$role.tgz" \
     --exclude .DS_Store \
-    $role run-$role stop-$role pryv run-pryv stop-pryv \
-    ensure-permissions-core \
-    delete-user.md \
-    README.md \
-    INSTALL.md
+    $filesList
 }
 
-build_role "config-follower"
-build_role "config-leader"
+build_role "static"
+build_role "reg-master"
+build_role "reg-slave"
+build_role "core"
