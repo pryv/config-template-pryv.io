@@ -40,6 +40,13 @@
           }
         ]
       }, 
+      "lead": {
+        "alias": [
+          {
+            "name": "local.DOMAIN"
+          }
+        ]
+      }, 
       "cr1": {
         "alias": [
           {
