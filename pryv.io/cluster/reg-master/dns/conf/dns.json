@@ -1,5 +1,6 @@
 {
   "hostnameOrIP": "https://reg.pryv.li",
+  "serial": "2019061301",
   "http": {
     "static": {
       "url": "https://www.pryv.com",
@@ -13,6 +14,9 @@
     "name": "Pryv Lab staging",
     "support": "http://pryv.com/helpdesk",
     "terms": "http://pryv.com/pryv-lab-terms-of-use/"
+  },
+  "eventTypes": {
+    "sourceURL": "https://api.pryv.com/event-types/flat.json"
   },
   "server": {
     "ssl": "false",
