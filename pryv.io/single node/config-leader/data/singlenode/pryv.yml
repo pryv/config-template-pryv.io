@@ -158,6 +158,7 @@ services:
 
   influxdb: 
     image: "influxdb:1.2.2"
+    container_name: pryvio_influxdb
     networks: 
       - backend
     volumes: 
