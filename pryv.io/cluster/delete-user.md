@@ -12,6 +12,11 @@ This deletion command is meant to run on a Pryv.io 'core' machine, and has the e
   - InfluxDB time series (high frequency measurements)
   - User entry on 'register' machine
 
+
+## Core machine selection
+
+If you Pryv.io platform contains multiple core machines. First locate the machine where the user data is stored using `dig ${USERNAME}.${DOMAIN}`. This should return a hostname to the machine, to which you will be able to connect via SSH. 
+
 ## Setup
 
 The easiest way to run **pryv-cli** is through a docker container. To make this easier, we suggest to define the following shell alias: 

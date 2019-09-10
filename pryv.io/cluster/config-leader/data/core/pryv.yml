@@ -16,7 +16,6 @@ services:
       - core
       - hfs
       - preview
-      - condensate
     restart: always
 
   core_router:
