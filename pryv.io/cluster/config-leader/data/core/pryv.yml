@@ -3,6 +3,7 @@ services:
 
   reverse_proxy: 
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.38"
+    container_name: pryvio_nginx
     networks: 
       - frontend
     ports: 
@@ -20,6 +21,7 @@ services:
 
   core_router:
     image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.2"
+    container_name: pryvio_router
     networks:
       - frontend
     links:
@@ -33,6 +35,7 @@ services:
 
   core_audit:
     image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.0"
+    container_name: pryvio_audit
     networks:
       - frontend
     links:
@@ -45,6 +48,7 @@ services:
 
   core: 
     image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.14"
+    container_name: pryvio_core
     networks:
       - frontend
       - backend
@@ -61,6 +65,7 @@ services:
 
   preview: 
     image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.14"
+    container_name: pryvio_preview
     networks: 
       - frontend
       - backend
@@ -74,6 +79,7 @@ services:
 
   hfs:
     image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.14"
+    container_name: pryvio_hfs
     networks:
       - frontend
       - backend
@@ -90,6 +96,7 @@ services:
 
   webhooks:
     image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.14"
+    container_name: pryvio_webhooks
     networks:
       - backend
     volumes: 
@@ -101,6 +108,7 @@ services:
 
   mongodb:
     image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.38"
+    container_name: pryvio_mongodb
     networks:
       - backend
     volumes:

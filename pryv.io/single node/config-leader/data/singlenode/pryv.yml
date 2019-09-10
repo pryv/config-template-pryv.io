@@ -3,6 +3,7 @@ version: '3.5'
 services:
   reverse_proxy:
     image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.38"
+    container_name: pryvio_nginx
     networks:
       - frontend
     ports:
@@ -19,7 +20,8 @@ services:
 
   # Register role START --------------------------------------------------------
   register:
-    image: "pryvsa-docker-release.bintray.io/pryv/register:1.3.43"
+    image: "pryvsa-docker-release.bintray.io/pryv/register:1.3.44"
+    container_name: pryvio_register
     networks:
       - frontend
       - backend
@@ -32,7 +34,8 @@ services:
     restart: always
 
   dns:
-    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.3.43"
+    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.3.44"
+    container_name: pryvio_dns
     ports:
       - "53:5353/udp"
     networks:
@@ -46,6 +49,7 @@ services:
 
   redis:
     image: "pryvsa-docker-release.bintray.io/pryv/redis:1.3.38"
+    container_name: pryvio_redis
     networks:
       - backend
     volumes: 
@@ -58,6 +62,7 @@ services:
   # Core role START ------------------------------------------------------------
   core:
     image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.11"
+    container_name: pryvio_core
     networks:
       - frontend
       - backend
@@ -75,6 +80,7 @@ services:
 
   core_router:
     image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.2"
+    container_name: pryvio_outer
     networks:
       - frontend
     links:
@@ -88,6 +94,7 @@ services:
 
   core_audit:
     image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.0"
+    container_name: pryvio_audit
     networks:
       - frontend
     links:
@@ -100,6 +107,7 @@ services:
 
   mail: 
     image: "pryvsa-docker-release.bintray.io/pryv/mail:1.1.3"
+    container_name: pryvio_mail
     networks: 
       - frontend
     volumes: 
@@ -109,6 +117,7 @@ services:
 
   hfs: 
     image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.11"
+    container_name: pryvio_hfs
     networks: 
       - frontend
       - backend
@@ -125,6 +134,7 @@ services:
 
   preview:
     image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.11"
+    container_name: pryvio_preview
     networks:
       - frontend
       - backend
@@ -138,6 +148,7 @@ services:
 
   mongodb: 
     image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.38"
+    container_name: pryvio_mongodb
     networks: 
       - backend
     volumes: 
