@@ -44,8 +44,12 @@
   },
   "adminKey": "LEADER_ADMIN_KEY",
   "followers": {
-    "FOLLOWER_CORE_KEY": {
+    "FOLLOWER_CORE1_KEY": {
       "url": "https://co1.${DOMAIN}",
+      "role": "core"
+    },
+    "FOLLOWER_CORE2_KEY": {
+      "url": "https://co2.${DOMAIN}",
       "role": "core"
     },
     "FOLLOWER_REG_MASTER_KEY": {

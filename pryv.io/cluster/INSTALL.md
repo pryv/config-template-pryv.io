@@ -52,7 +52,7 @@ You should have the three following entries now:
 The configuration leader service will communicate with the configuration follower services in order to setup the necessary configuration files for your Pryv.io platform.
 
 Followers can be declared through the leader configuration, as follows:
-  - Set a symmetric key to authenticate each follower in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` as `followers:FOLLOWER_${ROLE}_KEY`
+  - Set a symmetric key to authenticate each follower in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` as `followers:${FOLLOWER_KEY}`
   - Also set here each follower's role (core, reg-master, reg-slave, static) and url
   - Set the symmetric key defined above in the corresponding follower configuration in `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json` after `leader:auth`
   - Set the leader url in each follower configuration in `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json` after `leader:url` (usually `https://lead.${DOMAIN}`)
