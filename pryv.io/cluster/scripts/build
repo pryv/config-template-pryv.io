@@ -24,7 +24,7 @@ function build_role() {
   # Add config-leader files for reg-master only
   if [ $role == "reg-master" ]; then
     filesList+=" config-leader run-config-leader stop-config-leader \
-        watch-config reload-module install-fswatch"add fswatch scripts
+        watch-config reload-module install-fswatch"
   fi
 
   COPYFILE_DISABLE=1 tar vzcf "tarballs/$domain-$role.tgz" \
