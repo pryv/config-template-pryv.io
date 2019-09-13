@@ -11,6 +11,7 @@ function build_role() {
     --exclude .DS_Store \
     config-follower run-config-follower stop-config-follower \
     config-leader run-config-leader stop-config-leader \
+    watch-config reload-module install-fswatch \
     pryv run-pryv stop-pryv \
     ensure-permissions \
     delete-user.md \
