@@ -14,11 +14,11 @@ You might have to use `docker-ce` and your versions can be newer:
     $ docker-compose -v
     docker-compose version 1.18.0, build 8dd22a9
 
-If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv registry server: 
+If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv Register server: 
 
     $ dig NS ${DOMAIN}
 
-Normally, your NS records should resolve to the names you gave to the registry server you intend to set up. Please check if your A records exist and point to the same machine. 
+Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that your A records exist and point to the same machine. 
 ​    
 # Configuration Install
 
@@ -29,22 +29,22 @@ Please create a directory where all your Pryv data should live. We suggest somet
 
 You should have the following entries now: 
 
-  * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
+  * A file called `delete-user.md`. It presents a tool which allows to delete Pryv.io users.
   * A file called `ensure-permissions`. This script ensures that the correct
     permissions are set for data and log directories.
-  * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that is used to launch the configuration leader service. 
-  * The file `run-config-follower` and folder `config-follower`. This is the script and configuration files that is used to launch the configuration follower service. 
+  * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that are used to launch the configuration leader service. 
+  * The file `run-config-follower` and folder `config-follower`. This is the script and configuration files that are used to launch the configuration follower service. 
   * A file called `run-pryv`. This is your startup script. 
-  * A directory called `pryv`. This contains configuration and data
+  * A directory called `pryv`. This will contain configuration and data
     directories that will be mapped as volumes in the various docker 
     containers. 
-  * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running containers.
+  * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running services.
 
 # Completing the Configuration
 
 ## Leader-follower setup
 
-The configuration leader service will communicate with the configuration follower service in order to setup the necessary configuration files for your Pryv.io platform.
+The configuration leader service will distribute the necessary configuration files for your Pryv.io platform to the configuration follower service.
 
 Follower can be declared through the leader configuration, as follows:
   - Set a symmetric key to authenticate the follower in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` as `followers:${FOLLOWER_KEY}`

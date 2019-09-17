@@ -14,16 +14,16 @@ You might have to use `docker-ce` and your versions can be newer:
     $ docker-compose -v
     docker-compose version 1.18.0, build 8dd22a9
 
-If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv registry server: 
+If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv Register server: 
 
     $ dig NS ${DOMAIN}
 
-Normally, your NS records should resolve to the names you gave to the registry server you intend to set up. Please check if your A records exist and point to the same machine. 
+Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that your A records exist and point to the same machine. 
     
 # Configuration Install
 
-The instructions below need to be repeated for each of the machines that
-are part of your configuration. You should have received several configuration
+The instructions below need to be repeated for each of machine that
+is part of your configuration. You should have received several configuration
 files, one for each role: 'static', 'reg-master', 'reg-slave', 'core'. We'll use the placeholder
 ${ROLE} to refer to these roles below.
 
@@ -34,22 +34,22 @@ Please create a directory where all your Pryv data should live. We suggest somet
 
 You should have the three following entries now: 
 
-  * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
+  * A file called `delete-user.md`. It presents a tool which allows to delete Pryv.io users.
   * A file called `ensure-permissions-${ROLE}`. This script ensures that the correct 
     permissions are set for data and log directories.
-  * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that is used to launch the configuration leader service. The leader is usually hosted on the machine with role 'reg-master'.
-  * The file `run-config-follower` and folder `config-follower`. This is the script and configuration files that is used to launch the configuration follower service. There should be one follower service on each machine.
+  * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that are used to launch the configuration leader service. The leader is usually hosted on the `reg-master` machine.
+  * The file `run-config-follower` and folder `config-follower`. This is the script and configuration files that are used to launch the configuration follower service. There should be one follower service on each machine.
   * A file called `run-pryv`. This is your startup script. 
-  * A directory called `pryv`. This contains configuration and data
+  * A directory called `pryv`. This will contain configuration and data
     directories that will be mapped as volumes in the various docker 
     containers.
-  * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running containers.
+  * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running services.
 
 # Completing the Configuration
 
 ## Leader-follower setup
 
-The configuration leader service will communicate with the configuration follower services in order to setup the necessary configuration files for your Pryv.io platform.
+The configuration leader service will distribute the necessary configuration files for your Pryv.io platform to the configuration follower services.
 
 Followers can be declared through the leader configuration, as follows:
   - Set a symmetric key to authenticate each follower in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` as `followers:${FOLLOWER_KEY}`
@@ -85,7 +85,7 @@ Once this completes, set the required permissions on data and log directories by
 
     $ sudo ./ensure-permissions-${ROLE}
 
-You're now ready to launch the pryv components. First, run the configuration leader service on leader machine: 
+You're now ready to launch the pryv components. First, run the configuration leader service on the leader machine: 
 
     $ sudo ./run-config-leader
 
