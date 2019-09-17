@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-[[ -e pryv/pryv.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
+[[ -e pryv/pryv.yml ]] || { echo >&2 'Please run this script from withing the ${PRYV_CONF_ROOT} directory.'; exit 1; }
 
 echo "Running Pryv/core component."
 docker-compose -f pryv/pryv.yml up -d
