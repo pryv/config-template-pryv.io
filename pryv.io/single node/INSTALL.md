@@ -1,11 +1,11 @@
+# Installation guide
 
-This manual contains installation instructions for a single server setup of Pryv.
-You should have prepared your server with the Installation Prerequisites manual
-first. 
+This guide contains instructions for a Pryv.io singlenode installation.
+You should have prepared your machines with the [Deployment Design Guide](https://api.pryv.com/customer-resources/#documents) first. 
 
-# Prerequisites Check
+## Prerequisites Check
 
-Please run these commands and compare the output with the contents of this manual. 
+Please run these commands and compare the output with values below. 
 You might have to use `docker-ce` and your versions can be newer: 
 
     $ docker -v
@@ -20,7 +20,7 @@ If your DNS is set up correctly, the following command should yield the fully qu
 
 Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that your A records exist and point to the same machine. 
 ​    
-# Configuration Install
+## Configuration Install
 
 Please create a directory where all your Pryv data should live. We suggest something like `'/var/pryv'`. For the purposes of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`. Then follow these steps: 
 
@@ -40,9 +40,9 @@ You should have the following entries now:
     containers. 
   * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running services.
 
-# Completing the Configuration
+## Completing the Configuration
 
-## Leader-follower setup
+### Leader-follower setup
 
 The configuration leader service will distribute the necessary configuration files for your Pryv.io platform to the configuration follower services.
 
@@ -71,7 +71,7 @@ In the follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-fo
   }
 ```
 
-## SSL certificates
+### SSL certificates
 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
@@ -80,7 +80,7 @@ Your certificate files must be placed in these locations:
   - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-bundle.crt` 
   - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-key.pem`
 
-# Launching the Installation
+## Launching the Installation
 
 To launch the installation, you will first need to log in to the distribution host for the Pryv docker images. You should have received a set of credentials with the delivery of the configuration files. The following assumes that you have a user id (${USER_ID}) and a secret (${SECRET}).
 
@@ -109,7 +109,7 @@ Now that the configuration is ready, you can launch the platform:
 
 This command will download the docker images that belong to your release from the docker repository and launch the component. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 
-# Closing Remarks
+## Closing Remarks
 
 You should now have a working docker installation. You can test this by directing a browser at [https://sw.${DOMAIN}/access/register.html](https://sw.${DOMAIN}/access/register.html) and filling in the form. 
 
