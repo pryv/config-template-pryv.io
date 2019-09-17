@@ -61,7 +61,7 @@ services:
 
   # Core role START ------------------------------------------------------------
   core:
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.11"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.17"
     container_name: pryvio_core
     networks:
       - frontend
@@ -116,7 +116,7 @@ services:
     restart: always
 
   hfs: 
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.11"
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.17"
     container_name: pryvio_hfs
     networks: 
       - frontend
@@ -133,7 +133,7 @@ services:
     restart: always
 
   preview:
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.11"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.17"
     container_name: pryvio_preview
     networks:
       - frontend
@@ -143,6 +143,18 @@ services:
       - ./core/data/:/app/data/
       - ./preview/log/:/app/log/
     links:
+      - mongodb
+    restart: always
+
+  webhooks:
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.17"
+    container_name: pryvio_webhooks
+    networks:
+      - backend
+    volumes: 
+      - ./webhooks/conf/:/app/conf/:ro
+      - ./webhooks/log/:/app/log/
+    links: 
       - mongodb
     restart: always
 
