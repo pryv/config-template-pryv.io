@@ -1,6 +1,6 @@
 # Pryv.io configuration template
 
-In the data folder of the configuration leader service (config-leader/data/), you will find the template configuration files for a Pryv.io single node installation.
+In the `config-leader/data/` folder, you will find the template configuration files for a Pryv.io single node installation.
 
 ## Usage
 
