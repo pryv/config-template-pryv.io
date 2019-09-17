@@ -51,15 +51,34 @@ You should have the three following entries now:
 
 The configuration leader service will distribute the necessary configuration files for your Pryv.io platform to the configuration follower services.
 
-Followers can be declared through the leader configuration, as follows:
-  - Set a symmetric key to authenticate each follower in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` as `followers:${FOLLOWER_KEY}`
-  - Also set here each follower's role (core, reg-master, reg-slave, static) and url
-  - Set the symmetric key defined above in the corresponding follower configuration in `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json` after `leader:auth`
-  - Set the leader url in each follower configuration in `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json` after `leader:url` (usually `https://lead.${DOMAIN}`)
+Followers can be declared through the leader configuration (`${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`) within a `followers` map, for example:
 
-Also, you can set an admin key for the configuration follower service in:
+```
+  "adminKey": "lDng9YLK3v57A8V6awdeLuaY2eaHmB7N",
+  "followers": {
+    "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
+      "url": "http://co1.pryv.me",
+      "role": "core"
+    },
+    "ciWrIHB3GoNoodoSH5zaulgR48aL5MhO": {
+      "url": "http://reg.pryv.me",
+      "role": "reg-master"
+    }
+  }
+```
 
-  - `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` after `adminKey`
+Each follower in this map is indexed by a symmetric key that you can set, and also specifies its role (core, reg-master, reg-slave, static) and url.
+
+An `adminKey` can also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
+
+In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), provide the corresponding symmetric key (as defined above in the leader) as well as the leader url (usually `https://lead.${DOMAIN}`), as follows:
+
+```
+  "leader": {
+    "url": "https://lead.pryv.me",
+    "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
+  }
+```
 
 ## SSL certificates
 
