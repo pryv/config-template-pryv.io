@@ -29,9 +29,9 @@ If possible, obtain these from the customer to do the replace operation.
 
 #### Optional variables
 
-* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://DOMAIN
+* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://${DOMAIN}
 
-These fields will be available in https://reg.DOMAIN/service/infos
+These fields will be available in https://reg.${DOMAIN}/service/infos
 
 * PLATFORM_NAME: field `name`
 * SUPPORT_LINK: ield `support`
