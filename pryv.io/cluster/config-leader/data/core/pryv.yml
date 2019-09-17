@@ -131,6 +131,7 @@ services:
 
   condensate:
     image: "pryvsa-docker-release.bintray.io/pryv/condensate:0.0.5"
+    container_name: pryvio_condensate
     networks:
       - frontend
     volumes:
