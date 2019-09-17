@@ -15,7 +15,7 @@
     }
   },
   "leader": {
-    "url": "https://lead.${DOMAIN}",
+    "url": "https://lead.pryv.li",
     "auth": "${FOLLOWER_KEY}"
   },
   "paths": {

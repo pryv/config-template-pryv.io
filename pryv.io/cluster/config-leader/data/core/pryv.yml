@@ -99,6 +99,7 @@ services:
 
   webhooks:
     image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.17"
+    container_name: pryvio_webhooks
     networks:
       - backend
     volumes: 
