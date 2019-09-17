@@ -88,8 +88,6 @@ Your certificate files for the respective roles must be placed on the leader mac
   - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-bundle.crt`
   - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
 
-If you wish to store the files in a different location, please edit the nginx server configuration files in `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/nginx.conf` to point to the files.  
-
 # Launching the Installation
 
 To launch the installation, you will first need to log in to the distribution host for the Pryv docker images. You should have received a set of credentials with the delivery of the configuration files. The following assumes that you have a user id (${USER_ID}) and a secret (${SECRET}).
