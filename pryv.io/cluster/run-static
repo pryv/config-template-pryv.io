@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-[[ -e static.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
-
-echo "Running Pryv/static component."
-exec docker-compose -f static.yml up -d

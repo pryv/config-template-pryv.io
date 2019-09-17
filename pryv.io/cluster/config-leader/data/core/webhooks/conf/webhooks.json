@@ -1,0 +1,33 @@
+{
+  "env": "production",
+  "webhooks": {
+    "minIntervalMs": 5000,
+    "maxRetries": 5,
+    "runsSize": 20
+  },
+  "mongodb": {
+    "host": "mongodb",
+    "port": 27017,
+    "name": "pryv-node",
+    "authUser": "",
+    "authPassword": ""
+  },
+  "nats": {
+    "uri": "nats://core:4222"
+  },
+  "logs": {
+    "console": {
+      "active": true,
+      "level": "info",
+      "colorize": true
+    },
+    "file": {
+      "active": false
+    },
+    "airbrake": {
+      "active": false,
+      "key": "OVERRIDE_ME",
+      "projectId": "OVERRIDE_ME"
+    }
+  }
+}

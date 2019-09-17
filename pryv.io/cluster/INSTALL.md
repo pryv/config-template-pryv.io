@@ -22,10 +22,10 @@ Normally, your NS records should resolve to the names you gave to the registry s
     
 # Configuration Install
 
-The instructions below need to be repeated for each of the three machines that
-are part of your configuration. You should have received three configuration
-files, one for each role: 'static', 'reg', 'core'. We'll use the placeholder
-${ROLE} to refer to these roles below. 
+The instructions below need to be repeated for each of the machines that
+are part of your configuration. You should have received several configuration
+files, one for each role: 'static', 'reg-master', 'reg-slave', 'core'. We'll use the placeholder
+${ROLE} to refer to these roles below.
 
 Please create a directory where all your Pryv data should live. We suggest something like `'/var/pryv'`. For the purposes of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`. Then follow these steps: 
 
@@ -37,28 +37,39 @@ You should have the three following entries now:
   * A file called `delete-user.md`. This presents a tool which allows to delete Pryv.io users.
   * A file called `ensure-permissions-${ROLE}`. This script ensures that the correct 
     permissions are set for data and log directories.
-  * A file called `run-${ROLE}`. This is your startup script. 
-  * A file called `${ROLE}.yml`. This is the docker-compose script that is 
-    used to launch the service. 
-  * A directory called ${ROLE}. This contains configuration and data
+  * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that is used to launch the configuration leader service. The leader is usually hosted on the machine with role 'reg-master'.
+  * The file `run-config-follower` and folder `config-follower`. This is the script and configuration files that is used to launch the configuration follower service. There should be one follower service on each machine.
+  * A file called `run-pryv`. This is your startup script. 
+  * A directory called `pryv`. This contains configuration and data
     directories that will be mapped as volumes in the various docker 
-    containers. 
-  * A file called `stop-containers`. This script stops all running containers.
+    containers.
+  * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running containers.
 
 # Completing the Configuration
 
+## Leader-follower setup
+
+The configuration leader service will communicate with the configuration follower services in order to setup the necessary configuration files for your Pryv.io platform.
+
+Followers can be declared through the leader configuration, as follows:
+  - Set a symmetric key to authenticate each follower in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` as `followers:${FOLLOWER_KEY}`
+  - Also set here each follower's role (core, reg-master, reg-slave, static) and url
+  - Set the symmetric key defined above in the corresponding follower configuration in `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json` after `leader:auth`
+  - Set the leader url in each follower configuration in `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json` after `leader:url` (usually `https://lead.${DOMAIN}`)
+
+Also, you can set an admin key for the configuration follower service in:
+
+  - `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` after `adminKey`
+
+## SSL certificates
+
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
-Your certificate files must be placed in these locations for the respective roles:  
+Your certificate files for the respective roles must be placed on the leader machine in these locations: 
+  - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-bundle.crt`
+  - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
 
-  * core: `core/nginx/conf/secret/${DOMAIN}-bundle.crt`, 
-    `core/nginx/conf/secret/${DOMAIN}-key.pem`
-  * static: `static/nginx/conf/secret/${DOMAIN}-bundle.crt`,
-    `static/nginx/conf/secret/${DOMAIN}-key.pem`
-  * reg: `reg/nginx/conf/secret/${DOMAIN}-bundle.crt`, 
-    `reg/nginx/conf/secret/${DOMAIN}-key.pem`
-
-If you wish to store the files in a different location, please edit the nginx server configuration files in `${ROLE}/nginx/conf/nginx.conf` to point to the files.   
+If you wish to store the files in a different location, please edit the nginx server configuration files in `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/nginx.conf` to point to the files.  
 
 Don't forget to update 'serial' if you edit reg-master/register/conf/register.json
 
@@ -76,11 +87,19 @@ Once this completes, set the required permissions on data and log directories by
 
     $ sudo ./ensure-permissions-${ROLE}
 
-You're now ready to launch the pryv component. To launch the installation, you should type:  
+You're now ready to launch the pryv components. First, run the configuration leader service on leader machine: 
 
-    $ sudo ./run-${ROLE}
-    
-This command will download the docker images that belong to your release from the docker repository and launch the component. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
+    $ sudo ./run-config-leader
+
+Then, run the configuration follower service on each machine, which will pull the necessary configuration files from the leader.
+
+  $ sudo ./run-config-follower
+
+Now that the configuration is ready, you can launch the platform:
+
+  $ sudo ./run-pryv
+
+This command will download the docker images that belong to your release from the docker repository and launch the components. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 
 # Closing Remarks
 

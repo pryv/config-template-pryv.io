@@ -1,0 +1,68 @@
+{
+  "http": {
+    "port": 7000,
+    "ip": "0.0.0.0"
+  },
+  "logs": {
+    "prefix": "config-leader",
+    "console": {
+      "active": true,
+      "level": "info",
+      "colorize": true
+    },
+    "file": {
+      "active": false
+    }
+  },
+  "dataFolder": "/app/data",
+  "platform": {
+    "DOMAIN": "DOMAIN",
+    "SSO_COOKIE_SIGN_SECRET": "SECRET",
+    "FILES_READ_TOKEN_SECRET": "SECRET",
+    "CORE_SYSTEM_KEY": "SECRET",
+    "CORE_MAIL_KEY": "SECRET",
+    "PLATFORM_NAME": "PLATFORM_NAME",
+    "SUPPORT_LINK": "SUPPORT_LINK",
+    "TERMS_OF_USE_LINK": "TERMS_OF_USE_LINK",
+    "REGISTER_SYSTEM_KEY_1": "SECRET",
+    "REGISTER_ADMIN_KEY_1": "SECRET",
+    "STATIC_WEB_IP_ADDRESS": "STATIC_WEB_IP_ADDRESS",
+    "REG_MASTER_IP_ADDRESS": "REG_MASTER_IP_ADDRESS",
+    "REG_MASTER_VPN_IP_ADDRESS": "REG_MASTER_VPN_IP_ADDRESS",
+    "REG_SLAVE_IP_ADDRESS": "REG_SLAVE_IP_ADDRESS",
+    "CORE_1_IP_ADDRESS": "CORE_1_IP_ADDRESS",
+    "CORE_2_IP_ADDRESS": "CORE_2_IP_ADDRESS",
+    "CORE_HOSTING_1": "CORE_HOSTING_1",
+    "CORE_HOSTING_2": "CORE_HOSTING_2",
+    "SERVICE_WEBSITE_IP_ADDRESS": "SERVICE_WEBSITE_IP_ADDRESS",
+    "MAIL_FROM_NAME": "MAIL_FROM_NAME",
+    "MAIL_FROM_ADDRESS": "MAIL_FROM_ADDRESS",
+    "MAIL_SMTP_HOST": "MAIL_SMTP_HOST",
+    "MAIL_SMTP_PORT": "MAIL_SMTP_PORT",
+    "MAIL_SMTP_USER": "MAIL_SMTP_USER",
+    "MAIL_SMTP_PASS": "MAIL_SMTP_PASS"
+  },
+  "adminKey": "LEADER_ADMIN_KEY",
+  "followers": {
+    "FOLLOWER_CORE1_KEY": {
+      "url": "https://co1.${DOMAIN}",
+      "role": "core"
+    },
+    "FOLLOWER_CORE2_KEY": {
+      "url": "https://co2.${DOMAIN}",
+      "role": "core"
+    },
+    "FOLLOWER_REG_MASTER_KEY": {
+      "url": "https://reg.${DOMAIN}",
+      "role": "reg-master"
+    },
+    "FOLLOWER_REG_SLAVE_KEY": {
+      "url": "https://reg.${DOMAIN}",
+      "role": "reg-slave"
+    },
+    "FOLLOWER_STATIC_KEY": {
+      "url": "https://sw.${DOMAIN}",
+      "role": "static"
+    }
+  }
+}

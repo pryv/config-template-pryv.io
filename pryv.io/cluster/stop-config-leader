@@ -1,0 +1,1 @@
+docker-compose -f config-leader/config-leader.yml down

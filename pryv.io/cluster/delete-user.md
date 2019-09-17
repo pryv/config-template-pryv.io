@@ -12,9 +12,10 @@ This deletion command is meant to run on a Pryv.io 'core' machine, and has the e
   - InfluxDB time series (high frequency measurements)
   - User entry on 'register' machine
 
+
 ## Core machine selection
 
-If you Pryv.io platform contains multiple core machines. First locate the machine where the user data is stored using `dig ${USERNAME}.${DOMAIN}`. This should return a hostname to the machine, to which you will be able to connect via SSH.
+If you Pryv.io platform contains multiple core machines. First locate the machine where the user data is stored using `dig ${USERNAME}.${DOMAIN}`. This should return a hostname to the machine, to which you will be able to connect via SSH. 
 
 ## Setup
 
@@ -22,8 +23,8 @@ The easiest way to run **pryv-cli** is through a docker container. To make this 
 
 ```shell
 $ alias pryv-cli='docker run --read-only \
-  -v ${PRYV_CONF_ROOT}/core/:/app/conf/:ro \
-  -v ${PRYV_CONF_ROOT}/core/core/data/:/app/data/ \
+  -v ${PRYV_CONF_ROOT}/pryv/:/app/conf/:ro \
+  -v ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/ \
   --network ${DOCKER_BACKEND_NETWORK} -ti \
   pryvsa-docker-release.bintray.io/pryv/cli:${PRYVIO_CORE_VERSION} $*'
 ```
@@ -57,8 +58,8 @@ Here is a concrete example of a pryv-cli alias command for a **cluster** Pryv.io
 
 ```shell
 $ alias pryv-cli='docker run --read-only \
-  -v /var/pryv/core/:/app/conf/:ro \
-  -v /var/pryv/core/core/data/:/app/data/ \
+  -v /var/pryv/pryv/:/app/conf/:ro \
+  -v /var/pryv/pryv/core/data/:/app/data/ \
   --network pryv_backend -ti \
   pryvsa-docker-release.bintray.io/pryv/cli:1.4.13 $*'
 ```

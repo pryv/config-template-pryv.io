@@ -1,0 +1,22 @@
+
+version: '3.5'
+services:
+  config-leader:
+    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:0.0.13"
+    container_name: pryvio_config_leader
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ./conf/:/app/conf/
+      - ./log/:/app/log/
+      - ./data/:/app/data/
+    restart: always
+
+networks:
+  frontend:
+    driver: bridge
+    name: pryv_frontend
+  backend:
+    driver: bridge
+    name: pryv_backend

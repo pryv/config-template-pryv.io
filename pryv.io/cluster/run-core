@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-[[ -e core.yml ]] || { echo >&2 "Please cd into the configuration directory before running this script."; exit 1; }
-
-# Airbrake host
-export HOSTNAME=$HOSTNAME
-
-echo "Running Pryv/core component."
-exec docker-compose -f core.yml up -d 
