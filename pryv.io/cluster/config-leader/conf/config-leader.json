@@ -44,24 +44,24 @@
   },
   "adminKey": "LEADER_ADMIN_KEY",
   "followers": {
-    "FOLLOWER_CORE1_KEY": {
-      "url": "https://co1.${DOMAIN}",
+    "FOLLOWER_KEY_core1": {
+      "url": "https://co1.DOMAIN",
       "role": "core"
     },
-    "FOLLOWER_CORE2_KEY": {
-      "url": "https://co2.${DOMAIN}",
+    "FOLLOWER_KEY_core2": {
+      "url": "https://co2.DOMAIN",
       "role": "core"
     },
-    "FOLLOWER_REG_MASTER_KEY": {
-      "url": "https://reg.${DOMAIN}",
+    "FOLLOWER_KEY_reg-master": {
+      "url": "https://reg.DOMAIN",
       "role": "reg-master"
     },
-    "FOLLOWER_REG_SLAVE_KEY": {
-      "url": "https://reg.${DOMAIN}",
+    "FOLLOWER_KEY_reg-slave": {
+      "url": "https://reg.DOMAIN",
       "role": "reg-slave"
     },
-    "FOLLOWER_STATIC_KEY": {
-      "url": "https://sw.${DOMAIN}",
+    "FOLLOWER_KEY_static": {
+      "url": "https://sw.DOMAIN",
       "role": "static"
     }
   }

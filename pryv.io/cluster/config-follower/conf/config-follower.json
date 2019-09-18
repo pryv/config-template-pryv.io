@@ -15,8 +15,8 @@
     }
   },
   "leader": {
-    "url": "https://lead.${DOMAIN}",
-    "auth": "${FOLLOWER_KEY}"
+    "url": "https://lead.DOMAIN",
+    "auth": "FOLLOWER_KEY"
   },
   "paths": {
     "dataFolder": "/app/pryv/"  
