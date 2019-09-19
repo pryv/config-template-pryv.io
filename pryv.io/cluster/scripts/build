@@ -17,13 +17,14 @@ fi
 
 customer=$1
 rootDir="tarballs/$customer"
+commonFiles="config-follower run-config-follower stop-config-follower \
+  watch-config reload-module \
+  pryv run-pryv stop-pryv \
+  INSTALL.md"
+leaderUrl="https:\/\/lead.DOMAIN"
 
 function build_cores() {
-  filesList="config-follower run-config-follower stop-config-follower \
-    watch-config reload-module \
-    pryv run-pryv stop-pryv \
-    ensure-permissions-core"
-  leaderUrl="https:\/\/lead.DOMAIN"
+  filesList="$commonFiles ensure-permissions-core"
 
   for nbr in $(seq $1)
   do
@@ -32,32 +33,20 @@ function build_cores() {
 }
 
 function build_reg_master() {
-  filesList="config-follower run-config-follower stop-config-follower \
-    config-leader run-config-leader stop-config-leader \
-    watch-config reload-module \
-    pryv run-pryv stop-pryv \
-    ensure-permissions-reg-master"
-  leaderUrl="http:\/\/config-leader:7000"
+  filesList="$commonFiles ensure-permissions-reg-master \
+    config-leader run-config-leader stop-config-leader"
 
-  build "reg-master" "$filesList" "$leaderUrl"
+  build "reg-master" "$filesList" "http:\/\/config-leader:7000"
 }
 
 function build_reg_slave() {
-  filesList="config-follower run-config-follower stop-config-follower \
-    watch-config reload-module \
-    pryv run-pryv stop-pryv \
-    ensure-permissions-reg-slave"
-  leaderUrl="https:\/\/lead.DOMAIN"
+  filesList="$commonFiles ensure-permissions-reg-slave"
 
   build "reg-slave" "$filesList" "$leaderUrl"
 }
 
 function build_static() {
-  filesList="config-follower run-config-follower stop-config-follower \
-    watch-config reload-module \
-    pryv run-pryv stop-pryv \
-    ensure-permissions-static"
-  leaderUrl="https:\/\/lead.DOMAIN"
+  filesList="$commonFiles ensure-permissions-static"
 
   build "static" "$filesList" "$leaderUrl"
 }
