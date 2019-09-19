@@ -14,8 +14,6 @@ function build_role() {
     watch-config reload-module \
     pryv run-pryv stop-pryv \
     ensure-permissions \
-    delete-user.md \
-    README.md \
     INSTALL.md
 }
 
