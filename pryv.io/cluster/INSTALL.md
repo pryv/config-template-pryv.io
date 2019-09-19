@@ -2,23 +2,6 @@
 
 This guide contains instructions for a Pryv.io cluster installation.
 You should have prepared your machines with the [Deployment Design Guide](https://api.pryv.com/customer-resources/#documents) first. 
-
-## Prerequisites Check
-
-Please run these commands and compare the output with values below. 
-You might have to use `docker-ce` and your versions can be newer: 
-
-    $ docker -v
-    Docker version 17.05.0-ce, build 89658be
-    
-    $ docker-compose -v
-    docker-compose version 1.18.0, build 8dd22a9
-
-If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv Register server: 
-
-    $ dig NS ${DOMAIN}
-
-Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that your A records exist and point to the same machine. 
     
 ## Configuration Install
 
@@ -34,7 +17,6 @@ Please create a directory where all your Pryv data should live. We suggest somet
 
 You should have the three following entries now: 
 
-  * A file called `delete-user.md`. It presents a tool which allows to delete Pryv.io users.
   * A file called `ensure-permissions-${ROLE}`. This script ensures that the correct 
     permissions are set for data and log directories.
   * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that are used to launch the configuration leader service. The leader is usually hosted on the `reg-master` machine.
@@ -67,11 +49,11 @@ Followers can be declared through the leader configuration (`${PRYV_CONF_ROOT}/c
   }
 ```
 
-Each follower in this map is indexed by a symmetric key that you can set, and also specifies its role (core, reg-master, reg-slave, static) and url.
+Each follower in this map is indexed by a symmetric key that you can change, and also specifies its role (core, reg-master, reg-slave, static) and url.
 
 An `adminKey` can also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
 
-In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), provide the corresponding symmetric key (as defined above in the leader) as well as the leader url (usually `https://lead.${DOMAIN}`), as follows:
+In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), the corresponding symmetric key is provided (as defined above in the leader) as well as the leader url (usually `https://lead.${DOMAIN}`), as follows:
 
 ```
   "leader": {
@@ -79,6 +61,28 @@ In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-f
     "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
   }
 ```
+
+### Platform variables
+
+The configuration leader service is hosting the template configuration files for a Pryv.io installation in the `config-leader/data/` folder. It will adapt this template before distributing final configuration files to the follower services, according to the platform-specific variables that you should define in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`.
+
+Here is a list of the typical platform-specific variables:
+
+* DOMAIN: the domain of the platform (eg.: pryv.me)
+* CORE_SYSTEM_KEY: key to make system calls on cores
+* REGISTER_SYSTEM_KEY_1: key to make system calls on register
+* REGISTER_ADMIN_KEY_1: key to make admin calls on register
+* STATIC_WEB_IP_ADDRESS: hostname of static-web machine
+* REG_MASTER_IP_ADDRESS: IP address of master register machine
+* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (can be a private network)
+* REG_SLAVE_IP_ADDRESS: IP address of slave register machine
+* CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
+* CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
+* OVERRIDE_ME: single appearance values that need to be replaced with a strong key
+* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://${DOMAIN}
+* PLATFORM_NAME: field `name`
+* SUPPORT_LINK: ield `support`
+* TERMS_OF_USE_LINK: ield `terms`
 
 ### SSL certificates
 
@@ -90,7 +94,28 @@ Your certificate files for the respective roles must be placed on the leader mac
 
 ## Launching the Installation
 
-To launch the installation, you will first need to log in to the distribution host for the Pryv docker images. You should have received a set of credentials with the delivery of the configuration files. The following assumes that you have a user id (${USER_ID}) and a secret (${SECRET}).
+### Prerequisites Check
+
+Please run these commands and compare the output with values below. 
+You might have to use `docker-ce` and your versions can be newer: 
+
+    $ docker -v
+    Docker version 17.05.0-ce, build 89658be
+    
+    $ docker-compose -v
+    docker-compose version 1.18.0, build 8dd22a9
+
+If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv Register server: 
+
+    $ dig NS ${DOMAIN}
+
+Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that your A records exist and point to the same machine. 
+
+### Run
+
+To launch the installation, you will need to SSH to each Pryv.io machine and repeat the commands described below for each machine. Please start with the leader machine (reg-master) first and then the follower machines (cores, static, reg-slave).
+
+You will first need to log in to the distribution host for the Pryv docker images. You should have received a set of credentials with the delivery of the configuration files. The following assumes that you have a user id (${USER_ID}) and a secret (${SECRET}).
 
 To log in, type: 
 
@@ -102,15 +127,15 @@ Once this completes, set the required permissions on data and log directories by
 
     $ sudo ./ensure-permissions-${ROLE}
 
-You're now ready to launch the pryv components. First, run the configuration leader service on the leader machine: 
+On the leader machine only, run the configuration leader service: 
 
     $ sudo ./run-config-leader
 
-Then, run the configuration follower service on each machine, which will pull the necessary configuration files from the leader.
+Then, run the configuration follower service, which will pull the necessary configuration files from the leader:
 
   $ sudo ./run-config-follower
 
-Now that the configuration is ready, you can launch the platform:
+Now that the configuration is ready, you can launch the Pryv.io components:
 
   $ sudo ./run-pryv
 

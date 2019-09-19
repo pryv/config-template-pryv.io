@@ -2,8 +2,86 @@
 
 This guide contains instructions for a Pryv.io singlenode installation.
 You should have prepared your machines with the [Deployment Design Guide](https://api.pryv.com/customer-resources/#documents) first. 
+​    
+## Configuration Install
 
-## Prerequisites Check
+Please create a directory where all your Pryv data should live. We suggest something like `'/var/pryv'`. For the purposes of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`. Then follow these steps: 
+
+  * Copy the configuration tarball to the root of the directory. 
+  * Untar the configuration in place. 
+
+You should have the following entries now: 
+
+  * A file called `ensure-permissions`. This script ensures that the correct
+    permissions are set for data and log directories.
+  * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that are used to launch the configuration leader service. 
+  * The file `run-config-follower` and folder `config-follower`. This is the script and configuration files that are used to launch the configuration follower service. 
+  * A file called `run-pryv`. This is your startup script. 
+  * A directory called `pryv`. This will contain configuration and data
+    directories that will be mapped as volumes in the various docker 
+    containers. 
+  * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running services.
+
+## Completing the Configuration
+
+### Leader-follower setup
+
+The configuration leader service will distribute the necessary configuration files for your Pryv.io platform to the configuration follower service.
+
+The follower is declared through the leader configuration (`${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`) within a `followers` map, for example:
+
+```
+  "adminKey": "lDng9YLK3v57A8V6awdeLuaY2eaHmB7N",
+  "followers": {
+    "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
+      "url": "http://config-follower:6000",
+      "role": "singlenode"
+    }
+  }
+```
+
+The follower in this map is indexed by a symmetric key that you can change, and also specifies its role (singlenode) and local url.
+
+An `adminKey` can also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
+
+In the follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), the corresponding symmetric key is provided (as defined above in the leader) as well as the local leader url, as follows:
+
+```
+  "leader": {
+    "url": "http://config-leader:7000",
+    "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
+  }
+```
+
+### Platform variables
+
+The configuration leader service is hosting the template configuration files for a Pryv.io installation in the `config-leader/data/` folder. It will adapt this template before distributing final configuration files to the follower service, according to the platform-specific variables that you should define in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`.
+
+Here is a list of the typical platform-specific variables:
+
+* DOMAIN: the domain of the platform (eg.: pryv.me)
+* CORE_ADMIN_KEY: key to make admin calls on cores
+* REGISTER_SYSTEM_KEY_1: key to make system calls on register
+* REGISTER_ADMIN_KEY_1: key to make admin calls on register
+* MACHINE_IP_ADDRESS: IP address of machine running pryv.io
+* OVERRIDE_ME: single appearance values that need to be replaced with a strong key
+* SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://${DOMAIN}
+* PLATFORM_NAME: field `name`
+* SUPPORT_LINK: ield `support`
+* TERMS_OF_USE_LINK: ield `terms`
+
+### SSL certificates
+
+All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
+
+Your certificate files must be placed in these locations: 
+
+  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-bundle.crt` 
+  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-key.pem`
+
+## Launching the Installation
+
+### Prerequisites Check
 
 Please run these commands and compare the output with values below. 
 You might have to use `docker-ce` and your versions can be newer: 
@@ -19,68 +97,8 @@ If your DNS is set up correctly, the following command should yield the fully qu
     $ dig NS ${DOMAIN}
 
 Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that your A records exist and point to the same machine. 
-​    
-## Configuration Install
 
-Please create a directory where all your Pryv data should live. We suggest something like `'/var/pryv'`. For the purposes of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`. Then follow these steps: 
-
-  * Copy the configuration tarball to the root of the directory. 
-  * Untar the configuration in place. 
-
-You should have the following entries now: 
-
-  * A file called `delete-user.md`. It presents a tool which allows to delete Pryv.io users.
-  * A file called `ensure-permissions`. This script ensures that the correct
-    permissions are set for data and log directories.
-  * The file `run-config-leader` and folder `config-leader`. This is the script and configuration files that are used to launch the configuration leader service. 
-  * The file `run-config-follower` and folder `config-follower`. This is the script and configuration files that are used to launch the configuration follower service. 
-  * A file called `run-pryv`. This is your startup script. 
-  * A directory called `pryv`. This will contain configuration and data
-    directories that will be mapped as volumes in the various docker 
-    containers. 
-  * The files `stop-config-leader`, `stop-config-leader` and `stop-pryv`. These scripts stop the corresponding running services.
-
-## Completing the Configuration
-
-### Leader-follower setup
-
-The configuration leader service will distribute the necessary configuration files for your Pryv.io platform to the configuration follower services.
-
-The follower is declared through the leader configuration (`${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`) within a `followers` map, for example:
-
-```
-  "adminKey": "lDng9YLK3v57A8V6awdeLuaY2eaHmB7N",
-  "followers": {
-    "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
-      "url": "http://config-follower:6000",
-      "role": "singlenode"
-    }
-  }
-```
-
-The follower in this map is indexed by a symmetric key that you can set, and also specifies its role (singlenode) and local url.
-
-An `adminKey` can also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
-
-In the follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), provide the corresponding symmetric key (as defined above in the leader) as well as the local leader url, as follows:
-
-```
-  "leader": {
-    "url": "http://config-leader:7000",
-    "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
-  }
-```
-
-### SSL certificates
-
-All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
-
-Your certificate files must be placed in these locations: 
-
-  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-bundle.crt` 
-  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-key.pem`
-
-## Launching the Installation
+### Run
 
 To launch the installation, you will first need to log in to the distribution host for the Pryv docker images. You should have received a set of credentials with the delivery of the configuration files. The following assumes that you have a user id (${USER_ID}) and a secret (${SECRET}).
 
@@ -94,7 +112,7 @@ Once this completes, set the required permissions on data and log directories by
 
     $ sudo ./ensure-permissions
 
-You're now ready to launch the pryv components. First, run the configuration leader service: 
+Run the configuration leader service: 
 
     $ sudo ./run-config-leader
 
@@ -103,7 +121,7 @@ Then, run the configuration follower service, which will pull the necessary conf
 
   $ sudo ./run-config-follower
 
-Now that the configuration is ready, you can launch the platform:
+Now that the configuration is ready, you can launch the Pryv.io components:
 
   $ sudo ./run-pryv
 
