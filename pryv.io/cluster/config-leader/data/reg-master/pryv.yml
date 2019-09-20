@@ -51,7 +51,7 @@ services:
     networks: 
       - backend
     #ports:  # used if reg-slave is defined
-      #- "10.8.0.1:6379:6379"
+    #  - "REG_MASTER_VPN_IP_ADDRESS:6379:6379"
     volumes: 
       - ./redis/conf/:/app/conf/:ro
       - ./redis/data/:/app/data/

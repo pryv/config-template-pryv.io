@@ -77,7 +77,6 @@ checkFswatchInstalled () {
         echo "fswatch is not installed, you have to install it";
         echo "On Ubuntu 18.04 and above : apt install fswatch";
         echo "On other Linux version by compiling it : https://github.com/emcrisostomo/fswatch#installation";
-        echo "You can also see install-fswatch script to help you do it";
         echo;
         echo "Exiting without watching folders";
         exit 0;

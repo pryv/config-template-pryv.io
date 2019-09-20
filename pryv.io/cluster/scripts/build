@@ -1,38 +1,98 @@
 #!/usr/bin/env bash
 
 SCRIPT_FOLDER=$(cd $(dirname "$0"); pwd)
-cd $SCRIPT_FOLDER/.. # pryv.io
+cd $SCRIPT_FOLDER/..
 
 set -e
 
-# Builds distribution tarballs for the configuration given by DOMAIN.
+# Builds distribution tarballs for the configuration given by CUSTOMER.
 #
-#   scripts/build DOMAIN
+#   scripts/build CUSTOMER
 #
 
-domain=$1
+if [ -z "$1" ]; then
+  echo "Please provide a customer name as first argument."
+  exit 1
+fi
 
-function build_role() {
-  role=$1
-  filesList="config-follower run-config-follower stop-config-follower \
-    watch-config reload-module install-fswatch \
-    pryv run-pryv stop-pryv \
-    ensure-permissions-${role} \
-    delete-user.md \
-    README.md \
-    INSTALL.md"
+customer=$1
+rootDir="tarballs/$customer"
+commonFiles="config-follower run-config-follower stop-config-follower \
+  watch-config reload-module \
+  pryv run-pryv stop-pryv \
+  INSTALL.md"
+leaderUrl="https:\/\/lead.DOMAIN"
 
-  # Add config-leader files for reg-master only
-  if [ $role == "reg-master" ]; then
-    filesList+=" config-leader run-config-leader stop-config-leader"
-  fi
+function build_cores() {
+  filesList="$commonFiles ensure-permissions-core"
 
-  COPYFILE_DISABLE=1 tar vzcf "tarballs/$domain-$role.tgz" \
-    --exclude .DS_Store \
-    $filesList
+  for nbr in $(seq $1)
+  do
+    build "core$nbr" "$filesList" "$leaderUrl"
+  done 
 }
 
-build_role "static"
-build_role "reg-master"
-build_role "reg-slave"
-build_role "core"
+function build_reg_master() {
+  filesList="$commonFiles ensure-permissions-reg-master \
+    config-leader run-config-leader stop-config-leader"
+
+  build "reg-master" "$filesList" "http:\/\/config-leader:7000"
+}
+
+function build_reg_slave() {
+  filesList="$commonFiles ensure-permissions-reg-slave"
+
+  build "reg-slave" "$filesList" "$leaderUrl"
+}
+
+function build_static() {
+  filesList="$commonFiles ensure-permissions-static"
+
+  build "static" "$filesList" "$leaderUrl"
+}
+
+function replace_leader_url() {
+  role=$1
+  url=$2
+  followerConf="$rootDir/${role}/config-follower/conf/config-follower.json"
+  sed -i "" -e "s/LEADER_URL/${url}/g" "$followerConf"
+}
+
+function generate_secret() {
+  role=$1
+  secret=`openssl rand -hex 32`
+  leaderConf="$rootDir/reg-master/config-leader/conf/config-leader.json"
+  followerConf="$rootDir/${role}/config-follower/conf/config-follower.json"
+  sed -i "" -e "s/FOLLOWER_KEY_${role}/${secret}/g" "$leaderConf"
+  sed -i "" -e "s/FOLLOWER_KEY/${secret}/g" "$followerConf"
+}
+
+function build() {
+  role=$1
+  filesList=$2
+  leaderUrl=$3
+  mkdir -p "$rootDir/$role/" # Create temp folder
+  for file in $filesList; do cp -r "$file" "$rootDir/$role/$file"; done
+  generate_secret "$role"
+  replace_leader_url "$role" "$leaderUrl"
+}
+
+function prepare_tar() {
+  cd $rootDir
+  for role in *
+  do
+    if [[ -d $role ]]; then
+      COPYFILE_DISABLE=1 tar -vzcf "$customer-$role.tgz" \
+        --exclude .DS_Store \
+        "$role"
+      rm -r $role # Clean temp folder
+    fi
+  done
+}
+
+build_reg_master # Always build reg-master (leader) first
+build_reg_slave
+build_cores 2
+build_static 
+
+prepare_tar
