@@ -84,6 +84,27 @@ Here is a list of the typical platform-specific variables:
 * SUPPORT_LINK: ield `support`
 * TERMS_OF_USE_LINK: ield `terms`
 
+### Slave register machine
+
+If your setup contains two register machines (reg-master and reg-slave), be sure to provide the REG_MASTER_VPN_IP_ADDRESS and REG_SLAVE_IP_ADDRESS platform variables as presented just above.
+
+Then, also uncomment the ports definition for the redis image of reg-master, in `${PRYV_CONF_ROOT}/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
+
+```
+  redis: 
+    image: "pryvsa-docker-release.bintray.io/pryv/redis:1.3.38"
+    container_name: pryvio_redis
+    networks: 
+      - backend
+    ports:  # used if reg-slave is defined
+      - "REG_MASTER_VPN_IP_ADDRESS:6379:6379"
+    volumes: 
+      - ./redis/conf/:/app/conf/:ro
+      - ./redis/data/:/app/data/
+      - ./redis/log/:/app/log/
+    restart: always
+```
+
 ### SSL certificates
 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 

@@ -48,8 +48,8 @@ services:
     container_name: pryvio_redis
     networks: 
       - backend
-    ports:  # used if reg-slave is defined
-      - "REG_MASTER_VPN_IP_ADDRESS:6379:6379"
+    #ports:  # used if reg-slave is defined
+    #  - "REG_MASTER_VPN_IP_ADDRESS:6379:6379"
     volumes: 
       - ./redis/conf/:/app/conf/:ro
       - ./redis/data/:/app/data/
