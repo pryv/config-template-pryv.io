@@ -79,10 +79,16 @@ Here is a list of the typical platform-specific variables:
 * CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
 * CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
 * OVERRIDE_ME: single appearance values that need to be replaced with a strong key
+
+#### Optional variables
+
 * SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://${DOMAIN}
+
+The following fields will be available in https://reg.DOMAIN/service/infos:
+
 * PLATFORM_NAME: field `name`
-* SUPPORT_LINK: ield `support`
-* TERMS_OF_USE_LINK: ield `terms`
+* SUPPORT_LINK: field `support`
+* TERMS_OF_USE_LINK: field `terms`
 
 ### Slave register machine
 
