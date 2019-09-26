@@ -71,6 +71,9 @@
       },
       "co1": {
         "ip": "CORE_1_IP_ADDRESS"
+      },
+      "co2": {
+        "ip": "CORE_2_IP_ADDRESS"
       }
     },
     "domain_A": "SERVICE_WEBSITE_IP_ADDRESS",
@@ -102,13 +105,27 @@
             "fr": "Europe"
           },
           "zones": {
+            "france": {
+              "name": "France",
+              "localizedName": {
+                "fr": "France"
+              },
+              "hostings": {
+                "CORE_HOSTING_1": {
+                  "url": "https://hostingprovider.com",
+                  "name": "Hosting provider name",
+                  "description": "Hosting provider slogan",
+                  "localizedDescription": {}
+                }
+              }
+            },
             "switzerland": {
               "name": "Switzerland",
               "localizedName": {
                 "fr": "Suisse"
               },
               "hostings": {
-                "CORE_HOSTING_1": {
+                "CORE_HOSTING_2": {
                   "url": "https://hostingprovider.com",
                   "name": "Hosting provider name",
                   "description": "Hosting provider slogan",
