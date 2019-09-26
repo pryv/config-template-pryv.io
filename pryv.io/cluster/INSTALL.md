@@ -66,18 +66,24 @@ In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-f
 
 The configuration leader service is hosting the template configuration files for a Pryv.io installation in the `config-leader/data/` folder. It will adapt this template before distributing final configuration files to the follower services, according to the platform-specific variables that you should define in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`.
 
-Here is a list of the typical platform-specific variables:
+Here is a list of the required platform-specific variables:
 
 * DOMAIN: the domain of the platform (eg.: pryv.me)
+* STATIC_WEB_IP_ADDRESS: hostname of static-web machine
+* REG_MASTER_IP_ADDRESS: IP address of master register machine
+* CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
+* CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
+
+#### Secrets
+
+Additionally, there are several secret keys that need to be set. We recommand to generate your own secret keys.
+Alternatively, if you leave their value to "SECRET", the configuration leader service will generate a random key for each of them.
+
+* SSO_COOKIE_SIGN_SECRET: salt used to generate SSO cookie signature
+* FILES_READ_TOKEN_SECRET: salt used to generate read tokens for attachments
 * CORE_SYSTEM_KEY: key to make system calls on cores
 * REGISTER_SYSTEM_KEY_1: key to make system calls on register
 * REGISTER_ADMIN_KEY_1: key to make admin calls on register
-* STATIC_WEB_IP_ADDRESS: hostname of static-web machine
-* REG_MASTER_IP_ADDRESS: IP address of master register machine
-* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (can be a private network)
-* REG_SLAVE_IP_ADDRESS: IP address of slave register machine
-* CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
-* CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
 
 #### Optional variables
 
@@ -102,7 +108,10 @@ As explained in the [Emails configuration document](https://api.pryv.com/custome
 
 ### Slave register machine
 
-If your setup contains two register machines (reg-master and reg-slave), be sure to provide the REG_MASTER_VPN_IP_ADDRESS and REG_SLAVE_IP_ADDRESS platform variables as presented just above.
+If your setup contains two register machines (reg-master and reg-slave), be sure to set the following platform variables:
+
+* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (can be a private network)
+* REG_SLAVE_IP_ADDRESS: IP address of slave register machine
 
 Then, also uncomment the ports definition for the redis image of reg-master, in `${PRYV_CONF_ROOT}/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
 

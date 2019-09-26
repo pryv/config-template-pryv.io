@@ -57,13 +57,21 @@ In the follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-fo
 
 The configuration leader service is hosting the template configuration files for a Pryv.io installation in the `config-leader/data/` folder. It will adapt this template before distributing final configuration files to the follower service, according to the platform-specific variables that you should define in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`.
 
-Here is a list of the typical platform-specific variables:
+Here is a list of the required platform-specific variables:
 
 * DOMAIN: the domain of the platform (eg.: pryv.me)
-* CORE_ADMIN_KEY: key to make admin calls on cores
+* MACHINE_IP_ADDRESS: IP address of machine running pryv.io
+
+#### Secrets
+
+Additionally, there are several secret keys that need to be set. We recommand to generate your own secret keys.
+Alternatively, if you leave their value to "SECRET", the configuration leader service will generate a random key for each of them.
+
+* SSO_COOKIE_SIGN_SECRET: salt used to generate SSO cookie signature
+* FILES_READ_TOKEN_SECRET: salt used to generate read tokens for attachments
+* CORE_SYSTEM_KEY: key to make system calls on cores
 * REGISTER_SYSTEM_KEY_1: key to make system calls on register
 * REGISTER_ADMIN_KEY_1: key to make admin calls on register
-* MACHINE_IP_ADDRESS: IP address of machine running pryv.io
 
 #### Optional variables
 
