@@ -42,7 +42,7 @@ The follower is declared through the leader configuration (`${PRYV_CONF_ROOT}/co
 
 The follower in this map is indexed by a symmetric key that you can change, and also specifies its role (singlenode) and local url.
 
-An `adminKey` can also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
+An `adminKey` must also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
 
 In the follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), the corresponding symmetric key is provided (as defined above in the leader) as well as the local leader url, as follows:
 
