@@ -70,11 +70,11 @@ function generate_secret() {
 function build() {
   role=$1
   filesList=$2
-  leaderUrl=$3
+  pLeaderUrl=$3
   mkdir -p "$rootDir/$role/" # Create temp folder
   for file in $filesList; do cp -r "$file" "$rootDir/$role/$file"; done
   generate_secret "$role"
-  replace_leader_url "$role" "$leaderUrl"
+  replace_leader_url "$role" "$pLeaderUrl"
 }
 
 function prepare_tar() {
