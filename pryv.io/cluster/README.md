@@ -10,6 +10,6 @@ Distribute them to customer, who will follow the instructions in `INSTALL.md` to
 
 ## Adaptations
 
-If you are using a single register machine, remove `REG_MASTER_VPN_IP_ADDRESS` part from the `config-leader/data/reg-master/pryv.yml` file.
+If you are using two register machines, uncomment the `REG_MASTER_VPN_IP_ADDRESS` part from the `config-leader/data/reg-master/pryv.yml` file.
 
 If needed, update docker image versions in `config-leader/data/${ROLE}/pryv.yml`.
