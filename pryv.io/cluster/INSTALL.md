@@ -78,7 +78,6 @@ Here is a list of the typical platform-specific variables:
 * REG_SLAVE_IP_ADDRESS: IP address of slave register machine
 * CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
 * CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
-* OVERRIDE_ME: single appearance values that need to be replaced with a strong key
 
 #### Optional variables
 
@@ -89,6 +88,17 @@ The following fields will be available in https://reg.DOMAIN/service/infos:
 * PLATFORM_NAME: field `name`
 * SUPPORT_LINK: field `support`
 * TERMS_OF_USE_LINK: field `terms`
+
+#### Pryv.io emails
+
+As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following fields need to be set only when activating Pryv.io emails:
+
+* MAIL_FROM_NAME: name of the sender
+* MAIL_FROM_ADDRESS: email address of the sender
+* MAIL_SMTP_HOST: host of the SMTP server that will be delivering the emails
+* MAIL_SMTP_PORT: SMTP port (default is 587)
+* MAIL_SMTP_USER: username to authenticate against the SMTP server
+* MAIL_SMTP_PASS: password to authenticate against the SMTP server
 
 ### Slave register machine
 
