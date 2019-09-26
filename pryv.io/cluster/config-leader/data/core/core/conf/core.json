@@ -14,7 +14,7 @@
     "previewsDirPath": "/app/data/previews"
   },
   "eventTypes": {
-    "sourceURL": "https://pryv.github.io/event-types/flat.json"
+    "sourceURL": "https://api.pryv.com/event-types/flat.json"
   },
   "auth": {
     "trustedApps": "*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*",
