@@ -39,11 +39,11 @@ Followers can be declared through the leader configuration (`${PRYV_CONF_ROOT}/c
   "adminKey": "lDng9YLK3v57A8V6awdeLuaY2eaHmB7N",
   "followers": {
     "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
-      "url": "http://co1.pryv.me",
+      "url": "https://co1.pryv.me",
       "role": "core"
     },
     "ciWrIHB3GoNoodoSH5zaulgR48aL5MhO": {
-      "url": "http://reg.pryv.me",
+      "url": "https://reg.pryv.me",
       "role": "reg-master"
     }
   }
@@ -53,7 +53,7 @@ Each follower in this map is indexed by a symmetric key that you can change, and
 
 An `adminKey` must also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
 
-In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), the corresponding symmetric key is provided (as defined above in the leader) as well as the leader url (usually `https://lead.${DOMAIN}`), as follows:
+In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), the corresponding symmetric key is provided (as defined above in the leader) as well as the leader url, as follows:
 
 ```
   "leader": {
@@ -61,6 +61,8 @@ In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-f
     "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
   }
 ```
+
+You should adapt the leader and followers urls since they depend on your domain (usually `https://lead.${DOMAIN}` and `http://${ROLE}.${DOMAIN}`).
 
 ### Platform variables
 
