@@ -39,11 +39,11 @@ Followers can be declared through the leader configuration (`${PRYV_CONF_ROOT}/c
   "adminKey": "lDng9YLK3v57A8V6awdeLuaY2eaHmB7N",
   "followers": {
     "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
-      "url": "http://co1.pryv.me",
+      "url": "https://co1.pryv.me",
       "role": "core"
     },
     "ciWrIHB3GoNoodoSH5zaulgR48aL5MhO": {
-      "url": "http://reg.pryv.me",
+      "url": "https://reg.pryv.me",
       "role": "reg-master"
     }
   }
@@ -51,9 +51,9 @@ Followers can be declared through the leader configuration (`${PRYV_CONF_ROOT}/c
 
 Each follower in this map is indexed by a symmetric key that you can change, and also specifies its role (core, reg-master, reg-slave, static) and url.
 
-An `adminKey` can also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
+An `adminKey` must also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
 
-In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), the corresponding symmetric key is provided (as defined above in the leader) as well as the leader url (usually `https://lead.${DOMAIN}`), as follows:
+In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), the corresponding symmetric key is provided (as defined above in the leader) as well as the leader url, as follows:
 
 ```
   "leader": {
@@ -62,31 +62,58 @@ In each follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-f
   }
 ```
 
+You should adapt the leader and followers urls since they depend on your domain (usually `https://lead.${DOMAIN}` and `http://${ROLE}.${DOMAIN}`).
+
 ### Platform variables
 
 The configuration leader service is hosting the template configuration files for a Pryv.io installation in the `config-leader/data/` folder. It will adapt this template before distributing final configuration files to the follower services, according to the platform-specific variables that you should define in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`.
 
-Here is a list of the typical platform-specific variables:
+Here is a list of the required platform-specific variables:
 
 * DOMAIN: the domain of the platform (eg.: pryv.me)
+* STATIC_WEB_IP_ADDRESS: hostname of static-web machine
+* REG_MASTER_IP_ADDRESS: IP address of master register machine
+* CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
+* CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
+
+#### Secrets
+
+Additionally, there are several secret keys that need to be set. We recommand to generate your own secret keys.
+Alternatively, if you leave their value to "SECRET", the configuration leader service will generate a random key for each of them.
+
+* SSO_COOKIE_SIGN_SECRET: salt used to generate SSO cookie signature
+* FILES_READ_TOKEN_SECRET: salt used to generate read tokens for attachments
 * CORE_SYSTEM_KEY: key to make system calls on cores
 * REGISTER_SYSTEM_KEY_1: key to make system calls on register
 * REGISTER_ADMIN_KEY_1: key to make admin calls on register
-* STATIC_WEB_IP_ADDRESS: hostname of static-web machine
-* REG_MASTER_IP_ADDRESS: IP address of master register machine
-* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (can be a private network)
-* REG_SLAVE_IP_ADDRESS: IP address of slave register machine
-* CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
-* CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
-* OVERRIDE_ME: single appearance values that need to be replaced with a strong key
+
+#### Optional variables
+
 * SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - where to redirect from http://${DOMAIN}
+
+The following fields will be available in https://reg.DOMAIN/service/infos:
+
 * PLATFORM_NAME: field `name`
-* SUPPORT_LINK: ield `support`
-* TERMS_OF_USE_LINK: ield `terms`
+* SUPPORT_LINK: field `support`
+* TERMS_OF_USE_LINK: field `terms`
+
+#### Pryv.io emails
+
+As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following fields need to be set only when activating Pryv.io emails:
+
+* MAIL_FROM_NAME: name of the sender
+* MAIL_FROM_ADDRESS: email address of the sender
+* MAIL_SMTP_HOST: host of the SMTP server that will be delivering the emails
+* MAIL_SMTP_PORT: SMTP port (default is 587)
+* MAIL_SMTP_USER: username to authenticate against the SMTP server
+* MAIL_SMTP_PASS: password to authenticate against the SMTP server
 
 ### Slave register machine
 
-If your setup contains two register machines (reg-master and reg-slave), be sure to provide the REG_MASTER_VPN_IP_ADDRESS and REG_SLAVE_IP_ADDRESS platform variables as presented just above.
+If your setup contains two register machines (reg-master and reg-slave), be sure to set the following platform variables:
+
+* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (can be a private network)
+* REG_SLAVE_IP_ADDRESS: IP address of slave register machine
 
 Then, also uncomment the ports definition for the redis image of reg-master, in `${PRYV_CONF_ROOT}/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
 

@@ -133,22 +133,30 @@
             "fr": "Europe"
           },
           "zones": {
+            "france": {
+              "name": "France",
+              "localizedName": {
+                "fr": "France"
+              },
+              "hostings": {
+                "CORE_HOSTING_1": {
+                  "url": "https://hostingprovider.com",
+                  "name": "Hosting provider name",
+                  "description": "Hosting provider slogan",
+                  "localizedDescription": {}
+                }
+              }
+            },
             "switzerland": {
               "name": "Switzerland",
               "localizedName": {
                 "fr": "Suisse"
               },
               "hostings": {
-                "CORE_HOSTING_1": {
-                  "url": "https://exoscale.ch",
-                  "name": "Large",
-                  "description": "Le meilleur et le moins cher",
-                  "localizedDescription": {}
-                },
                 "CORE_HOSTING_2": {
-                  "url": "https://exoscale.ch",
-                  "name": "Large",
-                  "description": "Le meilleur et le moins cher",
+                  "url": "https://hostingprovider.com",
+                  "name": "Hosting provider name",
+                  "description": "Hosting provider slogan",
                   "localizedDescription": {}
                 }
               }

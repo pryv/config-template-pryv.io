@@ -15,7 +15,7 @@
     }
   },
   "leader": {
-    "url": "https://lead.pryv.li",
+    "url": "LEADER_URL",
     "auth": "FOLLOWER_KEY"
   },
   "paths": {
