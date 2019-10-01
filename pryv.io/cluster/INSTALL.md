@@ -7,26 +7,23 @@ You should have prepared your machines with the [Deployment Design Guide](https:
 
 - Intro: Centralized configuration setup
 
-- List of Files? - ON YOUR CONFIG REPOSITORY
+- List of Files
 
-- platform variables - ON YOUR CONFIG REPOSITORY
+- Platform variables
 
-  - required
-  - optional
+- Leader-follower keys
 
-- Leader-follower keys - ON YOUR CONFIG REPOSITORY
+- Slave register
 
-- SSL certificates - ON YOUR CONFIG REPOSITORY?
+- Emails
 
-- Emails? - ON YOUR CONFIG REPOSITORY
+- SSL certificates
 
-- Reg-slave? - ON YOUR CONFIG REPOSITORY
+- Launching the Installation
 
-- Boot
+- Automatic restart upon configuration update
 
-  - docker auth
-  - Start follower
-  - start leader
+- Closing Remarks
 
   
 
@@ -93,17 +90,6 @@ The following fields will be available in https://reg.DOMAIN/service/infos for a
 
 All the variables whose value is set as `"SECRET"` will have  - to remove if possible
 
-#### Pryv.io emails
-
-As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following fields need to be set only when activating Pryv.io emails:
-
-- MAIL_FROM_NAME: name of the sender
-- MAIL_FROM_ADDRESS: email address of the sender
-- MAIL_SMTP_HOST: host of the SMTP server that will be delivering the emails
-- MAIL_SMTP_PORT: SMTP port (default is 587)
-- MAIL_SMTP_USER: username to authenticate against the SMTP server
-- MAIL_SMTP_PASS: password to authenticate against the SMTP server
-
 ## Leader-follower keys
 
 For each follower service, you must define a secret for it to authentify when fetching its configuration from the leader service. 
@@ -136,7 +122,7 @@ For each of these followers, you will need to set the same key in the follower s
 
 Usually, the leader URL will be `https://lead.${DOMAIN}`.
 
-### Slave register machine
+## Slave register machine
 
 If your setup contains two register machines (`reg-master` and `reg-slave`), be sure to set the following platform variables:
 
@@ -160,7 +146,18 @@ Then, also uncomment the ports definition for the redis image of reg-master, in 
     restart: always
 ```
 
-### SSL certificates
+## Pryv.io emails
+
+As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following variables need to be set only when activating Pryv.io emails:
+
+- MAIL_FROM_NAME: name of the sender
+- MAIL_FROM_ADDRESS: email address of the sender
+- MAIL_SMTP_HOST: host of the SMTP server that will be delivering the emails
+- MAIL_SMTP_PORT: SMTP port (default is 587)
+- MAIL_SMTP_USER: username to authenticate against the SMTP server
+- MAIL_SMTP_PASS: password to authenticate against the SMTP server
+
+## SSL certificates
 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
@@ -221,9 +218,9 @@ sudo ./run-pryv
 
 This command will download the docker images that belong to your release from the docker repository and launch the components. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 
-#### Troubleshoot
+### Validation
 
-
+Please refer to the `Installation validation` document located in the [customer resource documents](https://api.pryv.com/customer-resources/#documents) to validate that your Pryv.io platform is up and running.
 
 ### Automatic restart upon configuration update
 If you wish to automatically restart pryv components when some configuration update occurs you can watch the configuration files on each machine running a service-config-follower by launching the `watch-config` script (described bellow).
@@ -268,7 +265,5 @@ To stop watching :
 
 
 ## Closing Remarks
-
-Please refer to the `Installation validation` document located in the [customer resource documents](https://api.pryv.com/customer-resources/#documents) to validate that your Pryv.io platform is up and running.
 
 If you need support, please contact your technical account manager @ Pryv or open a ticket on [our helpdesk](https://pryv.com/helpdesk/). We're glad to help you with any questions you might have. 
