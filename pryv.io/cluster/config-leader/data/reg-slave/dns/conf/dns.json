@@ -51,6 +51,9 @@
       "reg": {
         "ip": "REG_MASTER_IP_ADDRESS"
       },
+      "reg2": {
+        "ip": "REG_SLAVE_IP_ADDRESS"
+      },
       "mail": {
         "ip": "REG_MASTER_IP_ADDRESS"
       },
