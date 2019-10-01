@@ -56,7 +56,7 @@
       "role": "reg-master"
     },
     "FOLLOWER_KEY_reg-slave": {
-      "url": "https://reg.DOMAIN",
+      "url": "https://reg2.DOMAIN",
       "role": "reg-slave"
     },
     "FOLLOWER_KEY_static": {
