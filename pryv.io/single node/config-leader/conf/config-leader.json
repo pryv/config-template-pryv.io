@@ -32,7 +32,6 @@
     "MAIL_SMTP_USER": "MAIL_SMTP_USER",
     "MAIL_SMTP_PASS": "MAIL_SMTP_PASS"
   },
-  "adminKey": "LEADER_ADMIN_KEY",
   "followers": {
     "FOLLOWER_SINGLENODE_KEY": {
       "url": "http://config-follower:6000",
