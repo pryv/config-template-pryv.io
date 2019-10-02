@@ -5,7 +5,7 @@ You should have prepared your machines with the [Deployment Design Guide](https:
 
 ## Table of contents
 
-- Intro: Centralized configuration setup
+- Centralized configuration setup
 
 - List of Files
 
@@ -13,7 +13,7 @@ You should have prepared your machines with the [Deployment Design Guide](https:
 
 - Leader-follower keys
 
-- Slave register
+- Register slave
 
 - Emails
 
@@ -35,7 +35,7 @@ The platform configurations are stored on a single **leader** service, each role
 
 You must setup your platform configuration in the leader service as well as a key for each follower so they can fetch their configuration securely.
 
-By default, we setup the leader on the `reg-master` machine, there is a follower service running on every machine, including `reg-master`.
+By default, the leader runs on the `reg-master` machine, there is a follower service running on every machine, including `reg-master`.
 
 ## List of files
 
@@ -47,40 +47,40 @@ The following instructions need to be executed on each machine.
 
 - Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
 
-- Copy the configuration tarball to the root of the directory  
-- Untar the configuration in place   
+- Copy the configuration archive to the root of the directory  
+- Unarchive the configuration in place   
 
 In every role, you should have the following files: 
 
-- The file `run-config-follower` and folder `config-follower/`. This is the script and configuration files that are used to launch the configuration follower service.  
-- A file called `run-pryv`. This is script will launch the role running on the machine. 
+- The file `run-config-follower` and folder `config-follower/`. These are the script and configuration files used to launch the configuration follower service.  
+- A file called `run-pryv`. This script will launch the role running on the machine. 
 - A directory called `pryv/`. The follower will download the role's configuration files here, as well as the data directories that will be mapped as volumes in the various docker containers.
 
-- A file called `ensure-permissions-${ROLE}`. This script ensures that the correct permissions are set for data and log directories.
+- A file called `ensure-permissions-${ROLE}`. This script sets correct permissions for data and log directories.
 
-In `reg-master` , you should have the following files: 
+In `reg-master` , you should have these additional files: 
 
-- The file `run-config-leader` and folder `config-leader/`. This is the script and configuration files that are used to launch the configuration leader service. The leader is usually hosted on the `reg-master` machine.
+- The file `run-config-leader` and folder `config-leader/`. These are the script and configuration files used to launch the leader service. The leader is usually hosted on the `reg-master` machine.
 
-Finally, the files `stop-config-leader`, `stop-config-follower` and `stop-pryv`. These scripts stop the corresponding running services.
+Finally, the files `stop-config-leader`, `stop-config-follower` and `stop-pryv`. These scripts shut down the corresponding running services.
 
 ### Platform variables
 
-Define the platform-specific variables in `config-leader/conf/config-leader.json`. The leader service will replace them in the template configuration files located in the `config-leader/data/` folder when run.
+Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
 
 Here is a list of the required platform-specific variables:
 
-- DOMAIN: the domain of the platform (eg.: pryv.me)
-- REG_MASTER_IP_ADDRESS: IP address of master register machine
-- CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of core machine
-- CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain many
-- STATIC_WEB_IP_ADDRESS: hostname of static-web machine
+- DOMAIN: the fully qualified domain name of the platform (eg.: pryv.me)
+- REG_MASTER_IP_ADDRESS: IP address of the master register machine
+- CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of the 1st core machine
+- CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain multiple ones
+- STATIC_WEB_IP_ADDRESS: hostname of the static-web machine
 
 #### Optional variables
 
-- SERVICE_WEBSITE_IP_ADDRESS: if exists, please provide the IP address of the customer or service website - which should resolve http(s)://${DOMAIN}
+- SERVICE_WEBSITE_IP_ADDRESS: if used, please provide the IP address of the customer or service website - which should resolve http(s)://${DOMAIN}
 
-The following fields will be available in https://reg.DOMAIN/service/infos for apps self-configuration:
+The following fields will be available in the [service information](https://api.pryv.com/reference/#service-info) for apps self-configuration:
 
 - PLATFORM_NAME: Service name, example "Pryv Lab"
 - SUPPORT_LINK: Link to the web page containing support information
@@ -94,12 +94,12 @@ All the variables whose value is set as `"SECRET"` will have  - to remove if pos
 
 For each follower service, you must define a secret for it to authentify when fetching its configuration from the leader service. 
 
-In the Leader service configuration file `config-leader/conf/config-leader.json`, you will find a map called `followers` with the secret as key and its `url` and `role` as values as shown here:
+In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`, you will find a map called `followers` with the each follower's secret as key and its `url` and `role` as values as shown below:
 
 ```
 "followers": {
 	"iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
-		"url": "https://co1.pryv.me/", // so we can add some path such as /v1/ and specify a port
+		"url": "https://co1.pryv.me/",
 		"role": "core"
 	},
 	"ciWrIHB3GoNoodoSH5zaulgR48aL5MhO": {
@@ -109,9 +109,9 @@ In the Leader service configuration file `config-leader/conf/config-leader.json`
 }
 ```
 
-You may generate a new strong key for this if you wish.
+The config we provide comes with a strong key, but you may generate a new one for this if you wish.
 
-For each of these followers, you will need to set the same key in the follower service configuration file `config-follower/conf/config-followeder.json`. It must be placed in the `leader` map as show below:
+For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
 
 ```json
 "leader": {
@@ -126,12 +126,12 @@ Usually, the leader URL will be `https://lead.${DOMAIN}`.
 
 If your setup contains two register machines (`reg-master` and `reg-slave`), be sure to set the following platform variables:
 
-* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (can be a private network)
+* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (such as a private network)
 * REG_SLAVE_IP_ADDRESS: IP address of slave register machine
 
-Then, also uncomment the ports definition for the redis image of reg-master, in `/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
+Then, also uncomment the ports definition for the redis image of `reg-master`, in `${PRYV_CONF_ROOT}/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
 
-```
+```yaml
   redis: 
     image: "pryvsa-docker-release.bintray.io/pryv/redis:1.3.38"
     container_name: pryvio_redis
@@ -148,7 +148,7 @@ Then, also uncomment the ports definition for the redis image of reg-master, in 
 
 ## Pryv.io emails
 
-As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following variables need to be set only when activating Pryv.io emails:
+As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following variables need to be set when activating Pryv.io emails:
 
 - MAIL_FROM_NAME: name of the sender
 - MAIL_FROM_ADDRESS: email address of the sender
