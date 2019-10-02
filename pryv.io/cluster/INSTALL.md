@@ -162,8 +162,8 @@ As explained in the [Emails configuration document](https://api.pryv.com/custome
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
 Your certificate files for the respective roles must be placed on the leader machine in these locations: 
-  - `config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-bundle.crt`
-  - `config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
+  - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-bundle.crt`
+  - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
 
 ## Launching the Installation
 
@@ -192,7 +192,7 @@ You will first need to authenticate with the distribution host to retrieve the P
 
 To log in, type: 
 
-    $ docker login pryvsa-docker-release.bintray.io
+    docker login pryvsa-docker-release.bintray.io
 
 You will be prompted for a username and password. Please enter the credentials you were provided.
 
@@ -206,15 +206,11 @@ On the leader machine only, run the configuration leader service:
 
 Then, run the configuration follower service, which will pull the necessary configuration files from the leader:
 
-```
-sudo ./run-config-follower 
-```
+    sudo ./run-config-follower 
 
 Now that the configuration is ready, you can launch the Pryv.io components:
 
-```
-sudo ./run-pryv
-```
+    sudo ./run-pryv
 
 This command will download the docker images that belong to your release from the docker repository and launch the components. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 
