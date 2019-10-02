@@ -6,26 +6,15 @@ You should have prepared your machines with the [Deployment Design Guide](https:
 ## Table of contents
 
 - Centralized configuration setup
-
 - List of Files
-
-- Platform variables
-
+  - Platform variables
 - Leader-follower keys
-
 - Register slave
-
 - Emails
-
 - SSL certificates
-
 - Launching the Installation
-
 - Automatic restart upon configuration update
-
 - Closing Remarks
-
-  
 
 ## Centralized configuration setup
 
@@ -46,7 +35,6 @@ You should have received several configuration files, packaged in archives (.tgz
 The following instructions need to be executed on each machine.
 
 - Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
-
 - Copy the configuration archive to the root of the directory  
 - Unarchive the configuration in place   
 
@@ -55,7 +43,6 @@ In every role, you should have the following files:
 - The file `run-config-follower` and folder `config-follower/`. These are the script and configuration files used to launch the configuration follower service.  
 - A file called `run-pryv`. This script will launch the role running on the machine. 
 - A directory called `pryv/`. The follower will download the role's configuration files here, as well as the data directories that will be mapped as volumes in the various docker containers.
-
 - A file called `ensure-permissions-${ROLE}`. This script sets correct permissions for data and log directories.
 
 In `reg-master` , you should have these additional files: 
