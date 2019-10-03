@@ -31,7 +31,6 @@ The configuration leader service will distribute the necessary configuration fil
 The follower is declared through the leader configuration (`${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`) within a `followers` map, for example:
 
 ```
-  "adminKey": "lDng9YLK3v57A8V6awdeLuaY2eaHmB7N",
   "followers": {
     "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
       "url": "http://config-follower:6000",
@@ -41,8 +40,6 @@ The follower is declared through the leader configuration (`${PRYV_CONF_ROOT}/co
 ```
 
 The follower in this map is indexed by a symmetric key that you can change, and also specifies its role (singlenode) and local url.
-
-An `adminKey` must also be configured for the leader, it will be useful for platform administrators in order to interact with the leader remotely.
 
 In the follower configuration (`${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`), the corresponding symmetric key is provided (as defined above in the leader) as well as the local leader url, as follows:
 
