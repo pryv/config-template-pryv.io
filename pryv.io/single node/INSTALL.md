@@ -51,6 +51,7 @@ Here is a list of the required platform-specific variables:
 
 - DOMAIN: the fully qualified domain name of the platform (eg.: pryv.me)
 - MACHINE_IP_ADDRESS: IP address of the singlenode machine
+- REGISTER_ADMIN_KEY_1: key to make admin calls on register
 
 #### Optional variables
 
@@ -62,27 +63,16 @@ The following fields will be available in the [service information](https://api.
 - SUPPORT_LINK: Link to the web page containing support information
 - TERMS_OF_USE_LINK: Link to the web page containing terms and conditions
 
-#### Secrets
-
-Additionally, there are several secret keys that need to be set. We recommand to generate your own secret keys.
-Alternatively, if you leave their value to "SECRET", the configuration leader service will generate a random key for each of them.
-
-* SSO_COOKIE_SIGN_SECRET: salt used to generate SSO cookie signature
-* FILES_READ_TOKEN_SECRET: salt used to generate read tokens for attachments
-* CORE_SYSTEM_KEY: key to make system calls on cores
-* REGISTER_SYSTEM_KEY_1: key to make system calls on register
-* REGISTER_ADMIN_KEY_1: key to make admin calls on register
-
 ## Pryv.io emails
 
 As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following fields need to be set only when activating Pryv.io emails:
 
-* MAIL_FROM_NAME: name of the sender
-* MAIL_FROM_ADDRESS: email address of the sender
-* MAIL_SMTP_HOST: host of the SMTP server that will be delivering the emails
-* MAIL_SMTP_PORT: SMTP port (default is 587)
-* MAIL_SMTP_USER: username to authenticate against the SMTP server
-* MAIL_SMTP_PASS: password to authenticate against the SMTP server
+- MAIL_FROM_NAME: name of the sender
+- MAIL_FROM_ADDRESS: email address of the sender
+- MAIL_SMTP_HOST: host of the SMTP server that will be delivering the emails
+- MAIL_SMTP_PORT: SMTP port (default is 587)
+- MAIL_SMTP_USER: username to authenticate against the SMTP server
+- MAIL_SMTP_PASS: password to authenticate against the SMTP server
 
 ## SSL certificates
 

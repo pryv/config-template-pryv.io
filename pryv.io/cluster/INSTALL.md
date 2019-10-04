@@ -61,6 +61,7 @@ Here is a list of the required platform-specific variables:
 - CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of the 1st core machine
 - CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain multiple ones
 - STATIC_WEB_IP_ADDRESS: hostname of the static-web machine
+- REGISTER_ADMIN_KEY_1: key to make admin calls on register
 
 #### Optional variables
 
@@ -71,10 +72,6 @@ The following fields will be available in the [service information](https://api.
 - PLATFORM_NAME: Service name, example "Pryv Lab"
 - SUPPORT_LINK: Link to the web page containing support information
 - TERMS_OF_USE_LINK: Link to the web page containing terms and conditions
-
-#### Secrets
-
-All the variables whose value is set as `"SECRET"` will have  - to remove if possible
 
 ## Leader-follower keys
 
