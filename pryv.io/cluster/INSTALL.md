@@ -82,11 +82,11 @@ In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/c
 ```
 "followers": {
 	"iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
-		"url": "https://co1.pryv.me/",
+		"url": "https://co1.DOMAIN/",
 		"role": "core"
 	},
 	"ciWrIHB3GoNoodoSH5zaulgR48aL5MhO": {
-		"url": "https://reg.pryv.me/",
+		"url": "https://reg.DOMAIN/",
 		"role": "reg-master"
 	}
 }
@@ -103,7 +103,7 @@ For each follower, you will need to set the same key in its configuration file `
   },
 ```
 
-Usually, the leader URL will be `https://lead.${DOMAIN}`.
+Also, you must adapt the leader and followers urls since they depend on your domain (usually `https://lead.${DOMAIN}` and `http://${ROLE}.${DOMAIN}`).
 
 ## Slave register machine
 
