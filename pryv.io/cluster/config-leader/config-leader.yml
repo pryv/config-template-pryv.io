@@ -2,7 +2,7 @@
 version: '3.5'
 services:
   config-leader:
-    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:1.0.0"
+    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:1.0.1"
     container_name: pryvio_config_leader
     networks:
       - frontend
