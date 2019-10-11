@@ -17,14 +17,9 @@
   "dataFolder": "/app/data",
   "platform": {
     "DOMAIN": "pryv.li",
-    "SSO_COOKIE_SIGN_SECRET": "SECRET",
-    "FILES_READ_TOKEN_SECRET": "SECRET",
-    "CORE_SYSTEM_KEY": "SECRET",
-    "CORE_MAIL_KEY": "SECRET",
     "PLATFORM_NAME": "Pryv Lab staging",
     "SUPPORT_LINK": "http://pryv.com/helpdesk",
     "TERMS_OF_USE_LINK": "http://pryv.com/pryv-lab-terms-of-use/",
-    "REGISTER_SYSTEM_KEY_1": "SECRET",
     "REGISTER_ADMIN_KEY_1": "SECRET",
     "STATIC_WEB_IP_ADDRESS": "185.19.28.119",
     "REG_MASTER_IP_ADDRESS": "185.19.30.198",
@@ -43,6 +38,13 @@
     "MAIL_SMTP_PASS": "RcVRdxyEdBTqfE1aMw-W9g"
   },
   "adminKey": "MsBsQMPyFN7SFjEix7P1B4umD3TLo8y2",
+  "internals": {
+    "SSO_COOKIE_SIGN_SECRET": "SECRET",
+    "FILES_READ_TOKEN_SECRET": "SECRET",
+    "CORE_SYSTEM_KEY": "SECRET",
+    "CORE_MAIL_KEY": "SECRET",
+    "REGISTER_SYSTEM_KEY_1": "SECRET"
+  },
   "followers": {
     "FOLLOWER_KEY_core1": {
       "url": "https://co1.DOMAIN",
@@ -57,7 +59,7 @@
       "role": "reg-master"
     },
     "FOLLOWER_KEY_reg-slave": {
-      "url": "https://reg.DOMAIN",
+      "url": "https://reg2.DOMAIN",
       "role": "reg-slave"
     },
     "FOLLOWER_KEY_static": {
