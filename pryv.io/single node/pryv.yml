@@ -135,8 +135,8 @@ services:
     restart: always
 
   influxdb: 
-    networks: 
     image: "influxdb:1.7.8"
+    networks:
       - backend
     volumes: 
       - ./pryv/influxdb/data/:/var/lib/influxdb
