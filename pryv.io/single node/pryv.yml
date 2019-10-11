@@ -136,7 +136,7 @@ services:
 
   influxdb: 
     image: "influxdb:1.7.8"
-    networks:
+    networks: 
       - backend
     volumes: 
       - ./pryv/influxdb/data/:/var/lib/influxdb
