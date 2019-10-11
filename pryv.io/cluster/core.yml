@@ -92,7 +92,7 @@ services:
       - backend
     volumes:
       - ./core/influxdb/data/:/var/lib/influxdb
-      - ./pryv/influxdb/backup/:/var/backups/
+      - ./pryv/influxdb/backup/:/pryv/backup/
     restart: always
 
 networks:
