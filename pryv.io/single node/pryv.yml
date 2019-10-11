@@ -48,7 +48,7 @@ services:
     image: "pryvsa-docker-release.bintray.io/pryv/redis:1.3.38"
     networks:
       - backend
-    volumes:
+    volumes: 
       - ./pryv/redis/conf/:/app/conf/:ro
       - ./pryv/redis/data/:/app/data/
       - ./pryv/redis/log/:/app/log/
@@ -65,7 +65,7 @@ services:
       - ./pryv/core/conf/:/app/conf/:ro
       - ./pryv/core/data/:/app/data/
       - ./pryv/core/log/:/app/log/
-    environment:
+    environment: 
       - NUM_PROCS=2
       - STARTING_PORT=3000
     links:
@@ -86,27 +86,27 @@ services:
     command: --core-audit core:3000 --core-audit core:3001
     restart: always
 
-  mail:
+  mail: 
     image: "pryvsa-docker-release.bintray.io/pryv/mail:1.1.3"
-    networks:
+    networks: 
       - frontend
-    volumes:
+    volumes: 
       - ./pryv/mail/conf/:/app/conf/:ro
       - ./pryv/mail/templates/:/app/bin/templates/:ro
     restart: always
 
-  hfs:
+  hfs: 
     image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.6"
-    networks:
+    networks: 
       - frontend
       - backend
-    volumes:
+    volumes: 
       - ./pryv/hfs/conf/:/app/conf/:ro
       - ./pryv/hfs/data/:/app/data/
       - ./pryv/hfs/log/:/app/log/
-    environment:
+    environment: 
       - NUM_PROCS=2
-    links:
+    links: 
       - influxdb
       - mongodb
     restart: always
@@ -124,23 +124,21 @@ services:
       - mongodb
     restart: always
 
-  mongodb:
+  mongodb: 
     image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.38"
-    networks:
+    networks: 
       - backend
-    volumes:
+    volumes: 
       - ./pryv/mongodb/data/:/app/data/
       - ./pryv/mongodb/log/:/app/log/
-      - ./pryv/mongodb/backup/:/app/backup/
     restart: always
 
-  influxdb:
-    image: "influxdb:1.7.8"
-    networks:
+  influxdb: 
+    image: "influxdb:1.2.2"
+    networks: 
       - backend
-    volumes:
+    volumes: 
       - ./pryv/influxdb/data/:/var/lib/influxdb
-      - ./pryv/influxdb/backup/:/pryv/backup/
     restart: always
   # Core role END --------------------------------------------------------------
 
