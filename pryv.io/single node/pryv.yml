@@ -131,14 +131,16 @@ services:
     volumes: 
       - ./pryv/mongodb/data/:/app/data/
       - ./pryv/mongodb/log/:/app/log/
+      - ./pryv/mongodb/backup/:/app/backup/
     restart: always
 
   influxdb: 
-    image: "influxdb:1.2.2"
     networks: 
+    image: "influxdb:1.7.8"
       - backend
     volumes: 
       - ./pryv/influxdb/data/:/var/lib/influxdb
+      - ./pryv/influxdb/backup/:/pryv/backup/
     restart: always
   # Core role END --------------------------------------------------------------
 

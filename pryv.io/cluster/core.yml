@@ -83,14 +83,16 @@ services:
       - ./core/mongodb/conf/:/app/conf/:ro
       - ./core/mongodb/data/:/app/data/
       - ./core/mongodb/log/:/app/log/
+      - ./core/mongodb/backup/:/app/backup/
     restart: always
 
   influxdb:
-    image: "influxdb:1.2.2"
+    image: "influxdb:1.7.8"
     networks:
       - backend
     volumes:
       - ./core/influxdb/data/:/var/lib/influxdb
+      - ./pryv/influxdb/backup/:/pryv/backup/
     restart: always
 
 networks:
