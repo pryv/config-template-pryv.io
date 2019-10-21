@@ -114,15 +114,17 @@ services:
       - ./mongodb/conf/:/app/conf/:ro
       - ./mongodb/data/:/app/data/
       - ./mongodb/log/:/app/log/
+      - ./core/mongodb/backup/:/app/backup/
     restart: always
 
   influxdb:
-    image: "influxdb:1.2.2"
+    image: "influxdb:1.7.8"
     container_name: pryvio_influxdb
     networks:
       - backend
     volumes:
       - ./influxdb/data/:/var/lib/influxdb
+      - ./influxdb/backup/:/pryv/backup/
     restart: always
       
 networks:
