@@ -52,7 +52,7 @@ services:
     container_name: pryvio_redis
     networks:
       - backend
-    volumes:
+    volumes: 
       - ./redis/conf/:/app/conf/:ro
       - ./redis/data/:/app/data/
       - ./redis/log/:/app/log/
@@ -70,7 +70,7 @@ services:
       - ./core/conf/:/app/conf/:ro
       - ./core/data/:/app/data/
       - ./core/log/:/app/log/
-    environment:
+    environment: 
       - NUM_PROCS=4
       - STARTING_PORT=3000
     links:
@@ -105,29 +105,29 @@ services:
       - /var/log/pryv/audit/pryvio_core/:/app/data/
     restart: always
 
-  mail:
+  mail: 
     image: "pryvsa-docker-release.bintray.io/pryv/mail:1.1.3"
     container_name: pryvio_mail
-    networks:
+    networks: 
       - frontend
-    volumes:
+    volumes: 
       - ./mail/conf/:/app/conf/:ro
       - ./mail/templates/:/app/bin/templates/:ro
     restart: always
 
-  hfs:
+  hfs: 
     image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.17"
     container_name: pryvio_hfs
-    networks:
+    networks: 
       - frontend
       - backend
-    volumes:
+    volumes: 
       - ./hfs/conf/:/app/conf/:ro
       - ./hfs/data/:/app/data/
       - ./hfs/log/:/app/log/
-    environment:
+    environment: 
       - NUM_PROCS=2
-    links:
+    links: 
       - influxdb
       - mongodb
     restart: always
@@ -151,32 +151,30 @@ services:
     container_name: pryvio_webhooks
     networks:
       - backend
-    volumes:
+    volumes: 
       - ./webhooks/conf/:/app/conf/:ro
       - ./webhooks/log/:/app/log/
-    links:
+    links: 
       - mongodb
     restart: always
 
-  mongodb:
+  mongodb: 
     image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.3.38"
     container_name: pryvio_mongodb
-    networks:
+    networks: 
       - backend
-    volumes:
+    volumes: 
       - ./mongodb/data/:/app/data/
       - ./mongodb/log/:/app/log/
-      - ./mongodb/backup/:/app/backup/
     restart: always
 
-  influxdb:
-    image: "influxdb:1.7.8"
+  influxdb: 
+    image: "influxdb:1.2.2"
     container_name: pryvio_influxdb
-    networks:
+    networks: 
       - backend
-    volumes:
+    volumes: 
       - ./influxdb/data/:/var/lib/influxdb
-      - ./influxdb/backup/:/pryv/backup/
     restart: always
   # Core role END --------------------------------------------------------------
 
