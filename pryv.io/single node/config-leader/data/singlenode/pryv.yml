@@ -166,15 +166,17 @@ services:
     volumes: 
       - ./mongodb/data/:/app/data/
       - ./mongodb/log/:/app/log/
+      - ./mongodb/backup/:/app/backup/
     restart: always
 
   influxdb: 
-    image: "influxdb:1.2.2"
+    image: "influxdb:1.7.8"
     container_name: pryvio_influxdb
     networks: 
       - backend
     volumes: 
       - ./influxdb/data/:/var/lib/influxdb
+      - ./influxdb/backup/:/pryv/backup/
     restart: always
   # Core role END --------------------------------------------------------------
 
