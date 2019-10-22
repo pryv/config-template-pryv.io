@@ -87,7 +87,7 @@ services:
     restart: always
 
   core_audit:
-    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.1"
+    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.2"
     networks:
       - frontend
     links:
