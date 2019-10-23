@@ -47,23 +47,23 @@
   },
   "followers": {
     "FOLLOWER_KEY_core1": {
-      "url": "https://co1.DOMAIN",
+      "url": "https://co1.pryv.li",
       "role": "core"
     },
     "FOLLOWER_KEY_core2": {
-      "url": "https://co2.DOMAIN",
+      "url": "https://co2.pryv.li",
       "role": "core"
     },
     "FOLLOWER_KEY_reg-master": {
-      "url": "https://reg.DOMAIN",
+      "url": "https://reg.pryv.li",
       "role": "reg-master"
     },
     "FOLLOWER_KEY_reg-slave": {
-      "url": "https://reg2.DOMAIN",
+      "url": "https://reg2.pryv.li",
       "role": "reg-slave"
     },
     "FOLLOWER_KEY_static": {
-      "url": "https://sw.DOMAIN",
+      "url": "https://sw.pryv.li",
       "role": "static"
     }
   }
