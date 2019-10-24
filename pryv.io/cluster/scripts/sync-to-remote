@@ -27,6 +27,12 @@ RSYNC_OPTIONS="--recursive --times --human-readable --verbose"
 if [ $1 == "followers" ]; then
   echo "Syncing followers"
 
+  echo "################################"
+  echo "WARNING:"
+  echo "AFTER SYNCING FOLLOWERS YOU NEED"
+  echo "TO SET THE FOLLOWERS KEYS AGAIN"
+  echo "################################"
+
   echo "###############################"
   echo "Syncing $CORE1"
   echo "###############################"
