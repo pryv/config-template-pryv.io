@@ -33,7 +33,7 @@ services:
     restart: always
 
   core_audit:
-    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.2"
+    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.3"
     container_name: pryvio_audit
     networks:
       - frontend
@@ -46,7 +46,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.17"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.18"
     container_name: pryvio_core
     networks:
       - frontend
