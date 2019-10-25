@@ -14,7 +14,7 @@ PRYV_ROOT="/var/pryv-central"
 # the paths are currently hardcoded as they are not unified accross the remote hosts
 
 if [ $# -ne 1 ]; then
-  echo "Please specify which role: cores, core1, core2, reg-master, reg-slave, static or certs";
+  echo "Please specify: followers, leader, logrotate or certs";
   exit 1;
 fi
 
@@ -24,59 +24,84 @@ fi
 
 RSYNC_OPTIONS="--recursive --times --human-readable --verbose"
 
-if [ $1 == "cores" ] || [ $1 == "core1" ]; then
-  echo "Syncing core machine"
+if [ $1 == "followers" ]; then
+  echo "Syncing followers"
+
+  echo "################################"
+  echo "WARNING:"
+  echo "AFTER SYNCING FOLLOWERS YOU NEED"
+  echo "TO SET THE FOLLOWERS KEYS AGAIN"
+  echo "################################"
 
   echo "###############################"
   echo "Syncing $CORE1"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-core watch-config reload-module install-fswatch $CORE1:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf $CORE1:/etc/logrotate.d/pryv
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.logrotate.conf $CORE1:/etc/logrotate.d/pryv-router.logrotate.conf
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.rsyslog.conf $CORE1:/etc/rsyslog.d/10-pryv-router.rsyslog.conf
-fi
-
-if [ $1 == "cores" ] || [ $1 == "core2" ]; then
-  echo "Syncing core machine"
-
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-core watch-config reload-module $CORE1:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
+ 
   echo "###############################"
   echo "Syncing $CORE2"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-core watch-config reload-module install-fswatch $CORE2:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf $CORE2:/etc/logrotate.d/pryv
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.logrotate.conf $CORE2:/etc/logrotate.d/pryv-router.logrotate.conf
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.rsyslog.conf $CORE2:/etc/rsyslog.d/10-pryv-router.rsyslog.conf
-fi
-
-if [ $1 == "reg-master" ]; then
-  echo "Syncing master register"
-
-  echo "###############################"
-  echo "Syncing $REGM"
-  echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-leader run-config-leader stop-config-leader config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-reg-master watch-config reload-module install-fswatch $REGM:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf $REGM:/etc/logrotate.d/pryv
-fi
-
-if [ $1 == "reg-slave" ]; then
-  echo "Syncing slave register"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-core watch-config reload-module $CORE2:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
 
   echo "###############################"
   echo "Syncing $REGS"
   echo "###############################"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-reg-slave watch-config reload-module install-fswatch $REGS:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf $REGS:/etc/logrotate.d/pryv
-fi
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-reg-slave watch-config reload-module $REGS:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
 
-if [ $1 == "static" ]; then
-  echo "Syncing static-web machine"
+  echo "###############################"
+  echo "Syncing $REGM"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-reg-master watch-config reload-module $REGM:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
 
   echo "###############################"
   echo "Syncing $STATIC"
   echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-static watch-config reload-module $STATIC:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
 
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-follower run-config-follower stop-config-follower run-pryv stop-pryv ensure-permissions-static watch-config reload-module install-fswatch $STATIC:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
+fi
+
+if [ $1 == "leader" ]; then
+  echo "Syncing leader"
+
+  echo "###############################"
+  echo "Syncing $REGM"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' config-leader run-config-leader stop-config-leader ensure-permissions-reg-master $REGM:$PRYV_ROOT  --exclude ".DS_Store" --exclude ".*" --exclude "*.pem" --exclude "*.crt"
+ 
+fi
+
+if [ $1 == "logrotate" ]; then
+  echo "Syncing logrotate files"
+
+  echo "###############################"
+  echo "Syncing $CORE1"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf $CORE1:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.logrotate.conf $CORE1:/etc/logrotate.d/pryv-router.logrotate.conf
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.rsyslog.conf $CORE1:/etc/rsyslog.d/10-pryv-router.rsyslog.conf
+ 
+  echo "###############################"
+  echo "Syncing $CORE2"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' core.logrotate.conf $CORE2:/etc/logrotate.d/pryv
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.logrotate.conf $CORE2:/etc/logrotate.d/pryv-router.logrotate.conf
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' pryv-router.rsyslog.conf $CORE2:/etc/rsyslog.d/10-pryv-router.rsyslog.conf
+
+  echo "###############################"
+  echo "Syncing $REGM"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf $REGM:/etc/logrotate.d/pryv
+
+  echo "###############################"
+  echo "Syncing $REGS"
+  echo "###############################"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' reg.logrotate.conf $REGS:/etc/logrotate.d/pryv
+
+  echo "###############################"
+  echo "Syncing $STATIC"
+  echo "###############################"
   rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' static.logrotate.conf $STATIC:/etc/logrotate.d/pryv
+
 fi
 
 if [ $1 == "certs" ]; then
@@ -86,15 +111,14 @@ if [ $1 == "certs" ]; then
   echo "Back-up old certificates (from reg-master)"
   echo "###############################"
 
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' $REGM:$PRYV_ROOT/pryv/nginx/conf/secret/ ../../certs/backup/`date +%s` --exclude ".DS_Store" --exclude ".*"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' $REGM:$PRYV_ROOT/config-leader/data/reg-master/nginx/conf/secret/ ../../certs/backup/`date +%s` --exclude ".DS_Store" --exclude ".*"
 
   echo "###############################"
   echo "Syncing new certificates"
   echo "###############################"
 
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $CORE1:$PRYV_ROOT/pryv/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $CORE2:$PRYV_ROOT/pryv/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $REGM:$PRYV_ROOT/pryv/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $REGS:$PRYV_ROOT/pryv/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
-  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $STATIC:$PRYV_ROOT/pryv/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $REGM:$PRYV_ROOT/config-leader/data/core/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $REGM:$PRYV_ROOT/config-leader/data/reg-master/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $REGM:$PRYV_ROOT/config-leader/data/reg-slave/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
+  rsync $RSYNC_OPTIONS -e ssh --rsync-path='sudo rsync' ../../certs/ $REGM:$PRYV_ROOT/config-leader/data/static/nginx/conf/secret/ --exclude ".DS_Store" --exclude ".*" --exclude "backup"
 fi
