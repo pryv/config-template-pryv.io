@@ -8,7 +8,8 @@
     },
     "register": {
       "url": "https://reg.DOMAIN"
-    }
+    },
+    "trustedDomains": ["pryv.io","pryv.me", "pryv.li", "pryv.in", "rec.la"]
   },
   "service": {
     "name": "PLATFORM_NAME",
