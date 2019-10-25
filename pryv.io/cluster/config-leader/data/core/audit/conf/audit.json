@@ -19,8 +19,8 @@
     },
     "airbrake": {
       "active": false,
-      "projectId": "",
-      "apiKey": ""
+      "projectId": "247288",
+      "apiKey": "dd33d2c4a8cfd5e749c7ae0cd75af494"
     }
   }
 }
