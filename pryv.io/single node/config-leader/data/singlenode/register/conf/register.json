@@ -81,7 +81,8 @@
     },
     "register": {
       "url": "https://reg.DOMAIN"
-    }
+    },
+    "trustedDomains": ["DOMAIN", "rec.la"]
   },
   "server": {
     "ssl": false,
