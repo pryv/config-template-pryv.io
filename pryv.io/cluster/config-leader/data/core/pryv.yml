@@ -47,7 +47,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.18"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.19"
     container_name: pryvio_core
     networks:
       - frontend
@@ -65,7 +65,7 @@ services:
     hostname: "$HOSTNAME"
 
   preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.18"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.19"
     container_name: pryvio_preview
     networks: 
       - frontend
@@ -80,7 +80,7 @@ services:
     hostname: "$HOSTNAME"
 
   hfs:
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.18"
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.19"
     container_name: pryvio_hfs
     networks:
       - frontend
