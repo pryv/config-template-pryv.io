@@ -124,7 +124,7 @@ services:
     restart: always
   
   webhooks:
-    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.17"
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.20"
     networks:
       - backend
     volumes: 
