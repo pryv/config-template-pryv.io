@@ -85,7 +85,7 @@
     "register": {
       "url": "https://reg.DOMAIN"
     },
-    "trustedDomains": ["DOMAIN", "rec.la"]
+    "trustedAuthUrls": ["https://sw.DOMAIN/access/access.html"]
   },
   "service": {
     "name": "PLATFORM_NAME",
