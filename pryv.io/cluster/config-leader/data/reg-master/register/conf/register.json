@@ -9,7 +9,10 @@
     "register": {
       "url": "https://reg.DOMAIN"
     },
-    "trustedAuthUrls": ["https://sw.DOMAIN/access/access.html"]
+    "trustedAuthUrls": [
+      "https://sw.DOMAIN/access/access.html",
+      "https://pryv.github.io/app-web-auth3-demo"
+    ]
   },
   "service": {
     "name": "PLATFORM_NAME",
