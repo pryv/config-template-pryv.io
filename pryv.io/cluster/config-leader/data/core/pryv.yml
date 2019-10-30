@@ -93,7 +93,7 @@ services:
       - NUM_PROCS=2
     links:
       - influxdb
-      - mongodb
+      - core
     restart: always
     hostname: "$HOSTNAME"
 
@@ -106,7 +106,7 @@ services:
       - ./webhooks/conf/:/app/conf/:ro
       - ./webhooks/log/:/app/log/
     links: 
-      - mongodb
+      - core
     restart: always
 
   mongodb:
