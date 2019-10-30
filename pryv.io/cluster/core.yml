@@ -84,7 +84,7 @@ services:
       - NUM_PROCS=2
     links:
       - influxdb
-      - mongodb
+      - core
     restart: always
 
   webhooks:
@@ -95,7 +95,7 @@ services:
       - ./core/webhooks/conf/:/app/conf/:ro
       - ./core/webhooks/log/:/app/log/
     links: 
-      - mongodb
+      - core
     restart: always
 
   mongodb:
