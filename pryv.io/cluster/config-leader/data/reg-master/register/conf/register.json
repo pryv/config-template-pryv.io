@@ -9,7 +9,10 @@
     "register": {
       "url": "https://reg.DOMAIN"
     },
-    "trustedAuthUrls": ["https://sw.DOMAIN/access/access.html"]
+    "trustedAuthUrls": [
+      "https://sw.DOMAIN/access/access.html",
+      "https://sw2.DOMAIN/access/access.html"
+    ]
   },
   "service": {
     "name": "PLATFORM_NAME",
