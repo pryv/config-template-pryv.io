@@ -50,6 +50,9 @@
       "sw2": {
         "ip": "STATIC_WEB_IP_ADDRESS"
       },
+      "sw3": {
+        "ip": "STATIC_WEB_IP_ADDRESS"
+      },
       "reg": {
         "ip": "REG_MASTER_IP_ADDRESS"
       },

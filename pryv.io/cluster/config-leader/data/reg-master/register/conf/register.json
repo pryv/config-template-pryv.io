@@ -11,7 +11,8 @@
     },
     "trustedAuthUrls": [
       "https://sw.DOMAIN/access/access.html",
-      "https://sw2.DOMAIN/access/access.html"
+      "https://sw2.DOMAIN/access/access.html",
+      "https://sw3.DOMAIN/access/access.html"
     ]
   },
   "service": {
