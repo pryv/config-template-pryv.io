@@ -58,6 +58,18 @@ services:
       - mongodb
     restart: always
 
+  mfa: 
+    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:0.0.3"
+    container_name: service_mfa
+    networks:
+      - frontend
+    volumes: 
+      - ./core/mfa/conf/:/app/conf/:ro
+      - ./core/mfa/log/:/app/log/
+    links: 
+      - core
+    restart: always 
+
   preview: 
     image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.21"
     networks: 
