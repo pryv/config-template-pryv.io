@@ -79,7 +79,7 @@ services:
     restart: always
 
   mfa: 
-    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:0.0.3"
+    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:0.0.4"
     container_name: service_mfa
     networks:
       - frontend
