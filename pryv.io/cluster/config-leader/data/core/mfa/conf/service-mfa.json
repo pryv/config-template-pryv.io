@@ -19,8 +19,8 @@
   },
   "sms": {
     "endpoints": {
-      "challenge": "",
-      "verify": ""
+      "challenge": "https://test.umana.ch/api/mfa/codes",
+      "verify": "https://test.umana.ch/api/mfa/codes/verifications"
     },
     "auth": ""
   },
