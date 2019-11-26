@@ -65,7 +65,7 @@ services:
     hostname: "$HOSTNAME"
 
   mfa: 
-    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:0.0.4"
+    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:0.0.7"
     container_name: service_mfa
     networks:
       - frontend
