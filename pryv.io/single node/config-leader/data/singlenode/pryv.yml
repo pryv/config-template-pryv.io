@@ -80,7 +80,7 @@ services:
 
   mfa: 
     image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:0.0.7"
-    container_name: service_mfa
+    container_name: pryvio_mfa
     networks:
       - frontend
     volumes: 
