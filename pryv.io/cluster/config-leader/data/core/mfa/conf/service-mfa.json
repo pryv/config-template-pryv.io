@@ -19,10 +19,10 @@
   },
   "sms": {
     "endpoints": {
-      "challenge": "https://test.umana.ch/api/mfa/codes",
-      "verify": "https://test.umana.ch/api/mfa/codes/verifications"
+      "challenge": "https://api.smsapi.com/mfa/codes",
+      "verify": "https://api.smsapi.com/mfa/codes/verifications"
     },
-    "auth": ""
+    "auth": "Bearer IGuFwZ990VwwTPqkJpRK2Ytmd0TBL3MYB0lvVxAJ"
   },
   "sessions": {
     "ttlSeconds": 1800
