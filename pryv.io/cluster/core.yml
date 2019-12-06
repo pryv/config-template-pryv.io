@@ -59,7 +59,7 @@ services:
     restart: always
 
   mfa: 
-    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:0.0.7"
+    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:1.0.0"
     container_name: pryvio_mfa
     networks:
       - frontend
