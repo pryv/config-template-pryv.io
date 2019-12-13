@@ -31,7 +31,7 @@ services:
     restart: always
 
   core_audit:
-    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.4"
+    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.5"
     networks:
       - frontend
     links:
@@ -43,7 +43,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.23"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.24"
     networks:
       - frontend
       - backend
@@ -59,7 +59,7 @@ services:
     restart: always
 
   mfa: 
-    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:1.0.0"
+    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:1.0.1"
     container_name: pryvio_mfa
     networks:
       - frontend
@@ -71,7 +71,7 @@ services:
     restart: always 
 
   preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.23"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.24"
     networks: 
       - frontend
       - backend
@@ -84,7 +84,7 @@ services:
     restart: always
 
   hfs:
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.23"
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.24"
     networks:
       - frontend
       - backend
@@ -100,7 +100,7 @@ services:
     restart: always
 
   webhooks:
-    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.23"
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.24"
     networks:
       - backend
     volumes: 
