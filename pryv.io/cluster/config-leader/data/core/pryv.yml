@@ -47,7 +47,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.24"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.4.25"
     container_name: pryvio_core
     networks:
       - frontend
@@ -77,7 +77,7 @@ services:
     restart: always
 
   preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.24"
+    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.4.25"
     container_name: pryvio_preview
     networks: 
       - frontend
@@ -92,7 +92,7 @@ services:
     hostname: "$HOSTNAME"
 
   hfs:
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.24"
+    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.25"
     container_name: pryvio_hfs
     networks:
       - frontend
@@ -110,7 +110,7 @@ services:
     hostname: "$HOSTNAME"
 
   webhooks:
-    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.24"
+    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.25"
     container_name: pryvio_webhooks
     networks:
       - backend
