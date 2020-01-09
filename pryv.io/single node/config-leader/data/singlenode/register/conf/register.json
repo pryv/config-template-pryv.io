@@ -27,6 +27,13 @@
           }
         ]
       },
+      "mfa": {
+        "alias": [
+          {
+            "name": "local.DOMAIN"
+          }
+        ]
+      },
       "reg": {
         "alias": [
           {
