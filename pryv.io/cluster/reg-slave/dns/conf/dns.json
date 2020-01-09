@@ -57,6 +57,9 @@
       "sw": {
         "ip": "STATIC_WEB_IP_ADDRESS"
       },
+      "mfa": {
+        "ip": "STATIC_WEB_IP_ADDRESS"
+      },
       "reg": {
         "ip": "REG_MASTER_IP_ADDRESS"
       },
