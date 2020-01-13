@@ -1,0 +1,36 @@
+{
+  "pryv": {
+    "domain": "pryv.li",
+    "access": "https://reg.pryv.li/access"
+  },
+  "ifttt": {
+    "clientId": "ifttt-all",
+    "secret": "Lalalarecord4funPingPong1l1k2h34hg4",
+    "channelApiKey": "R8L6C20MZgiB7kA7JezVty0gxloNzXb1T6J2VGORI9o=",
+    "bridgeUrl": "https://ifttt.pryv.li",
+    "realtimeApiUrlEndpoint": "https://realtime.ifttt.com/v1/notifications"
+  },
+  "oauth": {
+    "secretPath": ""
+  },
+  "http": {
+    "port": 8123,
+    "ip": "127.0.0.1"
+  },
+  "redis": {
+    "port": 8124
+  },
+  "debug": {
+    "PYInternalErrorLog": true,
+    "logReqUrl": true,
+    "logFullRequest": false,
+    "logOAuth": true,
+    "logFieldsStreams": false,
+    "logNewEventTrigger": false,
+    "logNewEventAction": false
+  },
+  "airbrake": {
+    "active": false,
+    "key": ""
+  }
+}
