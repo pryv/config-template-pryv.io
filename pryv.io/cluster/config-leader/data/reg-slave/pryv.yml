@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   reverse_proxy: 
-    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.39"
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.40"
     container_name: pryvio_nginx
     networks: 
       - frontend
@@ -32,7 +32,7 @@ services:
     hostname: "$HOSTNAME"
 
   redis: 
-    image: "pryvsa-docker-release.bintray.io/pryv/redis:1.3.38"
+    image: "pryvsa-docker-release.bintray.io/pryv/redis:1.3.40"
     container_name: pryvio_redis
     networks: 
       - backend
