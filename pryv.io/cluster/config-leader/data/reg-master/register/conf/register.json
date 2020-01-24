@@ -21,6 +21,7 @@
     "port": 9000
   },
   "auth": {
+    "coreSystemKey": "CORE_SYSTEM_KEY",
     "authorizedKeys": {
       "REGISTER_SYSTEM_KEY_1": {
         "roles": [
@@ -75,14 +76,9 @@
       },
       "dns2": {
         "ip": "REG_SLAVE_IP_ADDRESS"
-      },
-      "co1": {
-        "ip": "CORE_1_IP_ADDRESS"
-      },
-      "co2": {
-        "ip": "CORE_2_IP_ADDRESS"
       }
     },
+    "customEntries": DNS_CUSTOM_ENTRIES,
     "domain_A": "SERVICE_WEBSITE_IP_ADDRESS",
     "nameserver": [
       {
@@ -96,54 +92,7 @@
     ]
   },
   "net": {
-    "aaservers": {
-      "CORE_HOSTING_1": [
-        {
-          "base_url": "https://co1.DOMAIN/",
-          "authorization": "CORE_SYSTEM_KEY"
-        }
-      ]
-    },
-    "aahostings": {
-      "regions": {
-        "europe": {
-          "name": "Europe",
-          "localizedName": {
-            "fr": "Europe"
-          },
-          "zones": {
-            "france": {
-              "name": "France",
-              "localizedName": {
-                "fr": "France"
-              },
-              "hostings": {
-                "CORE_HOSTING_1": {
-                  "url": "https://hostingprovider.com",
-                  "name": "Hosting provider name",
-                  "description": "Hosting provider slogan",
-                  "localizedDescription": {}
-                }
-              }
-            },
-            "switzerland": {
-              "name": "Switzerland",
-              "localizedName": {
-                "fr": "Suisse"
-              },
-              "hostings": {
-                "CORE_HOSTING_2": {
-                  "url": "https://hostingprovider.com",
-                  "name": "Hosting provider name",
-                  "description": "Hosting provider slogan",
-                  "localizedDescription": {}
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    "hostings": HOSTINGS_AND_CORES
   },
   "redis": {
     "host": "redis",

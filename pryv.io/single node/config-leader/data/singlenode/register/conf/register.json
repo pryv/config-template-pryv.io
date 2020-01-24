@@ -66,6 +66,7 @@
         "ip": "MACHINE_IP_ADDRESS"
       }
     },
+    "customEntries": DNS_CUSTOM_ENTRIES,
     "domain_A": "SERVICE_WEBSITE_IP_ADDRESS"
   },
   "auth": {
