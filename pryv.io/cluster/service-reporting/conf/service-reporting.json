@@ -1,0 +1,22 @@
+{
+  "http": {
+    "port": 4000,
+    "ip": "0.0.0.0"
+  },
+  "logs": {
+    "file": {
+      "active": false,
+      "level": "info",
+      "path": "/app/log/service-reporting.log",
+      "colorize": false
+    },
+    "console": {
+      "active": true,
+      "level": "debug",
+      "colorize": true
+    }
+  },
+  "path": {
+    "dataFolder": "/var/data/"
+  }
+}

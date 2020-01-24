@@ -1,0 +1,34 @@
+version: '3.5'
+services:
+  reverse_proxy: 
+    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.40"
+    container_name: pryvio_nginx
+    networks: 
+      - frontend
+    ports: 
+      - "443:443"
+      - "80:80"
+    volumes: 
+      - ./nginx/conf/:/app/conf/:ro
+      - ./nginx/log/:/app/log/
+    links:
+      - service-reporting
+    restart: always
+  service-reporting:
+    image: "pryvsa-docker-release.bintray.io/pryv/service-reporting:1.0.0"
+    container_name: pryvio_config_follower
+    networks:
+      - frontend
+      - backend
+    volumes:
+      - ../pryv:/app/pryv/
+      - ./conf/:/app/conf/
+    restart: always
+  
+networks:
+  frontend:
+    driver: bridge
+    name: pryv_frontend
+  backend:
+    driver: bridge
+    name: pryv_backend
