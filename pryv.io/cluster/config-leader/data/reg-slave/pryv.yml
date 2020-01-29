@@ -16,7 +16,7 @@ services:
     restart: always
 
   dns: 
-    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.3.48"
+    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.3.49"
     container_name: pryvio_dns
     ports: 
       - "53:5353/udp"

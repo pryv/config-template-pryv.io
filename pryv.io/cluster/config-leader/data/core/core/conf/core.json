@@ -14,15 +14,15 @@
     "previewsDirPath": "/app/data/previews"
   },
   "eventTypes": {
-    "sourceURL": "https://api.pryv.com/event-types/flat.json"
+    "sourceURL": "EVENT_TYPES_URL"
   },
   "auth": {
-    "trustedApps": "*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*",
-    "sessionMaxAge": 1209600000,
+    "trustedApps": "TRUSTED_APPS",
+    "sessionMaxAge": SESSION_MAX_AGE,
     "ssoCookieDomain": ".DOMAIN",
     "ssoCookieSignSecret": "SSO_COOKIE_SIGN_SECRET",
     "filesReadTokenSecret": "FILES_READ_TOKEN_SECRET",
-    "passwordResetRequestMaxAge": 3600000,
+    "passwordResetRequestMaxAge": PASSWORD_RESET_MAX_AGE,
     "passwordResetPageURL": "https://sw.DOMAIN/access/reset-password.html",
     "adminAccessKey": "CORE_SYSTEM_KEY"
   },
@@ -32,10 +32,7 @@
       "key": "REGISTER_SYSTEM_KEY_1"
     },
     "email": {
-      "enabled": {
-        "welcome": true,
-        "resetPassword": true
-      },
+      "enabled": EMAIL_ACTIVATION,
       "method": "microservice",
       "url": "https://mail.DOMAIN/sendmail/",
       "key": "CORE_MAIL_KEY",
@@ -44,17 +41,10 @@
     }
   },
   "updates": {
-    "ignoreProtectedFields": true
+    "ignoreProtectedFields": UPDATES_IGNORE_PROTECTED_FIELDS
   },
-  "audit": {
-    "forceKeepHistory": true,
-    "deletionMode": "keep-authors"
-  },
-  "webhooks": {
-    "minIntervalMs": 5000,
-    "maxRetries": 5,
-    "runsSize": 20
-  },
+  "audit": VERSIONING_SETTINGS,
+  "webhooks": WEBOOKS_SETTINGS,
   "logs": {
     "console": {
       "active": true,

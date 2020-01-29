@@ -15,34 +15,13 @@
     }
   },
   "dataFolder": "/app/data",
-  "platform": {
-    "DOMAIN": "pryv.li",
-    "PLATFORM_NAME": "Pryv Lab staging",
-    "SUPPORT_LINK": "http://pryv.com/helpdesk",
-    "TERMS_OF_USE_LINK": "http://pryv.com/pryv-lab-terms-of-use/",
-    "REGISTER_ADMIN_KEY_1": "SECRET",
-    "STATIC_WEB_IP_ADDRESS": "185.19.28.119",
-    "REG_MASTER_IP_ADDRESS": "185.19.30.198",
-    "REG_MASTER_VPN_IP_ADDRESS": "REG_MASTER_VPN_IP_ADDRESS",
-    "REG_SLAVE_IP_ADDRESS": "REG_SLAVE_IP_ADDRESS",
-    "CORE_1_IP_ADDRESS": "89.145.167.179",
-    "CORE_2_IP_ADDRESS": "89.145.166.17",
-    "CORE_HOSTING_1": "core-pryv-li-exoscale-ch-01",
-    "CORE_HOSTING_2": "core-pryv-li-exoscale-ch-02",
-    "SERVICE_WEBSITE_IP_ADDRESS": "217.70.184.38",
-    "MAIL_FROM_NAME": "Pryv",
-    "MAIL_FROM_ADDRESS": "support@pryv.com",
-    "MAIL_SMTP_HOST": "smtp.mandrillapp.com",
-    "MAIL_SMTP_PORT": "587",
-    "MAIL_SMTP_USER": "tech@pryv.com",
-    "MAIL_SMTP_PASS": "RcVRdxyEdBTqfE1aMw-W9g"
-  },
   "adminKey": "MsBsQMPyFN7SFjEix7P1B4umD3TLo8y2",
   "internals": {
     "SSO_COOKIE_SIGN_SECRET": "SECRET",
     "FILES_READ_TOKEN_SECRET": "SECRET",
     "CORE_SYSTEM_KEY": "SECRET",
     "CORE_MAIL_KEY": "SECRET",
+    "REGISTER_ADMIN_KEY_1": "SECRET",
     "REGISTER_SYSTEM_KEY_1": "SECRET"
   },
   "followers": {

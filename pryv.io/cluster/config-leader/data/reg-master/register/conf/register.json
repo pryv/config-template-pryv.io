@@ -9,11 +9,7 @@
     "register": {
       "url": "https://reg.DOMAIN"
     },
-    "trustedAuthUrls": [
-      "https://sw.DOMAIN/access/access.html",
-      "https://sw2.DOMAIN/access/access.html",
-      "https://sw3.DOMAIN/access/access.html"
-    ]
+    "trustedAuthUrls": TRUSTED_AUTH_URLS
   },
   "service": {
     "name": "PLATFORM_NAME",
@@ -25,6 +21,7 @@
     "port": 9000
   },
   "auth": {
+    "coreSystemKey": "CORE_SYSTEM_KEY",
     "authorizedKeys": {
       "REGISTER_SYSTEM_KEY_1": {
         "roles": ["system"]
@@ -41,7 +38,7 @@
     "domain": "DOMAIN",
     "domains": ["DOMAIN"],
     "certificateAuthorityAuthorization": {
-      "issuer": "letsencrypt.org"
+      "issuer": "SSL_CAA_ISSUER"
     },
     "staticDataInDomain": {
       "www": {
@@ -73,12 +70,6 @@
       "access": {
         "ip": "REG_MASTER_IP_ADDRESS"
       },
-      "co1": {
-        "ip": "CORE_1_IP_ADDRESS"
-      },
-      "co2": {
-        "ip": "CORE_2_IP_ADDRESS"
-      },
       "bridges": {
         "alias": {
           "name": "stbridgemulti-amazon-use-01.pryv.net"
@@ -95,6 +86,7 @@
         }
       }
     },
+    "customEntries": DNS_CUSTOM_ENTRIES,
     "domain_A": "SERVICE_WEBSITE_IP_ADDRESS",
     "nameserver": [
       {
@@ -122,60 +114,8 @@
     ]
   },
   "net": {
-    "aaservers": {
-      "CORE_HOSTING_1": [
-        {
-          "base_url": "https://co1.DOMAIN/",
-          "authorization": "CORE_SYSTEM_KEY"
-        }
-      ],
-      "CORE_HOSTING_2": [
-        {
-          "base_url": "https://co2.DOMAIN/",
-          "authorization": "CORE_SYSTEM_KEY"
-        }
-      ]
-    },
-    "aahostings": {
-      "regions": {
-        "europe": {
-          "name": "Europe",
-          "localizedName": {
-            "fr": "Europe"
-          },
-          "zones": {
-            "france": {
-              "name": "France",
-              "localizedName": {
-                "fr": "France"
-              },
-              "hostings": {
-                "CORE_HOSTING_1": {
-                  "url": "https://hostingprovider.com",
-                  "name": "Hosting provider name",
-                  "description": "Hosting provider slogan",
-                  "localizedDescription": {}
-                }
-              }
-            },
-            "switzerland": {
-              "name": "Switzerland",
-              "localizedName": {
-                "fr": "Suisse"
-              },
-              "hostings": {
-                "CORE_HOSTING_2": {
-                  "url": "https://hostingprovider.com",
-                  "name": "Hosting provider name",
-                  "description": "Hosting provider slogan",
-                  "localizedDescription": {}
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    "hostings": HOSTINGS_AND_CORES,
+    "providers": HOSTINGS_PROVIDERS
   },
   "redis": {
     "host": "redis",
@@ -186,94 +126,6 @@
     "key": "88ec825519c81c3a248a5d19284970a0",
     "projectId": "95889"
   },
-  "appList": {
-    "pryv-csv-importer": {
-      "displayName": "CSV Importer",
-      "description": "Import existing data from CSV files",
-      "iconURL": "https://sw.pryv.li/apps/pryv-csv-importer/icon512.png",
-      "appURL": "http://pryv.github.io/dev-tools/csv-importer",
-      "active": false,
-      "onboarding": false,
-      "category": "Other",
-      "support": ["iPad", "iPhone", "Web"],
-      "settingsPageURL": "http://pryv.github.io/dev-tools/csv-importer"
-    },
-    "ifttt-all": {
-      "displayName": "IFTTT",
-      "description": "Connect Pryv to over 100 other products and services with Pryv Recipes on IFTTT",
-      "iconURL": "https://sw.pryv.li/apps/ifttt-all/icon512.png",
-      "appURL": "https://ifttt.com/pryv",
-      "active": false,
-      "onboarding": false,
-      "category": "Other",
-      "support": ["iPad", "iPhone", "Web"],
-      "settingsPageURL": "https://ifttt.com/pryv"
-    },
-    "bridge-twitter": {
-      "displayName": "Twitter",
-      "description": "Pryv selected tweets from my <strong>Twitter</strong> account.",
-      "iconURL": "https://sw.pryv.li/apps/bridge-twitter/icon512.png",
-      "appURL": "https://bridges.pryv.li:4443/",
-      "active": true,
-      "onboarding": true,
-      "category": "Thoughts",
-      "position": 1,
-      "support": ["iPad", "iPhone", "Web"],
-      "settingsPageURL": "https://bridges.pryv.li:4443/",
-      "trustedConnection": true
-    },
-    "bridge-withings": {
-      "displayName": "Withings",
-      "description": "Pryv my <strong>Withings</strong> measures.",
-      "iconURL": "https://sw.pryv.li/apps/bridge-withings/icon512.png",
-      "appURL": "http://bridges.pryv.li:5443/",
-      "active": true,
-      "onboarding": true,
-      "category": "Health & Activity",
-      "position": 2,
-      "support": ["iPad", "iPhone", "Web"],
-      "settingsPageURL": "http://bridges.pryv.li:5443/",
-      "trustedConnection": true
-    },
-    "bridge-misfit": {
-      "displayName": "Misfit",
-      "description": "Pryv activities from my <strong>Misfit Shine</strong>.",
-      "iconURL": "https://sw.pryv.li/apps/bridge-misfit/icon512.png",
-      "appURL": "https://bridges.pryv.li:6443/",
-      "active": true,
-      "onboarding": true,
-      "position": 3,
-      "support": ["iPad", "iPhone", "Web"],
-      "category": "Health & Activity",
-      "settingsPageURL": "https://bridges.pryv.li:6443/",
-      "trustedConnection": true
-    },
-    "bridge-moves": {
-      "displayName": "Moves",
-      "description": "Pryv the places I track with the <strong>Moves</strong> app.",
-      "iconURL": "https://sw.pryv.li/apps/bridge-moves/icon512.png",
-      "appURL": "https://bridges.pryv.li:7443/",
-      "active": true,
-      "onboarding": true,
-      "category": "Location",
-      "position": 3,
-      "support": ["iPad", "iPhone", "Web"],
-      "settingsPageURL": "https://bridges.pryv.li:7443/",
-      "trustedConnection": true
-    },
-    "bridge-ihealth": {
-      "displayName": "iHealth",
-      "description": "Pryv my health data with <strong>iHealth</strong> app.",
-      "iconURL": "https://sw.pryv.li/apps/bridge-ihealth/icon512.png",
-      "appURL": "https://bridges.pryv.li:8443/",
-      "active": true,
-      "onboarding": true,
-      "category": "Health & Activity",
-      "position": 3,
-      "support": ["iPad", "iPhone", "Web"],
-      "settingsPageURL": "https://bridges.pryv.li:8443/",
-      "trustedConnection": true
-    }
-  },
-  "invitationTokens": null
+  "appList": APP_LIST,
+  "invitationTokens": INVITATION_TOKENS
 }
