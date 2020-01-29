@@ -49,7 +49,7 @@ vars:
   SSL_CAA_ISSUER: letsencrypt.org
   INVITATION_TOKENS: null
   TRUSTED_AUTH_URLS: 
-    - "https://sw.DOMAIN/access/access.html"
+    - https://sw.DOMAIN/access/access.html
   APP_LIST:
     test-a:
       displayName: Test app A

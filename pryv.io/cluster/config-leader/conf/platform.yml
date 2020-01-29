@@ -16,6 +16,15 @@ vars:
     hosting-2:
       co2:
         ip: REPLACE_ME
+  HOSTINGS_PROVIDERS:
+    hosting-1:
+      url: https://www.hosting1.ch
+      name: Hosting 1
+      description: Europe - Switzerland
+    hosting-2:
+      url: https://www.hosting2.ch
+      name: Hosting 2
+      description: Europe - France
   DNS_CUSTOM_ENTRIES:
     test:
       ip: REPLACE_ME
@@ -59,7 +68,7 @@ vars:
   SSL_CAA_ISSUER: letsencrypt.org
   INVITATION_TOKENS: null
   TRUSTED_AUTH_URLS: 
-    - "https://sw.DOMAIN/access/access.html"
+    - https://sw.DOMAIN/access/access.html
   APP_LIST:
     test-a:
       displayName: Test app A
