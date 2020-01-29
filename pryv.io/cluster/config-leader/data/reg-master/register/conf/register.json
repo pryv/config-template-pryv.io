@@ -9,7 +9,7 @@
     "register": {
       "url": "https://reg.DOMAIN"
     },
-    "trustedAuthUrls": ["https://sw.DOMAIN/access/access.html"]
+    "trustedAuthUrls": TRUSTED_AUTH_URLS
   },
   "service": {
     "name": "PLATFORM_NAME",
@@ -44,7 +44,7 @@
       "DOMAIN"
     ],
     "certificateAuthorityAuthorization": {
-      "issuer": "letsencrypt.org"
+      "issuer": "SSL_CAA_ISSUER"
     },
     "staticDataInDomain": {
       "sw": {
@@ -100,8 +100,9 @@
   },
   "airbrake": {
     "disable": false,
-    "key": "OVERRIDE_ME",
-    "projectId": "OVERRIDE_ME"
+    "key": "",
+    "projectId": ""
   },
-  "invitationTokens": null
+  "appList": APP_LIST,
+  "invitationTokens": INVITATION_TOKENS
 }

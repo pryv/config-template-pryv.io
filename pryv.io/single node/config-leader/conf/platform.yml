@@ -1,13 +1,65 @@
 vars:
+  # Machines and platform information
   DOMAIN: REPLACE_ME
-  MACHINE_IP_ADDRESS: REPLACE_ME
+  PLATFORM_NAME: REPLACE_ME
+  SUPPORT_LINK: REPLACE_ME
+  TERMS_OF_USE_LINK: REPLACE_ME
+  SINGLE_MACHINE_IP_ADDRESS: REPLACE_ME
   SERVICE_WEBSITE_IP_ADDRESS: REPLACE_ME
-  MAIL_FROM_NAME: REPLACE_ME
-  MAIL_FROM_ADDRESS: REPLACE_ME
-  MAIL_SMTP_HOST: REPLACE_ME
-  MAIL_SMTP_PORT: REPLACE_ME
-  MAIL_SMTP_USER: REPLACE_ME
-  MAIL_SMTP_PASS: REPLACE_ME
   DNS_CUSTOM_ENTRIES:
-    test1:
+    test:
       ip: REPLACE_ME
+  # Email configuration
+  EMAIL_ACTIVATION:
+    welcome: false
+    resetPassword: false
+  EMAIL_SENDER:
+    name: REPLACE_ME
+    address: REPLACE_ME
+  EMAIL_SMTP_SETTINGS:
+    host: REPLACE_ME
+    port: REPLACE_ME
+    auth:
+      user: REPLACE_ME
+      pass: REPLACE_ME
+  EMAIL_SENDMAIL_SETTINGS:
+    active: false,
+    path: /usr/sbin/sendmail
+  EMAIL_TEMPLATES_DEFAULT_LANG: en
+  # Service MFA
+  MFA_SESSIONS_TTL_SECONDS: 1800
+  MFA_SMS_API_SETTINGS:
+    endpoints:
+      challenge: REPLACE_ME
+      verify: REPLACE_ME
+    auth: REPLACE_ME
+  # Advanced settings
+  EVENT_TYPES_URL: https://api.pryv.com/event-types/flat.json
+  TRUSTED_APPS: "*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*"
+  SESSION_MAX_AGE: 1209600000
+  PASSWORD_RESET_MAX_AGE: 3600000
+  UPDATES_IGNORE_PROTECTED_FIELDS: false
+  WEBOOKS_SETTINGS:
+    minIntervalMs: 5000
+    maxRetries: 5
+    runsSize: 50
+  VERSIONING_SETTINGS:
+    forceKeepHistory: false,
+    deletionMode: keep-authors
+  SSL_CAA_ISSUER: letsencrypt.org
+  INVITATION_TOKENS: null
+  TRUSTED_AUTH_URLS: 
+    - "https://sw.DOMAIN/access/access.html"
+  APP_LIST:
+    test-a:
+      displayName: Test app A
+      description: Test app A description
+      iconURL: http://placehold.it/150&text=A
+      appURL: https://pryv.com
+      settingsPageURL: https://api.pryv.com
+    test-b:
+      displayName: Test app B
+      description: Test app B description
+      iconURL: http://placehold.it/150&text=B
+      appURL: https://pryv.com
+      settingsPageURL: https://api.pryv.com

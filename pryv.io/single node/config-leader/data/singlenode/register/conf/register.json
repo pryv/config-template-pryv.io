@@ -7,16 +7,16 @@
     "domain": "DOMAIN",
     "domains": ["DOMAIN"],
     "certificateAuthorityAuthorization": {
-      "issuer": "letsencrypt.org"
+      "issuer": "SSL_CAA_ISSUER"
     },
     "nameserver": [
       {
         "name": "dns1.DOMAIN",
-        "ip": "MACHINE_IP_ADDRESS"
+        "ip": "SINGLE_MACHINE_IP_ADDRESS"
       },
       {
         "name": "dns2.DOMAIN",
-        "ip": "MACHINE_IP_ADDRESS"
+        "ip": "SINGLE_MACHINE_IP_ADDRESS"
       }
     ],
     "staticDataInDomain": {
@@ -63,7 +63,7 @@
         ]
       }, 
       "local": {
-        "ip": "MACHINE_IP_ADDRESS"
+        "ip": "SINGLE_MACHINE_IP_ADDRESS"
       }
     },
     "customEntries": DNS_CUSTOM_ENTRIES,
@@ -90,7 +90,7 @@
     "register": {
       "url": "https://reg.DOMAIN"
     },
-    "trustedAuthUrls": ["https://sw.DOMAIN/access/access.html"]
+    "trustedAuthUrls": TRUSTED_AUTH_URLS
   },
   "server": {
     "ssl": false,
@@ -132,22 +132,7 @@
       }
     }
   },
-  "appList": {
-    "test-a": {
-      "displayName": "Test app A",
-      "description": "Test app A description",
-      "iconURL": "http://placehold.it/150&text=A",
-      "appURL": "https://pryv.com",
-      "settingsPageURL": "https://api.pryv.com"
-    },
-    "test-b": {
-      "displayName": "Test app B",
-      "description": "Test app B description",
-      "iconURL": "http://placehold.it/150&text=B",
-      "appURL": "https://pryv.com",
-      "settingsPageURL": "https://api.pryv.com"
-    }
-  },
+  "appList": APP_LIST,
   "hostnameOrIP": "https://reg.DOMAIN",
-  "invitationTokens": null
+  "invitationTokens": INVITATION_TOKENS
 }
