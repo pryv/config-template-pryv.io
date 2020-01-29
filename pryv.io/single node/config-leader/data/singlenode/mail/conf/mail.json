@@ -12,30 +12,17 @@
   },
   "email": {
     "message": {
-      "from": {
-        "name": "MAIL_FROM_NAME",
-        "address": "MAIL_FROM_ADDRESS"
-      }
+      "from": EMAIL_SENDER
     }
   },
-  "smtp": {
-    "host": "MAIL_SMTP_HOST",
-    "port": "MAIL_SMTP_PORT",
-    "auth": {
-      "user": "MAIL_SMTP_USER",
-      "pass": "MAIL_SMTP_PASS"
-    }
-  },
-  "sendmail": {
-    "active": false,
-    "path": "/usr/sbin/sendmail"
-  },
+  "smtp": EMAIL_SMTP_SETTINGS,
+  "sendmail": EMAIL_SENDMAIL_SETTINGS,
   "http": {
     "ip": "0.0.0.0",
     "port": 9000,
     "auth": "CORE_MAIL_KEY"
   },
   "templates": {
-    "defaultLang": "en"
+    "defaultLang": "EMAIL_TEMPLATES_DEFAULT_LANG"
   }
 }

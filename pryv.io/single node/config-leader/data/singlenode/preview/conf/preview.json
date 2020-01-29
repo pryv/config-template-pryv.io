@@ -14,7 +14,7 @@
     "previewsDirPath": "/app/data/previews"
   },
   "auth": {
-    "sessionMaxAge": 1209600000
+    "sessionMaxAge": SESSION_MAX_AGE
   },
   "logs": {
     "console": {
@@ -24,8 +24,8 @@
     },
     "airbrake": {
       "active": false,
-      "key": "OVERRIDE_ME",
-      "projectId": "OVERRIDE_ME"
+      "key": "",
+      "projectId": ""
     }
   }
 }
