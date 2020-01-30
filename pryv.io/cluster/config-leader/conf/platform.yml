@@ -10,18 +10,18 @@ vars:
   REG_SLAVE_IP_ADDRESS: REPLACE_ME
   SERVICE_WEBSITE_IP_ADDRESS: REPLACE_ME
   HOSTINGS_AND_CORES:
-    hosting-1:
+    hosting1:
       co1: 
         ip: REPLACE_ME
-    hosting-2:
+    hosting2:
       co2:
         ip: REPLACE_ME
   HOSTINGS_PROVIDERS:
-    hosting-1:
+    hosting1:
       url: https://www.hosting1.ch
       name: Hosting 1
       description: Europe - Switzerland
-    hosting-2:
+    hosting2:
       url: https://www.hosting2.ch
       name: Hosting 2
       description: Europe - France

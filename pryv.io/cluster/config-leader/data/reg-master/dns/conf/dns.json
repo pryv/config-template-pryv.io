@@ -92,7 +92,8 @@
     ]
   },
   "net": {
-    "hostings": HOSTINGS_AND_CORES
+    "hostings": HOSTINGS_AND_CORES,
+    "providers": HOSTINGS_PROVIDERS
   },
   "redis": {
     "host": "redis",
