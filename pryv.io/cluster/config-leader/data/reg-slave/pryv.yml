@@ -11,8 +11,6 @@ services:
     volumes: 
       - ./nginx/conf/:/app/conf/:ro
       - ./nginx/log/:/app/log/
-    links: 
-      - register
     restart: always
 
   dns: 
