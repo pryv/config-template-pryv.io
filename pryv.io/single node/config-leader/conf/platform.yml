@@ -59,6 +59,7 @@ vars:
   #####################
   # ADVANCED SETTINGS #
   #####################
+  # URL of the file listing the available Event types
   EVENT_TYPES_URL: https://api.pryv.com/event-types/flat.json
   # Comma-separated list of {trusted-app-id}@{origin} pairs.
   # Origins and app ids accept "*" wildcards, but never use wildcard app ids in production.
