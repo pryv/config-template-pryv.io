@@ -55,7 +55,7 @@ Here is a list of the required platform-specific variables:
 
 #### Optional variables
 
-- SERVICE_WEBSITE_IP_ADDRESS: if used, please provide the IP address of the customer or service website - which should resolve http(s)://${DOMAIN}
+- DNS_ROOT_DOMAIN_A_RECORD: if used, please provide the IP address of the customer or service website - which should resolve http(s)://${DOMAIN}
 
 The following fields will be available in the [service information](https://api.pryv.com/reference/#service-info) for apps self-configuration:
 

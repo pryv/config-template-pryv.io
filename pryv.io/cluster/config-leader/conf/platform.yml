@@ -1,14 +1,19 @@
 vars:
-  # Machines and platform information
+  ##################################
+  # MACHINES AND PLATFORM SETTINGS #
+  ##################################
+  # Domain and name of the platform
   DOMAIN: REPLACE_ME
   PLATFORM_NAME: REPLACE_ME
+  # Useful links
   SUPPORT_LINK: REPLACE_ME
   TERMS_OF_USE_LINK: REPLACE_ME
+  # IP addresses of the machines
   STATIC_WEB_IP_ADDRESS: REPLACE_ME
   REG_MASTER_IP_ADDRESS: REPLACE_ME
   REG_MASTER_VPN_IP_ADDRESS: REPLACE_ME
   REG_SLAVE_IP_ADDRESS: REPLACE_ME
-  SERVICE_WEBSITE_IP_ADDRESS: REPLACE_ME
+  # Defines the distribution of cores among the hostings providers
   HOSTINGS_AND_CORES:
     hosting1:
       co1: 
@@ -16,6 +21,7 @@ vars:
     hosting2:
       co2:
         ip: REPLACE_ME
+  # Allow to define additional information about the hostings providers
   HOSTINGS_PROVIDERS:
     hosting1:
       url: https://www.hosting1.ch
@@ -25,50 +31,91 @@ vars:
       url: https://www.hosting2.ch
       name: Hosting 2
       description: Europe - France
+  # Allow to define additional DNS entries
   DNS_CUSTOM_ENTRIES:
     test:
       ip: REPLACE_ME
-  # Email configuration
+  # IP address of the customer or service website, which should resolve http(s)://${DOMAIN} 
+  DNS_ROOT_DOMAIN_A_RECORD: REPLACE_ME
+  #######################
+  # EMAIL CONFIGURATION #
+  #######################
   EMAIL_ACTIVATION:
+    # Allows to activate/deactivate the sending of welcome emails.
     welcome: false
+    # Allows to activate/deactivate the sending of password reset emails.
     resetPassword: false
+  # Sender name and email address
   EMAIL_SENDER:
     name: REPLACE_ME
     address: REPLACE_ME
+  # Host, port and credentials of the SMTP server
   EMAIL_SMTP_SETTINGS:
     host: REPLACE_ME
     port: REPLACE_ME
     auth:
       user: REPLACE_ME
       pass: REPLACE_ME
+  # Alternative transport, using the sendmail command of the machine
   EMAIL_SENDMAIL_SETTINGS:
-    active: false,
+    # Will replace SMTP transport if set to true
+    active: false
+    # Path of the sendmail command on the machine
     path: /usr/sbin/sendmail
+  # Default language for email templates
   EMAIL_TEMPLATES_DEFAULT_LANG: en
-  # Service MFA
+  ###############
+  # SERVICE MFA #
+  ###############
+  # Duration in seconds after which MFA sessions are destroyed.
   MFA_SESSIONS_TTL_SECONDS: 1800
+  # Allow to define an external SMS API handling the MFA challenge
   MFA_SMS_API_SETTINGS:
+    # API endpoints that allow to trigger and verify the MFA challenge
     endpoints:
       challenge: REPLACE_ME
       verify: REPLACE_ME
+    # API key, sent as 'Authorization' header
     auth: REPLACE_ME
-  # Advanced settings
+  #####################
+  # ADVANCED SETTINGS #
+  #####################
   EVENT_TYPES_URL: https://api.pryv.com/event-types/flat.json
+  # Comma-separated list of {trusted-app-id}@{origin} pairs.
+  # Origins and app ids accept "*" wildcards, but never use wildcard app ids in production.
   TRUSTED_APPS: "*@https://*.rec.la*, *@https://*.DOMAIN*, *@https://pryv.github.io*"
+  # The maximum age (in seconds) of a personal access token if unused.
   SESSION_MAX_AGE: 1209600000
+  # The maximum age (in seconds) of a password reset request.
   PASSWORD_RESET_MAX_AGE: 3600000
+  # When true, updates will ignore protected fields and print a warning log.
+  # When false, trying to update protected fields will fail with a forbidden error.
   UPDATES_IGNORE_PROTECTED_FIELDS: false
   WEBOOKS_SETTINGS:
+    # The minimum interval between successive webhook notifications, in milliseconds.
     minIntervalMs: 5000
+    # The number of retried webhook notifications before it becomes inactive.
     maxRetries: 5
+    # The size of the runs array.
     runsSize: 50
   VERSIONING_SETTINGS:
-    forceKeepHistory: false,
+    # When true, modification history of items is stored.
+    forceKeepHistory: false
+    # Defines the behaviour of items deletion.
+    # 'keep-nothing': Delete history, keep head as itemDeletion as it is now by default.
+    # 'keep-authors': Keep fields 'headId', 'id', 'modified', 'modifiedBy' in head and history.
+    # 'keep-everything': Add 'deleted' field to head item, leave history as is.
     deletionMode: keep-authors
+  # Certificate authority allowed to issue SSL certificates for this domain.
   SSL_CAA_ISSUER: letsencrypt.org
+  # Allows to define a set of invitation tokens for user creation by providing
+  # an array of strings as well as no check (null) & prevent all (empty array).
   INVITATION_TOKENS: null
+  # Allows to define a list of trusted urls that can be used as entry point
+  # for the app authorization flow.
   TRUSTED_AUTH_URLS: 
     - https://sw.DOMAIN/access/access.html
+  # List of third-party applications
   APP_LIST:
     test-a:
       displayName: Test app A
