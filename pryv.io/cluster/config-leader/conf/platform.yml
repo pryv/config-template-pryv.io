@@ -20,6 +20,7 @@ vars:
       co2:
         ip: 89.145.166.17
   # Allow to define additional information about the hostings providers
+  # [OPTIONAL] can be set to null if not used (HOSTINGS_PROVIDERS: null)
   HOSTINGS_PROVIDERS:
     core-pryv-li-exoscale-ch-01:
       url: https://www.exoscale.ch
@@ -30,6 +31,8 @@ vars:
       name: Exoscale 2
       description: Europe - Switzerland
   # Allow to define additional DNS entries
+  # See the DNS configuration document: https://api.pryv.com/customer-resources/#documents
+  # [OPTIONAL] can be set to null if not used (DNS_CUSTOM_ENTRIES: null)
   DNS_CUSTOM_ENTRIES:
     ifttt:
       alias:
