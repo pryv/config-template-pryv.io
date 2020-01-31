@@ -70,7 +70,7 @@
       }
     },
     "customEntries": DNS_CUSTOM_ENTRIES,
-    "domain_A": "SERVICE_WEBSITE_IP_ADDRESS",
+    "domain_A": "DNS_ROOT_DOMAIN_A_RECORD",
     "nameserver": [
       {
         "name": "dns1.DOMAIN",
