@@ -22,6 +22,7 @@ vars:
       co2:
         ip: REPLACE_ME
   # Allow to define additional information about the hostings providers
+  # [OPTIONAL] can be set to null if not used (HOSTINGS_PROVIDERS: null)
   HOSTINGS_PROVIDERS:
     hosting1:
       url: https://www.hosting1.ch
@@ -32,6 +33,8 @@ vars:
       name: Hosting 2
       description: Europe - France
   # Allow to define additional DNS entries
+  # See the DNS configuration document: https://api.pryv.com/customer-resources/#documents
+  # [OPTIONAL] can be set to null if not used (DNS_CUSTOM_ENTRIES: null)
   DNS_CUSTOM_ENTRIES:
     test:
       ip: REPLACE_ME

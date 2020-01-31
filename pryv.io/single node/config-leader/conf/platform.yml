@@ -11,6 +11,8 @@ vars:
   # IP address of the machine
   SINGLE_MACHINE_IP_ADDRESS: REPLACE_ME
   # Allow to define additional DNS entries
+  # See the DNS configuration document: https://api.pryv.com/customer-resources/#documents
+  # [OPTIONAL] can be set to null if not used (DNS_CUSTOM_ENTRIES: null)
   DNS_CUSTOM_ENTRIES:
     test:
       ip: REPLACE_ME
