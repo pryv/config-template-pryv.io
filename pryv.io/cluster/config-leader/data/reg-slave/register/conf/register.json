@@ -264,5 +264,12 @@
       "trustedConnection": true
     }
   },
-  "invitationTokens": null
+  "invitationTokens": null,
+  "services": {
+    "reporting": {
+      "licenseName": "OVERRIDE ME",
+      "role": "reg-slave",
+      "templateVersion": "1.0.0"
+    }
+  }
 }
