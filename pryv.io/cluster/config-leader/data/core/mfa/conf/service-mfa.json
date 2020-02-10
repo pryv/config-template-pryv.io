@@ -25,6 +25,6 @@
     "auth": "Bearer IGuFwZ990VwwTPqkJpRK2Ytmd0TBL3MYB0lvVxAJ"
   },
   "sessions": {
-    "ttlSeconds": 1800
+    "ttlSeconds": MFA_SESSIONS_TTL_SECONDS
   }
 }

@@ -8,7 +8,8 @@
     },
     "register": {
       "url": "https://reg.DOMAIN"
-    }
+    },
+    "trustedAuthUrls": TRUSTED_AUTH_URLS
   },
   "service": {
     "name": "PLATFORM_NAME",
@@ -20,6 +21,7 @@
     "port": 9000
   },
   "auth": {
+    "coreSystemKey": "CORE_SYSTEM_KEY",
     "authorizedKeys": {
       "REGISTER_SYSTEM_KEY_1": {
         "roles": ["system"]
@@ -36,7 +38,7 @@
     "domain": "DOMAIN",
     "domains": ["DOMAIN"],
     "certificateAuthorityAuthorization": {
-      "issuer": "letsencrypt.org"
+      "issuer": "SSL_CAA_ISSUER"
     },
     "staticDataInDomain": {
       "www": {
@@ -90,7 +92,8 @@
         }
       }
     },
-    "domain_A": "SERVICE_WEBSITE_IP_ADDRESS",
+    "customEntries": DNS_CUSTOM_ENTRIES,
+    "domain_A": "DNS_ROOT_DOMAIN_A_RECORD",
     "nameserver": [
       {
         "name": "dns1-pryv-li.pryv.net",
