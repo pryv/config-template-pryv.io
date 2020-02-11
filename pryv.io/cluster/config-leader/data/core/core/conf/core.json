@@ -32,10 +32,7 @@
       "key": "REGISTER_SYSTEM_KEY_1"
     },
     "email": {
-      "enabled": {
-        "welcome": true,
-        "resetPassword": true
-      },
+      "enabled": EMAIL_ACTIVATION,
       "method": "microservice",
       "url": "https://mail.DOMAIN/sendmail/",
       "key": "CORE_MAIL_KEY",
@@ -44,17 +41,10 @@
     }
   },
   "updates": {
-    "ignoreProtectedFields": true
+    "ignoreProtectedFields": UPDATES_IGNORE_PROTECTED_FIELDS
   },
-  "audit": {
-    "forceKeepHistory": true,
-    "deletionMode": "keep-authors"
-  },
-  "webhooks": {
-    "minIntervalMs": 5000,
-    "maxRetries": 5,
-    "runsSize": 20
-  },
+  "audit": VERSIONING_SETTINGS,
+  "webhooks": WEBOOKS_SETTINGS,
   "logs": {
     "console": {
       "active": true,

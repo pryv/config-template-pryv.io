@@ -9,11 +9,7 @@
     "register": {
       "url": "https://reg.DOMAIN"
     },
-    "trustedAuthUrls": [
-      "https://sw.DOMAIN/access/access.html",
-      "https://sw2.DOMAIN/access/access.html",
-      "https://sw3.DOMAIN/access/access.html"
-    ]
+    "trustedAuthUrls": TRUSTED_AUTH_URLS
   },
   "service": {
     "name": "PLATFORM_NAME",
@@ -45,11 +41,6 @@
       "issuer": "SSL_CAA_ISSUER"
     },
     "staticDataInDomain": {
-      "www": {
-        "alias": {
-          "name": "https://pryv.com"
-        }
-      },
       "sw": {
         "ip": "STATIC_WEB_IP_ADDRESS"
       },
@@ -58,9 +49,6 @@
       },
       "reg": {
         "ip": "REG_MASTER_IP_ADDRESS"
-      },
-      "reg2": {
-        "ip": "REG_SLAVE_IP_ADDRESS"
       },
       "mail": {
         "ip": "REG_MASTER_IP_ADDRESS"
@@ -74,37 +62,22 @@
       "access": {
         "ip": "REG_MASTER_IP_ADDRESS"
       },
-      "co1": {
-        "ip": "CORE_1_IP_ADDRESS"
+      "dns1": {
+        "ip": "REG_MASTER_IP_ADDRESS"
       },
-      "co2": {
-        "ip": "CORE_2_IP_ADDRESS"
-      },
-      "bridges": {
-        "alias": {
-          "name": "stbridgemulti-amazon-use-01.pryv.net"
-        }
-      },
-      "import": {
-        "alias": {
-          "name": "gpaas3.dc0.gandi.net"
-        }
-      },
-      "ifttt": {
-        "alias": {
-          "name": "ifttt.pryv.me"
-        }
+      "dns2": {
+        "ip": "REG_MASTER_IP_ADDRESS"
       }
     },
     "customEntries": DNS_CUSTOM_ENTRIES,
     "domain_A": "DNS_ROOT_DOMAIN_A_RECORD",
     "nameserver": [
       {
-        "name": "dns1-pryv-li.pryv.net",
+        "name": "dns1.DOMAIN",
         "ip": "REG_MASTER_IP_ADDRESS"
       },
       {
-        "name": "dns2-pryv-li.pryv.net",
+        "name": "dns2.DOMAIN",
         "ip": "REG_MASTER_IP_ADDRESS"
       }
     ],
@@ -124,60 +97,8 @@
     ]
   },
   "net": {
-    "aaservers": {
-      "CORE_HOSTING_1": [
-        {
-          "base_url": "https://co1.DOMAIN/",
-          "authorization": "CORE_SYSTEM_KEY"
-        }
-      ],
-      "CORE_HOSTING_2": [
-        {
-          "base_url": "https://co2.DOMAIN/",
-          "authorization": "CORE_SYSTEM_KEY"
-        }
-      ]
-    },
-    "aahostings": {
-      "regions": {
-        "europe": {
-          "name": "Europe",
-          "localizedName": {
-            "fr": "Europe"
-          },
-          "zones": {
-            "france": {
-              "name": "France",
-              "localizedName": {
-                "fr": "France"
-              },
-              "hostings": {
-                "CORE_HOSTING_1": {
-                  "url": "https://hostingprovider.com",
-                  "name": "Hosting provider name",
-                  "description": "Hosting provider slogan",
-                  "localizedDescription": {}
-                }
-              }
-            },
-            "switzerland": {
-              "name": "Switzerland",
-              "localizedName": {
-                "fr": "Suisse"
-              },
-              "hostings": {
-                "CORE_HOSTING_2": {
-                  "url": "https://hostingprovider.com",
-                  "name": "Hosting provider name",
-                  "description": "Hosting provider slogan",
-                  "localizedDescription": {}
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    "hostings": HOSTINGS_AND_CORES,
+    "providers": HOSTINGS_PROVIDERS
   },
   "redis": {
     "host": "redis",
