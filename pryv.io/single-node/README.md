@@ -25,3 +25,11 @@ ssl_certificate_key  /app/conf/secret/DOMAIN-key.pem;
 ```
 
 Then set the DOMAIN as rec.la in the variables below. You can leave the keys as-is, since the components will communicate locally.
+
+## Troubleshoot
+
+### Permission denied
+
+`error: [config-follower:server] Error: EACCES: permission denied, mkdir '/app/pryv/audit'`
+
+On MacOS, there is a permissions issue that prevents *config-follower* from creating the folder structure it retrieves from the leader. You should therefore copy the structure by hand: `sudo cp -R config-leader/data/singlenode/* pryv`
