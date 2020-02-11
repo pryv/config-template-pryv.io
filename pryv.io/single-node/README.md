@@ -10,7 +10,7 @@ Distribute them to customer, who will follow the instructions in `INSTALL.md` to
 
 ## Adaptations
 
-For a local usage, uncomment the following lines in [config-leader/data/singlenode/nginx/conf/nginx.conf]:  
+For a local usage, uncomment the following lines in [config-leader/data/single-node/nginx/conf/nginx.conf]:  
 
 ```
 # ssl_certificate      /app/conf/secret/rec.la-bundle.crt;

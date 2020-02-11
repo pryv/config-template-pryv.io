@@ -7,11 +7,10 @@ customer=$1
 function build_role() {
   role=$1
 
-  COPYFILE_DISABLE=1 tar vzcf "tarballs/$customer-$role.tgz" \
+  COPYFILE_DISABLE=1 tar -vzcf "$customer-$role.tgz" \
     --exclude .DS_Store \
     config-follower run-config-follower stop-config-follower \
     config-leader run-config-leader stop-config-leader \
-    watch-config reload-module \
     pryv run-pryv stop-pryv \
     ensure-permissions \
     INSTALL.md
