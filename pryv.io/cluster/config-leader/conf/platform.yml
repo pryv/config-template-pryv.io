@@ -35,7 +35,7 @@ vars:
   #  Reporting  #
   ###############
   REPORTING:
-    LICENSE_NAME: REPLACE_ME
+    LICENSE_NAME: pryv-pryv.li
     TEMPLATE_VERSION: 1.0.0
   ##################################
   #    DNS SETTINGS [OPTIONAL]     #
@@ -48,7 +48,7 @@ vars:
       alias:
         name: ifttt.pryv.me
   # DNS A record for ${DOMAIN}
-  DNS_ROOT_DOMAIN_A_RECORD: REPLACE_ME
+  DNS_ROOT_DOMAIN_A_RECORD: 217.70.184.38
   ##################################
   # EMAIL CONFIGURATION [OPTIONAL] #
   ##################################
