@@ -1,6 +1,6 @@
 # Pryv.io installation guide
 
-This guide contains instructions to install a Pryv.io singlenode platform.
+This guide contains instructions to install a Pryv.io single-node platform.
 You should have prepared your machines with the [Deployment Design Guide](https://api.pryv.com/customer-resources/#documents) first. 
 ​
 ## Table of contents
@@ -8,7 +8,6 @@ You should have prepared your machines with the [Deployment Design Guide](https:
  - Centralized configuration setup 
  - List of Files 
    - Platform variables
- - Emails
  - SSL certificates
  - Launching the Installation
  - Closing Remarks
@@ -19,7 +18,7 @@ We have released a new configuration scheme:
 
 The platform configurations are stored on a single leader service, each role will fetch its configuration files from it upon installation using its follower service.
 
-For a singlenode setup, the leader and one single follower both run on the singlenode machine.
+For a single-node setup, the leader and one single follower both run on the machine.
 
 ## List of files
 
@@ -29,15 +28,15 @@ You should have received the configuration files, packaged in an archive (.tgz).
 
 The following instructions need to be executed on the singlenode machine.
 
-- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
+- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
 - Copy the configuration archive to the root of the directory
 - Unarchive the configuration in place
 
 You should have the following files: 
 
-- The file `run-config-leader` and folder `config-leader/`. These are the script and configuration files used to launch the leader service.
+- The file `run-config-leader` and folder `config-leader/`. These are the script and configuration files used to launch the configuration leader service.
 - The file `run-config-follower` and folder `config-follower/`. These are the script and configuration files used to launch the configuration follower service.  
-- A file called `run-pryv`. This script will bring the platform up. 
+- A file called `run-pryv`. This script will bring the Pryv.io services up.
 - A directory called `pryv/`. The follower will download the configuration files here, as well as the data directories that will be mapped as volumes in the various docker containers.
 - A file called `ensure-permissions`. This script sets correct permissions for data and log directories.
 
@@ -45,34 +44,7 @@ Finally, the files `stop-config-leader`, `stop-config-follower` and `stop-pryv`.
 
 ### Platform variables
 
-Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
-
-Here is a list of the required platform-specific variables:
-
-- DOMAIN: the fully qualified domain name of the platform (eg.: pryv.me)
-- MACHINE_IP_ADDRESS: IP address of the singlenode machine
-- REGISTER_ADMIN_KEY_1: key to make admin calls on register
-
-#### Optional variables
-
-- DNS_ROOT_DOMAIN_A_RECORD: if used, please provide the IP address of the customer or service website - which should resolve http(s)://${DOMAIN}
-
-The following fields will be available in the [service information](https://api.pryv.com/reference/#service-info) for apps self-configuration:
-
-- PLATFORM_NAME: Service name, example "Pryv Lab"
-- SUPPORT_LINK: Link to the web page containing support information
-- TERMS_OF_USE_LINK: Link to the web page containing terms and conditions
-
-## Pryv.io emails
-
-As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following fields need to be set only when activating Pryv.io emails:
-
-- MAIL_FROM_NAME: name of the sender
-- MAIL_FROM_ADDRESS: email address of the sender
-- MAIL_SMTP_HOST: host of the SMTP server that will be delivering the emails
-- MAIL_SMTP_PORT: SMTP port (default is 587)
-- MAIL_SMTP_USER: username to authenticate against the SMTP server
-- MAIL_SMTP_PASS: password to authenticate against the SMTP server
+Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when queried.
 
 ## SSL certificates
 

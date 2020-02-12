@@ -10,7 +10,6 @@ You should have prepared your machines with the [Deployment Design Guide](https:
   - Platform variables
 - Leader-follower keys
 - Register slave
-- Emails
 - SSL certificates
 - Launching the Installation
 - Closing Remarks
@@ -33,9 +32,9 @@ You should have received several configuration files, packaged in archives (.tgz
 
 The following instructions need to be executed on each machine.
 
-- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
+- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
 - Copy the configuration archive to the root of the directory  
-- Unarchive the configuration in place   
+- Unarchive the configuration in place
 
 In every role, you should have the following files: 
 
@@ -46,38 +45,19 @@ In every role, you should have the following files:
 
 In `reg-master` , you should have these additional files: 
 
-- The file `run-config-leader` and folder `config-leader/`. These are the script and configuration files used to launch the leader service. The leader is usually hosted on the `reg-master` machine.
+- The file `run-config-leader` and folder `config-leader/`. These are the script and configuration files used to launch the configuration leader service.
 
 Finally, the files `stop-config-leader`, `stop-config-follower` and `stop-pryv`. These scripts shut down the corresponding running services.
 
 ### Platform variables
 
-Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
-
-Here is a list of the required platform-specific variables:
-
-- DOMAIN: the fully qualified domain name of the platform (eg.: pryv.me)
-- REG_MASTER_IP_ADDRESS: IP address of the master register machine
-- CORE_1_IP_ADDRESS (add more if needed): hostname or IP address of the 1st core machine
-- CORE_HOSTING_1: name of hosting (or cluster), can be individual per core or contain multiple ones
-- STATIC_WEB_IP_ADDRESS: hostname of the static-web machine
-- REGISTER_ADMIN_KEY_1: key to make admin calls on register
-
-#### Optional variables
-
-- DNS_ROOT_DOMAIN_A_RECORD: if used, please provide the IP address of the customer or service website - which should resolve http(s)://${DOMAIN}
-
-The following fields will be available in the [service information](https://api.pryv.com/reference/#service-info) for apps self-configuration:
-
-- PLATFORM_NAME: Service name, example "Pryv Lab"
-- SUPPORT_LINK: Link to the web page containing support information
-- TERMS_OF_USE_LINK: Link to the web page containing terms and conditions
+Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
 
 ## Leader-follower keys
 
-For each follower service, you must define a secret for it to authentify when fetching its configuration from the leader service. 
+For each follower service, you must define a secret for it to authentify when fetching its configuration from the leader service.
 
-In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`, you will find a map called `followers` with the each follower's secret as key and its `url` and `role` as values as shown below:
+In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`, you will find a map called `followers` with the each follower's secret set as key and its `url` and `role` set as values as shown below:
 
 ```
 "followers": {
@@ -92,7 +72,7 @@ In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/c
 }
 ```
 
-The config we provide comes with a strong key, but you may generate a new one for this if you wish.
+The configuration we provide comes with a strong key, but you may generate a new one for this if you wish.
 
 For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
 
@@ -128,17 +108,6 @@ Then, also uncomment the ports definition for the redis image of `reg-master`, i
       - ./redis/log/:/app/log/
     restart: always
 ```
-
-## Pryv.io emails
-
-As explained in the [Emails configuration document](https://api.pryv.com/customer-resources/#documents), the following variables need to be set when activating Pryv.io emails:
-
-- MAIL_FROM_NAME: name of the sender
-- MAIL_FROM_ADDRESS: email address of the sender
-- MAIL_SMTP_HOST: host of the SMTP server that will be delivering the emails
-- MAIL_SMTP_PORT: SMTP port (default is 587)
-- MAIL_SMTP_USER: username to authenticate against the SMTP server
-- MAIL_SMTP_PASS: password to authenticate against the SMTP server
 
 ## SSL certificates
 
