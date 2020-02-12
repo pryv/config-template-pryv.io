@@ -107,9 +107,9 @@
   "invitationTokens": null,
   "services": {
     "reporting": {
-      "licenseName": "OVERRIDE ME",
+      "licenseName": "LICENSE_NAME",
       "role": "reg-master",
-      "templateVersion": "1.0.0"
+      "templateVersion": "TEMPLATE_VERSION"
     }
   }
 }

@@ -105,5 +105,12 @@
     "projectId": ""
   },
   "appList": APP_LIST,
-  "invitationTokens": INVITATION_TOKENS
+  "invitationTokens": INVITATION_TOKENS,
+  "services": {
+    "reporting": {
+      "licenseName": "LICENSE_NAME",
+      "role": "reg-master",
+      "templateVersion": "TEMPLATE_VERSION"
+    }
+  }
 }

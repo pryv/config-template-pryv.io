@@ -6,6 +6,12 @@ vars:
   DOMAIN: REPLACE_ME
   # IP address of the machine
   SINGLE_MACHINE_IP_ADDRESS: REPLACE_ME
+  ###############
+  #  Reporting  #
+  ###############
+  REPORTING:
+    LICENSE_NAME: REPLACE_ME
+    TEMPLATE_VERSION: 1.0.0
   ##################################
   # SERVICE INFORMATION [OPTIONAL] #
   ##################################

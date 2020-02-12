@@ -28,6 +28,12 @@ vars:
       url: https://www.hosting2.ch
       name: Hosting 2
       description: Europe - France
+  ###############
+  #  Reporting  #
+  ###############
+  REPORTING:
+    LICENSE_NAME: REPLACE_ME
+    TEMPLATE_VERSION: 1.0.0
   ##################################
   #    DNS SETTINGS [OPTIONAL]     #
   ##################################
