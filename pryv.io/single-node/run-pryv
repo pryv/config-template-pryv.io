@@ -2,5 +2,8 @@
 
 [[ -e pryv/pryv.yml ]] || { echo >&2 "The file ./pryv/pryv.yml was not found in current working directory."; exit 1; }
 
+# Docker hostname for reporting
+export HOSTNAME=$HOSTNAME
+
 echo "Running Pryv/core component."
 docker-compose -f pryv/pryv.yml up -d

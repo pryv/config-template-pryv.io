@@ -38,11 +38,11 @@
       "key": "CORE_MAIL_KEY",
       "welcomeTemplate": "welcome-email",
       "resetPasswordTemplate": "reset-password"
-    },
-    "reporting": {
-      "licenseName": "REPORTING_LICENSE_NAME",
-      "templateVersion": "REPORTING_TEMPLATE_VERSION"
     }
+  },
+  "reporting": {
+    "licenseName": "REPORTING_LICENSE_NAME",
+    "templateVersion": "REPORTING_TEMPLATE_VERSION"
   },
   "updates": {
     "ignoreProtectedFields": UPDATES_IGNORE_PROTECTED_FIELDS
