@@ -37,6 +37,12 @@ vars:
   REPORTING_LICENSE_NAME: pryv-pryv.li
   REPORTING_TEMPLATE_VERSION: 1.0.0
   ##################################
+  # SERVICE INFORMATION [OPTIONAL] #
+  ##################################
+  PLATFORM_NAME: REPLACE_ME
+  SUPPORT_LINK: REPLACE_ME
+  TERMS_OF_USE_LINK: REPLACE_ME
+  ##################################
   #    DNS SETTINGS [OPTIONAL]     #
   ##################################
   # Additional DNS entries
