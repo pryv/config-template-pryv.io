@@ -4,10 +4,6 @@ vars:
   ##################################
   # Domain and name of the platform
   DOMAIN: pryv.li
-  PLATFORM_NAME: Pryv Lab staging
-  # Useful links
-  SUPPORT_LINK: http://pryv.com/helpdesk
-  TERMS_OF_USE_LINK: http://pryv.com/pryv-lab-terms-of-use/
   # IP addresses of the machines
   STATIC_WEB_IP_ADDRESS: 185.19.28.119
   REG_MASTER_IP_ADDRESS: 185.19.30.198
@@ -39,9 +35,9 @@ vars:
   ##################################
   # SERVICE INFORMATION [OPTIONAL] #
   ##################################
-  PLATFORM_NAME: REPLACE_ME
-  SUPPORT_LINK: REPLACE_ME
-  TERMS_OF_USE_LINK: REPLACE_ME
+  PLATFORM_NAME: Pryv Lab staging
+  SUPPORT_LINK: http://pryv.com/helpdesk
+  TERMS_OF_USE_LINK: http://pryv.com/pryv-lab-terms-of-use/
   ##################################
   #    DNS SETTINGS [OPTIONAL]     #
   ##################################
