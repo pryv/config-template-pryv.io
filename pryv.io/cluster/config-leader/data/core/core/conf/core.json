@@ -38,6 +38,11 @@
       "key": "CORE_MAIL_KEY",
       "welcomeTemplate": "welcome-email",
       "resetPasswordTemplate": "reset-password"
+    },
+    "reporting": {
+      "licenseName": "LICENSE_NAME",
+      "role": "reg-master",
+      "templateVersion": "TEMPLATE_VERSION"
     }
   },
   "updates": {
