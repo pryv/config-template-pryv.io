@@ -40,9 +40,9 @@
       "key": "CORE_MAIL_KEY"
     },
     "reporting": {
-      "licenseName": "LICENSE_NAME",
+      "licenseName": "REPORTING_LICENSE_NAME",
       "role": "reg-master",
-      "templateVersion": "TEMPLATE_VERSION"
+      "templateVersion": "REPORTING_TEMPLATE_VERSION"
     }
   },
   "updates": {

@@ -9,9 +9,8 @@ vars:
   ###############
   #  Reporting  #
   ###############
-  REPORTING:
-    LICENSE_NAME: REPLACE_ME
-    TEMPLATE_VERSION: 1.0.0
+  REPORTING_LICENSE_NAME: REPLACE_ME
+  REPORTING_TEMPLATE_VERSION: 1.0.0
   ##################################
   # SERVICE INFORMATION [OPTIONAL] #
   ##################################
