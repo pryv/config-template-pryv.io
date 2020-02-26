@@ -20,7 +20,7 @@ rootDir="tarballs/$customer"
 commonFiles="config-follower run-config-follower stop-config-follower \
   watch-config reload-module \
   pryv run-pryv stop-pryv \
-  INSTALL.md"
+  INSTALL-cluster.md"
 leaderUrl="https:\/\/lead.DOMAIN"
 
 function build_cores() {

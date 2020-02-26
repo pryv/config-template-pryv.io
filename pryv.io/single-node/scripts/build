@@ -13,7 +13,7 @@ function build_role() {
     config-leader run-config-leader stop-config-leader \
     pryv run-pryv stop-pryv \
     ensure-permissions \
-    INSTALL.md
+    INSTALL-single-node.md
 }
 
 build_role "singlenode"
