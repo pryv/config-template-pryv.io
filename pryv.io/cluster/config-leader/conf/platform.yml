@@ -9,6 +9,8 @@ vars:
   REG_MASTER_IP_ADDRESS: REPLACE_ME
   REG_MASTER_VPN_IP_ADDRESS: REPLACE_ME
   REG_SLAVE_IP_ADDRESS: REPLACE_ME
+
+  LEADER_ADMIN_KEY: REPLACE_ME
   # Defines the distribution of cores among the hostings providers
   HOSTINGS_AND_CORES:
     hosting1:
