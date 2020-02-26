@@ -33,12 +33,34 @@ vars:
   ###############
   REPORTING_LICENSE_NAME: REPLACE_ME
   REPORTING_TEMPLATE_VERSION: 1.0.0
+  ####################################
+  #      API SETTINGS [OPTIONAL]     #
+  ####################################
+  # URL of the file listing the validated Event types
+  # See: https://api.pryv.com/faq-api/#event-types
+  EVENT_TYPES_URL: https://api.pryv.com/event-types/flat.json
+  # This defines the web pages that are authorized to run the login API call
+  # See https://api.pryv.com/reference-full/#trusted-apps-verification
+  # By default, you should replace DOMAIN with your platform domain defined above
+  # You can remove the other ones if you are not using Pryv's default apps
+  # The format is Comma-separated list of {trusted-app-id}@{origin} pairs.
+  # Origins and appIds accept "*" wildcards, but never use wildcard appIds in production.
+  TRUSTED_APPS: '*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*'
+  # Allows to define a list of trusted urls that can be used as entry point
+  # for the app authorization flow (https://api.pryv.com/reference/#auth-request).
+  # By default, you should replace DOMAIN with your platform domain defined above
+  TRUSTED_AUTH_URLS:
+    - https://sw.DOMAIN/access/access.html
   ##################################
   # SERVICE INFORMATION [OPTIONAL] #
   ##################################
-  PLATFORM_NAME: REPLACE_ME
-  SUPPORT_LINK: REPLACE_ME
-  TERMS_OF_USE_LINK: REPLACE_ME
+  # See: https://api.pryv.com/reference/#service-info
+  # The public name of the service eg: Pryv Lab
+  PLATFORM_NAME: REPLACE_ME 
+  # URL or Email link to support eg: https://pryv.com/helpdesk/or mailto://hsupport@pryv.com
+  SUPPORT_URL: REPLACE_ME 
+  # URL to the Terms of use of the service. eg.: https://pryv.com/terms-of-use/
+  TERMS_OF_USE_URL: REPLACE_ME 
   ##################################
   #    DNS SETTINGS [OPTIONAL]     #
   ##################################
@@ -48,7 +70,7 @@ vars:
   DNS_CUSTOM_ENTRIES:
     test:
       ip: REPLACE_ME
-  # DNS A record for ${DOMAIN}
+  # DNS A record for ${DOMAIN} (The IP adress serving an eventual web page accessible by: http://{DOMAIN})
   DNS_ROOT_DOMAIN_A_RECORD: REPLACE_ME
   ##################################
   # EMAIL CONFIGURATION [OPTIONAL] #
@@ -63,6 +85,8 @@ vars:
   EMAIL_SENDER:
     name: REPLACE_ME
     address: REPLACE_ME
+  # Default language for email templates
+  EMAIL_TEMPLATES_DEFAULT_LANG: en
   # If used, Host, port and credentials of the SMTP server
   EMAIL_SMTP_SETTINGS:
     host: REPLACE_ME
@@ -76,8 +100,6 @@ vars:
     active: false
     # Path of the sendmail command on the machine
     path: /usr/sbin/sendmail
-  # Default language for email templates
-  EMAIL_TEMPLATES_DEFAULT_LANG: en
   ##########################
   # SERVICE MFA [OPTIONAL] #
   ##########################
@@ -91,15 +113,9 @@ vars:
       verify: REPLACE_ME
     # API key, sent as 'Authorization' header
     auth: REPLACE_ME
-  ################################
-  # ADVANCED SETTINGS [OPTIONAL] #
-  ################################
-  # URL of the file listing the validated Event types
-  # See: https://api.pryv.com/faq-api/#event-types
-  EVENT_TYPES_URL: https://api.pryv.com/event-types/flat.json
-  # Comma-separated list of {trusted-app-id}@{origin} pairs.
-  # Origins and app ids accept "*" wildcards, but never use wildcard app ids in production.
-  TRUSTED_APPS: "*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*"
+  ####################################
+  # ADVANCED API SETTINGS [OPTIONAL] #
+  ####################################
   # The validity (in seconds) of a personal access token if unused.
   SESSION_MAX_AGE: 1209600000
   # The validity (in seconds) of a password reset request.
@@ -127,21 +143,3 @@ vars:
   # Allows to define a set of invitation tokens for user creation by providing
   # an array of strings as well as no check (null) & prevent all (empty array).
   INVITATION_TOKENS: null
-  # Allows to define a list of trusted urls that can be used as entry point
-  # for the app authorization flow.
-  TRUSTED_AUTH_URLS: 
-    - https://sw.DOMAIN/access/access.html
-  # List of third-party applications (deprecated)
-  APP_LIST:
-    test-a:
-      displayName: Test app A
-      description: Test app A description
-      iconURL: http://placehold.it/150&text=A
-      appURL: https://pryv.com
-      settingsPageURL: https://api.pryv.com
-    test-b:
-      displayName: Test app B
-      description: Test app B description
-      iconURL: http://placehold.it/150&text=B
-      appURL: https://pryv.com
-      settingsPageURL: https://api.pryv.com

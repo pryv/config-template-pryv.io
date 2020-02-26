@@ -6,12 +6,16 @@ You should have prepared your machines with the [Deployment Design Guide](https:
 ## Table of contents
 
 - Centralized configuration setup
-- List of Files
-  - Platform variables
+- Pryv.io directory
+- Platform setup
 - Leader-follower keys
 - Register slave
 - SSL certificates
-- Launching the Installation
+ - Launching the Installation
+   - Prerequisites check
+   - Run
+   - Validation
+   - Stop
 - Closing Remarks
 
 ## Centralized configuration setup
@@ -24,7 +28,7 @@ You must setup your platform configuration in the leader service as well as a ke
 
 By default, the leader runs on the `reg-master` machine, there is a follower service running on every machine, including `reg-master`.
 
-## List of files
+## Pryv.io directory
 
 In addition to the configuration files, we distribute scripts to launch and stop the services.
 
@@ -36,20 +40,16 @@ The following instructions need to be executed on each machine.
 - Copy the configuration archive to the root of the directory  
 - Unarchive the configuration in place
 
-In every role, you should have the following files: 
+```bash
+mkdir /var/pryv
+cp template-${ROLE}.tgz /var/pryv/
+cd /var/pryv
+tar xvf template-${ROLE}.tgz
+```
 
-- The file `run-config-follower` and folder `config-follower/`. These are the script and configuration files used to launch the configuration follower service.  
-- A file called `run-pryv`. This script will launch the role running on the machine. 
-- A directory called `pryv/`. The follower will download the role's configuration files here, as well as the data directories that will be mapped as volumes in the various docker containers.
-- A file called `ensure-permissions-${ROLE}`. This script sets correct permissions for data and log directories.
+## Platform setup
 
-In `reg-master` , you should have these additional files: 
-
-- The file `run-config-leader` and folder `config-leader/`. These are the script and configuration files used to launch the configuration leader service.
-
-Finally, the files `stop-config-leader`, `stop-config-follower` and `stop-pryv`. These scripts shut down the corresponding running services.
-
-### Platform variables
+The configuration leader is run on the reg-master machine, also called leader machine, this is where you should setup the platform.
 
 Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
 
@@ -134,7 +134,7 @@ If your DNS is set up correctly, the following command should yield the fully qu
 
     $ dig NS ${DOMAIN}
 
-Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that your A records exist and point to the same machine. 
+Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that the A records of the returned NS entries exist and point to the same machine. 
 
 ### Run
 
@@ -165,6 +165,10 @@ Now that the configuration is ready, you can launch the Pryv.io components:
     sudo ./run-pryv
 
 This command will download the docker images that belong to your release from the docker repository and launch the components. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
+
+### Stop
+
+Finally, the scripts `stop-config-leader`, `stop-config-follower` and `stop-pryv` shut down the corresponding running services.
 
 ### Validation
 

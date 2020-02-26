@@ -6,10 +6,14 @@ You should have prepared your machines with the [Deployment Design Guide](https:
 ## Table of contents
 
  - Centralized configuration setup 
- - List of Files 
-   - Platform variables
+ - Pryv.io directory
+ - Platform setup
  - SSL certificates
  - Launching the Installation
+   - Prerequisites check
+   - Run
+   - Validation
+   - Stop
  - Closing Remarks
 
 ## Centralized configuration setup
@@ -18,31 +22,28 @@ We have released a new configuration scheme:
 
 The platform configurations are stored on a single leader service, each role will fetch its configuration files from it upon installation using its follower service.
 
-For a single-node setup, the leader and one single follower both run on the machine.
+For a single-node setup, the leader and a single follower both run on the machine.
 
-## List of files
+## Pryv.io directory
 
 In addition to the configuration files, we distribute scripts to launch and stop the services.
 
 You should have received the configuration files, packaged in an archive (.tgz).
 
-The following instructions need to be executed on the singlenode machine.
+The following instructions need to be executed on the single-node machine.
 
-- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
-- Copy the configuration archive to the root of the directory
-- Unarchive the configuration in place
+1. Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
+2. Copy the configuration archive to the root of the directory
+3. Unarchive the configuration in place
 
-You should have the following files: 
+```bash
+mkdir /var/pryv
+cp template-single-node.tgz /var/pryv/
+cd /var/pryv
+tar xvf template-single-node.tgz
+```
 
-- The file `run-config-leader` and folder `config-leader/`. These are the script and configuration files used to launch the configuration leader service.
-- The file `run-config-follower` and folder `config-follower/`. These are the script and configuration files used to launch the configuration follower service.  
-- A file called `run-pryv`. This script will bring the Pryv.io services up.
-- A directory called `pryv/`. The follower will download the configuration files here, as well as the data directories that will be mapped as volumes in the various docker containers.
-- A file called `ensure-permissions`. This script sets correct permissions for data and log directories.
-
-Finally, the files `stop-config-leader`, `stop-config-follower` and `stop-pryv`. These scripts shut down the corresponding running services.
-
-### Platform variables
+## Platform setup
 
 Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when queried.
 
@@ -59,8 +60,8 @@ Your certificate files must be placed in these locations:
 
 ### Prerequisites Check
 
-Please run these commands and compare the output with values below. 
-You might have to use `docker-ce` and your versions can be newer: 
+Please run these commands and compare the output with values below.
+You might have to use `docker-ce` and your versions can be newer:
 
     $ docker -v
     Docker version 17.05.0-ce, build 89658be
@@ -72,7 +73,7 @@ If your DNS is set up correctly, the following command should yield the fully qu
 
     $ dig NS ${DOMAIN}
 
-Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that your A records exist and point to the same machine. 
+Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that the A records of the returned NS entries exist and point to the same machine. 
 
 ### Run
 
@@ -103,10 +104,14 @@ Now that the configuration is ready, you can launch the Pryv.io components:
 
 This command will download the docker images that belong to your release from the docker repository and launch the component. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 
+### Stop
+
+Finally, the scripts `stop-config-leader`, `stop-config-follower` and `stop-pryv` shut down the corresponding running services.
+
 ### Validation
 
 Please refer to the `Installation validation` document located in the [customer resource documents](https://api.pryv.com/customer-resources/#documents) to validate that your Pryv.io platform is up and running.
 
 ## Closing Remarks
 
-If you need support, please contact your technical account manager @ Pryv or open a ticket on [our helpdesk](https://pryv.com/helpdesk/). We're glad to help you with any questions you might have. 
+If you need support, please contact your technical account manager @ Pryv or open a ticket on [our helpdesk](https://pryv.com/helpdesk/). We're glad to help you with any questions you might have.

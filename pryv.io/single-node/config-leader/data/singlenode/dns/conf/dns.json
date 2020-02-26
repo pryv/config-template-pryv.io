@@ -136,6 +136,11 @@
   "appList": APP_LIST,
   "hostnameOrIP": "https://reg.DOMAIN",
   "invitationTokens": INVITATION_TOKENS,
+  "service": {
+    "name": "PLATFORM_NAME",
+    "support": "SUPPORT_URL",
+    "terms": "TERMS_OF_USE_URL"
+  },
   "services": {
     "reporting": {
       "licenseName": "REPORTING_LICENSE_NAME",
