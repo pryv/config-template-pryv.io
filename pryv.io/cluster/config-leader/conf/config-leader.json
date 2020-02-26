@@ -15,7 +15,7 @@
     }
   },
   "dataFolder": "/app/data",
-  "adminKey": "MsBsQMPyFN7SFjEix7P1B4umD3TLo8y2",
+  "adminKey": "LEADER_ADMIN_KEY",
   "internals": {
     "SSO_COOKIE_SIGN_SECRET": "SECRET",
     "FILES_READ_TOKEN_SECRET": "SECRET",

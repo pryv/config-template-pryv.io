@@ -1,6 +1,6 @@
 #!/bin/bash
-REG_URL="https://lead.DOMAIN"
-REG_ADMIN_KEY="REGISTER_ADMIN_KEY_1"
+LEAD_URL="https://lead.DOMAIN"
+LEAD_ADMIN_KEY="LEADER_ADMIN_KEY"
 
 #########################
 # Check if certificates generation was successfull
@@ -35,8 +35,8 @@ if fileExists $FULLCHAIN_FILE && fileExists $KEY_FILE; then
 	# Call /notify, it should notify all followers to get the last config and restart pryv
 	#########################
         # https://askubuntu.com/questions/1070864/how-to-set-variable-in-the-curl-command-in-bash
-        printf -v auth 'Authorization: %s' "$REG_ADMIN_KEY"
-        printf -v url '%s' "$REG_URL/admin/notify"
+        printf -v auth 'Authorization: %s' "$LEAD_ADMIN_KEY"
+        printf -v url '%s' "$LEAD_URL/admin/notify"
 
         echo "Calling notify on $url with auth = $auth"
         curl -H "Content-Type: application/json" \
