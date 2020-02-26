@@ -1,5 +1,5 @@
 #!/bin/bash
-REG_URL="https://reg.DOMAIN"
+REG_URL="http://pryvio_dns:9000"
 REG_ADMIN_KEY="REGISTER_ADMIN_KEY_1"
 
 CERTBOT_VALIDATION=$1
@@ -20,8 +20,6 @@ curl -d "$data" \
         -X POST "$url"
 
 # Sleep to make sure the change has time to propagate over to DNS
-for i in {1..20}
-do
-        echo "sleep $i"
-        sleep 1
-done
+SLEEP=10
+echo "sleep $SLEEP"
+sleep $SLEEP

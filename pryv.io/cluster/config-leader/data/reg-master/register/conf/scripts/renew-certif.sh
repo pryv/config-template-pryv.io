@@ -2,6 +2,8 @@ DNS_DOM="*.DOMAIN"
 EMAIL="tech@pryv.com"
 AUTH_SCRIPT="./post-record-from-container.sh"
 CLEANUP_SCRIPT="./cleanup.sh"
+DRY_RUN=" --dry-run"
+DRY_RUN=""
 
 sudo certbot certonly --domain $DNS_DOM \
     --email $EMAIL \
@@ -10,4 +12,4 @@ sudo certbot certonly --domain $DNS_DOM \
     --manual \
     --manual-auth-hook $AUTH_SCRIPT \
     --manual-cleanup-hook $CLEANUP_SCRIPT \
-    --agree-tos
+    --agree-tos $DRY_RUN
