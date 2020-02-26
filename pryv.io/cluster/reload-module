@@ -56,15 +56,6 @@ reloadPryv () {
     echo "Pryv reloaded";
 }
 
-reloadNginx () {
-    echo;
-    echo "Restarting Nginx, please wait...";
-    docker restart pryvio_nginx;
-
-    echo;
-    echo "Nginx reloaded";
-}
-
 reloadCore () {
     reloadPryv $1; # TODO only reload core
 }
@@ -88,9 +79,6 @@ case $MODULE_NAME in
         ;;
     register)
         reloadRegister $NOHUP;
-        ;;
-    nginx)
-        reloadNginx $NOHUP;
         ;;
     # TODO add cases for other modules
     *)

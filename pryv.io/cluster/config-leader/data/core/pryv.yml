@@ -61,7 +61,6 @@ services:
     links: 
       - mongodb
     restart: always
-    hostname: "$HOSTNAME"
 
   mfa: 
     image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:1.0.1"
@@ -88,7 +87,6 @@ services:
     links: 
       - mongodb
     restart: always
-    hostname: "$HOSTNAME"
 
   hfs:
     image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.4.27"
@@ -106,7 +104,6 @@ services:
       - influxdb
       - core
     restart: always
-    hostname: "$HOSTNAME"
 
   webhooks:
     image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.4.27"
