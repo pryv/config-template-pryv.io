@@ -5,5 +5,6 @@ echo "Ensuring data and log folders permissions"
 sudo chown -R 9999:9999 ./pryv
 sudo chown -R 9999:9999 ./config-leader
 sudo chown -R 9999:9999 ./config-follower
+sudo chmod +x ./pryv/register/conf/scripts/*
 
 echo "Done!"
