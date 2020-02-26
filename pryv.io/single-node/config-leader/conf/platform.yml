@@ -76,7 +76,7 @@ vars:
   # Alternative transport, using sendmail
   EMAIL_SENDMAIL_SETTINGS:
     # Will replace SMTP transport if set to true
-    active: false # If set to true deactivate all EMAIL_SMTP_SETTINGS
+    active: false
     # Path of the sendmail command on the machine
     path: /usr/sbin/sendmail
   ##########################

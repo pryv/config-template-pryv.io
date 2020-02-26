@@ -4,6 +4,7 @@ This guide contains instructions to update a Pryv.io single-node platform.
 ​
 ## Table of contents
 
+TBC
 
 ## Backup
 
