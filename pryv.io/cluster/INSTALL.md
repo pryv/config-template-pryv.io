@@ -166,6 +166,16 @@ Now that the configuration is ready, you can launch the Pryv.io components:
 
 This command will download the docker images that belong to your release from the docker repository and launch the components. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 
+#### Reporting
+
+Each pryv.io modules sends a report to pryv.com upon start, containing your licence key and some other informations (version, user count, etc)
+You can disable this behavior by setting the environement variable `reporting_optOut` to 'true' in the `./run-pryv` script.
+```
+export HOSTNAME=$HOSTNAME
+export reporting_optOut="true"
+docker-compose -f pryv/pryv.yml up -d
+```
+
 ### Stop
 
 Finally, the scripts `stop-config-leader`, `stop-config-follower` and `stop-pryv` shut down the corresponding running services.
