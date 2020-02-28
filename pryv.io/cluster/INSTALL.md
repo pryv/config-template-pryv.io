@@ -168,13 +168,16 @@ This command will download the docker images that belong to your release from th
 
 #### Reporting
 
-Each pryv.io modules sends a report to pryv.com upon start, containing your licence key and some other informations (version, user count, etc)
-You can disable this behavior by setting the environement variable `reporting_optOut` to 'true' in the `./run-pryv` script.
-```
-export HOSTNAME=$HOSTNAME
-export reporting_optOut="true"
-docker-compose -f pryv/pryv.yml up -d
-```
+Each pryv.io module sends a report to Pryv upon start, containing the following contractual information:
+
+    license Key
+    users count
+    version
+    hostname
+
+If you decide to optOut, please contact your account manager @ Pryv to define another way to communicate this information.
+
+You can disable the reporting by setting the environment variable reporting_optOut to 'true' in the ./run-pryv script.
 
 ### Stop
 
