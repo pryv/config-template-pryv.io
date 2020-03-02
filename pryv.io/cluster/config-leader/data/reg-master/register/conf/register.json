@@ -1,5 +1,6 @@
 {
   "serial": "2019061301",
+  "domain": "DOMAIN",
   "hostnameOrIP": "https://reg.DOMAIN",
   "http": {
     "static": {
@@ -14,7 +15,8 @@
   "service": {
     "name": "PLATFORM_NAME",
     "support": "SUPPORT_URL",
-    "terms": "TERMS_OF_USE_URL"
+    "terms": "TERMS_OF_USE_URL",
+    "assets": SERVICE_INFO_ASSETS
   },
   "server": {
     "ssl": "false",
@@ -105,11 +107,9 @@
     "projectId": ""
   },
   "invitationTokens": null,
-  "services": {
-    "reporting": {
-      "licenseName": "REPORTING_LICENSE_NAME",
-      "role": "reg-master",
-      "templateVersion": "REPORTING_TEMPLATE_VERSION"
-    }
+  "reporting": {
+    "licenseName": "REPORTING_LICENSE_NAME",
+    "role": "reg-master",
+    "templateVersion": "REPORTING_TEMPLATE_VERSION"
   }
 }

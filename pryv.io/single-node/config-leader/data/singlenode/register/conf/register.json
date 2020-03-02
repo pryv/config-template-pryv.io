@@ -1,5 +1,6 @@
 {
   "serial": "2019061301",
+  "domain": "DOMAIN",
   "dns": {
     "port": 5353,
     "ip": "0.0.0.0",
@@ -139,13 +140,12 @@
   "service": {
     "name": "PLATFORM_NAME",
     "support": "SUPPORT_URL",
-    "terms": "TERMS_OF_USE_URL"
+    "terms": "TERMS_OF_USE_URL",
+    "assets": SERVICE_INFO_ASSETS
   },
-  "services": {
-    "reporting": {
-      "licenseName": "REPORTING_LICENSE_NAME",
-      "role": "reg-master",
-      "templateVersion": "REPORTING_TEMPLATE_VERSION"
-    }
+  "reporting": {
+    "licenseName": "REPORTING_LICENSE_NAME",
+    "role": "reg-master",
+    "templateVersion": "REPORTING_TEMPLATE_VERSION"
   }
 }

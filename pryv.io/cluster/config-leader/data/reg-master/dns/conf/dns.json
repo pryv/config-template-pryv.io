@@ -1,5 +1,6 @@
 {
   "serial": "2019061301",
+  "domain": "DOMAIN",
   "hostnameOrIP": "https://reg.DOMAIN",
   "http": {
     "static": {
@@ -106,11 +107,9 @@
   },
   "appList": APP_LIST,
   "invitationTokens": INVITATION_TOKENS,
-  "services": {
-    "reporting": {
-      "licenseName": "REPORTING_LICENSE_NAME",
-      "role": "reg-master",
-      "templateVersion": "REPORTING_TEMPLATE_VERSION"
-    }
+  "reporting": {
+    "licenseName": "REPORTING_LICENSE_NAME",
+    "role": "reg-master",
+    "templateVersion": "REPORTING_TEMPLATE_VERSION"
   }
 }
