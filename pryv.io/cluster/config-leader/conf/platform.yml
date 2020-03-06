@@ -61,9 +61,6 @@ vars:
   SUPPORT_URL: REPLACE_ME 
   # URL to the Terms of use of the service. eg.: https://pryv.com/terms-of-use/
   TERMS_OF_USE_URL: REPLACE_ME 
-  # Information assets, such as: images, texts
-  SERVICE_INFO_ASSETS:
-    definitions: REPLACE_ME
   ##################################
   #    DNS SETTINGS [OPTIONAL]     #
   ##################################

@@ -140,8 +140,7 @@
   "service": {
     "name": "PLATFORM_NAME",
     "support": "SUPPORT_URL",
-    "terms": "TERMS_OF_USE_URL",
-    "assets": SERVICE_INFO_ASSETS
+    "terms": "TERMS_OF_USE_URL"
   },
   "reporting": {
     "licenseName": "REPORTING_LICENSE_NAME",
