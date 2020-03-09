@@ -134,7 +134,6 @@
       }
     }
   },
-  "appList": APP_LIST,
   "hostnameOrIP": "https://reg.DOMAIN",
   "invitationTokens": INVITATION_TOKENS,
   "service": {

@@ -105,7 +105,6 @@
     "key": "",
     "projectId": ""
   },
-  "appList": APP_LIST,
   "invitationTokens": INVITATION_TOKENS,
   "reporting": {
     "licenseName": "REPORTING_LICENSE_NAME",
