@@ -102,8 +102,6 @@ vars:
   EMAIL_SENDMAIL_SETTINGS:
     # Will replace SMTP transport if set to true
     active: false
-    # Path of the sendmail command on the machine
-    path: /usr/sbin/sendmail
   ##########################
   # SERVICE MFA [OPTIONAL] #
   ##########################
