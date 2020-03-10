@@ -92,7 +92,7 @@ If your setup contains two register machines (`reg-master` and `reg-slave`), be 
 * REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (such as a private network)
 * REG_SLAVE_IP_ADDRESS: IP address of slave register machine
 
-Then, also uncomment the ports definition for the redis image of `reg-master`, in `${PRYV_CONF_ROOT}/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
+Then, also uncomment the ports mapping for the redis container of `reg-master`, in `${PRYV_CONF_ROOT}/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
 
 ```yaml
   redis: 
