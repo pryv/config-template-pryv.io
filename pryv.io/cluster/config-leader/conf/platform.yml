@@ -67,7 +67,7 @@ vars:
   # Visual assets
   SERVICE_INFO_ASSETS:
     # URL of platform visual assets. See: https://github.com/pryv/assets-pryv.me
-    definitions: https://api.pryv.com/assets-pryv.me/index.json
+    definitions: https://pryv.github.io/assets-pryv.me/index.json
   ##################################
   #    DNS SETTINGS [OPTIONAL]     #
   ##################################
