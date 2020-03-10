@@ -35,7 +35,7 @@ vars:
   #  Reporting  #
   ###############
   REPORTING_LICENSE_NAME: REPLACE_ME
-  REPORTING_TEMPLATE_VERSION: 1.0.2
+  REPORTING_TEMPLATE_VERSION: 1.0.3
   ####################################
   #      API SETTINGS                #
   ####################################

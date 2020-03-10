@@ -17,9 +17,9 @@ fi
 
 customer=$1
 rootDir="tarballs/$customer"
-commonFiles="config-follower run-config-follower stop-config-follower \
+commonFiles="config-follower run-config-follower stop-config-follower restart-config-follower \
   watch-config reload-module \
-  pryv run-pryv stop-pryv \
+  pryv run-pryv stop-pryv restart-pryv \
   INSTALL.md"
 leaderUrl="https:\/\/lead.DOMAIN"
 
@@ -34,7 +34,7 @@ function build_cores() {
 
 function build_reg_master() {
   filesList="$commonFiles ensure-permissions-reg-master \
-    config-leader run-config-leader stop-config-leader"
+    config-leader run-config-leader stop-config-leader restart-config-leader"
 
   build "reg-master" "$filesList" "http:\/\/config-leader:7000"
   generate_internals_secrets

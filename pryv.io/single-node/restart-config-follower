@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# stop
+docker-compose -f config-follower/config-follower.yml down
+
+# run
+[[ -e config-follower/config-follower.yml ]] || { echo >&2 "The file ./config-follower/config-follower.yml was not found in current working directory."; exit 1; }
+
+echo "Running Pryv/config-follower component."
+
+docker-compose -f config-follower/config-follower.yml up -d
