@@ -11,7 +11,7 @@ function build_role() {
     --exclude .DS_Store \
     config-follower run-config-follower stop-config-follower \
     config-leader run-config-leader stop-config-leader \
-    pryv run-pryv stop-pryv \
+    pryv.io run-pryv stop-pryv \
     ensure-permissions \
     INSTALL.md
 }
