@@ -37,6 +37,16 @@ function build_reg_master() {
     config-leader run-config-leader stop-config-leader"
 
   build "reg-master" "$filesList" "http:\/\/config-leader:7000"
+  generate_internals_secrets
+}
+
+function generate_secret() {
+  openssl rand -hex 32
+}
+
+function generate_internals_secrets() {
+  file="$rootDir/reg-master/config-leader/conf/config-leader.json"
+  sed -i "" -e "s/\"SECRET\"/\"`generate_secret`\"/g" "$file"
 }
 
 function build_reg_slave() {
@@ -58,9 +68,9 @@ function replace_leader_url() {
   sed -i "" -e "s/LEADER_URL/${url}/g" "$followerConf"
 }
 
-function generate_secret() {
+function generate_lead_fol_keys() {
   role=$1
-  secret=`openssl rand -hex 32`
+  secret=`generate_secret`
   leaderConf="$rootDir/reg-master/config-leader/conf/config-leader.json"
   followerConf="$rootDir/${role}/config-follower/conf/config-follower.json"
   sed -i "" -e "s/FOLLOWER_KEY_${role}/${secret}/g" "$leaderConf"
@@ -73,7 +83,7 @@ function build() {
   leaderUrl=$3
   mkdir -p "$rootDir/$role/" # Create temp folder
   for file in $filesList; do cp -r "$file" "$rootDir/$role/$file"; done
-  generate_secret "$role"
+  generate_lead_fol_keys "$role"
   replace_leader_url "$role" "$leaderUrl"
 }
 
