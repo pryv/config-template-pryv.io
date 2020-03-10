@@ -6,6 +6,9 @@ vars:
   DOMAIN: REPLACE_ME
   # IP address of the machine
   SINGLE_MACHINE_IP_ADDRESS: REPLACE_ME
+  # Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin
+  # Please set a strong cryptographic key.
+  REGISTER_ADMIN_KEY: REPLACE_ME
   ###############
   #  Reporting  #
   ###############

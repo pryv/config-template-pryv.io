@@ -9,6 +9,9 @@ vars:
   REG_MASTER_IP_ADDRESS: REPLACE_ME
   REG_MASTER_VPN_IP_ADDRESS: REPLACE_ME
   REG_SLAVE_IP_ADDRESS: REPLACE_ME
+  # Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin
+  # Please set a strong cryptographic key.
+  REGISTER_ADMIN_KEY: REPLACE_ME
   # Defines the distribution of cores among the hostings providers
   HOSTINGS_AND_CORES:
     hosting1:
