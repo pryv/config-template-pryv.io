@@ -1,19 +1,59 @@
 #!/usr/bin/env bash
 
+SCRIPT_FOLDER=$(cd $(dirname "$0"); pwd)
+cd $SCRIPT_FOLDER/..
+
 set -e
 
 customer=$1
+rootDir="tarballs/$customer"
+files="run-config-follower config-follower stop-config-follower \
+  watch-config reload-module \
+  config-leader run-config-leader stop-config-leader \
+  pryv.io run-pryv stop-pryv \
+  ensure-permissions \
+  INSTALL.md"
 
 function build_role() {
   role=$1
-
-  COPYFILE_DISABLE=1 tar -vzcf "tarballs/$customer-$role.tgz" \
-    --exclude .DS_Store \
-    config-follower run-config-follower stop-config-follower \
-    config-leader run-config-leader stop-config-leader \
-    pryv.io run-pryv stop-pryv \
-    ensure-permissions \
-    INSTALL.md
+  mkdir -p $rootDir
+  
 }
 
-build_role "singlenode"
+function generate_secret() {
+  openssl rand -hex 32
+}
+
+function generate_internals_secrets() {
+  file="${1}config-leader/conf/config-leader.json"
+  sed -i "" -e "s/\"SECRET\"/\"`generate_secret`\"/g" "$file"
+}
+
+function build() {
+  role=$1
+  filesList=$2
+  roleDir="$rootDir/$role/"
+
+  mkdir -p $roleDir # Create temp folder
+  
+  for file in $filesList; do cp -r "$file" "${roleDir}${file}"; done
+  
+  generate_internals_secrets $roleDir
+}
+
+function prepare_tar() {
+  cd $rootDir
+  for role in *
+  do
+    if [[ -d $role ]]; then
+      COPYFILE_DISABLE=1 tar -vzcf "$customer-$role.tgz" \
+        --exclude .DS_Store \
+        "$role"
+      rm -r $role # Clean temp folder
+    fi
+  done
+}
+
+build "single-node" "$files"
+
+prepare_tar
