@@ -26,12 +26,13 @@ vars:
   # You can remove the other ones if you are not using Pryv's default apps
   # The format is Comma-separated list of {trusted-app-id}@{origin} pairs.
   # Origins and appIds accept "*" wildcards, but never use wildcard appIds in production.
-  TRUSTED_APPS: '*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*'
+  TRUSTED_APPS: '*@https://*.addmin.pryv.pio*, *@https://pryv.github.io*, *@https://*.rec.la*, *@https://auth.addmin.digital*'
   # Allows to define a list of trusted urls that can be used as entry point
   # for the app authorization flow (https://api.pryv.com/reference/#auth-request).
   # By default, you should replace DOMAIN with your platform domain defined above
   TRUSTED_AUTH_URLS:
     - https://sw.DOMAIN/access/access.html
+    - https://auth.addmin.digital/access/access.html
   ##################################
   # SERVICE INFORMATION [OPTIONAL] #
   ##################################

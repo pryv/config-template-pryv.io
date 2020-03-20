@@ -44,14 +44,14 @@ vars:
   EVENT_TYPES_URL: https://api.pryv.com/event-types/flat.json
   # This defines the web pages that are authorized to run the login API call
   # See https://api.pryv.com/reference-full/#trusted-apps-verification
-  # By default, you should replace DOMAIN with your platform domain defined above
   # You can remove the other ones if you are not using Pryv's default apps
   # The format is Comma-separated list of {trusted-app-id}@{origin} pairs.
   # Origins and appIds accept "*" wildcards, but never use wildcard appIds in production.
   TRUSTED_APPS: '*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*'
+  # Default auth url used for the authorization flow (https://api.pryv.com/reference/#auth-request).
+  DEFAULT_AUTH_URL: https://sw.DOMAIN/access/access.html
   # Allows to define a list of trusted urls that can be used as entry point
   # for the app authorization flow (https://api.pryv.com/reference/#auth-request).
-  # By default, you should replace DOMAIN with your platform domain defined above
   TRUSTED_AUTH_URLS:
     - https://sw.DOMAIN/access/access.html
   ##################################

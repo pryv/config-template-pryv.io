@@ -14,9 +14,6 @@
     "attachmentsDirPath": "/app/data/attachments",
     "previewsDirPath": "/app/data/previews"
   },
-  "eventTypes": {
-    "sourceURL": "EVENT_TYPES_URL"
-  },
   "auth": {
     "trustedApps": "TRUSTED_APPS",
     "sessionMaxAge": SESSION_MAX_AGE,

@@ -14,9 +14,6 @@
     "attachmentsDirPath": "/app/data/attachments",
     "previewsDirPath": "/app/data/previews"
   },
-  "eventTypes": {
-    "sourceURL": "EVENT_TYPES_URL"
-  },
   "auth": {
     "adminAccessKey": "CORE_SYSTEM_KEY",
     "trustedApps": "TRUSTED_APPS",

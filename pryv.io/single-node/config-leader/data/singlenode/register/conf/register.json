@@ -1,5 +1,4 @@
 {
-  "serial": "2019061301",
   "domain": "DOMAIN",
   "dns": {
     "port": 5353,
@@ -84,14 +83,8 @@
   "airbrake": {
     "disable": true
   },
-  "http": {
-    "static": {
-      "url": "https://sw.DOMAIN",
-      "access": "https://sw.DOMAIN/access/access.html"
-    },
-    "register": {
-      "url": "https://reg.DOMAIN"
-    },
+  "access": {
+    "defaultAuthUrl": "DEFAULT_AUTH_URL",
     "trustedAuthUrls": TRUSTED_AUTH_URLS
   },
   "server": {
@@ -137,9 +130,13 @@
   "hostnameOrIP": "https://reg.DOMAIN",
   "invitationTokens": INVITATION_TOKENS,
   "service": {
+    "serial": "2019061301",
     "name": "PLATFORM_NAME",
     "support": "SUPPORT_URL",
     "terms": "TERMS_OF_USE_URL",
+    "register": "https://reg.DOMAIN",
+    "home": "https://sw.DOMAIN",
+    "eventTypes": "EVENT_TYPES_URL",
     "assets": SERVICE_INFO_ASSETS
   },
   "reporting": {
