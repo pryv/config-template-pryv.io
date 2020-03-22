@@ -105,7 +105,7 @@
     "key": "",
     "projectId": ""
   },
-  "invitationTokens": null,
+  "invitationTokens": INVITATION_TOKENS,
   "reporting": {
     "licenseName": "REPORTING_LICENSE_NAME",
     "role": "reg-master",
