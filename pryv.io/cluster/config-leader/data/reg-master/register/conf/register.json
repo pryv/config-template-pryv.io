@@ -13,7 +13,9 @@
     "register": "https://reg.DOMAIN",
     "home": "https://sw.DOMAIN",
     "eventTypes": "EVENT_TYPES_URL",
-    "assets": SERVICE_INFO_ASSETS
+    "assets": SERVICE_INFO_ASSETS,
+    "access": "https://access.DOMAIN",
+    "api": "https://{username}.DOMAIN"
   },
   "server": {
     "ssl": "false",
