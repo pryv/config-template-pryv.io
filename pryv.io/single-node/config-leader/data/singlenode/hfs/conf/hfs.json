@@ -17,5 +17,10 @@
   },
   "nats": {
     "uri": "nats://core:4222"
+  },
+  "services": {
+    "register": {
+      "url": "http:register:9000"
+    }
   }
 }
