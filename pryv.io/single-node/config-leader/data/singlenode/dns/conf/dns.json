@@ -81,7 +81,9 @@
     "port": 6379
   },
   "airbrake": {
-    "disable": true
+    "disable": true,
+    "key": "88ec825519c81c3a248a5d19284970a0",
+    "projectId": "95889"
   },
   "access": {
     "defaultAuthUrl": "DEFAULT_AUTH_URL",

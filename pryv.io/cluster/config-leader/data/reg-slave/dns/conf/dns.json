@@ -101,9 +101,9 @@
     "port": 6379
   },
   "airbrake": {
-    "disable": false,
-    "key": "",
-    "projectId": ""
+    "disable": true,
+    "key": "88ec825519c81c3a248a5d19284970a0",
+    "projectId": "95889"
   },
   "invitationTokens": INVITATION_TOKENS,
   "reporting": {

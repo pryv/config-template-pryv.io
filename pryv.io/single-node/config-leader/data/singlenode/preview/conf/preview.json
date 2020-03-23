@@ -24,8 +24,8 @@
     },
     "airbrake": {
       "active": false,
-      "key": "",
-      "projectId": ""
+      "key": "b763d6590bbd73e8a62798a0ea3eff2b",
+      "projectId": "95888"
     }
   }
 }
