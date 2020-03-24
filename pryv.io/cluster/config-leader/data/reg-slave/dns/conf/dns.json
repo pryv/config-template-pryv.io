@@ -14,7 +14,7 @@
     "home": "https://sw.DOMAIN",
     "eventTypes": "EVENT_TYPES_URL",
     "assets": SERVICE_INFO_ASSETS,
-    "access": "https://access.DOMAIN",
+    "access": "https://access.DOMAIN/access",
     "api": "https://{username}.DOMAIN"
   },
   "server": {
