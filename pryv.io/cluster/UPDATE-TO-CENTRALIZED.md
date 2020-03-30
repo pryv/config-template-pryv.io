@@ -5,13 +5,12 @@ This guide describes the variables that you should put in place when upgrading y
 
 ## Backup current configuration
 
-Backup your latest configuration files. They should be located in your `${PRYV_CONF_ROOT}/pryv/*/conf/` folder.
+Backup your latest configuration files. They should be located in your `${PRYV_CONF_ROOT}/pryv/*/conf/` folders.
 
 ## Platform variables
 
-1. Based on your previous configuration, you must fill the platform variables which have been gathered in a single configuration file: `config-leader/conf/platform.yml`
-2. You can either fill it directly from the inline commented hints of the configuration file
-or follow the instructions below to report your old values.
+Based on your previous configuration, you must fill the platform variables which have been gathered in a single configuration file: `config-leader/conf/platform.yml`.  
+You can either fill it directly from the inline commented hints of the configuration file or follow the instructions below to report your old values.
 
 ### Report old values
 
@@ -62,7 +61,7 @@ The variables that are not mentioned are new and must be filled according to the
 
 ##### HOSTINGS_AND_CORES
 
-The keys such as "hosting1" & "hosting2" should be replaced with the values at: register.json - net:aaservers
+The keys such as "hosting1" & "hosting2" should be replaced with the values at: register.json - net:aaservers  
 The field property of the hosting object is similar to custom DNS entries, it should be set to match the value at: net:aaservers:HOSTING:base_url
 
 For example:
@@ -113,9 +112,9 @@ platform.yml
 
 ##### HOSTINGS_PROVIDERS
 
-This part is optional, it allows to store some metadata associated with hostings, which will be displayed in https://reg.DOMAIN/hostings.
-For example: https://reg.pryv.me/hostings
-We will be dropping the `regions` and `zones` levels, leaving our customers to classify their hostings in their own fashion. But if you wish
+This part is optional, it allows to store some metadata associated with hostings, which will be displayed in https://reg.DOMAIN/hostings.  
+For example: https://reg.pryv.me/hostings  
+We will be dropping the `regions` and `zones` levels, leaving our customers to classify their hostings in their own fashion, but if you wish
 to keep hostings metadata, you can report it as following:
 
 register.json
@@ -160,5 +159,5 @@ platform.yml
 
 ## Custom files
 
-- If you have some custom settings that are out of the platform variables, you must report them on the template files located in `config-leader/data/`
-- You can get an idea of the custom settings you have stored by computing a diff between the new configuration and your backup.
+If you have some custom settings that are out of the platform variables, you must report them on the template files located in `config-leader/data/`.  
+You can get an idea of the custom settings you have stored by computing a diff between the new configuration and your backup.
