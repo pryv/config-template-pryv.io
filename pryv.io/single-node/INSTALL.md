@@ -6,7 +6,7 @@ You should have prepared your machines with the [Deployment Design Guide](https:
 ## Table of contents
 
  - Centralized configuration setup 
- - Pryv.io directory
+ - pryv directory
  - Platform setup
  - SSL certificates
  - Launching the Installation
@@ -24,7 +24,7 @@ The platform configurations are stored on a single leader service, each role wil
 
 For a single-node setup, the leader and a single follower both run on the machine.
 
-## Pryv.io directory
+## pryv directory
 
 In addition to the configuration files, we distribute scripts to launch and stop the services.
 
@@ -106,7 +106,7 @@ This command will download the docker images that belong to your release from th
 
 #### Reporting
 
-Each pryv.io module sends a report to Pryv upon start, containing the following contractual information:
+Each Pryv.io module sends a report to Pryv upon start, containing the following contractual information:
 
 - license Key
 - users count

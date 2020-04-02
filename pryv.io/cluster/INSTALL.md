@@ -6,7 +6,7 @@ You should have prepared your machines with the [Deployment Design Guide](https:
 ## Table of contents
 
 - Centralized configuration setup
-- Pryv.io directory
+- pryv directory
 - Platform setup
 - Leader-follower keys
 - Register slave
@@ -28,7 +28,7 @@ You must setup your platform configuration in the leader service as well as a ke
 
 By default, the leader runs on the `reg-master` machine, there is a follower service running on every machine, including `reg-master`.
 
-## Pryv.io directory
+## pryv directory
 
 In addition to the configuration files, we distribute scripts to launch and stop the services.
 
@@ -168,7 +168,7 @@ This command will download the docker images that belong to your release from th
 
 #### Reporting
 
-Each pryv.io module sends a report to Pryv upon start, containing the following contractual information:
+Each Pryv.io module sends a report to Pryv upon start, containing the following contractual information:
 
 - license Key
 - users count
