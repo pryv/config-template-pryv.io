@@ -45,7 +45,7 @@ tar xvf template-single-node.tgz
 
 ## Platform setup
 
-Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when queried.
+Define the platform-specific variables in `${PRYV_CONF_ROOT}/single-node/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/single-node/config-leader/data/` folder when queried.
 
 ## SSL certificates
 
@@ -53,8 +53,8 @@ All services use Nginx to terminate inbound HTTPS connections. You should have o
 
 Your certificate files must be placed in these locations: 
 
-  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-bundle.crt` 
-  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-key.pem`
+  - `${PRYV_CONF_ROOT}/single-node/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-bundle.crt` 
+  - `${PRYV_CONF_ROOT}/single-node/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-key.pem`
 
 ## Launching the Installation
 
