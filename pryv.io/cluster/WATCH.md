@@ -27,9 +27,9 @@ Here is an example on how to do that on Ubuntu 16.04 :
     
     popd;
 
-When the `watch-config` script is running, any changes in a file under `${PRYV_CONF_ROOT}/pryv/*/conf/` (even a simple `touch`) will trigger the `reload-module` script who will restart all the pryv containers.
+When the `watch-config` script is running, any changes in a file under `${PRYV_CONF_ROOT}/${ROLE}/pryv/*/conf/` (even a simple `touch`) will trigger the `reload-module` script who will restart all the pryv containers.
 In practice these changes will occure when calling the route `https://lead.${DOMAIN}/admin/notify?auth=${ADMIN_KEY}`
-The `service-config-follower` will fetch all the configuration files from `service-config-leader` and write them under the `${PRYV_CONF_ROOT}/pryv/` folder, triggering the `watch-config` script.
+The `service-config-follower` will fetch all the configuration files from `service-config-leader` and write them under the `${PRYV_CONF_ROOT}/${ROLE}/pryv/` folder, triggering the `watch-config` script.
 
 If you want to automatically restart pryv components upon a configuration update you can launch the `watch-config` script :
 

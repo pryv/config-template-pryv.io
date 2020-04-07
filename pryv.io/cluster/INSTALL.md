@@ -51,13 +51,13 @@ tar xvf template-${ROLE}.tgz
 
 The configuration leader is run on the reg-master machine, also called leader machine, this is where you should setup the platform.
 
-Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
+Define the platform-specific variables in `${PRYV_CONF_ROOT}/reg-master/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/reg-master/config-leader/data/` folder when run.
 
 ## Leader-follower keys
 
 For each follower service, you must define a secret for it to authentify when fetching its configuration from the leader service.
 
-In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`, you will find a map called `followers` with the each follower's secret set as key and its `url` and `role` set as values as shown below:
+In the Leader service configuration file `${PRYV_CONF_ROOT}/reg-master/config-leader/conf/config-leader.json`, you will find a map called `followers` with the each follower's secret set as key and its `url` and `role` set as values as shown below:
 
 ```
 "followers": {
@@ -74,7 +74,7 @@ In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/c
 
 The configuration we provide comes with a strong key, but you may generate a new one for this if you wish.
 
-For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
+For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/${ROLE}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
 
 ```json
 "leader": {
@@ -92,7 +92,7 @@ If your setup contains two register machines (`reg-master` and `reg-slave`), be 
 * REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (such as a private network)
 * REG_SLAVE_IP_ADDRESS: IP address of slave register machine
 
-Then, also uncomment the ports mapping for the redis container of `reg-master`, in `${PRYV_CONF_ROOT}/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
+Then, also uncomment the ports mapping for the redis container of `reg-master`, in `${PRYV_CONF_ROOT}/reg-master/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
 
 ```yaml
   redis: 
@@ -114,8 +114,8 @@ Then, also uncomment the ports mapping for the redis container of `reg-master`, 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
 Your certificate files for the respective roles must be placed on the leader machine in these locations: 
-  - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-bundle.crt`
-  - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
+  - `${PRYV_CONF_ROOT}/reg-master/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-bundle.crt`
+  - `${PRYV_CONF_ROOT}/reg-master/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
 
 ## Launching the Installation
 

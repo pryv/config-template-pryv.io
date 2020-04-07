@@ -6,10 +6,10 @@ This guide contains instructions to update a Pryv.io cluster platform.
 2. Backup platform parameters and keys:
 
   - Leader:
-    - `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`
-    - `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`
+    - `${PRYV_CONF_ROOT}/reg-master/config-leader/conf/platform.yml`
+    - `${PRYV_CONF_ROOT}/reg-master/config-leader/conf/config-leader.json`
   - Followers:
-    - `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`
+    - `${PRYV_CONF_ROOT}/${ROLE}/config-follower/conf/config-follower.json`
 
 3. Untar new template in PRYV_CONF_ROOT
 4. If needed, add new values in your `platform.yml`, `config-leader.json` & `config-follower.json` files. Use `diff` to find position of new values.
