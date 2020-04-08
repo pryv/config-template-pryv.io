@@ -41,6 +41,13 @@
           }
         ]
       }, 
+      "access": {
+        "alias": [
+          {
+            "name": "local.DOMAIN"
+          }
+        ]
+      }, 
       "mail": {
         "alias": [
           {
