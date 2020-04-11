@@ -5,7 +5,7 @@ This guide describes the variables that you should put in place when upgrading y
 
 ## Backup current configuration
 
-Backup your latest configuration files. They should be located in your `${PRYV_CONF_ROOT}/single-node/pryv/*/conf/` folders.
+Backup your latest configuration files. They should be located in your `${PRYV_CONF_ROOT}/pryv/*/conf/` folders.
 
 ## Platform variables
 

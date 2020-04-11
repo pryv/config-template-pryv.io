@@ -5,12 +5,12 @@ This guide contains instructions to update a Pryv.io single-node platform.
 1. Backup all your files: `tar czfv `date "+%F"`-pryv-backup.tgz ${PRYV_CONF_ROOT}` for rollback in case of failure
 2. Backup platform parameters and keys:
 
-  - `${PRYV_CONF_ROOT}/single-node/config-leader/conf/platform.yml`
-  - `${PRYV_CONF_ROOT}/single-node/config-leader/conf/config-leader.json`
-  - `${PRYV_CONF_ROOT}/single-node/config-follower/conf/config-follower.json`
+  - `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`
+  - `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`
+  - `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`
   
-3. Untar new template in PRYV_CONF_ROOT
-4. If needed, add new values in your `platform.yml`, `config-leader.json` & `config-follower.json` files. Use `diff` to find position of new values.
+3. Untar new template in PRYV_CONF_ROOT: `tar xzfv new-template.tgz -C ${PRYV_CONF_ROOT} --strip-components=1`
+4. If needed, add new values in your `platform.yml`, `config-leader.json` & `config-follower.json` files. Use `diff` to find new values.
 5. Replace the template platform config files with your backed up ones
 6. Reboot services, starting with reg-master
   6.1 leader: `./restart-config-leader`
