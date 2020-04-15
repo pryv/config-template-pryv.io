@@ -21,53 +21,39 @@
     ],
     "staticDataInDomain": {
       "sw": {
-        "alias": [
-          {
-            "name": "local.DOMAIN"
-          }
-        ]
+        "alias": {
+          "name": "local.DOMAIN"
+        }
       },
       "mfa": {
-        "alias": [
-          {
-            "name": "local.DOMAIN"
-          }
-        ]
+        "alias": {
+          "name": "local.DOMAIN"
+        }
       },
       "reg": {
-        "alias": [
-          {
-            "name": "local.DOMAIN"
-          }
-        ]
+        "alias": {
+          "name": "local.DOMAIN"
+        }
       }, 
       "access": {
-        "alias": [
-          {
-            "name": "local.DOMAIN"
-          }
-        ]
+        "alias": {
+          "name": "local.DOMAIN"
+        }
       }, 
       "mail": {
-        "alias": [
-          {
-            "name": "local.DOMAIN"
-          }
-        ]
+        "alias": {
+          "name": "local.DOMAIN"
+        }
       }, 
       "lead": {
-        "alias": [
-          {
-            "name": "local.DOMAIN"
-          }
-        ]
+        "alias": {
+          "name": "local.DOMAIN"
+        }
       }, 
       "cr1": {
-        "alias": [
-          {
-            "name": "local.DOMAIN"
-          }
-        ]
+        "alias": {
+          "name": "local.DOMAIN"
+        }
       }, 
       "local": {
         "ip": "SINGLE_MACHINE_IP_ADDRESS"
