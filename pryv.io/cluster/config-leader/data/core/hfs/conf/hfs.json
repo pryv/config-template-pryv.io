@@ -22,5 +22,6 @@
     "register": {
       "url": "https://reg.DOMAIN"
     }
-  }
+  },
+  "serviceInfoUrl": "https://reg.DOMAIN/service/info"
 }
