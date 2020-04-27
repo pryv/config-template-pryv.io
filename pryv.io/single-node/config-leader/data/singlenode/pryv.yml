@@ -176,6 +176,7 @@ services:
     networks: 
       - backend
     volumes: 
+      - ./mongodb/conf/:/app/conf/:ro
       - ./mongodb/data/:/app/data/
       - ./mongodb/log/:/app/log/
       - ./mongodb/backup/:/app/backup/
