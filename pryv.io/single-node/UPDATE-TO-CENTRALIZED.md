@@ -29,7 +29,7 @@ The variables that are not mentioned are new and must be filled according to the
 - SUPPORT_URL: register.json - service:support
 - TERMS_OF_USE_URL: register.json - service:terms
 - SERVICE_INFO_ASSETS: new
-- DNS_CUSTOM_ENTRIES: register.json - dns:staticDataInDomain, values outside of sw, mfa, reg, mail, cr1, local, service, access, dns1, dns2, co1
+- DNS_CUSTOM_ENTRIES: register.json - dns:staticDataInDomain, values outside of sw, mfa, reg, mail, co1, local, service, access, dns1, dns2, co1
 - DNS_ROOT_DOMAIN_A_RECORD: register.json - dns:domain_A
 - EMAIL_ACTIVATION: core.json - service:email:enabled
 - EMAIL_SENDER: mail.json - email:message:from

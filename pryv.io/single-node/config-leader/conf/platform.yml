@@ -15,7 +15,7 @@ vars:
   # Please enter the license name you were provided with the installation files
   REPORTING_LICENSE_NAME: REPLACE_ME
   # Don't change
-  REPORTING_TEMPLATE_VERSION: 1.0.15
+  REPORTING_TEMPLATE_VERSION: 1.0.16
   ####################################
   #      API SETTINGS                #
   ####################################

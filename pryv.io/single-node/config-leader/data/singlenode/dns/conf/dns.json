@@ -50,7 +50,7 @@
           "name": "local.DOMAIN"
         }
       }, 
-      "cr1": {
+      "co1": {
         "alias": {
           "name": "local.DOMAIN"
         }
@@ -90,7 +90,7 @@
     "aaservers": {
       "pilot": [
         {
-          "base_url": "https://cr1.DOMAIN/",
+          "base_url": "https://co1.DOMAIN/",
           "authorization": "CORE_SYSTEM_KEY"
         }
       ]
