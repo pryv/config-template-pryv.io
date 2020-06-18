@@ -15,7 +15,7 @@ vars:
   # Please enter the license name you were provided with the installation files
   REPORTING_LICENSE_NAME: REPLACE_ME
   # Don't change
-  REPORTING_TEMPLATE_VERSION: 1.0.18
+  REPORTING_TEMPLATE_VERSION: 1.0.19
   ####################################
   #      API SETTINGS                #
   ####################################
@@ -104,9 +104,9 @@ vars:
   ####################################
   # ADVANCED API SETTINGS [OPTIONAL] #
   ####################################
-  # The validity (in seconds) of a personal access token if unused.
+  # The validity (in milliseconds) of a personal access token if unused.
   SESSION_MAX_AGE: 1209600000
-  # The validity (in seconds) of a password reset request.
+  # The validity (in milliseconds) of a password reset request.
   PASSWORD_RESET_MAX_AGE: 3600000
   # When true, updates will ignore protected fields and print a warning log.
   # When false, trying to update read-only fields will fail with a forbidden error.
