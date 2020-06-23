@@ -9,8 +9,8 @@ services:
     ports:
       - "443:443"
     volumes:
-      - ${PRYV_CONF_ROOT}/nginx/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/nginx/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/nginx/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/nginx/log/:/app/log/
     links:
       - core
       - hfs
@@ -26,8 +26,8 @@ services:
       - frontend
       - backend
     volumes:
-      - ./register/conf/:/app/conf/:ro
-      - ./register/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/register/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/register/log/:/app/log/
     links:
       - core # This is special to the single config
       - redis
@@ -41,8 +41,8 @@ services:
     networks:
       - backend
     volumes:
-      - ${PRYV_CONF_ROOT}/dns/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/dns/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/dns/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/dns/log/:/app/log/
     links:
       - redis
     restart: always
@@ -53,9 +53,9 @@ services:
     networks:
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/redis/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/redis/data/:/app/data/
-      - ${PRYV_CONF_ROOT}/redis/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/redis/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/redis/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/redis/log/:/app/log/
     restart: always
   # Register role END ----------------------------------------------------------
 
@@ -67,9 +67,9 @@ services:
       - frontend
       - backend
     volumes:
-      - ./core/conf/:/app/conf/:ro
-      - ./core/data/:/app/data/
-      - ./core/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/core/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/core/log/:/app/log/
     environment: 
       - NUM_PROCS=4
       - STARTING_PORT=3000
@@ -84,8 +84,8 @@ services:
     networks:
       - frontend
     volumes: 
-      - ${PRYV_CONF_ROOT}/mfa/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/mfa/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/mfa/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/mfa/log/:/app/log/
     links: 
       - core
     restart: always
@@ -112,8 +112,8 @@ services:
     links:
       - core
     volumes:
-      - ${PRYV_CONF_ROOT}/audit/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/audit/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/audit/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/audit/log/:/app/log/
       - /var/log/pryv/audit/pryvio_core/:/app/data/
     restart: always
 
@@ -123,8 +123,8 @@ services:
     networks: 
       - frontend
     volumes: 
-      - ${PRYV_CONF_ROOT}/mail/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/mail/templates/:/app/bin/templates/:ro
+      - ${PRYV_CONF_ROOT}/pryv/mail/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/mail/templates/:/app/bin/templates/:ro
     restart: always
 
   hfs: 
@@ -134,9 +134,9 @@ services:
       - frontend
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/hfs/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/hfs/data/:/app/data/
-      - ${PRYV_CONF_ROOT}/hfs/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/hfs/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/hfs/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/hfs/log/:/app/log/
     environment: 
       - NUM_PROCS=2
     links: 
@@ -151,9 +151,9 @@ services:
       - frontend
       - backend
     volumes:
-      - ${PRYV_CONF_ROOT}/preview/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/core/data/:/app/data/
-      - ${PRYV_CONF_ROOT}/preview/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/preview/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/preview/log/:/app/log/
     links:
       - mongodb
     restart: always
@@ -164,8 +164,8 @@ services:
     networks:
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/webhooks/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/webhooks/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/webhooks/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/webhooks/log/:/app/log/
     links: 
       - core
     restart: always
@@ -176,10 +176,10 @@ services:
     networks: 
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/mongodb/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/mongodb/data/:/app/data/
-      - ${PRYV_CONF_ROOT}/mongodb/log/:/app/log/
-      - ${PRYV_CONF_ROOT}/mongodb/backup/:/app/backup/
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/backup/:/app/backup/
     restart: always
 
   influxdb: 
@@ -188,8 +188,8 @@ services:
     networks: 
       - backend
     volumes: 
-      - ${PRYV_CONF_ROOT}/influxdb/data/:/var/lib/influxdb
-      - ${PRYV_CONF_ROOT}/influxdb/backup/:/pryv/backup/
+      - ${PRYV_CONF_ROOT}/pryv/influxdb/data/:/var/lib/influxdb
+      - ${PRYV_CONF_ROOT}/pryv/influxdb/backup/:/pryv/backup/
     restart: always
   # Core role END --------------------------------------------------------------
 
