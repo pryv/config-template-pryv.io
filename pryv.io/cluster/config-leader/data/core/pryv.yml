@@ -10,8 +10,8 @@ services:
       - "80:80"
       - "443:443"
     volumes: 
-      - ./nginx/conf/:/app/conf/:ro
-      - ./nginx/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/nginx/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/nginx/log/:/app/log/
     links: 
       - core
       - hfs
@@ -40,8 +40,8 @@ services:
     links:
       - core
     volumes:
-      - ./audit/conf/:/app/conf/:ro
-      - ./audit/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/audit/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/audit/log/:/app/log/
       - /var/log/pryv/audit/pryvio_core/:/app/data/
     restart: always
 
@@ -52,9 +52,9 @@ services:
       - frontend
       - backend
     volumes: 
-      - ./core/conf/:/app/conf/:ro
-      - ./core/data/:/app/data/
-      - ./core/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/core/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/core/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/core/log/:/app/log/
     environment: 
       - NUM_PROCS=4
       - STARTING_PORT=3000
@@ -81,9 +81,9 @@ services:
       - frontend
       - backend
     volumes: 
-      - ./preview/conf/:/app/conf/:ro
-      - ./core/data/:/app/data/
-      - ./preview/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/preview/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/core/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/preview/log/:/app/log/
     links: 
       - mongodb
     restart: always
@@ -95,9 +95,9 @@ services:
       - frontend
       - backend
     volumes:
-      - ./hfs/conf/:/app/conf/:ro
-      - ./hfs/data/:/app/data/
-      - ./hfs/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/hfs/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/hfs/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/hfs/log/:/app/log/
     environment:
       - NUM_PROCS=2
     links:
@@ -111,8 +111,8 @@ services:
     networks:
       - backend
     volumes: 
-      - ./webhooks/conf/:/app/conf/:ro
-      - ./webhooks/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/webhooks/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/webhooks/log/:/app/log/
     links: 
       - core
     restart: always
@@ -123,10 +123,10 @@ services:
     networks:
       - backend
     volumes:
-      - ./mongodb/conf/:/app/conf/:ro
-      - ./mongodb/data/:/app/data/
-      - ./mongodb/log/:/app/log/
-      - ./core/mongodb/backup/:/app/backup/
+      - ${PRYV_CONF_ROOT}/mongodb/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/mongodb/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/mongodb/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/core/mongodb/backup/:/app/backup/
     restart: always
 
   influxdb:
@@ -135,8 +135,8 @@ services:
     networks:
       - backend
     volumes:
-      - ./influxdb/data/:/var/lib/influxdb
-      - ./influxdb/backup/:/pryv/backup/
+      - ${PRYV_CONF_ROOT}/influxdb/data/:/var/lib/influxdb
+      - ${PRYV_CONF_ROOT}/influxdb/backup/:/pryv/backup/
     restart: always
       
 networks:

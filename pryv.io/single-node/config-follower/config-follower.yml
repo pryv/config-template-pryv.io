@@ -9,7 +9,10 @@ services:
     volumes:
       - ../pryv:/app/pryv/
       - ./conf/:/app/conf/
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: always
+    environment:
+      - PRYV_CONF_ROOT
 networks:
   frontend:
     driver: bridge
