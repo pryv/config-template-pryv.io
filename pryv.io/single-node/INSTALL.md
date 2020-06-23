@@ -33,7 +33,7 @@ You should have received the configuration files, packaged in an archive (.tgz).
 The following instructions need to be executed on the single-node machine:
 
 - Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/`,
-- Absolute path to this location has to be stored under environment variable named `PRYV_CONF_ROOT` - you may use the script below to have it done,
+- The absolute path to this location has to be stored under environment variable named `PRYV_CONF_ROOT` - you may use the script below to have it done,
 - Copy the configuration archive to the root of the directory,
 - Unarchive the configuration in place.
 
