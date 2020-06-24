@@ -4,4 +4,7 @@
 
 echo "Running Pryv/config-follower component."
 
+# Direcory where application configuration files are supposed to be stored
+export PRYV_CONF_ROOT="/var/pryv"
+
 docker-compose -f config-follower/config-follower.yml up -d
