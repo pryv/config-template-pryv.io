@@ -34,11 +34,12 @@ In addition to the configuration files, we distribute scripts to launch and stop
 
 You should have received several configuration files, packaged in archives (.tgz), one for each role: `static`, `reg-master`, `reg-slave`, `core`. We'll use the placeholder `${ROLE}` to refer to them below.
 
-The following instructions need to be executed on each machine.
+The following instructions need to be executed on each machine:
 
-- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/`. For the purpose of this document, we'll refer to that location as `${PRYV_CONF_ROOT}`.
-- Copy the configuration archive to the root of the directory  
-- Unarchive the configuration in place
+- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/`,
+- The absolute path to this location has to be stored under environment variable named `PRYV_CONF_ROOT`. By default it is set to `/var/pryv`, however it can be changed e.g. with usage of the script below,
+- Copy the configuration archive to the root of the directory,
+- Unarchive the configuration in place.
 
 ```bash
 export PRYV_CONF_ROOT="/var/pryv"
