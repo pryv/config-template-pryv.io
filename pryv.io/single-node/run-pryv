@@ -5,6 +5,9 @@
 # Host machine hostname, used by reporting and airbrake
 export HOSTNAME=$HOSTNAME
 
+# Direcory where application configuration files are supposed to be stored
+export PRYV_CONF_ROOT="/var/pryv"
+
 # Uncomment line below to disable contractual information reporting
 #export reporting_optOut="true"
 
