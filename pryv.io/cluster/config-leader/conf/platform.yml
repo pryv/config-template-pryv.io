@@ -44,7 +44,7 @@ vars:
       value: REPLACE_ME
       description: "License name provided with installation files"
     TEMPLATE_VERSION: 
-      value: 1.0.20
+      value: 1.0.21
       description: ""
   API_SETTINGS:
     EVENT_TYPES_URL: 
@@ -172,3 +172,4 @@ vars:
       value: null
       description: "Allows to define a set of invitation tokens for user creation by providing
       # an array of strings as well as no check (null) & prevent all (empty array)"
+
