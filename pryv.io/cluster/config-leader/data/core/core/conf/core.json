@@ -46,7 +46,7 @@
     "ignoreProtectedFields": UPDATES_IGNORE_PROTECTED_FIELDS
   },
   "audit": VERSIONING_SETTINGS,
-  "webhooks": WEBOOKS_SETTINGS,
+  "webhooks": WEBHOOKS_SETTINGS,
   "logs": {
     "console": {
       "active": true,

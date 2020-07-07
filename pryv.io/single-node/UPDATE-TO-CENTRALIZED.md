@@ -41,7 +41,7 @@ The variables that are not mentioned are new and must be filled according to the
 - SESSION_MAX_AGE: core.json - auth:sessionMaxAge
 - PASSWORD_RESET_MAX_AGE: core.json - auth:passwordResetRequestMaxAge
 - UPDATES_IGNORE_PROTECTED_FIELDS: core.json - updates:ignoreProtectedFields
-- WEBOOKS_SETTINGS: core.json - webhooks
+- WEBHOOKS_SETTINGS: core.json - webhooks
 - VERSIONING_SETTINGS: core.json - audit
 - SSL_CAA_ISSUER: register.json - dns:certificateAuthorityAuthorization:issuer
 - INVITATION_TOKENS: register.json - invitationTokens
