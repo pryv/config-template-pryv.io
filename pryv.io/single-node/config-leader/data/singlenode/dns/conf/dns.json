@@ -137,8 +137,8 @@
     "api": "https://{username}.DOMAIN"
   },
   "reporting": {
-    "licenseName": "REPORTING_LICENSE_NAME",
+    "licenseName": "LICENSE_NAME",
     "role": "reg-master",
-    "templateVersion": "REPORTING_TEMPLATE_VERSION"
+    "templateVersion": "TEMPLATE_VERSION"
   }
 }

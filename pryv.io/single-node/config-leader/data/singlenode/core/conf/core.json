@@ -39,8 +39,8 @@
     }
   },
   "reporting": {
-    "licenseName": "REPORTING_LICENSE_NAME",
-    "templateVersion": "REPORTING_TEMPLATE_VERSION"
+    "licenseName": "LICENSE_NAME",
+    "templateVersion": "TEMPLATE_VERSION"
   },
   "updates": {
     "ignoreProtectedFields": UPDATES_IGNORE_PROTECTED_FIELDS
