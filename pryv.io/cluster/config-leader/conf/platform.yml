@@ -162,25 +162,27 @@ vars:
         description: "When true, updates will ignore protected fields and print a warning log.
         When false, trying to update read-only fields will fail with a forbidden error"
       WEBHOOKS_SETTINGS:
-        minIntervalMs: 
-          value: 5000
-          description: "Minimum interval between successive webhook notifications, in milliseconds"
-        maxRetries: 
-          value: 5
-          description: "Number of retried webhook notifications before it becomes inactive"
-        runsSize: 
-          value: 50
-          description: "Size of the runs array"
+        value:
+          minIntervalMs: 
+            value: 5000
+            description: "Minimum interval between successive webhook notifications, in milliseconds"
+          maxRetries: 
+            value: 5
+            description: "Number of retried webhook notifications before it becomes inactive"
+          runsSize: 
+            value: 50
+            description: "Size of the runs array"
       VERSIONING_SETTINGS:
-        forceKeepHistory: 
-          value: false
-          description: "When true, modification history of items is stored"
-        deletionMode: 
-          value: keep-authors
-          description: "Defines the behaviour of items deletion.
-          'keep-nothing': Delete history, keep head as itemDeletion as it is now by default.
-          'keep-authors': Keep fields 'headId', 'id', 'modified', 'modifiedBy' in head and history.
-          'keep-everything': Add 'deleted' field to head item, leave history as is."
+        value:
+          forceKeepHistory: 
+            value: false
+            description: "When true, modification history of items is stored"
+          deletionMode: 
+            value: keep-authors
+            description: "Defines the behaviour of items deletion.
+            'keep-nothing': Delete history, keep head as itemDeletion as it is now by default.
+            'keep-authors': Keep fields 'headId', 'id', 'modified', 'modifiedBy' in head and history.
+            'keep-everything': Add 'deleted' field to head item, leave history as is."
       SSL_CAA_ISSUER: 
         value: letsencrypt.org
         description: "Certificate authority allowed to issue SSL certificates for this domain"
