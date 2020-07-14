@@ -111,8 +111,8 @@
   },
   "invitationTokens": INVITATION_TOKENS,
   "reporting": {
-    "licenseName": "REPORTING_LICENSE_NAME",
+    "licenseName": "LICENSE_NAME",
     "role": "reg-slave",
-    "templateVersion": "REPORTING_TEMPLATE_VERSION"
+    "templateVersion": "TEMPLATE_VERSION"
   }
 }

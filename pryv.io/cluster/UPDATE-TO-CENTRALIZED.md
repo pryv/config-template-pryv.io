@@ -20,8 +20,8 @@ The variables that are not mentioned are new and must be filled according to the
 
 - DOMAIN: register/conf/register.json - dns:domain
 - REGISTER_ADMIN_KEY: register.json - auth:authorizedKeys (the one with the role "admin")
-- REPORTING_LICENSE_NAME: new
-- REPORTING_TEMPLATE_VERSION: new
+- LICENSE_NAME: new
+- TEMPLATE_VERSION: new
 - EVENT_TYPES_URL: core.json - eventTypes:sourceURL
 - TRUSTED_APPS: core.json - auth:trustedApps
 - TRUSTED_AUTH_URLS: register.json - http:trustedAuthUrls
