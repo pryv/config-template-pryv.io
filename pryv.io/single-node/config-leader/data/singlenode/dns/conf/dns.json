@@ -54,6 +54,11 @@
         "alias": {
           "name": "local.DOMAIN"
         }
+      },
+      "cr1": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
       }, 
       "local": {
         "ip": "SINGLE_MACHINE_IP_ADDRESS"
