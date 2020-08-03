@@ -19,7 +19,7 @@ vars:
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
         value: 1.0.29
-        description: ""
+        description: "Version of used configuration template"
   API_SETTINGS:
     name: "API settings"
     settings:
@@ -32,7 +32,8 @@ vars:
         See https://api.pryv.com/reference-full/#trusted-apps-verification. 
         You can remove the ones not related to your platform if you are not using Pryv's default apps
         The format is comma-separated list of {trusted-app-id}@{origin} pairs.
-        Origins and appIds accept '*' wildcards, but never use wildcard appIds in production."
+        Origins and appIds accept '*' wildcards, but never use wildcard appIds in production.
+        Example: *@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*"
       DEFAULT_AUTH_URL: 
         value: https://sw.DOMAIN/access/access.html
         description: "Default auth url used for the authorization flow (https://api.pryv.com/reference/#auth-request)."
@@ -87,7 +88,7 @@ vars:
           address: REPLACE_ME
       EMAIL_TEMPLATES_DEFAULT_LANG: 
         value: en
-        description: "Default language for email templates"
+        description: "Default language for email templates eg: en"
       EMAIL_SMTP_SETTINGS:
         description: "If used, Host, port and credentials of the SMTP server"
         value:
@@ -133,6 +134,10 @@ vars:
         description: "When true, updates will ignore protected fields and print a warning log.
         When false, trying to update read-only fields will fail with a forbidden error"
       WEBHOOKS_SETTINGS:
+        description:
+          "- minIntervalMs: minimum interval between successive webhook notifications, in milliseconds,
+          - maxRetries: number of retried webhook notifications before it becomes inactive,
+          - runsSize: size of the runs array"
         value:
           minIntervalMs: 
             value: 5000
@@ -144,6 +149,9 @@ vars:
             value: 50
             description: "Size of the runs array"
       VERSIONING_SETTINGS:
+        description:
+          "- forceKeepHistory: when true, modification history of items is stored,
+          - keep-authors: defines the behaviour of items deletion"
         value:
           forceKeepHistory: 
             value: false
