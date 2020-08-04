@@ -48,8 +48,8 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.0.29
-        description: "Version of used configuration template"
+        value: 1.0.30
+        description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
     settings:
