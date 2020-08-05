@@ -48,7 +48,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.0.31
+        value: 1.0.32
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
@@ -101,6 +101,9 @@ vars:
       DNS_ROOT_DOMAIN_A_RECORD: 
         value: REPLACE_ME
         description: "DNS A record for ${DOMAIN} (The IP adress serving an eventual web page accessible by: http://{DOMAIN})"
+      DNS_ROOT_TXT_ARRAY:
+        value: []
+        description: "DNS TXT records for @ value for ${DOMAIN}. Ex.: [\"_globalsign-domain-verification=n3PT\",\"v=spf1 include:_mailcust.gandi.net ?all\"]"
   EMAIL_CONFIGURATION_SETTINGS:
     optional: true
     description: "See the Emails configuration document: https://api.pryv.com/customer-resources/#documents"
