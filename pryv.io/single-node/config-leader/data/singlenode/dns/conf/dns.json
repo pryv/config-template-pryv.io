@@ -66,7 +66,9 @@
     },
     "customEntries": DNS_CUSTOM_ENTRIES,
     "domain_A": "DNS_ROOT_DOMAIN_A_RECORD",
-    "rootTXT": DNS_ROOT_TXT_ARRAY
+    "rootTXT": {
+      "description": DNS_ROOT_TXT_ARRAY
+    }
   },
   "auth": {
     "coreSystemKey": "CORE_SYSTEM_KEY",

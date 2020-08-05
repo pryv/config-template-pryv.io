@@ -95,7 +95,9 @@
         "ip": "REG_SLAVE_IP_ADDRESS"
       }
     ],
-    "rootTXT": DNS_ROOT_TXT_ARRAY
+    "rootTXT": {
+      "description": DNS_ROOT_TXT_ARRAY
+    }
   },
   "net": {
     "hostings": HOSTINGS_AND_CORES,
