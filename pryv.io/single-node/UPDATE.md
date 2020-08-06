@@ -9,7 +9,7 @@ This guide contains instructions to update a Pryv.io single-node platform.
   - `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`
   - `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`
   
-3. Untar new template in PRYV_CONF_ROOT: `tar xzfv new-template.tgz -C ${PRYV_CONF_ROOT} --strip-components=1`
+3. Untar new template in PRYV_CONF_ROOT: `tar xzfv new-template.tgz -C ${PRYV_CONF_ROOT} --strip-components=1 --overwrite`
 4. If needed, add new values in your `platform.yml`, `config-leader.json` & `config-follower.json` files. Use `diff` to find new values.
 5. Replace the template platform config files with your backed up ones
 6. Reboot services, starting with reg-master
