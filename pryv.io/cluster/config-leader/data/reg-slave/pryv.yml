@@ -9,8 +9,8 @@ services:
       - "443:443"
       - "80:80"
     volumes: 
-      - ./nginx/conf/:/app/conf/:ro
-      - ./nginx/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/nginx/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/nginx/log/:/app/log/
     restart: always
 
   dns: 
@@ -22,8 +22,8 @@ services:
       - frontend
       - backend
     volumes: 
-      - ./dns/conf/:/app/conf/:ro
-      - ./dns/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/dns/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/dns/log/:/app/log/
     links: 
       - redis
     restart: always
@@ -34,9 +34,9 @@ services:
     networks: 
       - backend
     volumes: 
-      - ./redis/conf/:/app/conf/:ro
-      - ./redis/data/:/app/data/
-      - ./redis/log/:/app/log/
+      - ${PRYV_CONF_ROOT}/pryv/redis/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/redis/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/redis/log/:/app/log/
     restart: always
 
 networks:
