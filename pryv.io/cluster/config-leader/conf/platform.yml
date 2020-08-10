@@ -71,6 +71,9 @@ vars:
         description: "List of trusted urls that can be used as entry points for the app authorization flow (https://api.pryv.com/reference/#auth-request)."
         value:
           - https://sw.DOMAIN/access/access.html
+      DISABLE_GET_USERNAME_BY_EMAIL:
+        description: "Whether to disable endpoint GET /:email/username"
+        value: false
   SERVICE_INFORMATION_SETTINGS:
     name: "Service information settings"
     optional: true
