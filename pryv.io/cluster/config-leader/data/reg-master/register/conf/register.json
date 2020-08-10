@@ -21,6 +21,9 @@
     "ssl": "false",
     "port": 9000
   },
+  "routes": {
+    "disableGetUsernameByEmail": DISABLE_GET_USERNAME_BY_EMAIL
+  },
   "auth": {
     "coreSystemKey": "CORE_SYSTEM_KEY",
     "authorizedKeys": {
