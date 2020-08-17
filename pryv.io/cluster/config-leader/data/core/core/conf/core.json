@@ -58,5 +58,8 @@
       "key": "b8c25b40b24ca7468b4f3b005d3a6622",
       "projectId": "95887"
     }
+  },
+  "customExtensions": {
+    "defaultFolder": "/app/conf/custom-extensions"
   }
 }
