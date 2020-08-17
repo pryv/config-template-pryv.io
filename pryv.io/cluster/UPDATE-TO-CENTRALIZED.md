@@ -20,16 +20,16 @@ The variables that are not mentioned are new and must be filled according to the
 
 - DOMAIN: register/conf/register.json - dns:domain
 - REGISTER_ADMIN_KEY: register.json - auth:authorizedKeys (the one with the role "admin")
-- LICENSE_NAME: new
-- TEMPLATE_VERSION: new
+- LICENSE_NAME: new - obtain your code from your Pryv tech contact
+- TEMPLATE_VERSION: new - do not edit
 - EVENT_TYPES_URL: core.json - eventTypes:sourceURL
 - TRUSTED_APPS: core.json - auth:trustedApps
 - TRUSTED_AUTH_URLS: register.json - http:trustedAuthUrls
 - PLATFORM_NAME: regsiter.json - service:name
 - SUPPORT_URL: register.json - service:support
 - TERMS_OF_USE_URL: register.json - service:terms
-- SERVICE_INFO_ASSETS: new
-- DNS_CUSTOM_ENTRIES: register.json - dns:staticDataInDomain, values outside of sw, mfa, reg, mail, co1, local, service, access, dns1, dns2, co1
+- SERVICE_INFO_ASSETS: new - edit if you use our open source apps & libs (https://github.com/pryv/assets-pryv.me)
+- DNS_CUSTOM_ENTRIES: register.json - dns:staticDataInDomain, values outside of sw, mfa, reg, mail, co1/2/3/..., local, service, access, dns1/2
 - DNS_ROOT_DOMAIN_A_RECORD: register.json - dns:domain_A
 - EMAIL_ACTIVATION: core.json - service:email:enabled
 - EMAIL_SENDER: mail.json - email:message:from
