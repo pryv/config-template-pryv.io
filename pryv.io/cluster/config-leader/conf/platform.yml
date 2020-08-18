@@ -139,19 +139,27 @@ vars:
           active: false
       EMAIL_TEMPLATE_RESET_PASSWORD:
         description: "Template of reset password email"
-        value: "p Hi,
+        value: >-
+          p Hi,
           p We have received word that you have lost your password. If you have asked for a password request please click on the link below. If you did not please delete this email.
-          p <a href=\"#{RESET_URL}?resetToken=#{RESET_TOKEN}\" target="_blank">Click here</a> to reset your Pryv password.
-          p Pryv team"
+          p <a href="#{RESET_URL}?resetToken=#{RESET_TOKEN}" target="_blank">Click here</a> to reset your Pryv password.
+          p Pryv team
       EMAIL_TEMPLATE_WELCOME:
         description: "Template of welcome email"
-        value: "<img src=\"https://pryv.com/wp-content/uploads/2018/04/logo-1024-jpg-650x230.jpg\" alt=\"Logo\"> 
-          <h1><span style=\"color:#bd1026\">Hey</span> #{USERNAME},</h1>
-          <h2><span style=\"color:#bd1026\">Thanks for creating your Pryv account</span></h2>
-          <p style=\"text-align: justify;\">We have built Pryv so you could have a private and secure place to collect and unite your personal digital life. Connect apps and devices, get insight and share selectively.<br/></p>
-          <p style=\"text-align: center;\">Information you entrusted us with:<br/>
+        value: >-
+          <img src="https://raw.githubusercontent.com/pryv/open-pryv.io/master/readme/logo-data-privacy-management-pryv.png" alt="Logo"> 
+          <h1><span style="color:#bd1026">Hey</span> #{USERNAME},</h1>
+          <h2><span style="color:#bd1026">Thanks for creating your Pryv account</span></h2>
+          <p style="text-align: justify;">We have built Pryv so you could have a private and secure place to collect and unite your personal digital life. Connect apps and devices, get insight and share selectively.<br/></p>
+          <p style="text-align: center;">Information you entrusted us with:<br/>
           <strong>Email</strong>: #{EMAIL}<br/>
-          <strong>Your account:</strong> <a href=\"https://#{USERNAME}.pryv.me\" target=\"_blank\">#{USERNAME}.pryv.me</a><br/></p>\""
+          <strong>Your account:</strong> <a href="https://#{USERNAME}.pryv.me" target="_blank">#{USERNAME}.pryv.me</a><br/></p>"
+      EMAIL_TEMPLATE_SUBJECT_RESET_PASSWORD:
+        description: "Subject of reset password email template"
+        value: "= `Password reset`"
+      EMAIL_TEMPLATE_SUBJECT_WELCOME:
+        description: "Subject of welcome email template"
+        value: "= `Welcome to Pryv`" 
   MFA_SETTINGS:
     optional: true
     name: "MFA settings"
