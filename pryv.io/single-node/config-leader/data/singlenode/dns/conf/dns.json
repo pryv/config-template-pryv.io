@@ -20,6 +20,11 @@
       }
     ],
     "staticDataInDomain": {
+      "adm": {
+        "alias": {
+          "name": "local.DOMAIN"
+        }
+      },
       "sw": {
         "alias": {
           "name": "local.DOMAIN"

@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   config-leader:
-    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:1.0.14"
+    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:1.0.15"
     container_name: pryvio_config_leader
     networks:
       - frontend
@@ -10,6 +10,7 @@ services:
       - ./conf/:/app/conf/
       - ./log/:/app/log/
       - ./data/:/app/data/
+      - ./database/:/app/database/
     restart: always
 
 networks:
