@@ -14,8 +14,8 @@
       "active": false
     }
   },
-  "templatesFolder": "/app/data",
-  "databaseFolder": "/app/database",
+  "templatesPath": "/app/data",
+  "databasePath": "/app/database",
   "internals": {
     "SSO_COOKIE_SIGN_SECRET": "SECRET",
     "FILES_READ_TOKEN_SECRET": "SECRET",
