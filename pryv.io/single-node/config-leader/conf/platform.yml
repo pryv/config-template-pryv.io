@@ -18,7 +18,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.0.35
+        value: 1.0.36
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
@@ -107,6 +107,79 @@ vars:
         description: "Alternative transport, using sendmail. Will replace SMTP transport if set to true"
         value:
           active: false
+  EMAIL_TEMPLATES:
+    optional: true
+    name: "Email templates"
+    settings:
+      RESET_PASSWORD_TEMPLATE_EN:
+        value: |-
+          p Hi,
+          p We have received word that you have lost your password. If you have asked for a password request please click on the link below. If you did not please delete this email.
+          p <a href="#{RESET_URL}?resetToken=#{RESET_TOKEN}" target="_blank">Click here</a> to reset your Pryv password.
+          p Pryv team 
+        description: "Reset password email template in english language"
+      RESET_PASSWORD_TEMPLATE_FR:
+        value: |-
+          p Bonjour,
+          p Il paraît que vous avez oublié votre mot de passe Pryv. Si vous avez bien demandé la réinitialisation de votre mot de passe, merci de cliquer sur le lien ci-dessous. Si ce n'était pas vous, merci de supprimer cet email.
+          p <a href="#{RESET_URL}?resetToken=#{RESET_TOKEN}" target="_blank">Cliquez içi</a> pour réinitialiser votre mot de passe.
+          p L'équipe Pryv
+        description: "Reset password email template in french language"
+      RESET_PASSWORD_TEMPLATE_DE:
+        value: |-
+          p Grezi,
+          p Es scheint, dass Sie Ihr Passwort verloren haben. Wenn Sie nach einem neuen Passwort gefragt haben, klicken Sie bitte auf den unten stehenden Link. Wenn Sie dies nicht getan haben, löschen Sie bitte diese E-Mail.
+          p <a href="#{RESET_URL}?resetToken=#{RESET_TOKEN}" target="_blank"> Klicken Sie hier </a>, um Ihr Pryv-Passwort zurückzusetzen.
+          p Pryv-Team
+        description: "Reset password email template in german language"
+      RESET_PASSWORD_SUBJECT_EN:
+        value: " = `Password reset`"
+        description: "Reset password email subject template in english language"
+      RESET_PASSWORD_SUBJECT_FR:
+        value: " = `Mot de passe réinitialisé`"
+        description: "Reset password email subject template in french language"
+      RESET_PASSWORD_SUBJECT_DE:
+        value: " = `Passwort zurücksetzen`"
+        description: "Reset password email subject template in german language"
+      WELCOME_TEMPLATE_EN:
+        value: |-
+          <img src="https://api.pryv.com/style/images/logo-256.png" alt="Logo"> 
+          <h1><span style="color:#bd1026">Hey</span> #{USERNAME},</h1>
+          <h2><span style="color:#bd1026">Thanks for creating your Pryv account</span></h2>
+          p style="text-align: justify;">We have built Pryv so you could have a private and secure place to collect and unite your personal digital life. Connect apps and devices, get insight and share selectively.<br/></p>
+          <p style="text-align: center;">Information you entrusted us with:<br/>
+          <strong>Email</strong>: #{EMAIL}<br/>
+          <strong>Your account:</strong> <a href="https://#{USERNAME}.pryv.me" target="_blank">#{USERNAME}.pryv.me</a><br/></p>
+        description: "Welcome email template in english language"
+      WELCOME_TEMPLATE_FR:
+        value: |-
+          <img src="https://pryv.com/wp-content/uploads/2018/04/logo-1024-jpg-650x230.jpg" alt="Logo"> 
+          <h1><span style="color:#bd1026">Bonjour</span> #{USERNAME},</h1>
+          <h2><span style="color:#bd1026">Merci pour la création de votre compte Pryv</span></h2>
+          <p style="text-align: justify;">Nous avons développé Pryv pour vous fournir une place pour collecter et unifier vos données de vies, tout en respectant votre sécurité et votre vie privée. Connectez vos applications et appareils, gérez et partagez en toute conscience.<br/></p>
+          <p style="text-align: center;">Informations que vous nous avez confiées:<br/>
+          <strong>Email</strong>: #{EMAIL}<br/>
+          <strong>Votre compte:</strong> <a href="https://#{USERNAME}.pryv.me" target="_blank">#{USERNAME}.pryv.me</a><br/></p>
+        description: "Welcome email template in french language"
+      WELCOME_TEMPLATE_DE:
+        value: |-
+          <img src ="https://api.pryv.com/style/images/logo-256.png" alt="Logo">
+          <h1> <span style = "color: # bd1026"> Grezi </ span> # {USERNAME}, </h1>
+          <h2> <span style = "color: # bd1026"> Vielen Dank, dass Sie Ihr Pryv-Konto erstellt haben. </ span> </h2>
+          <p style="text-align: justify;"> Wir haben Pryv so erstellt, dass Sie einen privaten und sicheren Ort haben, an dem Sie Ihr persönliches digitales Leben sammeln und vereinen können. Verbinden Sie Apps und Geräte, erhalten Sie Einblicke und teilen Sie sie selektiv. <br/> </p>
+          <p style="text-align: center;"> Informationen, die Sie uns anvertraut haben: <br/>
+          <strong> E-Mail </strong>:#{EMAIL} <br/>
+          <strong> Ihr Konto: </strong> <a href="https://#{USERNAME}.pryv.me" target="_blank">#{USERNAME}.pryv.me</a><br/></p>
+        description: "Welcome email template in german language"
+      WELCOME_SUBJECT_EN:
+        value: " = `Welcome to Pryv`"
+        description: "Welcome email subject template in english language"
+      WELCOME_SUBJECT_FR:
+        value: "= `Bienvenue sur Pryv`"
+        description: "Welcome email subject template in french language"
+      WELCOME_SUBJECT_DE:
+        value: "= `Wilkommen bei Pryv`"
+        description: "Welcome email subject template in german language" 
   MFA_SETTINGS:
     optional: true
     name: "MFA settings"
