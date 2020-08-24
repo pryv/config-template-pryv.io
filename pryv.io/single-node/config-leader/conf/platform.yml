@@ -18,7 +18,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.0.36
+        value: 1.0.37
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
@@ -133,13 +133,13 @@ vars:
           p Pryv-Team
         description: "Reset password email template in german language"
       RESET_PASSWORD_SUBJECT_EN:
-        value: " = `Password reset`"
+        value: "= `Password reset`"
         description: "Reset password email subject template in english language"
       RESET_PASSWORD_SUBJECT_FR:
-        value: " = `Mot de passe réinitialisé`"
+        value: "= `Mot de passe réinitialisé`"
         description: "Reset password email subject template in french language"
       RESET_PASSWORD_SUBJECT_DE:
-        value: " = `Passwort zurücksetzen`"
+        value: "= `Passwort zurücksetzen`"
         description: "Reset password email subject template in german language"
       WELCOME_TEMPLATE_EN:
         value: |-
@@ -153,7 +153,7 @@ vars:
         description: "Welcome email template in english language"
       WELCOME_TEMPLATE_FR:
         value: |-
-          <img src="https://pryv.com/wp-content/uploads/2018/04/logo-1024-jpg-650x230.jpg" alt="Logo"> 
+          <img src="https://api.pryv.com/style/images/logo-256.png" alt="Logo"> 
           <h1><span style="color:#bd1026">Bonjour</span> #{USERNAME},</h1>
           <h2><span style="color:#bd1026">Merci pour la création de votre compte Pryv</span></h2>
           <p style="text-align: justify;">Nous avons développé Pryv pour vous fournir une place pour collecter et unifier vos données de vies, tout en respectant votre sécurité et votre vie privée. Connectez vos applications et appareils, gérez et partagez en toute conscience.<br/></p>
@@ -172,7 +172,7 @@ vars:
           <strong> Ihr Konto: </strong> <a href="https://#{USERNAME}.pryv.me" target="_blank">#{USERNAME}.pryv.me</a><br/></p>
         description: "Welcome email template in german language"
       WELCOME_SUBJECT_EN:
-        value: " = `Welcome to Pryv`"
+        value: "= `Welcome to Pryv`"
         description: "Welcome email subject template in english language"
       WELCOME_SUBJECT_FR:
         value: "= `Bienvenue sur Pryv`"
