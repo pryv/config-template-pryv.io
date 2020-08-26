@@ -279,6 +279,9 @@ vars:
         description: "Allows to define a set of invitation tokens for user creation by providing
         # an array of strings as well as no check (null) & prevent all (empty array)"
       CUSTOM_AUTH_FUNCTION:
-        description: "Custom middleware function executed for each incoming request. May serve e.g. as additional authentication or validation step. More information: https://api.pryv.com/guides/custom-auth/"
-        value: ""
+        description: "Custom middleware function executed for each incoming request. 
+        May serve e.g. as additional authentication or validation step. 
+        Dafault value: 'module.exports = function () {}'. 
+        More information: https://api.pryv.com/guides/custom-auth/"
+        value: "module.exports = function () {}"
 
