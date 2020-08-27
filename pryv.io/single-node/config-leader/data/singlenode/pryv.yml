@@ -68,7 +68,7 @@ services:
 
   # Core role START ------------------------------------------------------------
   core:
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.5.22"
+    image: "pryvsa-docker-release.bintray.io/pryv/core:1.5.23"
     container_name: pryvio_core
     networks:
       - frontend
