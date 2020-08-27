@@ -19,7 +19,7 @@ services:
     restart: always
 
   admin_panel: 
-    image: "pryvsa-docker-release.bintray.io/pryv/app-web-admin:1.0.1"
+    image: "pryvsa-docker-release.bintray.io/pryv/app-web-admin:1.0.2"
     container_name: pryvio_admin_panel
     networks: 
       - frontend
