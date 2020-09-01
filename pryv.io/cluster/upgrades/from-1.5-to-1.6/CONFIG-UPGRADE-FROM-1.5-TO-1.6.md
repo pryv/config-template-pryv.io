@@ -8,7 +8,8 @@ This guide describes the config parameters that you should put in place when upg
 You must edit `config-leader/conf/platform.yml` file with the values provided below.  
 
 #### New config values
-1. (No action needed for cluster mode) By default now Pryv comes as a single node and for cluster mode to work, SINGLE_NODE:IS_ACTIVE should be set to false as in the SINGLE_NODE.
+1. (No action needed for cluster mode) By default now Pryv comes as a single node and for cluster mode to work, 
+MACHINES_AND_PLATFORM_SETTINGS:settings:SINGLE_NODE:IS_ACTIVE should be set to false as in the default platform.yml file.
 2. Now user registration could be customized by appending CUSTOM_SYSTEM_STREAMS:account parameter list.
 ```
 Default CUSTOM_SYSTEM_STREAMS value is email field because 
@@ -50,7 +51,7 @@ Example for custom field:
 }
 ```
 
-*  insuranceNumber - streamId that will be saved to the event
+*  id - streamId that will be saved to the event
     *  string
     *  required
 
@@ -85,3 +86,33 @@ Example for custom field:
 *  regexValidation - if present, will validate field with a given regex rule
     *  string
     *  optional, default null
+    
+```
+So full config with email and insurance number would look like this:
+
+CUSTOM_SYSTEM_STREAMS={
+    "account": [
+    {
+      "id": "email",
+      "type": "email/string",
+      "isIndexed": true,
+      "isUnique": true,
+      "isShown": true,
+      "isEditable": true,
+      "name": "Email",
+      "isRequiredInValidation": true
+    },
+    {
+      "id": "insuranceNumber", 
+      "type": "insurancenumber/string",
+      "isIndexed": false,
+      "isUnique": false,
+      "isShown": true,
+      "isEditable": false,
+      "name": "Insurance number",
+      "isRequiredInValidation": false,
+      "regexValidation": "^[0-9]*$"
+    }
+    ]
+}
+```

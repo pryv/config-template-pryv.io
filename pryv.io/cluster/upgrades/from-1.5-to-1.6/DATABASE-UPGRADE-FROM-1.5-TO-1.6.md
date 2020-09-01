@@ -31,7 +31,7 @@ Backup your latest mongo database.
     ```
     docker exec -it pryvio_mongodb_migration_step_1 /bin/sh /app/setFeatureCompatibilityVersion.sh`
     ```
-   The answer should contain '"ok" : 0', if it doesn't, you can check the logs with the commands below.
+   The answer should contain '"ok" : 1', if it doesn't, you can check the logs with the commands below.
    ```
     (if you switch windows don't forget to set PRYV_CONF_ROOT that you did in the first step):
     
