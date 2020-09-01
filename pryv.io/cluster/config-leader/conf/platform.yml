@@ -8,6 +8,15 @@ vars:
       STATIC_WEB_IP_ADDRESS:
         value: REPLACE_ME
         description: "IP address of the machine"
+      SINGLE_NODE:
+        description: "Defines if the platform should have a reg_master"
+          value:
+            isActive:
+              value: false
+              description: "If true, platform will not use reg_master config"
+            publicUrl:
+              value: "REPLACE_ME"
+              description: "If isActive=true, publicUrl should have the value set equal to the DOMAIN"
       REG_MASTER_IP_ADDRESS:
         value: REPLACE_ME
         description: "IP address of register master machine"
@@ -281,7 +290,15 @@ vars:
       CUSTOM_AUTH_FUNCTION:
         description: "Custom middleware function executed for each incoming request. 
         May serve e.g. as additional authentication or validation step. 
-        Dafault value: 'module.exports = function () {}'. 
+        Default value: 'module.exports = function () {}'.
         More information: https://api.pryv.com/guides/custom-auth/"
         value: "module.exports = function () {}"
+      CUSTOM_SYSTEM_STREAMS:
+        description: "Custom account fields that are saved and validated during the registration.
+        Preferably these values should be set only once, because fields like isUnique or isIndexed would not be updated
+        after settings update.
+        Default value: {'account': [{'isIndexed': true,'isUnique': true,'isShown': true,'isEditable': true,'type': 'email/string',
+                                     'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
+        More information: ???"
+        value: '{"account": [{"isIndexed": true,"isUnique": true,"isShown": true,"isEditable": true,"type": "email/string","name": "Email","id": "email","isRequiredInValidation": true}]}'
 

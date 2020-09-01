@@ -61,5 +61,11 @@
   },
   "customExtensions": {
     "defaultFolder": "/app/conf/custom-extensions"
+  },
+  "singleNode": {
+    "isActive": false
+  },
+  "systemStreams": {
+    "custom": CUSTOM_SYSTEM_STREAMS
   }
 }
