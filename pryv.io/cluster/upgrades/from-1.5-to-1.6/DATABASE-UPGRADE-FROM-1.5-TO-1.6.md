@@ -6,7 +6,7 @@ If you have earlier version, please upgrade it to 1.5 version first.
 
 ## Backup current configuration
 
-Backup your latest mongodb configuration file. It should be located in your `${PRYV_CONF_ROOT}/pryv/mongodb/conf/` folder.
+Connect to each of your cores and backup your latest mongodb configuration file. It should be located in your `${PRYV_CONF_ROOT}/pryv/mongodb/conf/` folder.
 
 ## Backup current database
 
@@ -21,6 +21,7 @@ Backup your latest mongo database.
 2. Stop any running containers: run 
     ```
     docker stop $(docker ps -a -q)
+   Ask Ilia - maybe better - ./stop-pryv
     ```
 3. Start first MongoDB upgrade step while being in the folder of this tutorial: 
     ```
@@ -29,7 +30,7 @@ Backup your latest mongo database.
 4. Update mongodb compatibility: 
     
     ```
-    docker exec -it pryvio_mongodb_migration_step_1 /bin/sh /app/setFeatureCompatibilityVersion.sh`
+    docker exec -it pryvio_mongodb_migration_step_1 /bin/sh /app/setFeatureCompatibilityVersion.sh
     ```
    The answer should contain '"ok" : 1', if it doesn't, you can check the logs with the commands below.
    ```
@@ -37,14 +38,14 @@ Backup your latest mongo database.
     
     tail -f $PRYV_CONF_ROOT/pryv/mongodb/log/mongodb.log
     ```
-5. If everything is successful, stop the containers 
+5. If everything is successful, stop the migration container 
     ```
-    docker stop $(docker ps -a -q)
+    docker stop pryvio_mongodb_migration_step_1
     ```
 6. Start second MongoDB upgrade step: 
     ```
-     PRYV_CONF_ROOT=$PRYV_CONF_ROOT docker-compose -f mongo-upgrade-from-3.6-to-4.2.yml up --detach pryvio_mongodb_migration_step_2
-    ```
+    PRYV_CONF_ROOT=$PRYV_CONF_ROOT docker-compose -f mongo-upgrade-from-3.6-to-4.2.yml up --detach pryvio_mongodb_migration_step_2
+   ```
 7. Update mongo settings: 
     ```
       docker exec -it pryvio_mongodb_migration_step_2 /bin/sh /app/convertToReplicaSet.sh
