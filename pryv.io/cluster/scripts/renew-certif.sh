@@ -6,14 +6,20 @@ LETSENCRYPT_DIR="/etc/letsencrypt/archive"
 LEADER="http://0.0.0.0:7000"
 USERNAME="admin"
 PASSWORD="admin"
-
+log="/var/log/renew_cert.log"
+set -e
 if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/$DOMAIN/privkey.pem ]) || \
 ([ $(echo "$((($(date '+%s')-$(date -r $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem '+%s'))/43200))") -gt 60 ] && \
 [ $(echo "$((($(date '+%s')-$(date -r $LETSENCRYPT_DIR/$DOMAIN/privkey.pem '+%s'))/43200))") -gt 60 ])); then
-    mkdir -p $LETSENCRYPT_DIR/tmp/$DOMAIN
-    cp -f $LETSENCRYPT_DIR/$DOMAIN $LETSENCRYPT_DIR/tmp/$DOMAIN
+    # mkdir -p $LETSENCRYPT_DIR/tmp/$DOMAIN
+    echo $DOMAIN
+    cp -rf $LETSENCRYPT_DIR/$DOMAIN $LETSENCRYPT_DIR/tmp/$DOMAIN
     apt-get update
     pkgs='certbot'
+    if ! dpkg -s $pkgs >/dev/null 2>&1; then
+    apt-get -y install $pkgs
+    fi
+    pkgs='jq'
     if ! dpkg -s $pkgs >/dev/null 2>&1; then
     apt-get -y install $pkgs
     fi
@@ -30,20 +36,46 @@ if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/
         npm install $package --no-shrinkwrap
     fi
 
-    echo "Y" | certbot certonly --manual --manual-auth-hook $SCRIPTS/hook.js -d *.$DOMAIN --dry-run
+    {
+        echo "Y" | certbot certonly --manual --manual-auth-hook $SCRIPTS/hook.js -d *.$DOMAIN --dry-run
+    } || {
+        echo $(date) Error to create new certificate >> $log
+        }
 
-    directories=`find $DATA -name "secret" -type d`
     date=`date "+%Y%m%d"`
-    dateFull=`date -r "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" "+%Y%m%d"`
-    datePriv=`date -r "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" "+%Y%m%d"`
+    dateFull=`date -r "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" "+%Y%m%d"` || echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem does not exist >> $log
+    datePriv=`date -r "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" "+%Y%m%d"`|| echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/privkey.pem does not exist >> $log
     if ([ -f "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" ] && [ "$date" == "$dateFull" ] && [ -f "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" ] && [ "$date" == "$datePriv" ]); then
+        directories=`find $DATA -name "secret" -type d`
         echo "$directories" | while read directory; do
             # When acknowledged, put fullchain.pem > pryv.li-bundle.crt and privkey.pem > pryv.li-key.pem
             cp $LETSENCRYPT_DIR/$DOMAIN/test_renew.crt $directory/test.crt
             echo "$directory"
         done
+
         token=`curl -s -X POST -H "Content-Type: application/json" -d "{\"username\": \"$USERNAME\", \"password\": \"$PASSWORD\"}" $LEADER/auth/login | \
-        python3 -c "import sys, json; print(json.load(sys.stdin)['token'])"`
+        jq '.token' | tr -d '"'`
         curl -X POST -H "Authorization: $token" $LEADER/admin/notify
+
+        followers=`jq '.followers[].url' /app/conf/config-leader.json`
+        echo "$followers" | while read follower; do
+            follower=`tr -d '"' <<< "$follower"`
+            if [[ $follower == https://* ]];then
+                follower=`echo ${follower:(8)}`
+                echo | openssl s_client -servername $follower -connect $follower:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $LETSENCRYPT_DIR/tmp.crt
+                if cmp -s $LETSENCRYPT_DIR/tmp.crt $LETSENCRYPT_DIR/$DOMAIN/cert.pem; then
+                    echo "Success $follower"
+                else
+                    echo "Failure $follower"
+                fi
+            fi
+        done
+
+    else
+        rm -rf $LETSENCRYPT_DIR/$DOMAIN
+        cp -rf $LETSENCRYPT_DIR/tmp/$DOMAIN $LETSENCRYPT_DIR/$DOMAIN
+        echo $(date) Error: Certificates are not new >> $log
     fi
+        rm -rf $LETSENCRYPT_DIR/tmp/$DOMAIN
 fi
+# echo | openssl s_client -servername adm.pryv.li -connect adm.pryv.li:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $LETSENCRYPT_DIR/tmp.crt
