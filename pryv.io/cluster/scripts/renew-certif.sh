@@ -9,9 +9,8 @@ PASSWORD="admin"
 log="/var/log/renew_cert.log"
 set -e
 if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/$DOMAIN/privkey.pem ]) || \
-([ $(echo "$((($(date '+%s')-$(date -r $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem '+%s'))/43200))") -gt 60 ] && \
-[ $(echo "$((($(date '+%s')-$(date -r $LETSENCRYPT_DIR/$DOMAIN/privkey.pem '+%s'))/43200))") -gt 60 ])); then
-    # mkdir -p $LETSENCRYPT_DIR/tmp/$DOMAIN
+([ $(echo "$((($(echo | openssl x509 -enddate -noout -in $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem| sed 's/^.\{9\}//' | date  -f - '+%s') - $(date '+%s'))/43200))") -lt 30 ] && \
+[ $(echo "$((($(echo | openssl x509 -enddate -noout -in $LETSENCRYPT_DIR/$DOMAIN/privkey.pem| sed 's/^.\{9\}//' | date  -f - '+%s') - $(date '+%s'))/43200))") -lt 30 ])); then
     echo $DOMAIN
     cp -rf $LETSENCRYPT_DIR/$DOMAIN $LETSENCRYPT_DIR/tmp/$DOMAIN
     apt-get update
@@ -43,9 +42,11 @@ if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/
         }
 
     date=`date "+%Y%m%d"`
+    dateCert=`echo | openssl x509 -enddate -noout -in $LETSENCRYPT_DIR/$DOMAIN/cert.pem| sed 's/^.\{9\}//' | date  -f - "+%Y%m%d"` || echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/cert.pem does not exist >> $log
     dateFull=`date -r "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" "+%Y%m%d"` || echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem does not exist >> $log
     datePriv=`date -r "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" "+%Y%m%d"`|| echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/privkey.pem does not exist >> $log
-    if ([ -f "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" ] && [ "$date" == "$dateFull" ] && [ -f "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" ] && [ "$date" == "$datePriv" ]); then
+    if ([ -f "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" ] && [ "$date" == "$dateFull" ] && [ -f "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" ] && [ "$date" == "$datePriv" ] && \
+    [ "$date" == "$dateCert" ]); then
         directories=`find $DATA -name "secret" -type d`
         echo "$directories" | while read directory; do
             # When acknowledged, put fullchain.pem > pryv.li-bundle.crt and privkey.pem > pryv.li-key.pem
@@ -79,3 +80,4 @@ if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/
         rm -rf $LETSENCRYPT_DIR/tmp/$DOMAIN
 fi
 # echo | openssl s_client -servername adm.pryv.li -connect adm.pryv.li:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $LETSENCRYPT_DIR/tmp.crt
+# echo | openssl x509 -enddate -noout -in /etc/letsencrypt/archive/pryv.li/cert.pem| sed 's/^.\{9\}//' | date  -f - '+%s'
