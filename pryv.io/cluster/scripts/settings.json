@@ -1,0 +1,10 @@
+{
+    "baseUrl": "http://0.0.0.0:7000",
+    "domain": "pryv.li",
+    "privateAddressDns" : "172.19.0.1",
+    "servicesToRestart" : ["pryvio_config_follower", "pryvio_dns"],
+    "platformPath" : "/app/conf/platform.yml",
+    "username" : "admin",
+    "password" : "admin",
+    "timeout" : 30000
+}
