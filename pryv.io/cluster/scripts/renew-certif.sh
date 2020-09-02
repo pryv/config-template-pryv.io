@@ -42,11 +42,9 @@ if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/
         }
 
     date=`date "+%Y%m%d"`
-    dateCert=`echo | openssl x509 -enddate -noout -in $LETSENCRYPT_DIR/$DOMAIN/cert.pem| sed 's/^.\{9\}//' | date  -f - "+%Y%m%d"` || echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/cert.pem does not exist >> $log
-    dateFull=`date -r "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" "+%Y%m%d"` || echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem does not exist >> $log
+    dateFull=`echo | openssl x509 -enddate -noout -in $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem| sed 's/^.\{9\}//' | date  -f - "+%Y%m%d"` || echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/cert.pem does not exist >> $log
     datePriv=`date -r "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" "+%Y%m%d"`|| echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/privkey.pem does not exist >> $log
-    if ([ -f "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" ] && [ "$date" == "$dateFull" ] && [ -f "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" ] && [ "$date" == "$datePriv" ] && \
-    [ "$date" == "$dateCert" ]); then
+    if ([ -f "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" ] && [ "$date" == "$dateFull" ] && [ -f "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" ] && [ "$date" == "$datePriv" ]); then
         directories=`find $DATA -name "secret" -type d`
         echo "$directories" | while read directory; do
             # When acknowledged, put fullchain.pem > pryv.li-bundle.crt and privkey.pem > pryv.li-key.pem
@@ -80,4 +78,4 @@ if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/
         rm -rf $LETSENCRYPT_DIR/tmp/$DOMAIN
 fi
 # echo | openssl s_client -servername adm.pryv.li -connect adm.pryv.li:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $LETSENCRYPT_DIR/tmp.crt
-# echo | openssl x509 -enddate -noout -in /etc/letsencrypt/archive/pryv.li/cert.pem| sed 's/^.\{9\}//' | date  -f - '+%s'
+# echo | openssl x509 -enddate -noout -in /etc/letsencrypt/archive/pryv.li/fullchain.pem| sed 's/^.\{9\}//' | date  -f - '+%s'
