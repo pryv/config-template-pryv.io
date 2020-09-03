@@ -281,7 +281,7 @@ vars:
       CUSTOM_AUTH_FUNCTION:
         description: "Custom middleware function executed for each incoming request. 
         May serve e.g. as additional authentication or validation step. 
-        Dafault value: 'module.exports = function () {}'. 
+        Default value: 'module.exports=function(ctx, cb){cb();}'. 
         More information: https://api.pryv.com/guides/custom-auth/"
-        value: "module.exports = function () {}"
+        value: "module.exports=function(ctx, cb){cb();}"
 
