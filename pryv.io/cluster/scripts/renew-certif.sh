@@ -56,17 +56,17 @@ function propagateCertificate() {
 function checkCertificateFollowers() {
     followers=`jq '.followers[].url' /app/conf/config-leader.json`
         echo "$followers" | while read follower; do
-            follower=`tr -d '"' <<< "$follower"`
-            if [[ $follower == https://* ]];then
-                follower=`echo ${follower:(8)}`
-                echo | openssl s_client -servername $follower -connect $follower:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $LETSENCRYPT_DIR/tmp.crt
-                if cmp -s $LETSENCRYPT_DIR/tmp.crt $LETSENCRYPT_DIR/$DOMAIN/cert.pem; then
-                    echo "Success $follower"
-                else
-                    echo "Failure $follower"
-                fi
+        follower=`tr -d '"' <<< "$follower"`
+        if [[ $follower == https://* ]];then
+            follower=`echo ${follower:(8)}`
+            echo | openssl s_client -servername $follower -connect $follower:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $LETSENCRYPT_DIR/tmp.crt
+            if cmp -s $LETSENCRYPT_DIR/tmp.crt $LETSENCRYPT_DIR/$DOMAIN/cert.pem; then
+                echo $(date) Success: $follower did receive the certificate >> $log
+            else
+                echo $(date) Error: $follower did not receive the certificate >> $log
             fi
-        done
+        fi
+    done
 }
 
 set -e
@@ -78,7 +78,7 @@ if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/
     requestCertificate
 
     date=`date "+%Y%m%d"`
-    dateFull=`echo | openssl x509 -enddate -noout -in $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem| sed 's/^.\{9\}//' | date  -f - "+%Y%m%d"` || echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/cert.pem does not exist >> $log
+    datePriv=`date -r "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" "+%Y%m%d"`|| echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/privkey.pem does not exist >> $log
     datePriv=`date -r "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" "+%Y%m%d"`|| echo $(date) Error: $LETSENCRYPT_DIR/$DOMAIN/privkey.pem does not exist >> $log
     if ([ -f "$LETSENCRYPT_DIR/$DOMAIN/fullchain.pem" ] && [ "$date" == "$dateFull" ] && [ -f "$LETSENCRYPT_DIR/$DOMAIN/privkey.pem" ] && [ "$date" == "$datePriv" ]); then
         propagateCertificate
@@ -91,5 +91,3 @@ if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/
     fi
         rm -rf $LETSENCRYPT_DIR/tmp/$DOMAIN
 fi
-# echo | openssl s_client -servername adm.pryv.li -connect adm.pryv.li:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > $LETSENCRYPT_DIR/tmp.crt
-# echo | openssl x509 -enddate -noout -in /etc/letsencrypt/archive/pryv.li/fullchain.pem| sed 's/^.\{9\}//' | date  -f - '+%s'

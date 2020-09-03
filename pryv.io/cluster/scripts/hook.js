@@ -22,7 +22,7 @@ async function main() {
     const startTime = new Date();
     console.log('Check if the DNS answers with the acme-challenge')
     let counter = 0;
-    while (dig_txt !== acme && counter > 3) {
+    while (dig_txt !== acme && counter < 3) {
         dig_txt = execSync('dig @' + settings.privateAddressDns + ' TXT +noall +answer +short _acme-challenge.' + settings.domain).toString().replace(/"/g, '').trim();
         if(dig_txt == acme){
             counter += 1;
