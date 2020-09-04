@@ -8,15 +8,6 @@ vars:
       STATIC_WEB_IP_ADDRESS:
         value: REPLACE_ME
         description: "IP address of the machine"
-      SINGLE_NODE:
-        description: "Defines if the platform should have a reg_master"
-          value:
-            isActive:
-              value: false
-              description: "If true, platform will not use reg_master config"
-            publicUrl:
-              value: "REPLACE_ME"
-              description: "If isActive=true, publicUrl should be set. It is the 'Public' URL to reach the service, usually exposed in https by a third party SSL service such as NGNIX."
       REG_MASTER_IP_ADDRESS:
         value: REPLACE_ME
         description: "IP address of register master machine"
@@ -300,5 +291,5 @@ vars:
         Default value: {'account': [{'isIndexed': true,'isUnique': true,'isShown': true,'isEditable': true,'type': 'email/string',
                                      'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
         More information could be found here: ???"
-        value: '{"account": [{"isIndexed": true,"isUnique": true,"isShown": true,"isEditable": true,"type": "email/string","name": "Email","id": "email","isRequiredInValidation": true}]}'
+        value: "{\"account\": [{\"isIndexed\": true,\"isUnique\": true,\"isShown\": true,\"isEditable\": true,\"type\": \"email/string\",\"name\": \"Email\",\"id\": \"email\",\"isRequiredInValidation\": true}]}"
 
