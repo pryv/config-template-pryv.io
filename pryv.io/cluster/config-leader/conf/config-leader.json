@@ -12,6 +12,9 @@
     },
     "file": {
       "active": false
+    },
+    "audit": {
+      "filePath": "/app/data/audit.log"
     }
   },
   "templatesPath": "/app/data",
