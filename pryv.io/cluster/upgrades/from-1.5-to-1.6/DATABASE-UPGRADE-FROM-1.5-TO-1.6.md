@@ -50,4 +50,8 @@ Backup your latest mongo database.
     ```
       docker exec -it pryvio_mongodb_migration_step_2 /bin/sh /app/convertToReplicaSet.sh
     ```
-8. Continue with platform update steps in file `MAIN-UPGRADE-FROM-1.5-TO-1.6.md`.
+8. Stop second migration container: 
+    ```
+    docker stop pryvio_mongodb_migration_step_2
+    ```
+9. Continue with platform update steps in file `MAIN-UPGRADE-FROM-1.5-TO-1.6.md`.
