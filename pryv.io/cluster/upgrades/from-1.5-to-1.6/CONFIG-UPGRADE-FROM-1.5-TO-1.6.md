@@ -9,26 +9,26 @@ You must edit `config-leader/conf/platform.yml` file with the values provided be
 
 #### New config values
 1. (No action needed for cluster mode) By default now Pryv comes as a single node and for cluster mode to work, 
-MACHINES_AND_PLATFORM_SETTINGS:settings:SINGLE_NODE:IS_ACTIVE should be set to false as in the default platform.yml file.
-2. Now user registration could be customized by appending CUSTOM_SYSTEM_STREAMS:account parameter list.
+`MACHINES_AND_PLATFORM_SETTINGS:settings:SINGLE_NODE:IS_ACTIVE` should be set to false as in the default platform.yml file.
+2. Now user registration could be customized by appending `CUSTOM_SYSTEM_STREAMS:account` parameter list.
 ```
 Default CUSTOM_SYSTEM_STREAMS value is email field because 
 it could be set as mandatory or not during the registration
 
 CUSTOM_SYSTEM_STREAMS={
-      "account": [
-        {
-          "id": "email",
-          "type": "email/string",
-          "isIndexed": true,
-          "isUnique": true,
-          "isShown": true,
-          "isEditable": true,
-          "name": "Email",
-          "isRequiredInValidation": true
-        }
-      ]
-    }
+    "account": [
+      {
+       "id": "email",
+       "type": "email/string",
+       "isIndexed": true,
+       "isUnique": true,
+       "isShown": true,
+       "isEditable": true,
+       "name": "Email",
+       "isRequiredInValidation": true
+      }
+    ]
+}
 ```
 
 ## Custom user registration

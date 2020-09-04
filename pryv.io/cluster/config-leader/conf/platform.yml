@@ -16,7 +16,7 @@ vars:
               description: "If true, platform will not use reg_master config"
             publicUrl:
               value: "REPLACE_ME"
-              description: "If isActive=true, publicUrl should have the value set equal to the DOMAIN"
+              description: "If isActive=true, publicUrl should be set. It is the 'Public' URL to reach the service, usually exposed in https by a third party SSL service such as NGNIX."
       REG_MASTER_IP_ADDRESS:
         value: REPLACE_ME
         description: "IP address of register master machine"
@@ -299,6 +299,6 @@ vars:
         after settings update.
         Default value: {'account': [{'isIndexed': true,'isUnique': true,'isShown': true,'isEditable': true,'type': 'email/string',
                                      'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
-        More information: ???"
+        More information could be found here: ???"
         value: '{"account": [{"isIndexed": true,"isUnique": true,"isShown": true,"isEditable": true,"type": "email/string","name": "Email","id": "email","isRequiredInValidation": true}]}'
 
