@@ -15,7 +15,6 @@ services:
     image: "pryvsa-docker-release.bintray.io/pryv/mongodb:migration-4.2.9"
     container_name: pryvio_mongodb_migration_step_2
     volumes:
-      - ./mongodb-conf/mongodb.conf:/app/conf/mongodb.conf:ro
       - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
     restart: "no"

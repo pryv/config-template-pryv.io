@@ -1,5 +1,5 @@
 
-# Config upgrade from 1.5 to 1.6
+# Config upgrade from version 1.5 to 1.6.0
 
 This is the initial instruction for upgrade Pryv.io system from 1.5 to 1.6. If you have earlier version, please first update to Pryv.io 1.5.
 
@@ -20,7 +20,7 @@ To upgrade Pryv.io to 1.6 these steps have to be made
 3. Set a new version of Pryv.io core, mongodb containers from 1.5.x to 1.6.0 in your 
 config-leader/data/core/pryv.yml file ???
 
-4. Set a new version of Pryv.io register container from 1.3.x to 1.4.0 in your 
+4. Set a new version of the Pryv.io register container from 1.3.x to 1.6.0 in your 
  config-leader/data/reg-master/pryv.yml file ???
  
 5. Launch the platform with ???

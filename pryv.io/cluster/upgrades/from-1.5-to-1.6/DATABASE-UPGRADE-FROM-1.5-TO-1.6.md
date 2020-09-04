@@ -14,7 +14,7 @@ Backup your latest mongo database.
 
 ## Steps
 
-1. Set your pryv root folder 
+1. Set your Pryv.io root folder 
     ```
     PRYV_CONF_ROOT=<your PRYV_CONF_ROOT path>
     ```
@@ -38,7 +38,7 @@ Backup your latest mongo database.
     
     tail -f $PRYV_CONF_ROOT/pryv/mongodb/log/mongodb.log
     ```
-5. If everything is successful, stop the migration container 
+5. If everything is successful, stop the migration container:
     ```
     docker stop pryvio_mongodb_migration_step_1
     ```
@@ -48,10 +48,10 @@ Backup your latest mongo database.
    ```
 7. Update mongo settings: 
     ```
-      docker exec -it pryvio_mongodb_migration_step_2 /bin/sh /app/convertToReplicaSet.sh
+    docker exec -it pryvio_mongodb_migration_step_2 /bin/sh /app/convertToReplicaSet.sh
     ```
 8. Stop second migration container: 
     ```
     docker stop pryvio_mongodb_migration_step_2
     ```
-9. Continue with platform update steps in file `MAIN-UPGRADE-FROM-1.5-TO-1.6.md`.
+9. Continue with the platform update steps from the file `MAIN-UPGRADE-FROM-1.5-TO-1.6.md`.
