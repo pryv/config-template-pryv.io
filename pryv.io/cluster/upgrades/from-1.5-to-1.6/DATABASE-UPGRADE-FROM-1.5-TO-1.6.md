@@ -1,12 +1,12 @@
 
 # Database upgrade from 1.5 to 1.6
 
-This guide describes how to upgrade your mongodb from 3.6 to 4.2 version. It is only valid if you have Pryv with version 1.5. 
+This guide describes how to upgrade your MongoDB from 3.6 to 4.2 version. It is only valid if you have Pryv.io installed with the version 1.5. 
 If you have earlier version, please upgrade it to 1.5 version first.
 
 ## Backup current configuration
 
-Connect to each of your cores and backup your latest mongodb configuration file. It should be located in your `${PRYV_CONF_ROOT}/pryv/mongodb/conf/` folder.
+Connect to each of your cores and backup your latest MongoDB configuration file. It should be located in your `${PRYV_CONF_ROOT}/pryv/mongodb/conf/` folder.
 
 ## Backup current database
 
@@ -27,7 +27,7 @@ Backup your latest mongo database.
     ```
      PRYV_CONF_ROOT=$PRYV_CONF_ROOT docker-compose -f mongo-upgrade-from-3.6-to-4.2.yml up --detach pryvio_mongodb_migration_step_1
     ```
-4. Update mongodb compatibility: 
+4. Update MongoDB compatibility: 
     
     ```
     docker exec -it pryvio_mongodb_migration_step_1 /bin/sh /app/setFeatureCompatibilityVersion.sh

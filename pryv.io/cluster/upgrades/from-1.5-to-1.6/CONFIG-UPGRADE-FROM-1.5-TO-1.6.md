@@ -33,7 +33,7 @@ CUSTOM_SYSTEM_STREAMS={
 
 ## Custom user registration
 
-You could add additional fields that would be saved to userAccount data. for that you would need 
+You could add additional fields that would be saved to userAccount data. For that you would need 
 to append data to CUSTOM_SYSTEM_STREAMS:account list.
 ```
 Example for custom field:
