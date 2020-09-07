@@ -71,8 +71,5 @@
   },
   "openSource": {
     "isActive": false
-  },
-  "singleNode": {
-    "isActive": false
   }
 }

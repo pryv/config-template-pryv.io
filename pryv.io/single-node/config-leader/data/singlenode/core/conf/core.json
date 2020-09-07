@@ -63,10 +63,13 @@
   "customExtensions": {
     "defaultFolder": "/app/conf/custom-extensions"
   },
-  "openSource": {
+  "singleNode": {
     "isActive": false
   },
-  "singleNode": {
+  "custom": {
+    "systemStreams": CUSTOM_SYSTEM_STREAMS
+  },
+  "openSource": {
     "isActive": false
   }
 }
