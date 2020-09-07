@@ -18,7 +18,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.0.37
+        value: 1.0.38
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
@@ -251,6 +251,6 @@ vars:
       CUSTOM_AUTH_FUNCTION:
         description: "Custom middleware function executed for each incoming request. 
         May serve e.g. as additional authentication or validation step. 
-        Dafault value: 'module.exports = function () {}'. 
+        Default value: 'module.exports=function(ctx, cb){cb();}'. 
         More information: https://api.pryv.com/guides/custom-auth/"
-        value: "module.exports = function () {}"
+        value: "module.exports=function(ctx, cb){cb();}"
