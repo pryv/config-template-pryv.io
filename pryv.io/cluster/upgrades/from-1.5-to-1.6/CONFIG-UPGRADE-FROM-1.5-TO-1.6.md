@@ -1,5 +1,5 @@
 
-# Config upgrade from 1.5 to 1.6
+# Config upgrade from version 1.5 to 1.6.0
 
 This guide describes the config parameters that you should put in place when upgrading your Pryv.io platform from 1.5 to 1.6 version. If you have an older version, please first upgrade to the 1.5 version.
 
