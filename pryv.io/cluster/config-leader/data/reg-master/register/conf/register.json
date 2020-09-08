@@ -7,7 +7,6 @@
   },
   "service": {
     "serial": "2019061301",
-    "version": PRYV_IO_VERSION,
     "name": "PLATFORM_NAME",
     "support": "SUPPORT_URL",
     "terms": "TERMS_OF_USE_URL",

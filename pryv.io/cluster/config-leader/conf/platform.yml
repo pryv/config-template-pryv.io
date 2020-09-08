@@ -20,9 +20,6 @@ vars:
       REGISTER_ADMIN_KEY: 
         value: REPLACE_ME
         description: "Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin. Please set a strong cryptographic key"
-      PRYV_IO_VERSION:
-        value: "1.6.0"
-        description: "The version of Pryv.io that will be displayed in https://reg.DOMAIN/service/info"
       HOSTINGS_AND_CORES:
         description: "Defines the distribution of cores among the hostings providers"
         value:

@@ -8,10 +8,7 @@ This guide describes the config parameters that you should put in place when upg
 You must edit `config-leader/conf/platform.yml` file with the values provided below.  
 
 #### New config values
-1. Now the Platform API version exists as 'PRYV_IO_VERSION' parameter in platform.yml. It will be used to change the 
-authentication interface (app-web-auth3). If it is not set or the version is set to lower than `1.6.0` version,
-the old registration API endpoint will be used to register the user. 
-2. Now user registration could be customized by appending `CUSTOM_SYSTEM_STREAMS:account` parameter list.
+1. Now user registration could be customized by appending `CUSTOM_SYSTEM_STREAMS:account` parameter list.
 ```
 Default CUSTOM_SYSTEM_STREAMS value is email field because 
 it could be set as mandatory or not during the registration
