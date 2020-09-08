@@ -23,7 +23,7 @@ Backup your latest mongo database.
     ```
     PRYV_CONF_ROOT=<your PRYV_CONF_ROOT path>
     ```
-3. Go to the folder where is this tutorial and start first MongoDB upgrade step while being in the folder of this tutorial: 
+3. Go to the folder where is **this** tutorial and start first MongoDB upgrade step while being in the folder of this tutorial: 
     ```
      PRYV_CONF_ROOT=$PRYV_CONF_ROOT docker-compose -f mongo-upgrade-from-3.6-to-4.2.yml up --detach pryvio_mongodb_migration_step_1
     ```
