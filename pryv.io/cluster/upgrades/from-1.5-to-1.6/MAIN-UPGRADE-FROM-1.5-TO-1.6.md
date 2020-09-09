@@ -5,7 +5,7 @@ This is the initial instructions for upgrading Pryv.io system from version 1.5 t
 
 ## What is new
 
-Please check what is  new with Pryv.io 1.6 here ???
+Please check what is  new with Pryv.io 1.6 [here](https://pryv.github.io/change-log/)
 
 ## What upgrades need to be made
 
@@ -46,7 +46,7 @@ config-leader/data/core/pryv.yml file.
     1. Login with the old user
     2. Register a new user
      
-??? More information about new registration path, parameters and features could be found here???
-
+More information about new registration path, parameters and features could be found [here](https://pryv.github.io/customer-resources/system-streams/) 
+and [here](https://pryv.github.io/reference/#account-creation)
 
 **Congratulations!**
