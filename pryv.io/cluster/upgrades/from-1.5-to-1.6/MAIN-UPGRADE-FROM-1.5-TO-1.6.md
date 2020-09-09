@@ -28,24 +28,32 @@ config-leader/data/core/pryv.yml file.
  
 6. Reboot services in reg.DOMAIN server from your Pryv.io project root folder with 
 
-```
-./ensure-permissions-${ROLE}
-./restart-config-leader
-./restart-config-follower
-./restart-pryv
-```
+    ```
+    ./ensure-permissions-${ROLE}
+    ./restart-config-leader
+    ./restart-config-follower
+    ./restart-pryv
+    ```
 7. Reboot services in each core server from your Pryv.io project root folder with 
 
-```
-./ensure-permissions-${ROLE}
-./restart-config-follower
-./restart-pryv
-```
+    ```
+    ./ensure-permissions-${ROLE}
+    ./restart-config-follower
+    ./restart-pryv
+    ```
  
-7. Validate changes by trying to:
+8. Validate changes by trying to:
     1. Login with the old user
     2. Register a new user
-     
+    
+9. If everything is successful, you can remove database migration related containers and images.
+    ```
+    docker rm pryvio_mongodb_migration_step_1
+    docker rm pryvio_mongodb_migration_step_2
+    docker rmi pryvsa-docker-release.bintray.io/pryv/mongodb:migration-4.0.20
+    docker rmi pryvsa-docker-release.bintray.io/pryv/mongodb:migration-4.2.9
+    ```
+ 
 More information about new registration path, parameters and features could be found [here](https://pryv.github.io/customer-resources/system-streams/) 
 and [here](https://pryv.github.io/reference/#account-creation)
 

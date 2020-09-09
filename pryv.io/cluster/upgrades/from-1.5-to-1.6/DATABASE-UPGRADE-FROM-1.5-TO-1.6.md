@@ -14,6 +14,8 @@ Backup your latest mongo database.
 
 ## Steps
 
+You may need to run commends in sudo, depending on your server setup.
+
 1. Stop any running containers: run 
     ```
     In <your PRYV_CONF_ROOT path> run
