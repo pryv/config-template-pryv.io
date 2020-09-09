@@ -260,6 +260,6 @@ vars:
         after settings update.
         Default value: {'account': [{'isIndexed': true,'isUnique': true,'isShown': true,'isEditable': true,'type': 'email/string',
                                      'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
-        More information could be found here: ???"
+        More information could be found here: https://api.pryv.com/customer-resources/system-streams/"
         value: "{\"account\": [{\"isIndexed\": true,\"isUnique\": true,\"isShown\": true,\"isEditable\": true,\"type\": \"email/string\",\"name\": \"Email\",\"id\": \"email\",\"isRequiredInValidation\": true}]}"
 
