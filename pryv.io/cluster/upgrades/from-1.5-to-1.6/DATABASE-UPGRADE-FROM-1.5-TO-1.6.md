@@ -24,6 +24,9 @@ You may need to run commends in sudo, depending on your server setup.
 2. Set your Pryv.io root folder 
     ```
     PRYV_CONF_ROOT=<your PRYV_CONF_ROOT path>
+   
+    For example:
+    PRYV_CONF_ROOT=/var/pryv
     ```
 3. Go to the folder where is **this** tutorial and start first MongoDB upgrade step while being in the folder of this tutorial: 
     ```
