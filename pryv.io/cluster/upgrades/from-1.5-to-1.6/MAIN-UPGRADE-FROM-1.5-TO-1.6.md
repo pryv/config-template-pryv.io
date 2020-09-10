@@ -11,7 +11,7 @@ Please check what is  new with Pryv.io 1.6 [here](https://pryv.github.io/change-
 
 To upgrade Pryv.io to the version 1.6, the following steps need to be done:
 
-1. Before you start, make sure you have 1 user login credentials that you will use in the end of this tutorial
+1. Before you start, make sure you have 1 user per core login credentials that you will use in the end of this tutorial
 to test the upgrade.
 
 2. Upgrade Pryv.io config to add new system streams 
@@ -41,7 +41,21 @@ config-leader/data/core/pryv.yml file.
     ./restart-config-follower
     ./restart-pryv
     ```
- 
+8. In each core server check when migration process is finished, it may take some time
+because all indexes have to be recreated. You can monitor the process with:
+
+    ```
+   For the mongodb:
+    tail -n 100 -f $PRYV_CONF_ROOT/pryv/mongodb/log/mongodb.log
+  
+   If there are many users, the process could timout. 
+   If that is the case, please restart the services in $PRYV_CONF_ROOT with ./restart-pryv.   
+   
+   For the core service:
+   docker logs -f pryvio_core
+   ```
+
+
 8. Validate changes by trying to:
     1. Login with the old user
     2. Register a new user
@@ -53,7 +67,9 @@ config-leader/data/core/pryv.yml file.
     docker rmi pryvsa-docker-release.bintray.io/pryv/mongodb:migration-4.0.20
     docker rmi pryvsa-docker-release.bintray.io/pryv/mongodb:migration-4.2.9
     ```
- 
+   
+ Also, you can delete old, not used images (you can see the list of all docker images by running `docker images`)
+
 More information about new registration path, parameters and features could be found [here](https://pryv.github.io/customer-resources/system-streams/) 
 and [here](https://pryv.github.io/reference/#account-creation)
 

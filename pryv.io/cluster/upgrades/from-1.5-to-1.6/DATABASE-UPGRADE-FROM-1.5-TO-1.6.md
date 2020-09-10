@@ -55,6 +55,8 @@ You may need to run commends in sudo, depending on your server setup.
     ```
     docker exec -it pryvio_mongodb_migration_step_2 /bin/sh /app/convertToReplicaSet.sh
     ```
+   If you get an error that if failed to connect to the localhost, you may need to wait few seconds more until MongoDB
+   will fully start.
 8. Stop second migration container: 
     ```
     docker stop pryvio_mongodb_migration_step_2
