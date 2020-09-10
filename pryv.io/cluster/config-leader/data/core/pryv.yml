@@ -60,6 +60,7 @@ services:
       - STARTING_PORT=3000
     links: 
       - mongodb
+      - influxdb
     restart: always
 
   mfa: 

@@ -17,6 +17,7 @@
       "filePath": "/app/data/audit.log"
     }
   },
+  "registerUrl": "register:9000",
   "templatesPath": "/app/data",
   "databasePath": "/app/database",
   "internals": {
