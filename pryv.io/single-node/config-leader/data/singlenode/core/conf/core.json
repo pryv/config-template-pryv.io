@@ -1,6 +1,7 @@
 {
   "env": "production",
   "domain": "DOMAIN",
+  "serviceInfoUrl": "https://reg.DOMAIN/service/info",
   "http": {
     "ip": "0.0.0.0",
     "port": "9000"
@@ -65,5 +66,14 @@
   },
   "customExtensions": {
     "defaultFolder": "/app/conf/custom-extensions"
+  },
+  "singleNode": {
+    "isActive": false
+  },
+  "custom": {
+    "systemStreams": CUSTOM_SYSTEM_STREAMS
+  },
+  "openSource": {
+    "isActive": false
   }
 }

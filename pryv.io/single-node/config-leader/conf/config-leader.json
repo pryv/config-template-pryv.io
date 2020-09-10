@@ -12,6 +12,9 @@
     },
     "file": {
       "active": false
+    },
+    "audit": {
+      "filePath": "/app/data/audit.log"
     }
   },
   "registerUrl": "register:9000",
