@@ -10,6 +10,10 @@
     "port": 27017,
     "name": "pryv-node"
   },
+  "influxdb": {
+    "host": "influxdb",
+    "port": 8086
+  },
   "eventFiles": {
     "attachmentsDirPath": "/app/data/attachments",
     "previewsDirPath": "/app/data/previews"
