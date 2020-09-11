@@ -1,16 +1,18 @@
 {
-  metadataUpdater: {
-    host: "127.0.0.1"
-    port: 9000
+  "metadataUpdater": {
+    "host": "127.0.0.1",
+    "port": 9000
   }
   
-  logs: {
-    console: {
-      level: info
+  "logs": {
+    "console": {
+      "level": "info"
     }
   }
   
   "mongodb": {
     "host": "mongodb"
   }
+
+  "serviceInfoUrl": "https://reg.DOMAIN/service/info"
 }
