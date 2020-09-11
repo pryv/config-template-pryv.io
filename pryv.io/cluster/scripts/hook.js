@@ -1,40 +1,40 @@
 #!/usr/bin/node
-/* npm install yamljs */
-/* npm install request */
-/* apt-get install certbot */
-/* apt-get install dnsutils */
-const yaml = require('yamljs');
 const fs = require('fs');
 const { execSync } = require('child_process');
 const request = require('request');
-const settings = require('/app/scripts/settings.json')
+const settings = require('/app/scripts/settings.json');
+
 main();
 async function main() {
     console.log('Start letsencrypt');
     const acme = process.env.CERTBOT_VALIDATION.toString();
-    let modifiedConfig = yaml.load(settings.platformPath);
-    modifiedConfig.vars.DNS_SETTINGS.settings.DNS_CUSTOM_ENTRIES.value['_acme-challenge'].description = acme;
+    let modifiedConfig = fs.readFileSync(settings.platformPath).toString();
+    let backup = fs.readFileSync(settings.platformPath).toString();
+    const regex = /\${ACME}/gi;
+    modifiedConfig = modifiedConfig.replace(regex, acme);
     console.log('Write the acme-challenge in the DNS');
-    fs.writeFileSync(settings.platformPath, yaml.stringify(modifiedConfig, 6, 3));
+    fs.writeFileSync(settings.platformPath, modifiedConfig);
     const token = (await requestToken()).token;
     await sendAcmeToDNS(token);
     var dig_txt = '';
     const startTime = new Date();
-    console.log('Check if the DNS answers with the acme-challenge')
+    console.log('Check if the DNS answers with the acme-challenge');
     let counter = 0;
     while (dig_txt !== acme && counter < 3) {
         dig_txt = execSync('dig @' + settings.privateAddressDns + ' TXT +noall +answer +short _acme-challenge.' + settings.domain).toString().replace(/"/g, '').trim();
-        if(dig_txt == acme){
+        if (dig_txt == acme) {
             counter += 1;
-        } else{
+        } else {
             counter = 0;
         }
         let endTime = new Date();
         if (endTime - startTime > settings.timeout) {
+            fs.writeFileSync(settings.platformPath, backup);
             throw new Error('Timeout');
         }
     }
-    console.log("done")
+    fs.writeFileSync(settings.platformPath, backup);
+    console.log("done");
 }
 
 async function sendAcmeToDNS(token) {

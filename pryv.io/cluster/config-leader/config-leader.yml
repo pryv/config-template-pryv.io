@@ -11,6 +11,8 @@ services:
       - ./log/:/app/log/
       - ./data/:/app/data/
       - ./database/:/app/database/
+      - ./scripts/:/app/scripts
+      - /etc/letsencrypt:/etc/letsencrypt
     restart: always
 
 networks:

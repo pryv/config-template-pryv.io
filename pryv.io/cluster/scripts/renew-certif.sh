@@ -34,7 +34,7 @@ function installNecessaryDependencies() {
 
 function requestCertificate() {
     {
-        echo "Y" | certbot certonly --manual --manual-auth-hook $SCRIPTS/hook.js -d *.$DOMAIN --dry-run
+        yes | certbot certonly --manual --manual-auth-hook $SCRIPTS/hook.js -d *.$DOMAIN --dry-run
     } || {
         echo $(date) Error to create new certificate >> $log
         }
@@ -44,11 +44,11 @@ function propagateCertificate() {
     directories=`find $DATA -name "secret" -type d`
         echo "$directories" | while read directory; do
             # When acknowledged, put fullchain.pem > pryv.li-bundle.crt and privkey.pem > pryv.li-key.pem
-            cp $LETSENCRYPT_DIR/$DOMAIN/test_renew.crt $directory/test.crt
-            echo "$directory"
+            cp $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem $directory/$DOMAIN-bundle.crt
+            cp $LETSENCRYPT_DIR/$DOMAIN/privkey.pem $directory/$DOMAIN-key.pem
         done
 
-        token=`curl -s -X POST -H "Content-Type: application/json" -d "{\"username\": \"$USERNAME\", \"password\": \"$PASSWORD\"}" $LEADER/auth/login | \
+        token=`curl -s -X POST -H "Content-Type: application/json" -d "{\"username\": \"admin\", \"password\": \"admin\"}" https://lead.pryv.li/auth/login | \
         jq '.token' | tr -d '"'`
         curl -X POST -H "Authorization: $token" $LEADER/admin/notify
 }
@@ -73,7 +73,11 @@ set -e
 
 if (([ ! -f $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem ] || [ ! -f $LETSENCRYPT_DIR/$DOMAIN/privkey.pem ]) || \
 ([ $(echo "$((($(echo | openssl x509 -enddate -noout -in $LETSENCRYPT_DIR/$DOMAIN/fullchain.pem| sed 's/^.\{9\}//' | date  -f - '+%s') - $(date '+%s'))/43200))") -lt 30 ])); then
-    cp -rf $LETSENCRYPT_DIR/$DOMAIN $LETSENCRYPT_DIR/tmp/$DOMAIN
+    if [ -f $LETSENCRYPT_DIR/$DOMAIN ]; then
+        cp -rf $LETSENCRYPT_DIR/$DOMAIN $LETSENCRYPT_DIR/tmp/$DOMAIN
+        rm -rf cp -rf $LETSENCRYPT_DIR/$DOMAIN 
+    fi
+    rm -rf $LETSENCRYPT_DIR/renewal
     installNecessaryDependencies
     requestCertificate
 
