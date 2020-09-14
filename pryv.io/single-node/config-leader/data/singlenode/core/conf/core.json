@@ -27,7 +27,7 @@
     "ssoCookieSignSecret": "SSO_COOKIE_SIGN_SECRET",
     "filesReadTokenSecret": "FILES_READ_TOKEN_SECRET",
     "passwordResetRequestMaxAge": PASSWORD_RESET_MAX_AGE,
-    "passwordResetPageURL": "https://sw.DOMAIN/access/reset-password.html"
+    "passwordResetPageURL": "https://PASSWORD_RESET_HOSTNAME.DOMAIN/access/reset-password.html"
   },
   "services": {
     "register": {

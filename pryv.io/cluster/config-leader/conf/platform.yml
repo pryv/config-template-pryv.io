@@ -74,6 +74,9 @@ vars:
       DISABLE_GET_USERNAME_BY_EMAIL:
         description: "Whether to disable endpoint GET /:email/username"
         value: false
+      PASSWORD_RESET_HOSTNAME: 
+        value: REPLACE_ME
+        description: "Hostname of password reset request"
   SERVICE_INFORMATION_SETTINGS:
     name: "Service information settings"
     optional: true
