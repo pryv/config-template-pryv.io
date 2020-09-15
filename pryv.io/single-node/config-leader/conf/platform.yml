@@ -41,12 +41,15 @@ vars:
         description: "List of trusted urls that can be used as entry points for the app authorization flow (https://api.pryv.com/reference/#auth-request)."
         value:
           - https://sw.DOMAIN/access/access.html
+      PASSWORD_RESET_URL: 
+        value: https://sw.DOMAIN/access/reset-password.html
+        description: "URL of password reset page, used in password reset email with query parameter 'resetToken'. Default value: https://sw.DOMAIN/access/reset-password.html"
+      APP_WEB_AUTH_HOSTNAME:
+        value: pryv.github.io
+        description: "Hostname for customized app-web-auth, exposed on https://sw.DOMAIN (https://github.com/pryv/app-web-auth3). Default value: pryv.github.io"
       DISABLE_GET_USERNAME_BY_EMAIL:
         description: "Whether to disable endpoint GET /:email/username"
         value: false
-      PASSWORD_RESET_HOSTNAME: 
-        value: REPLACE_ME
-        description: "Hostname of password reset request"
   SERVICE_INFORMATION_SETTINGS:
     name: "Service information settings"
     optional: true
