@@ -291,8 +291,8 @@ vars:
         More information: https://api.pryv.com/guides/custom-auth/"
         value: "module.exports=function(ctx, cb){cb();}"
       CUSTOM_SYSTEM_STREAMS:
-        description: "Custom account fields that are saved and validated during the registration.
-        Preferably these values should be set only once, because fields like isUnique or isIndexed would not be updated
+        description: "Custom account fields that are saved and validated during registration.
+        These values should be set only once, because properties such as isUnique or isIndexed would not be updated
         after settings update.
         Default value: {'account': [{'isIndexed': true,'isUnique': true,'isShown': true,'isEditable': true,'type': 'email/string',
                                      'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
