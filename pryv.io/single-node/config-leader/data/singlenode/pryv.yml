@@ -25,6 +25,13 @@ services:
       - frontend
     restart: always
 
+  app_web_auth3:
+    image: "docker.io/pryvio/app-web-auth3"
+    container_name: pryvio_app_web_auth3
+    networks: 
+      - frontend
+    restart: always
+
   # Register role START --------------------------------------------------------
   register:
     image: "pryvsa-docker-release.bintray.io/pryv/register:1.6.0"
