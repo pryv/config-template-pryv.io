@@ -25,8 +25,7 @@ To upgrade Pryv.io to version 1.6, please follow these steps:
     ./run-config-follower
     ./run-pryv
     ```
-5. In each core server check when migration process is finished, it may take some time
-because all indexes have to be rebuilt. You can monitor the process with:
+5. In each core server, check when the migration process is finished. It may take some time because all indexes have to be rebuilt. You can monitor the process with:
 
     Mongodb:
 
