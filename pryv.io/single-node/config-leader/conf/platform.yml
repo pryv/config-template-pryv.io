@@ -46,10 +46,10 @@ vars:
         description: "URL of password reset page, used in password reset email with query parameter 'resetToken'. Default value: https://sw.DOMAIN/access/reset-password.html"
       APP_WEB_AUTH_DOMAIN:
         value: http://app_web_auth3_server
-        description: "Domain of customized app-web-auth, exposed on https://sw.DOMAIN (https://github.com/pryv/app-web-auth3). Default value: http://app_web_auth3_server. To use most recent version select "https://pryv.github.io""
+        description: "Domain of customized app-web-auth, exposed on https://sw.DOMAIN (https://github.com/pryv/app-web-auth3). Default value: http://app_web_auth3_server. To use most recent version select: https://pryv.github.io"
       APP_WEB_AUTH_PATH:
         value: ''
-        description: "Path of customized app-web-auth. Default value: <empty string>. To use most recent version select "app-web-auth3/""
+        description: "Path of customized app-web-auth. Default value: <empty string>. To use most recent version select: app-web-auth3/"
       DISABLE_GET_USERNAME_BY_EMAIL:
         description: "Whether to disable endpoint GET /:email/username"
         value: false
