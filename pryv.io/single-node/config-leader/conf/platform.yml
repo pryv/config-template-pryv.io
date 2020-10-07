@@ -18,7 +18,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.0.37
+        value: 1.6.2
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
@@ -41,6 +41,12 @@ vars:
         description: "List of trusted urls that can be used as entry points for the app authorization flow (https://api.pryv.com/reference/#auth-request)."
         value:
           - https://sw.DOMAIN/access/access.html
+      PASSWORD_RESET_URL: 
+        value: https://sw.DOMAIN/access/reset-password.html
+        description: "URL of password reset page, used in password reset email with query parameter 'resetToken'. Default value: https://sw.DOMAIN/access/reset-password.html"
+      APP_WEB_AUTH_URL:
+        value: http://app_web_auth3_server
+        description: "URL of customized app-web-auth, exposed on https://sw.DOMAIN (https://github.com/pryv/app-web-auth3). Default value: http://app_web_auth3_server. To use most recent version select: https://pryv.github.io/app-web-auth3/"
       DISABLE_GET_USERNAME_BY_EMAIL:
         description: "Whether to disable endpoint GET /:email/username"
         value: false
@@ -146,7 +152,7 @@ vars:
           <img src="https://api.pryv.com/style/images/logo-256.png" alt="Logo"> 
           <h1><span style="color:#bd1026">Hey</span> #{USERNAME},</h1>
           <h2><span style="color:#bd1026">Thanks for creating your Pryv account</span></h2>
-          p style="text-align: justify;">We have built Pryv so you could have a private and secure place to collect and unite your personal digital life. Connect apps and devices, get insight and share selectively.<br/></p>
+          <p style="text-align: justify;">We have built Pryv so you could have a private and secure place to collect and unite your personal digital life. Connect apps and devices, get insight and share selectively.<br/></p>
           <p style="text-align: center;">Information you entrusted us with:<br/>
           <strong>Email</strong>: #{EMAIL}<br/>
           <strong>Your account:</strong> <a href="https://#{USERNAME}.pryv.me" target="_blank">#{USERNAME}.pryv.me</a><br/></p>
@@ -249,5 +255,17 @@ vars:
         description: "Allows to define a set of invitation tokens for user creation by providing
         # an array of strings as well as no check (null) & prevent all (empty array)"
       CUSTOM_AUTH_FUNCTION:
-        description: "Custom middleware function executed for each incoming request. May serve e.g. as additional authentication or validation step. More information: https://api.pryv.com/guides/custom-auth/"
-        value: ""
+        description: "Custom middleware function executed for each incoming request. 
+        May serve e.g. as additional authentication or validation step. 
+        Default value: 'module.exports=function(ctx, cb){cb();}'. 
+        More information: https://api.pryv.com/guides/custom-auth/"
+        value: "module.exports=function(ctx, cb){cb();}"
+      CUSTOM_SYSTEM_STREAMS:
+        description: "Custom account fields that are saved and validated during the registration.
+        Preferably these values should be set only once, because fields like isUnique or isIndexed would not be updated
+        after settings update.
+        Default value: {'account': [{'isIndexed': true,'isUnique': true,'isShown': true,'isEditable': true,'type': 'email/string',
+                                     'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
+        More information could be found here: https://api.pryv.com/customer-resources/system-streams/"
+        value: "{\"account\": [{\"isIndexed\": true,\"isUnique\": true,\"isShown\": true,\"isEditable\": true,\"type\": \"email/string\",\"name\": \"Email\",\"id\": \"email\",\"isRequiredInValidation\": true}]}"
+

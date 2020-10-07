@@ -16,14 +16,14 @@ services:
     restart: always
 
   admin_panel: 
-    image: "pryvsa-docker-release.bintray.io/pryv/app-web-admin:1.0.1"
+    image: "pryvsa-docker-release.bintray.io/pryv/app-web-admin:1.0.6"
     container_name: pryvio_admin_panel
     networks: 
       - frontend
     restart: always
 
   register: 
-    image: "pryvsa-docker-release.bintray.io/pryv/register:1.3.63"
+    image: "pryvsa-docker-release.bintray.io/pryv/register:1.6.0"
     container_name: pryvio_register
     networks: 
       - frontend
@@ -36,7 +36,7 @@ services:
     restart: always
 
   dns: 
-    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.3.63"
+    image: "pryvsa-docker-release.bintray.io/pryv/dns:1.6.0"
     container_name: pryvio_dns
     ports: 
       - "53:5353/udp"

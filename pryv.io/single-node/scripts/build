@@ -12,6 +12,8 @@ files="run-config-follower config-follower stop-config-follower restart-config-f
   config-leader run-config-leader stop-config-leader restart-config-leader \
   pryv run-pryv stop-pryv restart-pryv \
   ensure-permissions \
+  upgrades \
+  UPDATE-TO-CENTRALIZED.md \
   INSTALL.md UPDATE.md"
 
 function build_role() {

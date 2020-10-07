@@ -1,6 +1,7 @@
 {
   "env": "production",
   "domain": "DOMAIN",
+  "serviceInfoUrl": "https://reg.DOMAIN/service/info",
   "http": {
     "ip": "0.0.0.0",
     "port": "9000"
@@ -9,6 +10,10 @@
     "host": "mongodb",
     "port": 27017,
     "name": "pryv-node"
+  },
+  "influxdb": {
+    "host": "influxdb",
+    "port": 8086
   },
   "eventFiles": {
     "attachmentsDirPath": "/app/data/attachments",
@@ -22,7 +27,7 @@
     "ssoCookieSignSecret": "SSO_COOKIE_SIGN_SECRET",
     "filesReadTokenSecret": "FILES_READ_TOKEN_SECRET",
     "passwordResetRequestMaxAge": PASSWORD_RESET_MAX_AGE,
-    "passwordResetPageURL": "https://sw.DOMAIN/access/reset-password.html"
+    "passwordResetPageURL": "PASSWORD_RESET_URL"
   },
   "services": {
     "register": {
@@ -61,5 +66,14 @@
   },
   "customExtensions": {
     "defaultFolder": "/app/conf/custom-extensions"
+  },
+  "singleNode": {
+    "isActive": false
+  },
+  "custom": {
+    "systemStreams": CUSTOM_SYSTEM_STREAMS
+  },
+  "openSource": {
+    "isActive": false
   }
 }

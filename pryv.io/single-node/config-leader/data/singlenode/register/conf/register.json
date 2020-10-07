@@ -68,7 +68,7 @@
   "auth": {
     "coreSystemKey": "CORE_SYSTEM_KEY",
     "authorizedKeys": {
-      "REGISTER_ADMIN_KEY_1": { "roles": ["admin"]},
+      "REGISTER_ADMIN_KEY": { "roles": ["admin"]},
       "REGISTER_SYSTEM_KEY_1": {"roles": ["system"]}
     }
   },

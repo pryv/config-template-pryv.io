@@ -24,5 +24,6 @@
       "key": "ba44e430f8fdf66e820717660e838874",
       "projectId": "247285"
     }
-  }
+  },
+  "serviceInfoUrl": "https://reg.DOMAIN/service/info"
 }

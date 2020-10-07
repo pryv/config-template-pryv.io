@@ -12,8 +12,12 @@
     },
     "file": {
       "active": false
+    },
+    "audit": {
+      "filePath": "/app/data/audit.log"
     }
   },
+  "registerUrl": "register:9000",
   "templatesPath": "/app/data",
   "databasePath": "/app/database",
   "internals": {
@@ -21,7 +25,6 @@
     "FILES_READ_TOKEN_SECRET": "SECRET",
     "CORE_SYSTEM_KEY": "SECRET",
     "CORE_MAIL_KEY": "SECRET",
-    "REGISTER_ADMIN_KEY_1": "REGISTER_ADMIN_KEY",
     "REGISTER_SYSTEM_KEY_1": "SECRET"
   },
   "followers": {

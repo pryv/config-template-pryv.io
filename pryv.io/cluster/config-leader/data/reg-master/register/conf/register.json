@@ -32,7 +32,7 @@
           "system"
         ]
       },
-      "REGISTER_ADMIN_KEY_1": {
+      "REGISTER_ADMIN_KEY": {
         "roles": [
           "admin"
         ]
