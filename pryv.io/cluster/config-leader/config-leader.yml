@@ -26,8 +26,6 @@ services:
       - credentials-volume:/app/credentials
     depends_on:
       - config-leader
-    environment:
-      - DEBUG=false
 networks:
   frontend:
     driver: bridge
@@ -35,3 +33,5 @@ networks:
   backend:
     driver: bridge
     name: pryv_backend
+volumes:
+  credentials-volume:
