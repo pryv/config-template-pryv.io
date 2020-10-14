@@ -210,10 +210,10 @@ vars:
     settings:
       SESSION_MAX_AGE: 
         value: 1209600000
-        description: "Validity (in seconds) of a personal access token if unused"
+        description: "Validity (in milliseconds) of a personal access token if unused"
       PASSWORD_RESET_MAX_AGE: 
         value: 3600000
-        description: "Validity (in seconds) of a password reset request"
+        description: "Validity (in milliseconds) of a password reset request"
       UPDATES_IGNORE_PROTECTED_FIELDS: 
         value: false
         description: "When true, updates will ignore protected fields and print a warning log.
