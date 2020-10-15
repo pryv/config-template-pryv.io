@@ -224,16 +224,12 @@ vars:
         value: 1800
         description: "Duration in seconds after which MFA sessions are destroyed"
       MFA_SMS_API_SETTINGS:
-        description: "Allow to define an external SMS API handling the MFA challenge"
+        description: "Allow to define an external SMS API handling the MFA challenge. API endpoints that allow to trigger and verify the MFA challenge as well as the API key that will be passed as 'Authorization' header"
         value:
           endpoints:
-            description: "API endpoints that allow to trigger and verify the MFA challenge"
-            value:
-              challenge: REPLACE_ME
-              verify: REPLACE_ME
-          auth: 
-            description: "API key, sent as 'Authorization' header"
-            value: REPLACE_ME
+            challenge: REPLACE_ME
+            verify: REPLACE_ME
+          auth: REPLACE_ME
   ADVANCED_API_SETTINGS:
     optional: true
     name: "Advanced API settings"
@@ -254,29 +250,19 @@ vars:
           - maxRetries: number of retried webhook notifications before it becomes inactive,
           - runsSize: size of the runs array"
         value:
-          minIntervalMs: 
-            value: 5000
-            description: "Minimum interval between successive webhook notifications, in milliseconds"
-          maxRetries: 
-            value: 5
-            description: "Number of retried webhook notifications before it becomes inactive"
-          runsSize: 
-            value: 50
-            description: "Size of the runs array"
+          minIntervalMs: 5000
+          maxRetries: 5
+          runsSize: 50 
       VERSIONING_SETTINGS:
         description:
-          "- forceKeepHistory: when true, modification history of items is stored,
-          - keep-authors: defines the behaviour of items deletion"
+          "forceKeepHistory: when true, modification history of items is stored,
+          keep-authors: defines the behaviour of items deletion:
+          - 'keep-nothing': Delete history, keep head as itemDeletion as it is now by default.
+          - 'keep-authors': Keep fields 'headId', 'id', 'modified', 'modifiedBy' in head and history.
+          - 'keep-everything': Add 'deleted' field to head item, leave history as is."
         value:
-          forceKeepHistory: 
-            value: false
-            description: "When true, modification history of items is stored"
-          deletionMode: 
-            value: keep-authors
-            description: "Defines the behaviour of items deletion.
-            'keep-nothing': Delete history, keep head as itemDeletion as it is now by default.
-            'keep-authors': Keep fields 'headId', 'id', 'modified', 'modifiedBy' in head and history.
-            'keep-everything': Add 'deleted' field to head item, leave history as is."
+          forceKeepHistory: false
+          deletionMode: keep-authors
       SSL_CAA_ISSUER: 
         value: letsencrypt.org
         description: "Certificate authority allowed to issue SSL certificates for this domain"
