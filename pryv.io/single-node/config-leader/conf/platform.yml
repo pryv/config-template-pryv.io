@@ -199,8 +199,7 @@ vars:
           endpoints:
             challenge: REPLACE_ME
             verify: REPLACE_ME
-          auth:
-            value: REPLACE_ME
+          auth: REPLACE_ME
   ADVANCED_API_SETTINGS:
     optional: true
     name: "Advanced API settings"
