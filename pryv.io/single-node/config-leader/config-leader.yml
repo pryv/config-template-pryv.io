@@ -11,7 +11,7 @@ services:
       - ./log/:/app/log/
       - ./data/:/app/data/
       - ./database/:/app/database/
-      - credentials-volume:/app/bin/credentials
+      - credentials-volume:/app/credentials
     restart: always
   ssl-certificate:
     image: "pryvsa-docker-release.bintray.io/pryv/ssl-certificate:1.0.0"
