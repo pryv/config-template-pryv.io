@@ -22,7 +22,7 @@ services:
     volumes:
       - ./conf/:/app/conf/
       - ./data/:/app/data/
-      - /etc/letsencrypt:/etc/letsencrypt
+      - ./letsencrypt:/etc/letsencrypt
       - credentials-volume:/app/credentials
     depends_on:
       - config-leader
