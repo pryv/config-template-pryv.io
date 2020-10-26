@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   config-leader:
-    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:1.0.23"
+    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:1.0.25"
     container_name: pryvio_config_leader
     networks:
       - frontend
@@ -22,6 +22,7 @@ services:
     volumes:
       - ./conf/:/app/conf/
       - ./data/:/app/data/
+      - ./log/:/app/log/
       - ./letsencrypt:/etc/letsencrypt
       - credentials-volume:/app/credentials
     depends_on:

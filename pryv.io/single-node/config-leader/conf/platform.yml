@@ -250,6 +250,10 @@ vars:
       SSL_CAA_ISSUER: 
         value: letsencrypt.org
         description: "Certificate authority allowed to issue SSL certificates for this domain"
+      LETSENCRYPT_EMAIL:
+        value: REPLACE_ME
+        description: "Email that will be provided to letsencrypt certificate authority. You will get notifications about
+                      certificate expiration to this email"
       INVITATION_TOKENS: 
         value: null
         description: "Allows to define a set of invitation tokens for user creation by providing
