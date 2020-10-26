@@ -26,6 +26,8 @@ services:
       - credentials-volume:/app/credentials
     depends_on:
       - config-leader
+    environment:
+      - GATEWAY_IP=$GATEWAY_IP
 networks:
   frontend:
     driver: bridge
