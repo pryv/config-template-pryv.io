@@ -3,5 +3,4 @@
 [[ -e config-leader/config-leader.yml ]] || { echo >&2 "The file ./config-leader/config-leader.yml was not found in current working directory."; exit 1; }
 
 echo "Running Pryv/config-leader component."
-GATEWAY_IP=$(docker inspect -f "{{ .NetworkSettings.Networks.pryv_backend.Gateway }}" pryvio_dns)
-GATEWAY_IP=$GATEWAY_IP docker-compose -f config-leader/config-leader.yml up -d
+docker-compose -f config-leader/config-leader.yml up -d

@@ -24,10 +24,10 @@ services:
       - ./data/:/app/data/
       - ./letsencrypt:/etc/letsencrypt
       - credentials-volume:/app/credentials
+      - ../pryv/dns/conf/dns.json:/app/dns.json
     depends_on:
       - config-leader
-    environment:
-      - GATEWAY_IP=$GATEWAY_IP
+    network_mode: "host"
 networks:
   frontend:
     driver: bridge
