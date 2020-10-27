@@ -16,9 +16,6 @@ services:
   ssl-certificate:
     image: "pryvsa-docker-release.bintray.io/pryv/ssl-certificate:1.0.0"
     container_name: pryvio_ssl_certificate
-    networks:
-      - frontend
-      - backend
     volumes:
       - ./conf/:/app/conf/
       - ./data/:/app/data/
