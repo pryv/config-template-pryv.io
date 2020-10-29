@@ -2,7 +2,7 @@ version: '3.5'
 services:
 
   reverse_proxy: 
-    image: "pryvsa-docker-release.bintray.io/pryv/nginx:1.3.40"
+    image: "eu.gcr.io/pryvio/nginx:1.3.40"
     container_name: pryvio_nginx
     networks: 
       - frontend
@@ -19,7 +19,7 @@ services:
     restart: always
 
   core_router:
-    image: "pryvsa-docker-release.bintray.io/pryv/router:1.0.6"
+    image: "eu.gcr.io/pryvio/router:1.0.6"
     container_name: pryvio_router
     networks:
       - frontend
@@ -33,7 +33,7 @@ services:
     restart: always
 
   core_audit:
-    image: "pryvsa-docker-release.bintray.io/pryv/audit:1.0.5"
+    image: "eu.gcr.io/pryvio/audit:1.0.5"
     container_name: pryvio_audit
     networks:
       - frontend
@@ -46,7 +46,7 @@ services:
     restart: always
 
   core: 
-    image: "pryvsa-docker-release.bintray.io/pryv/core:1.6.2"
+    image: "eu.gcr.io/pryvio/core:1.6.2"
     container_name: pryvio_core
     networks:
       - frontend
@@ -64,7 +64,7 @@ services:
     restart: always
 
   mfa: 
-    image: "pryvsa-docker-release.bintray.io/pryv/service-mfa:1.0.1"
+    image: "eu.gcr.io/pryvio/service-mfa:1.0.1"
     container_name: pryvio_mfa
     networks:
       - frontend
@@ -76,7 +76,7 @@ services:
     restart: always
 
   preview: 
-    image: "pryvsa-docker-release.bintray.io/pryv/preview:1.6.2"
+    image: "eu.gcr.io/pryvio/preview:1.6.2"
     container_name: pryvio_preview
     networks: 
       - frontend
@@ -90,7 +90,7 @@ services:
     restart: always
 
   hfs:
-    image: "pryvsa-docker-release.bintray.io/pryv/hfs:1.6.2"
+    image: "eu.gcr.io/pryvio/hfs:1.6.2"
     container_name: pryvio_hfs
     networks:
       - frontend
@@ -107,7 +107,7 @@ services:
     restart: always
 
   webhooks:
-    image: "pryvsa-docker-release.bintray.io/pryv/webhooks:1.6.2"
+    image: "eu.gcr.io/pryvio/webhooks:1.6.2"
     container_name: pryvio_webhooks
     networks:
       - backend
@@ -119,7 +119,7 @@ services:
     restart: always
 
   mongodb:
-    image: "pryvsa-docker-release.bintray.io/pryv/mongodb:1.6.0"
+    image: "eu.gcr.io/pryvio/mongodb:1.6.0"
     container_name: pryvio_mongodb
     networks:
       - backend

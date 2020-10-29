@@ -31,7 +31,7 @@ For the consistency, the content of UPDATE.md is listed below:
     6.2 follower: `./restart-config-follower`
     
     6.3 If you are using `app-web-auth3` and have a large users base, you can use
-  `pryvsa-docker-release.bintray.io/pryv/register:1.6.0-while-migrating` docker image instead of `pryvsa-docker-release.bintray.io/pryv/register:1.6.0`
+  `eu.gcr.io/pryvio/register:1.6.0-while-migrating` docker image instead of `eu.gcr.io/pryvio/register:1.6.0`
   while migrating. It will force the `app-web-auth3` to use the old registration API endpoint until
   you will deploy the new Pryv.io versions to the all cores.
     
