@@ -139,13 +139,15 @@ Normally, your NS records should resolve to the names you gave to the Register s
 
 ### Run
 
-To launch the installation, you will first need to log in to the distribution host for the Pryv docker images. You should have received a json file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
+To launch the installation, you will need to SSH to each Pryv.io machine and repeat the commands described below for each machine. Please start with the leader machine (usually on `reg-master`) first and then the follower machines (`cores`, `static`, `reg-slave`).
+
+You will first need to authenticate with the distribution host to retrieve the Pryv.io docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
 
 To log in, type: 
 
     $ cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://eu.gcr.io
 
-or for older docker engine
+or for an older docker engine
 
     $ docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://eu.gcr.io
 
