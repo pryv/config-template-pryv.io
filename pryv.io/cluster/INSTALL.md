@@ -97,7 +97,7 @@ Then, also uncomment the ports mapping for the redis container of `reg-master`, 
 
 ```yaml
   redis: 
-    image: "pryvsa-docker-release.bintray.io/pryv/redis:1.3.38"
+    image: "eu.gcr.io/pryvio/redis:1.3.38"
     container_name: pryvio_redis
     networks: 
       - backend
@@ -141,13 +141,15 @@ Normally, your NS records should resolve to the names you gave to the Register s
 
 To launch the installation, you will need to SSH to each Pryv.io machine and repeat the commands described below for each machine. Please start with the leader machine (usually on `reg-master`) first and then the follower machines (`cores`, `static`, `reg-slave`).
 
-You will first need to authenticate with the distribution host to retrieve the Pryv.io docker images. You should have received a set of credentials with the delivery of the configuration files. The following assumes that you have a user id (${USER_ID}) and a secret (${SECRET}).
+You will first need to authenticate with the distribution host to retrieve the Pryv.io docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
 
 To log in, type: 
 
-    docker login pryvsa-docker-release.bintray.io
+    $ cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://eu.gcr.io
 
-You will be prompted for a username and password. Please enter the credentials you were provided.
+or for an older docker engine
+
+    $ docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://eu.gcr.io
 
 Once this completes, set the required permissions on data and log directories by running the following script:
 

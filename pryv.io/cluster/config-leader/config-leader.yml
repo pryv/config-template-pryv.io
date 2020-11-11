@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   config-leader:
-    image: "pryvsa-docker-release.bintray.io/pryv/config-leader:1.0.25"
+    image: "eu.gcr.io/pryvio/config-leader:1.0.25"
     container_name: pryvio_config_leader
     networks:
       - frontend
@@ -14,7 +14,7 @@ services:
       - credentials-volume:/app/credentials
     restart: always
   ssl-certificate:
-    image: "pryvsa-docker-release.bintray.io/pryv/ssl-certificate:1.0.0"
+    image: "eu.gcr.io/pryvio/ssl-certificate:1.0.3"
     container_name: pryvio_ssl_certificate
     volumes:
       - ./conf/:/app/conf/
