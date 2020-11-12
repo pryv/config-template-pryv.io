@@ -10,7 +10,7 @@ Connect to each of your core machine and backup your latest MongoDB configuratio
 
 ## Backup current database
 
-Backup your latest mongo database. See https://api.pryv.com/assets/docs/20191007-pryv.io-backup-v1.pdf
+Backup your latest mongo database. See [https://api.pryv.com/customer-resources/backup/](https://api.pryv.com/customer-resources/backup/)
 
 ## Upgrade
 
