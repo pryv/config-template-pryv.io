@@ -13,11 +13,11 @@ To upgrade Pryv.io to version 1.6, please follow these steps:
 
 1. Before you start, make sure that you have 1 account per core that you will use in the end of this tutorial to test the upgrade.
 
-2. Upgrade the Pryv.io config to add new system streams.
-(use tutorial in file `CONFIG-UPGRADE-FROM-1.5-TO-1.6.md`)
- 
-3. Upgrade Pryv.io database from 3.6 to 4.2 
+2. Upgrade Pryv.io database from 3.6 to 4.2 
 (use tutorial in file `DATABASE-UPGRADE-FROM-1.5-TO-1.6.md`)
+
+3. Upgrade the Pryv.io config to add new system streams.
+(use tutorial in file `UPDATE.md`)
 
 4. Boot services in each core and register server from your Pryv.io root folder with 
     ```
@@ -57,6 +57,6 @@ To upgrade Pryv.io to version 1.6, please follow these steps:
     ```
 
 More information about the new registration path, parameters and features could be found [here](https://api.pryv.com/customer-resources/system-streams/) 
-and [here](https://api.pryv.com/reference/#account-creation)
+and [here](https://api.pryv.com/reference-system/#account-creation)
 
 **Congratulations!**
