@@ -14,7 +14,7 @@ services:
       - credentials-volume:/app/credentials
     restart: always
   ssl-certificate:
-    image: "eu.gcr.io/pryvio/ssl-certificate:1.0.3"
+    image: "eu.gcr.io/pryvio/ssl-certificate:1.0.5"
     container_name: pryvio_ssl_certificate
     volumes:
       - ./conf/:/app/conf/
@@ -25,6 +25,8 @@ services:
       - ../pryv/dns/conf/dns.json:/app/dns.json
     depends_on:
       - config-leader
+    environment:
+      - DEBUG=false
     network_mode: "host"
 networks:
   frontend:
