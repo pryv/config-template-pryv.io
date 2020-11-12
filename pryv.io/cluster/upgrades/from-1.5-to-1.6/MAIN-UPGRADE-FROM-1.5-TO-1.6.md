@@ -5,7 +5,7 @@ This is the initial instructions for upgrading your Pryv.io platform from versio
 
 ## What is new
 
-Please check what is new with Pryv.io 1.6 [here](https://pryv.github.io/change-log/).
+Please check what is new with Pryv.io 1.6 [here](https://api.pryv.com/change-log/).
 
 ## What upgrades need to be made
 
@@ -56,7 +56,7 @@ To upgrade Pryv.io to version 1.6, please follow these steps:
     docker rmi eu.gcr.io/pryvio/mongodb:migration-4.2.9
     ```
 
-More information about the new registration path, parameters and features could be found [here](https://pryv.github.io/customer-resources/system-streams/) 
-and [here](https://pryv.github.io/reference/#account-creation)
+More information about the new registration path, parameters and features could be found [here](https://api.pryv.com/customer-resources/system-streams/) 
+and [here](https://api.pryv.com/reference/#account-creation)
 
 **Congratulations!**
