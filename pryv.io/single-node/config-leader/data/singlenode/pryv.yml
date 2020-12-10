@@ -26,7 +26,7 @@ services:
     restart: always
 
   app_web_auth3:
-    image: "docker.io/pryvio/app-web-auth3:1.0.3"
+    image: "docker.io/pryvio/app-web-auth3:1.0.4"
     container_name: pryvio_app_web_auth3
     networks: 
       - frontend
