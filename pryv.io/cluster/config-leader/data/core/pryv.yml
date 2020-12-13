@@ -46,7 +46,7 @@ services:
     restart: always
 
   core: 
-    image: "eu.gcr.io/pryvio/core:1.6.2"
+    image: "eu.gcr.io/pryvio/core:1.6.7"
     container_name: pryvio_core
     networks:
       - frontend
@@ -76,7 +76,7 @@ services:
     restart: always
 
   preview: 
-    image: "eu.gcr.io/pryvio/preview:1.6.2"
+    image: "eu.gcr.io/pryvio/preview:1.6.7"
     container_name: pryvio_preview
     networks: 
       - frontend
@@ -90,7 +90,7 @@ services:
     restart: always
 
   hfs:
-    image: "eu.gcr.io/pryvio/hfs:1.6.2"
+    image: "eu.gcr.io/pryvio/hfs:1.6.7"
     container_name: pryvio_hfs
     networks:
       - frontend
@@ -107,7 +107,7 @@ services:
     restart: always
 
   webhooks:
-    image: "eu.gcr.io/pryvio/webhooks:1.6.2"
+    image: "eu.gcr.io/pryvio/webhooks:1.6.7"
     container_name: pryvio_webhooks
     networks:
       - backend

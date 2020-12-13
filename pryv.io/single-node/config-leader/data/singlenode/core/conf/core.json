@@ -67,7 +67,7 @@
   "customExtensions": {
     "defaultFolder": "/app/conf/custom-extensions"
   },
-  "singleNode": {
+  "dnsLess": {
     "isActive": false
   },
   "custom": {
