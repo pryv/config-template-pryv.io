@@ -13,5 +13,6 @@
   "mongodb": {
     "host": "mongodb"
   },
+  
   "serviceInfoUrl": "https://reg.DOMAIN/service/info"
 }
