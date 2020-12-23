@@ -23,7 +23,7 @@ You may need to run commands in sudo, depending on your server setup.
     ```
 2. Set your Pryv.io root folder
     ```
-    PRYV_CONF_ROOT=<your PRYV_CONF_ROOT path>
+    export PRYV_CONF_ROOT=<your PRYV_CONF_ROOT path>
    
     For example:
     PRYV_CONF_ROOT=/var/pryv
