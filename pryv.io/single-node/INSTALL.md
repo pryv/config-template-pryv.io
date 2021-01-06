@@ -118,10 +118,6 @@ Each Pryv.io module sends a report to Pryv upon start, containing the following 
 
 If you decide to opt out, please contact your account manager @ Pryv to define another way to communicate this information.
 
-You can disable the reporting by setting uncommenting the following line in the `run-pryv` script:
-
-    #export reporting_optOut="true"
-
 ### Stop
 
 Finally, the scripts `stop-config-leader`, `stop-config-follower` and `stop-pryv` shut down the corresponding running services.
