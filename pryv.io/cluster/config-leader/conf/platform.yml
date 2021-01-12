@@ -253,8 +253,8 @@ vars:
           maxRetries: 5
           runsSize: 50 
       VERSIONING_SETTINGS:
-        description: "- forceKeepHistory: when true, modification history of items is stored,
-          - keep-authors: defines the behaviour of items deletion
+        description: "- forceKeepHistory: when true, modification history of events is stored,
+          - deletionMode: defines the behaviour of events deletion
           - 'keep-nothing': Delete history, keep head as itemDeletion as it is now by default.
           - 'keep-authors': Keep fields 'headId', 'id', 'modified', 'modifiedBy' in head and history.
           - 'keep-everything': Add 'deleted' field to head item, leave history as is."
