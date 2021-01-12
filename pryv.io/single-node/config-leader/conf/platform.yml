@@ -230,7 +230,7 @@ vars:
           - 'keep-everything': Add 'deleted' field to head item, leave history as is."
         value:
           forceKeepHistory: false
-          deletionMode: keep-authors
+          deletionMode: keep-nothing
       SSL_CAA_ISSUER: 
         value: letsencrypt.org
         description: "Certificate authority allowed to issue SSL certificates for this domain"
