@@ -14,7 +14,7 @@ services:
       - credentials-volume:/app/credentials
     restart: always
   ssl-certificate:
-    image: "eu.gcr.io/pryvio/ssl-certificate:1.0.5"
+    image: "eu.gcr.io/pryvio/ssl-certificate:1.0.6"
     container_name: pryvio_ssl_certificate
     volumes:
       - ./conf/:/app/conf/
