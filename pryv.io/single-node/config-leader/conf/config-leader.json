@@ -29,7 +29,7 @@
   },
   "followers": {
     "FOLLOWER_SINGLENODE_KEY": {
-      "url": "http://config-follower:6000",
+      "url": "pryvio_config_follower:6000",
       "role": "singlenode"
     }
   }

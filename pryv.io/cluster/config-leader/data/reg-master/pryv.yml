@@ -16,7 +16,7 @@ services:
     restart: always
 
   admin_panel: 
-    image: "eu.gcr.io/pryvio/app-web-admin:1.0.6"
+    image: "eu.gcr.io/pryvio/app-web-admin:1.1.2"
     container_name: pryvio_admin_panel
     networks: 
       - frontend

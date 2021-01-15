@@ -125,15 +125,15 @@ Your certificate files for the respective roles must be placed on the leader mac
 Please run these commands and compare the output with values below. 
 You might have to use `docker-ce` and your versions can be newer: 
 
-    $ docker -v
+    docker -v
     Docker version 17.05.0-ce, build 89658be
     
-    $ docker-compose -v
+    docker-compose -v
     docker-compose version 1.18.0, build 8dd22a9
 
 If your DNS is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv Register server: 
 
-    $ dig NS ${DOMAIN}
+    dig NS ${DOMAIN}
 
 Normally, your NS records should resolve to the names you gave to the Register server you intend to set up. Please check that the A records of the returned NS entries exist and point to the same machine. 
 
@@ -143,13 +143,13 @@ To launch the installation, you will need to SSH to each Pryv.io machine and rep
 
 You will first need to authenticate with the distribution host to retrieve the Pryv.io docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
 
-To log in, type: 
+To log in, type:  
 
-    $ cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://eu.gcr.io
+    cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://eu.gcr.io
 
 or for an older docker engine
 
-    $ docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://eu.gcr.io
+    docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://eu.gcr.io
 
 Once this completes, set the required permissions on data and log directories by running the following script:
 
@@ -181,12 +181,6 @@ Each Pryv.io module sends a report to Pryv upon start, containing the following 
 
 If you decide to opt out, please contact your account manager @ Pryv to define another way to communicate this information.
 
-You can disable the reporting by setting uncommenting the following line in the `run-pryv` script:
-
-```
-#export reporting_optOut="true"
-```
-
 ### Stop
 
 Finally, the scripts `stop-config-leader`, `stop-config-follower` and `stop-pryv` shut down the corresponding running services.
@@ -195,6 +189,20 @@ Finally, the scripts `stop-config-leader`, `stop-config-follower` and `stop-pryv
 
 Please refer to the `Installation validation` document located in the [customer resource documents](https://api.pryv.com/customer-resources/#documents) to validate that your Pryv.io platform is up and running.
 
+### Admin panel
+
+Now that the platform is up and running, you can edit its platform settings through an admin panel available at: https://adm.${DOMAIN}  
+
+You will have to enter `https://lead.${DOMAIN}` in `Config leader address` and  
+
+you can find default credentials in the configuration leader's logs:  
+
+    docker logs pryvio_config_leader | less
+
+At the beginning, you should have a line such as this:  
+
+    2020-09-30T07:32:32.533Z - ESC[32minfoESC[39m: [config-leader:app] Initial user generated. Username: initial_user, password: e0c11c2989aea99
+
 ## Closing Remarks
 
-If you need support, please contact your technical account manager @ Pryv or open a ticket on [our helpdesk](https://pryv.com/helpdesk/). We're glad to help you with any questions you might have. 
+If you need support, please contact your technical account manager @ Pryv or open a ticket on [our helpdesk](https://support.pryv.com/hc/en-us/requests/new). We're glad to help you with any questions you might have.  

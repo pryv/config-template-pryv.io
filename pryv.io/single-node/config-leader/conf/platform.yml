@@ -18,7 +18,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.6.4
+        value: 1.6.12
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
@@ -223,14 +223,14 @@ vars:
           maxRetries: 5
           runsSize: 50
       VERSIONING_SETTINGS:
-        description: "forceKeepHistory: when true, modification history of items is stored,
-          keep-authors: defines the behaviour of items deletion:
+        description: "forceKeepHistory: when true, modification history of events is stored,
+          deletionMode: defines the behaviour of events deletion:
           - 'keep-nothing': Delete history, keep head as itemDeletion as it is now by default.
           - 'keep-authors': Keep fields 'headId', 'id', 'modified', 'modifiedBy' in head and history.
           - 'keep-everything': Add 'deleted' field to head item, leave history as is."
         value:
           forceKeepHistory: false
-          deletionMode: keep-authors
+          deletionMode: keep-nothing
       SSL_CAA_ISSUER: 
         value: letsencrypt.org
         description: "Certificate authority allowed to issue SSL certificates for this domain"
