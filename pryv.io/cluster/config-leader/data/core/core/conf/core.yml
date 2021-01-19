@@ -23,7 +23,7 @@ auth:
   passwordResetRequestMaxAge: PASSWORD_RESET_MAX_AGE
   passwordResetPageURL: "PASSWORD_RESET_URL"
   adminAccessKey: "CORE_SYSTEM_KEY"
-services":
+services:
   register:
     url: "https://reg.DOMAIN"
     key: "REGISTER_SYSTEM_KEY_1"
