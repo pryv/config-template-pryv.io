@@ -11,7 +11,9 @@
   },
   
   "database": {
-    "host": "mongodb"
+    "host": "mongodb",
+    "port": 27017,
+    "name": "pryv-node"
   },
   
   "serviceInfoUrl": "https://reg.DOMAIN/service/info"
