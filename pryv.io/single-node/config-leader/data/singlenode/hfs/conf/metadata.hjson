@@ -10,7 +10,7 @@
     }
   },
   
-  "mongodb": {
+  "database": {
     "host": "mongodb"
   },
 
