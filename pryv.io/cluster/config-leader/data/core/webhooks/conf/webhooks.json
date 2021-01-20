@@ -1,6 +1,6 @@
 {
   "env": "production",
-  "mongodb": {
+  "database": {
     "host": "mongodb",
     "port": 27017,
     "name": "pryv-node",
