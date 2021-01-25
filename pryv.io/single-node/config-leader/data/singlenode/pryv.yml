@@ -19,7 +19,7 @@ services:
     restart: always
 
   admin_panel: 
-    image: "eu.gcr.io/pryvio/app-web-admin:1.0.6"
+    image: "eu.gcr.io/pryvio/app-web-admin:1.1.2"
     container_name: pryvio_admin_panel
     networks: 
       - frontend
@@ -106,7 +106,7 @@ services:
     restart: always
 
   core_router:
-    image: "eu.gcr.io/pryvio/router:1.1.2"
+    image: "eu.gcr.io/pryvio/router:1.0.6"
     container_name: pryvio_router
     networks:
       - frontend
