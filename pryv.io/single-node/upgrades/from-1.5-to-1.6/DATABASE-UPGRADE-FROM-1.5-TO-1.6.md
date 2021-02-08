@@ -25,7 +25,7 @@ You may need to run commands in sudo, depending on your server setup.
     export PRYV_CONF_ROOT=<your PRYV_CONF_ROOT path>
    
     For example:
-    PRYV_CONF_ROOT=/var/pryv
+    export PRYV_CONF_ROOT=/var/pryv
     ```
 3. Go to the folder where **this** tutorial is and execute the first MongoDB upgrade step:  
     ```

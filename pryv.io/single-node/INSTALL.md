@@ -1,7 +1,7 @@
 # Pryv.io installation guide
 
 This guide contains instructions to install a Pryv.io single-node platform.
-You should have prepared your machines with the [Deployment Design Guide](https://api.pryv.com/customer-resources/#documents) first. 
+You should have prepared your machines with the [Infrastructure procurement Guide](https://api.pryv.com/customer-resources/#guides-and-documents) first.  
 ​
 ## Table of contents
 
