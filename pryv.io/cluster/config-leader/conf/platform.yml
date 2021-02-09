@@ -106,10 +106,10 @@ vars:
         value:
           - 
             name: dns1.DOMAIN
-            ip: SINGLE_MACHINE_IP_ADDRESS
+            ip: REG_MASTER_IP_ADDRESS
           - 
             name: dns2.DOMAIN
-            ip: SINGLE_MACHINE_IP_ADDRESS
+            ip: REG_SLAVE_IP_ADDRESS
       DNS_CUSTOM_ENTRIES:
         description: "Additional DNS entries. See the DNS configuration document: https://api.pryv.com/customer-resources/#documents.
         Can be set to null if not used."
