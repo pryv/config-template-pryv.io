@@ -131,7 +131,7 @@ You might have to use `docker-ce` and your versions can be newer:
     docker-compose -v
     docker-compose version 1.18.0, build 8dd22a9
 
-If your domain is set up correctly, the following command should yield the fully qualified domain name of the machine you intend to use as a central Pryv Register server: 
+If your domain is set up correctly, the following command should yield the hostname of the machine you intend to use as a central Pryv Register server: 
 
     dig NS +trace ${DOMAIN}
 
