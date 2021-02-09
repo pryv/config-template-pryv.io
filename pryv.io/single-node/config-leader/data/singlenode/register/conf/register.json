@@ -9,16 +9,7 @@
     "certificateAuthorityAuthorization": {
       "issuer": "SSL_CAA_ISSUER"
     },
-    "nameserver": [
-      {
-        "name": "dns1.DOMAIN",
-        "ip": "SINGLE_MACHINE_IP_ADDRESS"
-      },
-      {
-        "name": "dns2.DOMAIN",
-        "ip": "SINGLE_MACHINE_IP_ADDRESS"
-      }
-    ],
+    "nameserver": NAME_SERVER_ENTRIES,
     "staticDataInDomain": {
       "sw": {
         "alias": {

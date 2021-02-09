@@ -88,16 +88,7 @@
     },
     "customEntries": DNS_CUSTOM_ENTRIES,
     "domain_A": "DNS_ROOT_DOMAIN_A_RECORD",
-    "nameserver": [
-      {
-        "name": "dns1.DOMAIN",
-        "ip": "REG_MASTER_IP_ADDRESS"
-      },
-      {
-        "name": "dns2.DOMAIN",
-        "ip": "REG_SLAVE_IP_ADDRESS"
-      }
-    ],
+    "nameserver": NAME_SERVER_ENTRIES,
     "rootTXT": {
       "description": DNS_ROOT_TXT_ARRAY
     }

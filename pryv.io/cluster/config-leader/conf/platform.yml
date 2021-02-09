@@ -101,6 +101,15 @@ vars:
   DNS_SETTINGS:
     name: "DNS settings"
     settings:
+      NAME_SERVER_ENTRIES:
+        description: "Name server entries for your Pryv.io platform domain."
+        value:
+          - 
+            name: dns1.DOMAIN
+            ip: SINGLE_MACHINE_IP_ADDRESS
+          - 
+            name: dns2.DOMAIN
+            ip: SINGLE_MACHINE_IP_ADDRESS
       DNS_CUSTOM_ENTRIES:
         description: "Additional DNS entries. See the DNS configuration document: https://api.pryv.com/customer-resources/#documents.
         Can be set to null if not used."
