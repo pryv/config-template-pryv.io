@@ -69,12 +69,6 @@ You might have to use `docker-ce` and your versions can be newer:
     docker-compose -v
     docker-compose version 1.18.0, build 8dd22a9
 
-If your domain is set up correctly, the following command should yield the hostname of the machine you intend to use as a central Pryv Register server: 
-
-    dig NS +trace ${DOMAIN}
-
-Normally, your NS records should resolve to the hostnames you gave to the Register server you intend to set up. Please check that the A records of the returned NS entries exist and point to the same machine.  
-
 ### Run
 
 To launch the installation, you will first need to authenticate with the distribution host to retrieve the Pryv.io docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
