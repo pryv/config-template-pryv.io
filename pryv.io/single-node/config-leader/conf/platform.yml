@@ -72,7 +72,10 @@ vars:
     name: "DNS settings"
     settings:
       NAME_SERVER_ENTRIES:
-        description: "Name server entries for your Pryv.io platform domain."
+        description: |-
+          Name server entries for your Pryv.io platform domain.  
+          You should set the `name` values to the hostnames provided as name servers in the domain setup phase(https://api.pryv.com/customer-resources/pryv.io-setup/#obtain-a-domain-name).  
+          The IP addresses should point to the machine running your Pryv.io DNS.
         value:
           - 
             name: dns1.DOMAIN
