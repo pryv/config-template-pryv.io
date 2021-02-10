@@ -38,16 +38,10 @@ function build_reg_master() {
     config-leader run-config-leader stop-config-leader restart-config-leader"
 
   build "reg-master" "$filesList" "http:\/\/config-leader:7000"
-  generate_internals_secrets
 }
 
 function generate_secret() {
   openssl rand -hex 32
-}
-
-function generate_internals_secrets() {
-  file="$rootDir/reg-master/config-leader/conf/config-leader.json"
-  sed -i "" -e "s/\"SECRET\"/\"`generate_secret`\"/g" "$file"
 }
 
 function build_reg_slave() {

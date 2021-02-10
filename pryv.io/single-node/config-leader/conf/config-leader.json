@@ -21,11 +21,11 @@
   "templatesPath": "/app/data",
   "databasePath": "/app/database",
   "internals": {
-    "SSO_COOKIE_SIGN_SECRET": "SECRET",
-    "FILES_READ_TOKEN_SECRET": "SECRET",
-    "CORE_SYSTEM_KEY": "SECRET",
-    "CORE_MAIL_KEY": "SECRET",
-    "REGISTER_SYSTEM_KEY_1": "SECRET"
+    "SSO_COOKIE_SIGN_SECRET": "REPLACE_ME",
+    "FILES_READ_TOKEN_SECRET": "REPLACE_ME",
+    "CORE_SYSTEM_KEY": "REPLACE_ME",
+    "CORE_MAIL_KEY": "REPLACE_ME",
+    "REGISTER_SYSTEM_KEY_1": "REPLACE_ME"
   },
   "followers": {
     "FOLLOWER_SINGLENODE_KEY": {

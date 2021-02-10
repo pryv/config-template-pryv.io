@@ -54,6 +54,11 @@ The configuration leader is run on the reg-master machine, also called leader ma
 
 Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
 
+## System keys
+
+The configuration contains some system keys that are used between Pryv.io services. You will find them in th `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` file, in a property called `internals`.  
+You need to replace each `REPLACE_ME` occurence with a strong key of random alphanumeric characters.
+
 ## Leader-follower keys
 
 For each follower service, you must define a secret for it to authentify when fetching its configuration from the leader service.
@@ -73,7 +78,7 @@ In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/c
 }
 ```
 
-The configuration we provide comes with a strong key, but you may generate a new one for this if you wish.
+The configuration we provide comes with a strong key, but you should generate a new one.
 
 For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
 

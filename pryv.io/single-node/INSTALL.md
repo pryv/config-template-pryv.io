@@ -47,6 +47,11 @@ cd $PRYV_CONF_ROOT
 
 Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when queried.
 
+## System keys
+
+The configuration contains some system keys that are used between Pryv.io services. You will find them in the `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` file, in a property called `internals`.  
+You need to replace each `REPLACE_ME` occurence with a strong key of random alphanumeric characters.
+
 ## SSL certificates
 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
