@@ -50,6 +50,13 @@ vars:
       DISABLE_GET_USERNAME_BY_EMAIL:
         description: "Whether to disable endpoint GET /:email/username"
         value: false
+      ACCOUNT_DELETION:
+        description: "Whether platform user account is available and by which command.
+          Available tokens:
+          - adminToken: User account deletion will become available through the admin API using the delete platform user method (https://api.pryv.com/reference-admin/#delete-user)
+          - personalToken: User account deletion will be available by the user with a personal token. Contact Pryv for the API route details."
+        value:
+          - adminToken
   SERVICE_INFORMATION_SETTINGS:
     name: "Service information settings"
     optional: true
