@@ -92,7 +92,7 @@
   },
   "net": {
     "aaservers": {
-      "singlenode": [
+      "pilot": [
         {
           "base_url": "https://co1.DOMAIN/",
           "authorization": "CORE_SYSTEM_KEY"
@@ -101,19 +101,19 @@
     },
     "aahostings": {
       "regions": {
-        "singlenode": {
+        "pilot": {
           "name": "Single node",
           "localizedName": {
             "fr": "Single node"
           },
           "zones": {
-            "singlenode": {
+            "pilot": {
               "name": "Single node Core",
               "localizedName": {
                 "fr": "Single node Core"
               },
               "hostings": {
-                "singlenode": {
+                "pilot": {
                   "url": "http://DOMAIN",
                   "name": "Single node Core",
                   "description": "Local core inside the Single node deploy",
