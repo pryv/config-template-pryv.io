@@ -13,7 +13,8 @@ echo $tag
 # Set Name
 
 dirName="../../docs/pryv.io/single-node/${tag}"
-tarName="pryv.io-${tag}-single-node.tgz"
+releaseName="pryv.io-${tag}-single-node"
+tarName="${releaseName}.tgz"
 date=$(date '+%d\/%m\/%Y')
 
 # Build folder
@@ -31,11 +32,24 @@ files="run-config-follower config-follower stop-config-follower restart-config-f
   UPDATE-TO-CENTRALIZED.md \
   INSTALL.md UPDATE.md"
 
+# Package it in file
+
+tempFolder="tarballs/${releaseName}"
+
+mkdir -p $tempFolder
+for file in $files; do cp -r "$file" "${tempFolder}/${file}"; done
+
 # Build tarball
 
-COPYFILE_DISABLE=1 tar -vzcf "${dirName}/${tarName}" \
+cd "tarballs"
+
+COPYFILE_DISABLE=1 tar -vzcf "../${dirName}/${tarName}" \
   --exclude .DS_Store \
-  $files
+  $releaseName
+
+rm -rf $releaseName
+
+cd ".."
 
 # Append link
 
