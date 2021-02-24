@@ -127,7 +127,7 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/mongodb/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
-      - ${PRYV_CONF_ROOT}/pryv/core/mongodb/backup/:/app/backup/
+      - ${PRYV_CONF_ROOT}/pryv/mongodb/backup/:/app/backup/
     restart: always
 
   influxdb:
