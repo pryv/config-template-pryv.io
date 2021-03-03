@@ -2,7 +2,23 @@
 
 Please use this template as basis for future customer deployments and keep this up to date.
 
-## Usage
+## Publish version
+
+When you wish to release a new version of Pryv.io, to [https://api.pryv.com/config-template-pryv.io/](https://api.pryv.com/config-template-pryv.io/). Do the following:
+
+1. Ensure that you have bumped `TEMPLATE_VERSION` in templates of both cluster and single-node
+2. tag your commit
+3. Run `./scripts/publish.sh` in both `pryv.io/cluster/` and `pryv.io/single-node/`
+4. Add and commit changes
+
+## Internal usage (as git repository clone)
+
+These instructions explain how to setup a clone of this repository as is done for pryv.me, pryv.li & rec.la:
+- https://github.com/pryv/config-pryv.me
+- https://github.com/pryv/config-pryv.li
+- https://github.com/pryv/config-rec.la
+
+### Setup repository
 
 1. Create new empty repository on GitHub named `config-DOMAIN`
 2. Clone this repository: `git clone --bare git@github.com:pryv/config-template-pryv.io.git`
@@ -10,31 +26,13 @@ Please use this template as basis for future customer deployments and keep this 
 4. Remove the temporary local repository you created in step 2: `cd ..`, `rm -rf config-template-pryv.io.git`
 5. clone the new repository to work on it: `git clone git@github.com:pryv/config-DOMAIN.git`
 
-You will find instructions regarding variables and other settings in the directories [pryv.io/cluster](pryv.io/cluster/) and [pryv.io/single-node](pryv.io/single-node/).
-
 ### Update clone from template
 
 In the clone repository, add this template repository as a secondary remote: `git remote add template git@github.com:pryv/config-template-pryv.io.git`
 
 Then each time, you wish to apply an update, run:
-1. `git fetch template master`
+
+1. `git fetch template`
 2. `git merge template/master`
 3. resolve conflicts
 4. use update
-
-### Update instructions to customers
-
-When sending a new release to customers, please include these instructions:
-
-1. Backup your configuration to allow rolling back.
-2. Replace the configuration files for "docker-compose" by the new files in this release. 
-3. Take your installation down ('docker-compose -f FILE down') and then recreate it from the new binaries: 'docker-compose -f FILE up -d'. This makes sure nothing lingers in docker. 
-4. Verify the new release. 
-
-### Versions
-
-- **1.4**: v1.4 is currently tested, available on [its own branch](https://github.com/pryv/config-template-pryv.io/tree/release-1.4)
-
-- **1.3**: v1.3 has been merged into master
-
-- **v1.2**: v1.2 available on branch [release-1.2](https://github.com/pryv/config-template-pryv.io/tree/release-1.2)
