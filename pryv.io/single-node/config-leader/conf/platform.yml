@@ -10,7 +10,7 @@ vars:
         description: "IP address of the machine"
       REGISTER_ADMIN_KEY: 
         value: REPLACE_ME
-        description: "Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin. Please set a strong cryptographic key"
+        description: "Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin. Please set a strong cryptographic key. Alphanumeric of length 20 to 50."
   MISCELLANEOUS_SETTINGS:
     name: "Miscellaneous settings"
     settings:

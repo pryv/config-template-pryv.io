@@ -50,7 +50,7 @@ Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/
 ## System keys
 
 The configuration contains some system keys that are used between Pryv.io services. You will find them in the `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` file, in a property called `internals`.  
-You need to replace each `REPLACE_ME` occurence with a strong key of random alphanumeric characters.
+You need to replace each `REPLACE_ME` occurence with a strong key of random characters. We recommend using a string of alphanumeric characters of length between 20 and 50.
 
 ## SSL certificates
 

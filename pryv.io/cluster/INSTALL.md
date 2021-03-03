@@ -57,7 +57,7 @@ Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/
 ## System keys
 
 The configuration contains some system keys that are used between Pryv.io services. You will find them in th `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` file, in a property called `internals`.  
-You need to replace each `REPLACE_ME` occurence with a strong key of random alphanumeric characters.
+You need to replace each `REPLACE_ME` occurence with a strong key of random characters. We recommend using a string of alphanumeric characters of length between 20 and 50.
 
 ## Leader-follower keys
 
@@ -78,7 +78,7 @@ In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/c
 }
 ```
 
-The configuration we provide comes with a strong key, but you should generate a new one.
+The configuration we provide comes with a strong key, but you should generate a new one. We recommend using a string of alphanumeric characters of length between 20 and 50.
 
 For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
 
