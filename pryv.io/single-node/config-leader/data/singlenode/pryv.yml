@@ -51,7 +51,7 @@ services:
     image: "eu.gcr.io/pryvio/dns:1.6.0"
     container_name: pryvio_dns
     ports:
-      - "53:5353/udp"
+      - "SINGLE_MACHINE_IP_ADDRESS:53:5353/udp"
     networks:
       - backend
     volumes:
