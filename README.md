@@ -2,6 +2,13 @@
 
 Please use this template as basis for future customer deployments and keep this up to date.
 
+## Customer usage
+
+1. Send a link of the latest version from [https://api.pryv.com/config-template-pryv.io/](https://api.pryv.com/config-template-pryv.io/)
+2. Send license keys
+3. Generate and send a GCP repository key: [https://github.com/pryv/docs-pryv/tree/master/docker](https://github.com/pryv/docs-pryv/tree/master/docker)
+4. Save this key to 1Password, under **Google cloud platform docker registry**
+
 ## Publish version
 
 When you wish to release a new version of Pryv.io, to [https://api.pryv.com/config-template-pryv.io/](https://api.pryv.com/config-template-pryv.io/). Do the following:
