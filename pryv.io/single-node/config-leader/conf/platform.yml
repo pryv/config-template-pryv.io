@@ -271,4 +271,7 @@ vars:
                                      'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
         More information could be found here: https://api.pryv.com/customer-resources/system-streams/"
         value: "{\"account\": [{\"isIndexed\": true,\"isUnique\": true,\"isShown\": true,\"isEditable\": true,\"type\": \"email/string\",\"name\": \"Email\",\"id\": \"email\",\"isRequiredInValidation\": true}]}"
-
+      PUBLIC_INTERFACE_IP_ADDRESS:
+        description: "IP address of network interface to public internet. If the one having the public IP address of the machine is not available on the machine, because it is running on a proxy or another reason, it might be different. Find it using the 'ifconfig' command.
+        Default value: SINGLE_MACHINE_IP_ADDRESS"
+        value: SINGLE_MACHINE_IP_ADDRESS
