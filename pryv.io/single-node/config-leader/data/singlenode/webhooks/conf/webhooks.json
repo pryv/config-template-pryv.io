@@ -25,5 +25,5 @@
       "projectId": "247285"
     }
   },
-  "serviceInfoUrl": "https://reg.DOMAIN/service/info"
+  "serviceInfoUrl": "http://register:9000/service/info"
 }
