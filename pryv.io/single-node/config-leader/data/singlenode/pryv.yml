@@ -7,7 +7,7 @@ services:
     networks:
       - frontend
     ports:
-      - "443:443"
+      - "80:80"
     volumes:
       - ${PRYV_CONF_ROOT}/pryv/nginx/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/nginx/log/:/app/log/
