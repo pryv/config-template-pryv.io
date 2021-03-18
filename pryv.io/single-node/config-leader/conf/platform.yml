@@ -271,4 +271,17 @@ vars:
                                      'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
         More information could be found here: https://api.pryv.com/customer-resources/system-streams/"
         value: "{\"account\": [{\"isIndexed\": true,\"isUnique\": true,\"isShown\": true,\"isEditable\": true,\"type\": \"email/string\",\"name\": \"Email\",\"id\": \"email\",\"isRequiredInValidation\": true}]}"
-
+  AUDIT_SETTINGS:
+    name: "Audit settings"
+    settings:
+      AUDIT_FILTER:
+        value: 
+          methods:
+            include: ['all']
+            exclude: []
+        description: 'Audited API calls filtering. Default value: {"methods":{"include":["all"],"exclude":[]}}'
+      AUDIT_SYSLOG_FORMAT: 
+        value: 
+          template: "{userid} {type} createdBy:{createdBy} {streamIds} {content}"
+          level: notice # One of notice, warning, error, critical, alert, emerg
+        description: "Version of configuration template"
