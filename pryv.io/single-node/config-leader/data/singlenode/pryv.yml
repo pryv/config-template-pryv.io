@@ -105,33 +105,6 @@ services:
       - core
     restart: always
 
-  core_router:
-    image: "eu.gcr.io/pryvio/router:1.0.6"
-    container_name: pryvio_router
-    networks:
-      - frontend
-    links:
-      - core
-    environment:
-      ROUTER_LOG: info
-    volumes:
-      - /dev/log:/dev/log
-    command: --core-audit core:3000 --core-audit core:3001 --core-audit core:3002 --core-audit core:3003
-    restart: always
-
-  core_audit:
-    image: "eu.gcr.io/pryvio/audit:1.0.5"
-    container_name: pryvio_audit
-    networks:
-      - frontend
-    links:
-      - core
-    volumes:
-      - ${PRYV_CONF_ROOT}/pryv/audit/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/pryv/audit/log/:/app/log/
-      - /var/log/pryv/audit/pryvio_core/:/app/data/
-    restart: always
-
   mail: 
     image: "eu.gcr.io/pryvio/mail:1.2.0"
     container_name: pryvio_mail

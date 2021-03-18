@@ -15,7 +15,7 @@
     }
   },
   "core": {
-    "url": "http://core_router:1337"
+    "url": "http://core:3000"
   },
   "sms": MFA_SMS_API_SETTINGS,
   "sessions": {
