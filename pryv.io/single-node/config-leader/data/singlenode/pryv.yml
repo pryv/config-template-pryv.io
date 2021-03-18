@@ -84,6 +84,7 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/core/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/core/log/:/app/log/
+      - /dev/log:/dev/log # for audit log
     environment: 
       - NUM_PROCS=4
       - STARTING_PORT=3000
