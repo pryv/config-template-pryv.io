@@ -34,7 +34,7 @@ services:
 
   # Register role START --------------------------------------------------------
   register:
-    image: "eu.gcr.io/pryvio/register:1.6.0"
+    image: "eu.gcr.io/pryvio/register:1.6.3"
     container_name: pryvio_register
     networks:
       - frontend
