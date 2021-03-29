@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Direcory where application configuration files are supposed to be stored
+export PRYV_CONF_ROOT="/var/pryv"
+
+docker-compose -f logging/logging.yaml down
+
+# run
+[[ -e ${PRYV_CONF_ROOT}/pryv/pryv.yml ]] || { echo >&2 "The file ${PRYV_CONF_ROOT}/pryv/pryv.yml was not found."; exit 1; }
+
+echo "Running Pryv/core component."
+docker-compose -f logging/logging.yaml up -d

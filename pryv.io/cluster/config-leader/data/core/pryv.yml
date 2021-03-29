@@ -113,6 +113,14 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/influxdb/data/:/var/lib/influxdb
       - ${PRYV_CONF_ROOT}/pryv/influxdb/backup/:/pryv/backup/
     restart: always
+
+  promtail:
+    container_name: promtail
+    image: grafana/promtail:2.0.0
+    volumes:
+      - ${PRYV_CONF_ROOT}/pryv/nginx/log:/var/log:ro
+      - ${PRYV_CONF_ROOT}/logging/promtail/conf:/var/conf:ro
+    command: -config.file=/var/conf/promtail.yaml
       
 networks:
   frontend:

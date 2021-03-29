@@ -73,6 +73,33 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/mail/templates/:/app/bin/templates/:ro
     restart: always
 
+  promtail:
+    container_name: promtail
+    image: grafana/promtail:2.0.0
+    volumes:
+      - ${PRYV_CONF_ROOT}/pryv/nginx/log:/var/log:ro
+      - ${PRYV_CONF_ROOT}/logging/promtail/conf:/var/conf:ro
+    command: -config.file=/var/conf/promtail.yaml
+    networks:
+      - frontend
+
+  loki:
+    container_name: loki
+    image: grafana/loki:2.0.0
+    ports:
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - frontend
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:latest
+    ports:
+    volumes:
+      - ${PRYV_CONF_ROOT}/logging/grafana:/var/lib/grafana
+    networks:
+      - frontend
+
 networks:
   frontend:
     driver: bridge
