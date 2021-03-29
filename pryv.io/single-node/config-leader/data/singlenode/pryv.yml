@@ -34,7 +34,7 @@ services:
 
   # Register role START --------------------------------------------------------
   register:
-    image: "eu.gcr.io/pryvio/register:1.6.0"
+    image: "eu.gcr.io/pryvio/register:1.6.3"
     container_name: pryvio_register
     networks:
       - frontend
@@ -48,7 +48,7 @@ services:
     restart: always
 
   dns:
-    image: "eu.gcr.io/pryvio/dns:1.6.0"
+    image: "eu.gcr.io/pryvio/dns:1.6.3"
     container_name: pryvio_dns
     ports:
       - "SINGLE_MACHINE_IP_ADDRESS:53:5353/udp"

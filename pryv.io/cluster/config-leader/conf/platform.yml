@@ -19,7 +19,7 @@ vars:
         description: "IP address of register slave machine"
       REGISTER_ADMIN_KEY: 
         value: REPLACE_ME
-        description: "Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin. Please set a strong cryptographic key. Alphanumeric of length 20 to 50.""
+        description: "Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin. Please set a strong cryptographic key. Alphanumeric of length 20 to 50."
       HOSTINGS_AND_CORES:
         description: "Defines the distribution of cores among the hostings providers"
         value:
@@ -48,7 +48,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.6.18
+        value: 1.6.19
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
