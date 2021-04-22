@@ -17,7 +17,10 @@
   "core": {
     "url": "http://core_router:1337"
   },
-  "sms": MFA_SMS_API_SETTINGS,
+  "sms": {
+    "mode": MFA_MODE,
+    "endpoints": MFA_ENDPOINTS
+  },
   "sessions": {
     "ttlSeconds": MFA_SESSIONS_TTL_SECONDS
   }

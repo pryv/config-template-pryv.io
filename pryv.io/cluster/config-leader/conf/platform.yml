@@ -48,7 +48,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.6.19
+        value: 1.6.20
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
@@ -242,13 +242,33 @@ vars:
       MFA_SESSIONS_TTL_SECONDS: 
         value: 1800
         description: "Duration in seconds after which MFA sessions are destroyed"
-      MFA_SMS_API_SETTINGS:
-        description: "Allow to define an external SMS API handling the MFA challenge. API endpoints that allow to trigger and verify the MFA challenge as well as the API key that will be passed as 'Authorization' header"
+      MFA_MODE:
+        description: 'Defines the MFA mode, Available values: "single", "challenge-verify". See https://api.pryv.com/customer-resources/mfa/.'
+        value: 'single'
+      MFA_ENDPOINTS:
+        description: "Allow to define an external API endpoint handling the MFA challenge/verify or sending. See https://api.pryv.com/customer-resources/mfa/."
         value:
-          endpoints:
-            challenge: REPLACE_ME
-            verify: REPLACE_ME
-          auth: REPLACE_ME
+          challenge:
+            url: ''
+            method: 'POST'
+            body: '{"phone":"{{ phone }}"}'
+            headers:
+              authorization: ''
+              'content-type': 'application/json'
+          verify:
+            url: ''
+            method: 'POST'
+            body: '{"phone":"{{ phone }}"}'
+            headers:
+              authorization: ''
+              'content-type': 'application/json'
+          single: 
+            url: ''
+            method: 'POST'
+            body: '{"phone":"{{ phone }}"}'
+            headers:
+              authorization: ''
+              'content-type': 'application/json'
   ADVANCED_API_SETTINGS:
     optional: true
     name: "Advanced API settings"
