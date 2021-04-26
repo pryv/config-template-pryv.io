@@ -221,21 +221,21 @@ vars:
           challenge:
             url: ''
             method: 'POST'
-            body: '{"phone":"{{ phone }}"}'
+            body: '{"phone_number":"{{ phone_number }}"}'
             headers:
               authorization: ''
               'content-type': 'application/json'
           verify:
             url: ''
             method: 'POST'
-            body: '{"phone":"{{ phone }}"}'
+            body: '{"phone_number":"{{ phone_number }}","code":"{{ code }}"}'
             headers:
               authorization: ''
               'content-type': 'application/json'
           single: 
             url: ''
             method: 'POST'
-            body: '{"phone":"{{ phone }}"}'
+            body: '{"phone_number":"{{ phone_number }}"}'
             headers:
               authorization: ''
               'content-type': 'application/json'
