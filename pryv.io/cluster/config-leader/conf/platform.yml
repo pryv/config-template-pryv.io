@@ -151,7 +151,7 @@ vars:
         value: en
         description: "Default language for email templates eg: en"
       EMAIL_SMTP_SETTINGS:
-        description: "If used, Host, port and credentials of the SMTP server"
+        description: "If used, Host, port and credentials of the SMTP server. See the following for available parameters: https://nodemailer.com/smtp/"
         value:
           host: REPLACE_ME
           port: REPLACE_ME
