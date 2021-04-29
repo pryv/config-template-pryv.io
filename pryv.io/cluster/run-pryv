@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+export http_proxy=http://proxy.netplus.priv:8888/
+export https_proxy=http://proxy.netplus.priv:8888/
+
 # Direcory where application configuration files are supposed to be stored
 export PRYV_CONF_ROOT="/var/pryv"
 

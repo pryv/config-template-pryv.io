@@ -16,6 +16,9 @@ services:
       - hfs
       - preview
       - register
+    environment:
+      - http_proxy
+      - https_proxy
     restart: always
 
   admin_panel: 
