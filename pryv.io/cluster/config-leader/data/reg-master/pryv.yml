@@ -16,14 +16,14 @@ services:
     restart: always
 
   admin_panel: 
-    image: "eu.gcr.io/pryvio/app-web-admin:1.1.2"
+    image: "eu.gcr.io/pryvio/app-web-admin:1.1.4"
     container_name: pryvio_admin_panel
     networks: 
       - frontend
     restart: always
 
   register: 
-    image: "eu.gcr.io/pryvio/register:1.6.0"
+    image: "eu.gcr.io/pryvio/register:1.6.3"
     container_name: pryvio_register
     networks: 
       - frontend
@@ -36,7 +36,7 @@ services:
     restart: always
 
   dns: 
-    image: "eu.gcr.io/pryvio/dns:1.6.0"
+    image: "eu.gcr.io/pryvio/dns:1.6.3"
     container_name: pryvio_dns
     ports: 
       - "REG_MASTER_IP_ADDRESS:53:5353/udp"
@@ -64,7 +64,7 @@ services:
     restart: always
 
   mail: 
-    image: "eu.gcr.io/pryvio/mail:1.2.0"
+    image: "eu.gcr.io/pryvio/mail:1.2.3"
     container_name: pryvio_mail
     networks: 
       - frontend

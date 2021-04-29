@@ -19,7 +19,7 @@
   },
   "templatesPath": "/app/data",
   "databasePath": "/app/database",
-  "registerUrl": "register:9000",
+  "registerUrl": "http://pryvio_register:9000",
   "internals": {
     "SSO_COOKIE_SIGN_SECRET": "REPLACE_ME",
     "FILES_READ_TOKEN_SECRET": "REPLACE_ME",

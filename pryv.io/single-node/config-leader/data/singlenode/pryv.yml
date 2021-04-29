@@ -19,7 +19,7 @@ services:
     restart: always
 
   admin_panel: 
-    image: "eu.gcr.io/pryvio/app-web-admin:1.1.2"
+    image: "eu.gcr.io/pryvio/app-web-admin:1.1.4"
     container_name: pryvio_admin_panel
     networks: 
       - frontend
@@ -34,7 +34,7 @@ services:
 
   # Register role START --------------------------------------------------------
   register:
-    image: "eu.gcr.io/pryvio/register:1.6.0"
+    image: "eu.gcr.io/pryvio/register:1.6.3"
     container_name: pryvio_register
     networks:
       - frontend
@@ -48,7 +48,7 @@ services:
     restart: always
 
   dns:
-    image: "eu.gcr.io/pryvio/dns:1.6.0"
+    image: "eu.gcr.io/pryvio/dns:1.6.3"
     container_name: pryvio_dns
     ports:
       - "PUBLIC_INTERFACE_IP_ADRESS:53:5353/udp"
@@ -75,7 +75,7 @@ services:
 
   # Core role START ------------------------------------------------------------
   core:
-    image: "eu.gcr.io/pryvio/core:1.6.16"
+    image: "eu.gcr.io/pryvio/core:1.6.20"
     container_name: pryvio_core
     networks:
       - frontend
@@ -94,7 +94,7 @@ services:
     restart: always
 
   mfa: 
-    image: "eu.gcr.io/pryvio/service-mfa:1.0.2"
+    image: "eu.gcr.io/pryvio/service-mfa:1.1.0"
     container_name: pryvio_mfa
     networks:
       - frontend
@@ -133,7 +133,7 @@ services:
     restart: always
 
   mail: 
-    image: "eu.gcr.io/pryvio/mail:1.2.0"
+    image: "eu.gcr.io/pryvio/mail:1.2.3"
     container_name: pryvio_mail
     networks: 
       - frontend
@@ -143,7 +143,7 @@ services:
     restart: always
 
   hfs: 
-    image: "eu.gcr.io/pryvio/hfs:1.6.16"
+    image: "eu.gcr.io/pryvio/hfs:1.6.20"
     container_name: pryvio_hfs
     networks: 
       - frontend
@@ -160,7 +160,7 @@ services:
     restart: always
 
   preview:
-    image: "eu.gcr.io/pryvio/preview:1.6.16"
+    image: "eu.gcr.io/pryvio/preview:1.6.20"
     container_name: pryvio_preview
     networks:
       - frontend
@@ -174,7 +174,7 @@ services:
     restart: always
 
   webhooks:
-    image: "eu.gcr.io/pryvio/webhooks:1.6.16"
+    image: "eu.gcr.io/pryvio/webhooks:1.6.20"
     container_name: pryvio_webhooks
     networks:
       - backend

@@ -17,7 +17,7 @@
       "filePath": "/app/log/audit.log"
     }
   },
-  "registerUrl": "register:9000",
+  "registerUrl": "http://pryvio_register:9000",
   "templatesPath": "/app/data",
   "databasePath": "/app/database",
   "internals": {
