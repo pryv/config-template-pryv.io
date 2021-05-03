@@ -1,0 +1,13 @@
+{
+  "name": "config-upgrades",
+  "version": "1.0.0",
+  "description": "Pryv.io configuration upgrade tool",
+  "main": "index.js",
+  "author": "Pryv SA",
+  "license": "none",
+  "private": true,
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "yaml": "^1.10.2"
+  }
+}
