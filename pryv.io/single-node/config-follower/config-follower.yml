@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   config-follower:
-    image: "eu.gcr.io/pryvio/config-follower:1.0.6"
+    image: "eu.gcr.io/pryvio/config-follower:1.0.8"
     container_name: pryvio_config_follower
     networks:
       - frontend

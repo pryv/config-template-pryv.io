@@ -19,7 +19,7 @@ services:
     restart: always
 
   admin_panel: 
-    image: "eu.gcr.io/pryvio/app-web-admin:1.1.2"
+    image: "eu.gcr.io/pryvio/app-web-admin:1.1.4"
     container_name: pryvio_admin_panel
     networks: 
       - frontend
@@ -95,7 +95,7 @@ services:
     restart: always
 
   mfa: 
-    image: "eu.gcr.io/pryvio/service-mfa:1.0.2"
+    image: "eu.gcr.io/pryvio/service-mfa:1.1.0"
     container_name: pryvio_mfa
     networks:
       - frontend
