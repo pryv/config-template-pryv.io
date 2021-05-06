@@ -294,7 +294,13 @@ vars:
   AUDIT_SETTINGS:
     name: "Audit settings"
     settings:
-      AUDIT_FILTER:
+      AUDIT_STORAGE_FILTER:
+        value: 
+          methods:
+            include: ['accesses.create']
+            exclude: []
+        description: 'Audited API calls filtering for storage. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
+      AUDIT_SYSLOG_FILTER:
         value: 
           methods:
             include: ['all']

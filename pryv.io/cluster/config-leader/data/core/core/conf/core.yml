@@ -64,7 +64,7 @@ userFiles:
   path: /app/data/users
 audit:
   storage:
-    filter: AUDIT_FILTER
+    filter: AUDIT_STORAGE_FILTER
   syslog:
     options:
       host: localhost #The host running syslogd, defaults to localhost.
@@ -80,4 +80,4 @@ audit:
       #eol:  #The end of line character to be added to the end of the message (Default: Message without modifications).
     formats: # define your own template for each type of "log/<format>" event
       default: AUDIT_SYSLOG_FORMAT
-    filter: AUDIT_FILTER
+    filter: AUDIT_SYSLOG_FILTER
