@@ -43,10 +43,10 @@ vars:
             description: Europe - France
       REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS:
         value: REG_MASTER_IP_ADDRESS
-        description: "IP address of network interface bound to public network. Set if different to its public address at REG_MASTER_IP_ADDRESS. Use 'ifconfig' on VM to find it."
+        description: "IP address of network interface bound to public network. Change if different to its public address at REG_MASTER_IP_ADDRESS."
       REG_SLAVE_PUBLIC_INTERFACE_IP_ADDRESS:
         value: REG_SLAVE_IP_ADDRESS
-        description: "IP address of network interface bound to public network. Set if different to its public address at REG_SLAVE_IP_ADDRESS. Use 'ifconfig' on VM to find it."
+        description: "IP address of network interface bound to public network. Change if different to its public address at REG_SLAVE_IP_ADDRESS."
   MISCELLANEOUS_SETTINGS:
     name: "Miscellaneous settings"
     settings:
