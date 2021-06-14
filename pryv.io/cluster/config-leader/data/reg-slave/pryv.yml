@@ -17,7 +17,7 @@ services:
     image: "eu.gcr.io/pryvio/dns:1.6.4"
     container_name: pryvio_dns
     ports: 
-      - "REG_SLAVE_IP_ADDRESS:53:5353/udp"
+      - "REG_SLAVE_PUBLIC_INTERFACE_IP_ADDRESS:53:5353/udp"
     networks: 
       - frontend
       - backend

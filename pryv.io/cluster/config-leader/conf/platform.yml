@@ -41,6 +41,12 @@ vars:
             url: https://www.hosting2.ch
             name: Hosting 2
             description: Europe - France
+      REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS:
+        value: REG_MASTER_IP_ADDRESS
+        description: "IP address of network interface bound to public network. Set if different to its public address at REG_MASTER_IP_ADDRESS. Use 'ifconfig' on VM to find it."
+      REG_SLAVE_PUBLIC_INTERFACE_IP_ADDRESS:
+        value: REG_SLAVE_IP_ADDRESS
+        description: "IP address of network interface bound to public network. Set if different to its public address at REG_SLAVE_IP_ADDRESS. Use 'ifconfig' on VM to find it."
   MISCELLANEOUS_SETTINGS:
     name: "Miscellaneous settings"
     settings:
