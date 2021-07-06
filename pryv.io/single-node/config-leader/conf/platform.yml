@@ -283,14 +283,19 @@ vars:
         Default value: 'module.exports=function(ctx, cb){cb();}'. 
         More information: https://api.pryv.com/guides/custom-auth/"
         value: "module.exports=function(ctx, cb){cb();}"
-      CUSTOM_SYSTEM_STREAMS:
+      ACCOUNT_SYSTEM_STREAMS:
         description: "Custom account fields that are saved and validated during the registration.
-        Preferably these values should be set only once, because fields like isUnique or isIndexed would not be updated
-        after settings update.
-        Default value: {'account': [{'isIndexed': true,'isUnique': true,'isShown': true,'isEditable': true,'type': 'email/string',
-                                     'name': 'Email','id': 'email','isRequiredInValidation': true}]}'.
-        More information could be found here: https://api.pryv.com/customer-resources/system-streams/"
-        value: "{\"account\": [{\"isIndexed\": true,\"isUnique\": true,\"isShown\": true,\"isEditable\": true,\"type\": \"email/string\",\"name\": \"Email\",\"id\": \"email\",\"isRequiredInValidation\": true}]}"
+        Preferably these values should be modified with care, because fields like isUnique or isIndexed would not be updated
+        after settings update. If you remove streams that have events in some user accounts, these events will become unreachable.
+        Default value: [{'isIndexed': true,'isUnique': true,'isShown': true,'isEditable': true,'type': 'email/string',
+        'name': 'Email','id': 'email','isRequiredInValidation': true}]'.
+        More information available here: https://api.pryv.com/customer-resources/system-streams/"
+        value: "[{\"isIndexed\": true,\"isUnique\": true,\"isShown\": true,\"isEditable\": true,\"type\": \"email/string\",\"name\": \"Email\",\"id\": \"email\",\"isRequiredInValidation\": true}]"
+      OTHER_SYSTEM_STREAMS:
+        description: "Custom stream structure that is available in all accounts. Preferably these values should be changed rarely. If you remove streams that have events in some user accounts, these events will become unreachable.
+        Default value: []
+        More information available here: https://api.pryv.com/customer-resources/system-streams/"
+        value: "[]"
   AUDIT_SETTINGS:
     name: "Audit settings"
     settings:

@@ -55,7 +55,9 @@ customExtensions:
 dnsLess:
   isActive: false
 custom:
-  systemStreams: CUSTOM_SYSTEM_STREAMS
+  systemStreams: 
+    account: ACCOUNT_SYSTEM_STREAMS
+    other: OTHER_SYSTEM_STREAMS
 openSource:
   isActive: false
 user-account:
@@ -81,3 +83,7 @@ audit:
     formats: # define your own template for each type of "log/<format>" event
       default: AUDIT_SYSLOG_FORMAT
     filter: AUDIT_SYSLOG_FILTER
+backwardCompatibility:
+  systemStreams:
+    prefix:
+      isActive: false
