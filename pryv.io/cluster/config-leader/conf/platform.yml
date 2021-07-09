@@ -41,6 +41,12 @@ vars:
             url: https://www.hosting2.ch
             name: Hosting 2
             description: Europe - France
+      REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS:
+        value: REG_MASTER_IP_ADDRESS
+        description: "IP address of network interface bound to public network. Change if different to its public address at REG_MASTER_IP_ADDRESS."
+      REG_SLAVE_PUBLIC_INTERFACE_IP_ADDRESS:
+        value: REG_SLAVE_IP_ADDRESS
+        description: "IP address of network interface bound to public network. Change if different to its public address at REG_SLAVE_IP_ADDRESS."
   MISCELLANEOUS_SETTINGS:
     name: "Miscellaneous settings"
     settings:
@@ -48,7 +54,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.6.20
+        value: 1.6.23
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"

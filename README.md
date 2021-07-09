@@ -43,3 +43,4 @@ Then each time, you wish to apply an update, run:
 2. `git merge template/master`
 3. resolve conflicts
 4. use update
+ 

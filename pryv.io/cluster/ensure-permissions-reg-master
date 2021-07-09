@@ -1,5 +1,13 @@
  #!/usr/bin/env bash
 
+# only run if Redis container is not running. Otherwise, you must reboot it to obtain write permissions again.
+
+docker ps 2> /dev/null | grep redis &> /dev/null
+if [ $? == 0 ]; then
+  echo "Redis container running. Please shut it down before running script".
+  exit 1
+fi
+
 echo "Ensuring data and log folders permissions"
 
 sudo chown -R 9999:9999 ./pryv

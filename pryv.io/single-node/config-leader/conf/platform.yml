@@ -11,6 +11,11 @@ vars:
       REGISTER_ADMIN_KEY: 
         value: REPLACE_ME
         description: "Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin. Please set a strong cryptographic key. Alphanumeric of length 20 to 50."
+      SINGLE_MACHINE_PUBLIC_INTERFACE_IP_ADDRESS:
+        value: SINGLE_MACHINE_IP_ADDRESS
+        description: >-
+          IP address of network interface bound to public network. Change if
+          different to its public address at SINGLE_MACHINE_IP_ADDRESS.
   MISCELLANEOUS_SETTINGS:
     name: "Miscellaneous settings"
     settings:
@@ -18,7 +23,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION: 
-        value: 1.6.20
+        value: 1.6.23
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
