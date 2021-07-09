@@ -86,4 +86,4 @@ audit:
 backwardCompatibility:
   systemStreams:
     prefix:
-      isActive: false
+      isActive: BACKWARD_COMPATIBILITY_SYSTEM_STREAMS_PREFIX

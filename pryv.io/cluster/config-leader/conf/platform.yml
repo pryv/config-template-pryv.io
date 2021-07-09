@@ -326,6 +326,10 @@ vars:
         Default value: []
         More information available here: https://api.pryv.com/customer-resources/system-streams/"
         value: "[]"
+      BACKWARD_COMPATIBILITY_SYSTEM_STREAMS_PREFIX:
+        description: "Makes the API accept and return system streams with the old '.' (dot) prefix (ex.: '.account'). When activated, you can migrate applications by making API calls with the 'disable-backward-compatibility-prefix=true' header.
+        Default value: false"
+        value: false
   AUDIT_SETTINGS:
     name: "Audit settings"
     settings:
