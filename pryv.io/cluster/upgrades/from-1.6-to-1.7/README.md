@@ -9,5 +9,6 @@ For this to work, you must have already upgrade your platform to version 1.7.
 ## Process
 
 1. If needed, change the `PRYV_CONF_ROOT` variable in `run-migration.sh`, it is set to `/var/pryv`. It marks the folder where you unpacked the configuration files.
-2. Stop Pryv.io services: `/var/pryv/stop-pryv`
-3. Start migration container: `/var/pryv/upgrades/run-migration.sh`
+2. Stop Pryv.io services: `cd /var/pryv && ./stop-pryv`
+3. Start migration container: `/var/pryv/upgrades/from-1.6-to-1.7/run-migration.sh`
+4. Start them back up: `cd /var/pryv && /var/pryv/run-pryv`
