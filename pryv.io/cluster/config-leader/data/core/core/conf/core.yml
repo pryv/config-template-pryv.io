@@ -42,6 +42,10 @@ updates:
 versioning: VERSIONING_SETTINGS
 webhooks: WEBHOOKS_SETTINGS
 logs:
+  file:
+    active: true
+    level: "info"
+    path: "/app/log/core.log"
   console:
     active: true,
     level: "info"

@@ -20,6 +20,10 @@ services:
     url: "https://reg.DOMAIN"
 serviceInfoUrl: "https://reg.DOMAIN/service/info"
 logs:
+  file:
+    active: true
+    level: "info"
+    path: "/app/log/hfs.log"
   console:
     active: true
     level: "info"
