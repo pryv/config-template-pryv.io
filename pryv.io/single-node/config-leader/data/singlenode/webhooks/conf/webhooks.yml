@@ -1,0 +1,20 @@
+---
+database:
+  host: "mongodb"
+  port: 27017
+  name: "pryv-node"
+nats:
+  uri: "nats://core:4222"
+logs:
+  file:
+    active: true
+    level: "info"
+    path: "/app/log/webhooks.log"
+  console:
+    active: true
+    level: "info"
+  airbrake:
+    active: false
+    key: "ba44e430f8fdf66e820717660e838874"
+    projectId: "247285"
+serviceInfoUrl: "http://register:9000/service/info"
