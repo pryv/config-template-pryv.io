@@ -17,4 +17,4 @@ logs:
     active: false
     key: "ba44e430f8fdf66e820717660e838874"
     projectId: "247285"
-serviceInfoUrl: "http://register:9000/service/info"
+serviceInfoUrl: "https://reg.DOMAIN/service/info"
