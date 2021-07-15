@@ -20,6 +20,10 @@ services:
     url: "http:register:9000"
 serviceInfoUrl: "http://register:9000/service/info"
 logs:
+  file:
+    active: true
+    level: "info"
+    path: "/app/log/hfs.log"
   console:
     active: true
     level: "info"

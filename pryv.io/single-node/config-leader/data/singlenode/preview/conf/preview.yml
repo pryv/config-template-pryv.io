@@ -12,6 +12,10 @@ eventFiles:
 auth:
   sessionMaxAge: SESSION_MAX_AGE
 logs:
+  file:
+    active: true
+    level: "info"
+    path: "/app/log/preview.log"
   console:
     active: true
     level: "info"
