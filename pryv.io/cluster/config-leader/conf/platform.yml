@@ -83,6 +83,9 @@ vars:
       APP_WEB_AUTH_URL:
         value: http://app_web_auth3_server
         description: "URL of customized app-web-auth, exposed on https://sw.DOMAIN (https://github.com/pryv/app-web-auth3). Default value: http://app_web_auth3_server. To use most recent version select: https://pryv.github.io/app-web-auth3/"
+      MAX_UPLOAD_SIZE_MB:
+        value: 20
+        description: "The value of the maximum upload size in Mega Bytes."
       DISABLE_GET_USERNAME_BY_EMAIL:
         description: "Whether to disable endpoint GET /:email/username"
         value: false

@@ -30,3 +30,5 @@ logs:
   console:
     active: true
     level: "info"
+uploads:
+  maxSizeMb: MAX_UPLOAD_SIZE_MB
