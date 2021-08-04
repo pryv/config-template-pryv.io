@@ -10,6 +10,8 @@ logs:
     active: true
     level: "info"
     path: "/app/log/webhooks.log"
+    rotation:
+      LOG_FILE_ROTATION
   console:
     active: true
     level: "info"

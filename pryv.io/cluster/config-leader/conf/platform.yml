@@ -356,3 +356,11 @@ vars:
           template: "{userid} {type} createdBy:{createdBy} {streamIds} {content}"
           level: notice # One of notice, warning, error, critical, alert, emerg
         description: "Version of configuration template"
+  OSERVABILITY_SETTINGS:
+    name: "Observability settings"
+    settings:
+      LOG_FILE_ROTATION:
+        value:
+          isActive: true
+          days: 60
+        description: "Log file rotation settings, for some Pryv.io services. Currently available for: core, hfs, preview, webhooks.
