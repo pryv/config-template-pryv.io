@@ -328,8 +328,9 @@ vars:
   OSERVABILITY_SETTINGS:
     name: "Observability settings"
     settings:
-      LOG_FILE_ROTATION:
-        value:
-          isActive: true
-          days: 60
-        description: "Log file rotation settings, for some Pryv.io services. Currently available for: core, hfs, preview, webhooks."
+      LOG_ROTATION_ACTIVE:
+        value: true
+        description: "Whether log rotation is active or not. Currently available for: core, hfs, preview, webhooks."
+      LOG_ROTATION_DAYS:
+        value: 60
+        description: "How many days of logs to keep.""

@@ -25,7 +25,8 @@ logs:
     level: "info"
     path: "/app/log/hfs.log"
     rotation:
-      LOG_FILE_ROTATION
+      isActive: LOG_ROTATION_ACTIVE
+      days: LOG_ROTATION_DAYS
   console:
     active: true
     level: "info"
