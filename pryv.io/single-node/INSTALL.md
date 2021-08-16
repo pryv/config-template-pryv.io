@@ -43,6 +43,10 @@ tar xvf template-single-node.tgz -C $PRYV_CONF_ROOT --strip-components=1
 cd $PRYV_CONF_ROOT
 ```
 
+## Run the initialisation script
+
+Run the `init-config` script which initates a git repository in the `config-leader/conf/` folder and generates the initial `platform.yml` and `config-leader.json` files from their respective templates.
+
 ## Platform setup
 
 Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when queried.
