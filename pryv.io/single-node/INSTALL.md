@@ -45,7 +45,7 @@ cd $PRYV_CONF_ROOT
 
 ## Run the initialisation script
 
-Run the `init-config` script which initates a git repository in the `config-leader/conf/` folder and generates the initial `platform.yml` and `config-leader.json` files from their respective templates.
+Run the `init-config` script which generates the initial `platform.yml` and `config-leader.json` files from their respective templates.
 
 ## Platform setup
 
