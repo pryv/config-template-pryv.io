@@ -5,7 +5,7 @@ This guide contains instructions to update a Pryv.io single-node platform.
 Check the `upgrades/` folder to see if you have any additionnal steps to perform.
 
 1. Backup all your files: `tar czfv `date "+%F"`-pryv-backup.tgz ${PRYV_CONF_ROOT}` for rollback in case of failure
-2. Backup platform parameters and keys:
+2. Backup platform parameters and keys: - change this
 
   - `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`
   - `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`

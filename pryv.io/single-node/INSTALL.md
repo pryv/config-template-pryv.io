@@ -43,9 +43,9 @@ tar xvf template-single-node.tgz -C $PRYV_CONF_ROOT --strip-components=1
 cd $PRYV_CONF_ROOT
 ```
 
-## Run the initialisation script
+## Run the initialisation scripts
 
-Run the `init-config` script which generates the initial `platform.yml` and `config-leader.json` files from their respective templates.
+Run the `init-leader` script which generates the initial `config-leader/conf/platform.yml` and `config-leader/conf/config-leader.json` files from their respective templates. Perform the same for followers by running `init-follower`.
 
 ## Platform setup
 
