@@ -22,7 +22,7 @@ commonFiles="config-follower run-config-follower stop-config-follower restart-co
   pryv run-pryv stop-pryv restart-pryv \
   INSTALL.md UPDATE.md \
   upgrades UPDATE-TO-CENTRALIZED.md \
-  init-follower"
+  init-follower get-services-logs.sh"
 leaderUrl="https:\/\/lead.DOMAIN"
 
 function build_cores() {

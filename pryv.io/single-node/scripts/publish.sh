@@ -31,7 +31,8 @@ files="run-config-follower config-follower stop-config-follower restart-config-f
   upgrades \
   UPDATE-TO-CENTRALIZED.md \
   INSTALL.md UPDATE.md \
-  init-leader init-follower"
+  init-leader init-follower \
+  get-services-logs.sh"
 
 # Package it in file
 
