@@ -48,11 +48,16 @@ tar xvf template-${ROLE}.tgz -C $PRYV_CONF_ROOT --strip-components=1
 cd $PRYV_CONF_ROOT
 ```
 
-## Platform setup
+## Run the initialisation scripts
 
 The configuration leader is run on the reg-master machine, also called leader machine, this is where you should setup the platform.
+Run the `init-leader` script which generates the initial `config-leader/conf/platform.yml` and `config-leader/conf/config-leader.json` files from their respective templates.
 
-Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
+Perform the same for followers by running `init-follower`.
+
+## Platform setup
+
+On the leader machine, define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
 
 ## System keys
 

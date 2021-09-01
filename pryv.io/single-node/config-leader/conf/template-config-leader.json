@@ -33,6 +33,7 @@
       "role": "singlenode"
     }
   },
+  "gitRepoPath": "/app/conf/",
   "platformSettings": {
     "platformConfig": "/app/conf/platform.yml",
     "platformTemplate": "/app/conf/template-platform.yml"

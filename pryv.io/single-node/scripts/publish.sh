@@ -30,7 +30,8 @@ files="run-config-follower config-follower stop-config-follower restart-config-f
   ensure-permissions \
   upgrades \
   UPDATE-TO-CENTRALIZED.md \
-  INSTALL.md UPDATE.md"
+  INSTALL.md UPDATE.md \
+  init-leader init-follower"
 
 # Package it in file
 
