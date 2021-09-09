@@ -24,7 +24,6 @@ mkdir -p $dirName
 # Define files
 
 files="run-config-follower config-follower stop-config-follower restart-config-follower \
-  watch-config reload-module \
   config-leader run-config-leader stop-config-leader restart-config-leader \
   pryv run-pryv stop-pryv restart-pryv \
   ensure-permissions \
