@@ -29,7 +29,7 @@ commonFiles="config-follower run-config-follower stop-config-follower restart-co
   pryv run-pryv stop-pryv restart-pryv \
   INSTALL.md UPDATE.md \
   upgrades UPDATE-TO-CENTRALIZED.md \
-  get-services-logs.sh"
+  get-services-logs.sh init-follower"
 leaderUrl="https:\/\/lead.DOMAIN"
 
 function build_cores() {
@@ -43,7 +43,8 @@ function build_cores() {
 
 function build_reg_master() {
   filesList="$commonFiles ensure-permissions-reg-master \
-    config-leader run-config-leader stop-config-leader restart-config-leader"
+    config-leader run-config-leader stop-config-leader restart-config-leader \
+    init-leader"
 
   build "reg-master" "$filesList" "http:\/\/config-leader:7000"
 }
@@ -111,7 +112,7 @@ function prepare_tar() {
     --exclude .DS_Store \
     $tarballs
 
-  
+
   cd "../.."
 }
 

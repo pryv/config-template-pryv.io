@@ -45,7 +45,7 @@ cd $PRYV_CONF_ROOT
 
 ## Run the initialisation scripts
 
-Run the `init-leader` script which generates the initial `config-leader/conf/platform.yml` and `config-leader/conf/config-leader.json` files from their respective templates. Perform the same for followers by running `init-follower`.
+Run the `init-leader` script which generates the initial `config-leader/conf/platform.yml` and `config-leader/conf/config-leader.json` files from their respective templates. Perform the same for the follower service by running `init-follower`.
 
 ## Platform setup
 
