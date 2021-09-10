@@ -15,7 +15,7 @@ When you wish to release a new version of Pryv.io, to [https://api.pryv.com/conf
 
 1. Ensure that you have bumped `TEMPLATE_VERSION` in templates of both cluster and single-node
 2. tag your commit
-3. Run `./scripts/publish.sh` in both `pryv.io/cluster/` and `pryv.io/single-node/`
+3. Run `./scripts/publish.sh` in both `pryv.io/cluster/` and `pryv.io/single-node/`. This script uses `sudo` because it performs a `chown` of the config files to the user:group 9999:9999 which runs our Pryv.io services inside the containers.
 4. Add and commit changes
 
 ## Internal usage (as git repository clone)

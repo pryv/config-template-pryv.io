@@ -26,11 +26,10 @@ rootDir="tarballs/$tag"
 # Define files
 
 commonFiles="config-follower run-config-follower stop-config-follower restart-config-follower \
-  watch-config reload-module \
   pryv run-pryv stop-pryv restart-pryv \
   INSTALL.md UPDATE.md \
   upgrades UPDATE-TO-CENTRALIZED.md \
-  init-follower get-services-logs.sh"
+  get-services-logs.sh"
 leaderUrl="https:\/\/lead.DOMAIN"
 
 function build_cores() {
@@ -44,7 +43,7 @@ function build_cores() {
 
 function build_reg_master() {
   filesList="$commonFiles ensure-permissions-reg-master \
-    config-leader run-config-leader stop-config-leader restart-config-leader init-leader"
+    config-leader run-config-leader stop-config-leader restart-config-leader"
 
   build "reg-master" "$filesList" "http:\/\/config-leader:7000"
 }
@@ -68,15 +67,15 @@ function build_static() {
 function replace_leader_url() {
   role=$1
   url=$2
-  followerConf="$rootDir/${role}/config-follower/conf/config-follower.json"
+  followerConf="$rootDir/${role}/config-follower/conf/template-config-follower.json"
   sed -i "" -e "s/LEADER_URL/${url}/g" "$followerConf"
 }
 
 function generate_lead_fol_keys() {
   role=$1
   secret=`generate_secret`
-  leaderConf="$rootDir/reg-master/config-leader/conf/config-leader.json"
-  followerConf="$rootDir/${role}/config-follower/conf/config-follower.json"
+  leaderConf="$rootDir/reg-master/config-leader/conf/template-config-leader.json"
+  followerConf="$rootDir/${role}/config-follower/conf/template-config-follower.json"
   sed -i "" -e "s/FOLLOWER_KEY_${role}/${secret}/g" "$leaderConf"
   sed -i "" -e "s/FOLLOWER_KEY/${secret}/g" "$followerConf"
 }
@@ -97,11 +96,12 @@ function prepare_tar() {
   for role in *
   do
     if [[ -d $role ]]; then
+      sudo chown -R 9999:9999 $role
       tarball="pryv.io-${tag}-${role}.tgz"
       COPYFILE_DISABLE=1 tar -vzcf "${tarball}" \
         --exclude .DS_Store \
         $role
-      rm -r $role # Clean temp folder
+      sudo rm -r $role # Clean temp folder
       tarballs="${tarballs} ${tarball}"
     fi
   done
@@ -111,6 +111,7 @@ function prepare_tar() {
     --exclude .DS_Store \
     $tarballs
 
+  
   cd "../.."
 }
 

@@ -38,17 +38,19 @@ files="run-config-follower config-follower stop-config-follower restart-config-f
 tempFolder="tarballs/${releaseName}"
 
 mkdir -p $tempFolder
-for file in $files; do cp -r "$file" "${tempFolder}/${file}"; done
+for file in $files; do sudo cp -r "$file" "${tempFolder}/${file}"; done
 
 # Build tarball
 
 cd "tarballs"
 
+sudo chown -R 9999:9999 $releaseName
+
 COPYFILE_DISABLE=1 tar -vzcf "../${dirName}/${tarName}" \
   --exclude .DS_Store \
   $releaseName
 
-rm -rf $releaseName
+sudo rm -rf $releaseName
 
 cd ".."
 
