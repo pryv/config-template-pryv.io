@@ -106,7 +106,7 @@ function prepare_tar() {
     fi
   done
 
-  # packagea all role tarballs in one
+  # package all role tarballs in one
   COPYFILE_DISABLE=1 tar -vzcf "../../${dirName}/${tarName}" \
     --exclude .DS_Store \
     $tarballs
