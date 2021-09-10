@@ -5,6 +5,7 @@
 docker ps 2> /dev/null | grep redis &> /dev/null
 if [ $? == 0 ]; then
   echo "Redis container running. Please shut it down before running script".
+  echo "You can shut it down running: 'docker stop pryvio_redis' and launch it afterwards using './run-pryv'"
   exit 1
 fi
 
