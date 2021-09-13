@@ -61,6 +61,7 @@
       }
     },
     "customEntries": DNS_CUSTOM_ENTRIES,
+    "mail": DNS_MX_RECORDS,
     "domain_A": "DNS_ROOT_DOMAIN_A_RECORD",
     "rootTXT": {
       "description": DNS_ROOT_TXT_ARRAY

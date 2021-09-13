@@ -110,6 +110,9 @@ vars:
       DNS_ROOT_TXT_ARRAY:
         value: []
         description: "DNS TXT records for @ value for ${DOMAIN}. Ex.: [\"_globalsign-domain-verification=n3PT\",\"v=spf1 include:_mailcust.gandi.net ?all\"]"
+      DNS_MX_RECORDS:
+        description: "MX Records for the platform domain. See the DNS configuration document: https://api.pryv.com/customer-resources/#documents. Default value: []"
+        value: []
   EMAIL_CONFIGURATION_SETTINGS:
     optional: true
     description: "See the Emails configuration document: https://api.pryv.com/customer-resources/#documents"
