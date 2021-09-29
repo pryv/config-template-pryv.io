@@ -36,7 +36,7 @@ You should have received several configuration files, packaged in archives (.tgz
 
 The following instructions need to be executed on each machine:
 
-- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/`,
+- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/` as it is used in all the provided scripts. If you cannot use this folder, we recommend either creating a symlink (ln -s ${YOUR_FOLDER} /var/pryv) or adapting the scripts
 - The absolute path to this location has to be stored under environment variable named `PRYV_CONF_ROOT`. By default it is set to `/var/pryv`, however it can be changed e.g. with usage of the script below,
 - Copy the configuration archive to the root of the directory,
 - Unarchive the configuration in place.
