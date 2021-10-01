@@ -308,7 +308,8 @@ vars:
           - deletionMode: defines the behaviour of events deletion
           - 'keep-nothing': Delete history, keep head as itemDeletion as it is now by default.
           - 'keep-authors': Keep fields 'headId', 'id', 'modified', 'modifiedBy' in head and history.
-          - 'keep-everything': Add 'deleted' field to head item, leave history as is."
+          - 'keep-everything': Add 'deleted' field to head item, leave history as is.
+          WARNING: Activating this has a performance cost on events.update and events.delete operations."
         value:
           forceKeepHistory: false
           deletionMode: keep-nothing
