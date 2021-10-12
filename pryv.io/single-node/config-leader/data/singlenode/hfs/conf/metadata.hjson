@@ -16,5 +16,14 @@
     "name": "pryv-node"
   },
 
-  "serviceInfoUrl": "http://register:9000/service/info"
+  "serviceInfoUrl": "https://reg.DOMAIN/service/info",
+
+  "backwardCompatibility": {
+    "systemStreams": {
+      "prefix": {
+        "isActive": BACKWARD_COMPATIBILITY_SYSTEM_STREAMS_PREFIX
+      }
+    },
+    "tags": BACKWARD_COMPATIBILITY_TAGS
+  }
 }
