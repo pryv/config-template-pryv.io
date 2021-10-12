@@ -66,12 +66,12 @@ vars:
         value:
           - adminToken
       INTEGRITY_SETTINGS:
-        description: "Wether integrity computations are active. This feature has a considerable performance cost. We recommend activating it if you require this for compliance"
+        description: "Wether integrity computations are active. This feature has a considerable performance cost. We recommend activating it if you require this for compliance. Available algorithms: sha256, sha512, sha1, md5."
         value:
           isActive:
-            attachments: true
-            events: true
-            accesses: true
+            attachments: false
+            events: false
+            accesses: false
           algorithm: sha256
   SERVICE_INFORMATION_SETTINGS:
     name: "Service information settings"
