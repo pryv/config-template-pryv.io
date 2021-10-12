@@ -3,7 +3,7 @@
 # only run if Redis container is not running. Otherwise, you must reboot it to obtain write permissions again.
 
 ignoreRedis=0
-if [ $1 == --ignore-redis ]; then
+if [ "$1" == "--ignore-redis" ]; then
   ignoreRedis=1
   echo "Ignoring if Redis is running. Make sure that you reboot Redis after your operations, otherwise your Pryv.io will not run properly."
 fi
