@@ -96,6 +96,14 @@ vars:
           - personalToken: User account deletion will be available by the user with a personal token. Contact Pryv for the API route details."
         value:
           - adminToken
+      INTEGRITY_SETTINGS:
+        description: "Wether integrity computations are active. This feature has a considerable performance cost. We recommend activating it if you require this for compliance"
+        value:
+          isActive:
+            attachments: true
+            events: true
+            accesses: true
+          algorithm: sha256
   SERVICE_INFORMATION_SETTINGS:
     name: "Service information settings"
     optional: true
@@ -343,6 +351,12 @@ vars:
         description: "Makes the API accept and return system streams with the old '.' (dot) prefix (ex.: '.account'). When activated, you can migrate applications by making API calls with the 'disable-backward-compatibility-prefix: true' header.
         Default value: false"
         value: false
+      BACKWARD_COMPATIBILITY_TAGS:
+        description: "This provides tags to streamIds conversion. When creating an event with tags, it creates streams if necessary and assigns the event to these streamIds. The new streams are created as children of a stream with id ${rootStreamId} and each streamId is assigned the ${streamIdPrefix}. Activating this has a considerable performance cost, it is recommmended to activate this if you were using tags and need to perform a transition out of them."
+        value: 
+          isActive: false
+          rootStreamId: 'tags-migrated'  
+          streamIdPrefix: 'tag-migrated-'
   AUDIT_SETTINGS:
     name: "Audit settings"
     settings:

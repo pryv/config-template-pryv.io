@@ -94,5 +94,7 @@ backwardCompatibility:
   systemStreams:
     prefix:
       isActive: BACKWARD_COMPATIBILITY_SYSTEM_STREAMS_PREFIX
+  tags: BACKWARD_COMPATIBILITY_TAGS
 uploads:
   maxSizeMb: MAX_UPLOAD_SIZE_MB
+integrity: INTEGRITY_SETTINGS
