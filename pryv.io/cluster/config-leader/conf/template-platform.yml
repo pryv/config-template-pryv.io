@@ -365,18 +365,19 @@ vars:
           methods:
             include: ['accesses.create']
             exclude: []
-        description: 'Audited API calls filtering for storage. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
+        description: 'Audited API calls filtering for storage. This feature has a cost on performance and storage. API method ids are supported, which can be found under each method title in the API reference: https://api.pryv.com/reference/. You can also use "all" to indicate all actions for a resource, such as "events.all", or simply "all" to indicate all API calls. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
       AUDIT_SYSLOG_FILTER:
         value: 
           methods:
-            include: ['all']
+            include: ['accesses.create']
             exclude: []
-        description: 'Audited API calls filtering. Default value: {"methods":{"include":["all"],"exclude":[]}}'
+        description: 'Audited API calls filtering. This feature has a cost on performance and storage. API method ids are supported, which can be found under each method title in the API reference: https://api.pryv.com/reference/. You can also use "all" to indicate all actions for a resource, such as "events.all", or simply "all" to indicate all API calls. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
       AUDIT_SYSLOG_FORMAT: 
         value: 
           template: "{userid} {type} createdBy:{createdBy} {streamIds} {content}"
-          level: notice # One of notice, warning, error, critical, alert, emerg
-        description: "Version of configuration template"
+          level: notice
+        description: "Audit format for syslog. For 'template', available variables are properties of Events (https://api.pryv.com/reference/#event) and userid, They must be surrounded with curly brackets like: {content}. Default value: {userid} {type} createdBy:{createdBy} {streamIds} {content}.
+        For 'level', the following values are supported: notice, warning, error, critical, alert, emerg"
   OSERVABILITY_SETTINGS:
     name: "Observability settings"
     settings:
