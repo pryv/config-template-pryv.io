@@ -98,3 +98,5 @@ backwardCompatibility:
 uploads:
   maxSizeMb: MAX_UPLOAD_SIZE_MB
 integrity: INTEGRITY_SETTINGS
+trace:
+  enable: false
