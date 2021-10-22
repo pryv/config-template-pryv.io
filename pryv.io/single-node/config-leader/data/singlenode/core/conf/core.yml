@@ -100,3 +100,5 @@ uploads:
 integrity: INTEGRITY_SETTINGS
 trace:
   enable: false
+accessTracking:
+  isActive: true
