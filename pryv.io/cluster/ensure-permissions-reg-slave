@@ -12,6 +12,7 @@ docker ps 2> /dev/null | grep redis &> /dev/null
 if [ $? == 0 -a $ignoreRedis == 0 ]; then
   echo "Redis container running. Please shut it down before running script".
   echo "You can shut it down running: 'docker stop pryvio_redis' and launch it afterwards using './run-pryv'"
+  echo "If you will reboot Redis shortly afterwards, you can ignore this error using '--ignore-redis'"
   exit 1
 fi
 
