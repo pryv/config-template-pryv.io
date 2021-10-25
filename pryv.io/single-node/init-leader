@@ -8,7 +8,7 @@ PLATFORM_FILE=platfrom.yml
 
 # working dir fix
 PRYV_FOLDER=$(cd $(dirname "$0"); pwd)
-cd $SCRIPT_FOLDER/config-leader/conf
+cd $PRYV_FOLDER/config-leader/conf
 
 # generate first
 if [ ! -f $PLATFORM_FILE ]
@@ -22,4 +22,4 @@ then
   echo "initial 'conifg-leader.json' file created"
 fi
 
-cd $SCRIPT_FOLDER
+cd $PRYV_FOLDER
