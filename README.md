@@ -2,22 +2,24 @@
 
 Please use this template as basis for future customer deployments and keep this up to date.
 
-## Customer usage
-
-1. Send a link of the latest version from [https://api.pryv.com/config-template-pryv.io/](https://api.pryv.com/config-template-pryv.io/)
-2. Send license keys
-3. Generate and send a GCP repository key: [https://github.com/pryv/docs-pryv/tree/master/docker](https://github.com/pryv/docs-pryv/tree/master/docker)
-4. Save this key to 1Password, under **Google cloud platform docker registry**
-
 ## Publish version
 
-When you wish to release a new version of Pryv.io, to [https://api.pryv.com/config-template-pryv.io/](https://api.pryv.com/config-template-pryv.io/). Do the following:
+When you wish to release a new version of Pryv.io to [https://api.pryv.com/config-template-pryv.io/](https://api.pryv.com/config-template-pryv.io/). Do the following:
 
 1. Ensure that you have bumped `TEMPLATE_VERSION` in templates of both cluster and single-node
 2. Ensure that you have added a new template in config-leader: https://github.com/pryv/service-config-leader#add-template
 3. tag your commit
 4. Run `./scripts/publish.sh` in both `pryv.io/cluster/` and `pryv.io/single-node/`. This script uses `sudo` because it performs a `chown` of the config files to the user:group 9999:9999 which runs our Pryv.io services inside the containers.
 5. Add and commit changes
+
+## Customer usage
+
+Ref: [https://api.pryv.com/customer-resources/pryv.io-setup/#obtain-the-license-key-credentials-and-configuration-files](https://api.pryv.com/customer-resources/pryv.io-setup/#obtain-the-license-key-credentials-and-configuration-files)
+
+1. Send a link of the latest version from [https://api.pryv.com/config-template-pryv.io/](https://api.pryv.com/config-template-pryv.io/)
+2. Send license keys
+3. Generate and send a GCP repository key: [https://github.com/pryv/docs-pryv/tree/master/docker](https://github.com/pryv/docs-pryv/tree/master/docker)
+4. Save this key to 1Password, under **Google cloud platform docker registry**
 
 ## Internal usage (as git repository clone)
 
@@ -42,6 +44,6 @@ Then each time, you wish to apply an update, run:
 
 1. `git fetch template`
 2. `git merge template/master`
-3. resolve conflicts
+3. resolve conflicts (mostly remove extra deployment type)
 4. use update
  
