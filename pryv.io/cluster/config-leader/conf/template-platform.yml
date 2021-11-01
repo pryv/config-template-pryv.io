@@ -365,13 +365,13 @@ vars:
           methods:
             include: ['accesses.create']
             exclude: []
-        description: 'Audited API calls filtering for storage. This feature has a cost on performance and storage. API method ids are supported, which can be found under each method title in the API reference: https://api.pryv.com/reference/. You can also use "all" to indicate all actions for a resource, such as "events.all", or simply "all" to indicate all API calls. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
+        description: 'Audited API calls filtering for storage. This feature has a cost on performance and storage. More information available here: https://api.pryv.com/customer-resources/audit-setup/. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
       AUDIT_SYSLOG_FILTER:
         value: 
           methods:
             include: ['accesses.create']
             exclude: []
-        description: 'Audited API calls filtering. This feature has a cost on performance and storage. API method ids are supported, which can be found under each method title in the API reference: https://api.pryv.com/reference/. You can also use "all" to indicate all actions for a resource, such as "events.all", or simply "all" to indicate all API calls. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
+        description: 'Audited API calls filtering for syslog. This feature has a cost on performance and storage. More information available here: https://api.pryv.com/customer-resources/audit-setup/. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
       AUDIT_SYSLOG_FORMAT: 
         value: 
           template: "{userid} {type} createdBy:{createdBy} {streamIds} {content}"
