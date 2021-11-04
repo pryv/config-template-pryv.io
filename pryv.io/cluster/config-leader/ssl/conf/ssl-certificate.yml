@@ -1,0 +1,18 @@
+leader:
+  credentialsPath: "/app/leader-data/credentials.txt"
+  url: "http://pryvio_leader:9000"
+  templatesPath: "/app/leader-data/"
+acme:
+  isProduction: false
+  email: tech@pryv.com
+logs:
+  console:
+    active: true
+    level: "info"
+  file:
+    active: true
+    path: "/app/log/ssl-certificate.log"
+    level: info
+    rotation:
+      isActive: false
+      days: 14
