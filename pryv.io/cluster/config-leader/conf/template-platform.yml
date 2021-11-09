@@ -348,8 +348,7 @@ vars:
         More information available here: https://api.pryv.com/customer-resources/system-streams/"
         value: "[]"
       BACKWARD_COMPATIBILITY_SYSTEM_STREAMS_PREFIX:
-        description: "Makes the API accept and return system streams with the old '.' (dot) prefix (ex.: '.account'). When activated, you can migrate applications by making API calls with the 'disable-backward-compatibility-prefix: true' header.
-        Default value: false"
+        description: "Makes the API accept and return system streams with the old '.' (dot) prefix (ex.: '.account'). More information available here: https://api.pryv.com/customer-resources/system-streams/#backward-compatibility. Default value: false"
         value: false
       BACKWARD_COMPATIBILITY_TAGS:
         description: "This provides tags to streamIds conversion. When creating an event with tags, it creates streams if necessary and assigns the event to these streamIds. The new streams are created as children of a stream with id ${rootStreamId} and each streamId is assigned the ${streamIdPrefix}. Activating this has a considerable performance cost, it is recommmended to activate this if you were using tags and need to perform a transition out of them."
