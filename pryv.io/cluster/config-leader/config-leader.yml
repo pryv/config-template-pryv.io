@@ -12,8 +12,6 @@ services:
       - ./data/:/app/data/
       - ./database/:/app/database/
     restart: always
-
-networks:
   frontend:
     driver: bridge
     name: pryv_frontend

@@ -12,4 +12,4 @@ These steps are to be performed on the reg-master machine:
 4. Sign in the admin panel. If you had Pryv.io version older than 1.7, your admin panel does not have the migrations UI, please use: https://api.pryv.com/app-web-admin/?pryvLeaderUrl=https://lead.${DOMAIN}, otherwise use: https://adm.${DOMAIN}. Sign in, go to "Platform Configuration", click on "Find migrations" and if you are OK with the available upgrades, press "Apply migrations" which will migrate the `platform.yml` contents to the newest format.
 Upon successful migration, the message "No available migration" should be displayed
 5. Press "Update" to apply the reboot all follower services with the new configuration.
-6. Validate: See "Installation validation" in https://api.pryv.com/customer-resources/#documents
+6. Validate using "Installation validation" guide: https://api.pryv.com/customer-resources/platform-validation/
