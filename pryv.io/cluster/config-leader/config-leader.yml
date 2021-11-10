@@ -12,17 +12,6 @@ services:
       - ./data/:/app/data/
       - ./database/:/app/database/
     restart: always
-  ssl-certificate:
-    image: "eu.gcr.io/pryvio/ssl-certificate:1.1.0-rc01"
-    container_name: pryvio_ssl_certificate
-    networks:
-      - backend
-    volumes:
-      - ./data/:/app/leader-data/
-      - ./ssl/conf/:/app/conf/
-      - ./ssl/log/:/app/log/
-
-networks:
   frontend:
     driver: bridge
     name: pryv_frontend
