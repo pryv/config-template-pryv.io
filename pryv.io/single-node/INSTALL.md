@@ -7,6 +7,7 @@ You should have prepared your machines with the [Infrastructure procurement Guid
 
 - Centralized configuration setup 
 - pryv directory
+- Run the initialisation scripts
 - Platform setup
 - System keys
 - SSL certificates
