@@ -62,8 +62,10 @@ All services use Nginx to terminate inbound HTTPS connections. You should have o
 
 Your certificate files must be placed in these locations: 
 
-  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-bundle.crt` 
+  - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-bundle.crt`
   - `${PRYV_CONF_ROOT}/config-leader/data/singlenode/nginx/conf/secret/${DOMAIN}-key.pem`
+
+If you wish to generate your Pryv.io certificate using Let's Encrypt, run the `renew-ssl-certificate` script **once** your platform is running.
 
 ## Launching the Installation
 

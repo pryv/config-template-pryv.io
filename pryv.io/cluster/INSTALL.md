@@ -128,6 +128,8 @@ Your certificate files for the respective roles must be placed on the leader mac
   - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-bundle.crt`
   - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
 
+If you wish to generate your Pryv.io certificate using Let's Encrypt, run the `renew-ssl-certificate` script **once** your platform is running.
+
 ## Launching the Installation
 
 ### Prerequisites Check
