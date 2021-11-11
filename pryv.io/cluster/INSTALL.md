@@ -7,15 +7,19 @@ You should have prepared your machines with the [Infrastructure procurement Guid
 
 - Centralized configuration setup
 - pryv directory
+- Run the initialisation scripts
 - Platform setup
+- System keys
 - Leader-follower keys
-- Register slave
+- Slave register machine
 - SSL certificates
- - Launching the Installation
-   - Prerequisites check
-   - Run
-   - Validation
-   - Stop
+- Launching the Installation
+  - Prerequisites check
+  - Run
+    - Reporting
+  - Stop
+  - Validation
+  - Admin Panel
 - Closing Remarks
 
 ## Centralized configuration setup

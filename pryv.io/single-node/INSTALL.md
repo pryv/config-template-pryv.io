@@ -5,16 +5,19 @@ You should have prepared your machines with the [Infrastructure procurement Guid
 ​
 ## Table of contents
 
- - Centralized configuration setup 
- - pryv directory
- - Platform setup
- - SSL certificates
- - Launching the Installation
-   - Prerequisites check
-   - Run
-   - Validation
-   - Stop
- - Closing Remarks
+- Centralized configuration setup 
+- pryv directory
+- Platform setup
+- System keys
+- SSL certificates
+- Launching the Installation
+  - Prerequisites check
+  - Run
+    - Reporting
+  - Stop
+  - Validation
+  - Admin Panel
+- Closing Remarks
 
 ## Centralized configuration setup
 
