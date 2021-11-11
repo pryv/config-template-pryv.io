@@ -44,7 +44,7 @@ function build_cores() {
 function build_reg_master() {
   filesList="$commonFiles ensure-permissions-reg-master \
     config-leader run-config-leader stop-config-leader restart-config-leader \
-    init-leader"
+    init-leader renew-ssl-certificate"
 
   build "reg-master" "$filesList" "http:\/\/config-leader:7000"
 }
