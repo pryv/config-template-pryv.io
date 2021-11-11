@@ -37,5 +37,8 @@
   "platformSettings": {
     "platformConfig": "/app/conf/platform.yml",
     "platformTemplate": "/app/conf/template-platform.yml"
+  },
+  "credentials": {
+    "filePath": "/app/data/credentials.txt"
   }
 }

@@ -1,0 +1,30 @@
+leader:
+  credentialsPath: "/app/leader-data/credentials.txt"
+  url: "http://pryvio_config_leader:7000"
+  templatesPath: "/app/leader-data/"
+  serviceKeys:
+    dns: "dns"
+    nginx: "reverse_proxy"
+  roles:
+    - singlenode
+    - core
+    - reg-master
+    - reg-slave
+    - static
+acme:
+  isProduction: true
+  #csrPath: "/app/conf/test-renew-ssl.pryv.io.csr"
+  email: tech@pryv.com
+  dnsWaitTime: 1000
+  dnsTriesCount: 60
+logs:
+  console:
+    active: true
+    level: "info"
+  file:
+    active: true
+    path: "/app/log/ssl-certificate.log"
+    level: info
+    rotation:
+      isActive: true
+      days: 2
