@@ -62,13 +62,13 @@ For each follower service, you must define a secret for it to authentify when fe
 
 In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`, you will find a map called `followers` with the each follower's secret set as key and its `url` and `role` set as values as shown below:
 
-```
-"followers": {
-	"iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
-      "url": "pryvio_config_follower:6000",
-      "role": "singlenode"
+```json
+    "followers": {
+        "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
+        "url": "pryvio_config_follower:6000",
+        "role": "singlenode"
+        }
     }
-}
 ```
 
 The configuration we provide comes with a strong key, but you **must** generate a new one. We recommend using a string of alphanumeric characters of length between 20 and 50.
@@ -76,10 +76,10 @@ The configuration we provide comes with a strong key, but you **must** generate 
 For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
 
 ```json
-"leader": {
-    "url": "LEADER_URL",
-    "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
-  },
+    "leader": {
+        "url": "LEADER_URL",
+        "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
+    }
 ```
 
 Also, you must adapt the leader and followers urls since they depend on your domain (usually `https://lead.${DOMAIN}` and `http://${ROLE}.${DOMAIN}`).
