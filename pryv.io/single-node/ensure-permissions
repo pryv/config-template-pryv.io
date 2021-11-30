@@ -1,4 +1,4 @@
- #!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # only run if Redis container is not running. Otherwise, you must reboot it to obtain write permissions again.
 
