@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 CONFIG_FILE=config-leader.json
 PLATFORM_FILE=platform.yml
 

@@ -1,12 +1,13 @@
 # Pryv.io installation guide
 
-This guide contains instructions to install a Pryv.io cluster platform.
-You should have prepared your machines with the [Infrastructure procurement Guide](https://api.pryv.com/customer-resources/#guides-and-documents) first.  
+This guide contains instructions to install a Pryv.io **cluster** platform.
+It assumes you have prepared your machines with the [infrastructure procurement guide](https://api.pryv.com/customer-resources/infrastructure-procurement/) first.
+
 
 ## Table of contents
 
-- Centralized configuration setup
-- pryv directory
+- New centralized configuration scheme
+- `pryv` directory
 - Run the initialisation scripts
 - Platform setup
 - System keys
@@ -22,17 +23,16 @@ You should have prepared your machines with the [Infrastructure procurement Guid
   - Admin Panel
 - Closing Remarks
 
-## Centralized configuration setup
+## New centralized configuration scheme
 
-We have released a new configuration scheme: 
-
-The platform configurations are stored on a single **leader** service, each role will fetch its configuration files from it upon installation using its **follower** service.
+The platform configurations are now stored on a single “leader” service. Each role fetches its configuration files from it upon installation (or configuration changes) using its “follower” service.
 
 You must setup your platform configuration in the leader service as well as a key for each follower so they can fetch their configuration securely.
 
-By default, the leader runs on the `reg-master` machine, there is a follower service running on every machine, including `reg-master`.
+By default, the configuration leader service runs on the `reg-master` machine, with a follower service running on every machine, including `reg-master`.
 
-## pryv directory
+
+## `pryv` directory
 
 In addition to the configuration files, we distribute scripts to launch and stop the services.
 
@@ -40,7 +40,7 @@ You should have received several configuration files, packaged in archives (.tgz
 
 The following instructions need to be executed on each machine:
 
-- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/` as it is used in all the provided scripts. If you cannot use this folder, we recommend either creating a symlink (ln -s ${YOUR_FOLDER} /var/pryv) or adapting the scripts
+- Please create a directory where all your Pryv data should live. We suggest something like `/var/pryv/` as it is used in all the provided scripts. If you cannot use this folder, we recommend either creating a symlink (`ln -s ${YOUR_FOLDER} /var/pryv`) or adapting the scripts.
 - The absolute path to this location has to be stored under environment variable named `PRYV_CONF_ROOT`. By default it is set to `/var/pryv`, however it can be changed e.g. with usage of the script below,
 - Copy the configuration archive to the root of the directory,
 - Unarchive the configuration in place.
@@ -52,27 +52,32 @@ tar xvf template-${ROLE}.tgz -C $PRYV_CONF_ROOT --strip-components=1 --same-owne
 cd $PRYV_CONF_ROOT
 ```
 
+
 ## Run the initialisation scripts
 
-The configuration leader is run on the reg-master machine, also called leader machine, this is where you should setup the platform.
+By default, the configuration leader runs on the `reg-master` machine, thus called the leader machine; this is where the platform is setup.
+
 Run the `init-leader` script which generates the initial `config-leader/conf/platform.yml` and `config-leader/conf/config-leader.json` files from their respective templates.
 
 Perform the same for followers by running `init-follower`.
 
+
 ## Platform setup
 
 On the leader machine, define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
+
 
 ## System keys
 
 The configuration contains some system keys that are used between Pryv.io services. You will find them in th `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json` file, in a property called `internals`.  
 You need to replace each `REPLACE_ME` occurence with a strong key of random characters. We recommend using a string of alphanumeric characters of length between 20 and 50.
 
+
 ## Leader-follower keys
 
 For each follower service, you must define a secret for it to authentify when fetching its configuration from the leader service.
 
-In the Leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`, you will find a map called `followers` with the each follower's secret set as key and its `url` and `role` set as values as shown below:
+In the leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/config-leader.json`, you will find a map called `followers` with the each follower's secret set as key and its `url` and `role` set as values as shown below:
 
 ```json
     "followers": {
@@ -100,12 +105,13 @@ For each follower, you will need to set the same key in its configuration file `
 
 Also, you must adapt the leader and followers urls since they depend on your domain (usually `https://lead.${DOMAIN}` and `http://${ROLE}.${DOMAIN}`).
 
+
 ## Slave register machine
 
 If your setup contains two register machines (`reg-master` and `reg-slave`), be sure to set the following platform variables:
 
-* REG_MASTER_VPN_IP_ADDRESS: IP address of master register on a secure line between it and slave register (such as a private network)
-* REG_SLAVE_IP_ADDRESS: IP address of slave register machine
+* `REG_MASTER_VPN_IP_ADDRESS`: IP address of master register on a secure line between it and slave register (such as a private network)
+* `REG_SLAVE_IP_ADDRESS`: IP address of slave register machine
 
 Then, also uncomment the ports mapping for the redis container of `reg-master`, in `${PRYV_CONF_ROOT}/config-leader/data/reg-master/pryv.yml`. It should look like this afterwards:
 
@@ -124,6 +130,7 @@ Then, also uncomment the ports mapping for the redis container of `reg-master`, 
     restart: always
 ```
 
+
 ## SSL certificates
 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
@@ -133,6 +140,7 @@ Your certificate files for the respective roles must be placed on the leader mac
   - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
 
 If you wish to generate your Pryv.io certificate using Let's Encrypt, run the `renew-ssl-certificate` script **once** your platform is running.
+
 
 ## Launching the Installation
 
@@ -149,9 +157,9 @@ You might have to use `docker-ce` and your versions can be newer:
 
 ### Run
 
-To launch the installation, you will need to SSH to each Pryv.io machine and repeat the commands described below for each machine. Please start with the leader machine (usually on `reg-master`) first and then the follower machines (`cores`, `static`, `reg-slave`).
+To launch the installation, you will need to SSH to each Pryv.io machine and repeat the commands described below for each machine. Please start with the leader machine (usually on `reg-master`) first and then the follower machines (`core`(s), `static`, `reg-slave`).
 
-You will first need to authenticate with the distribution host to retrieve the Pryv.io docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
+You will first need to authenticate with the distribution host to retrieve the Pryv.io Docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
 
 To log in, type:  
 
@@ -167,15 +175,15 @@ Once this completes, set the required permissions on data and log directories by
 
 On the leader machine only, run the configuration leader service: 
 
-    sudo ./run-config-leader
+    ./run-config-leader
 
 Then, run the configuration follower service, which will pull the necessary configuration files from the leader:
 
-    sudo ./run-config-follower 
+    ./run-config-follower 
 
 Now that the configuration is ready, you can launch the Pryv.io components:
 
-    sudo ./run-pryv
+    ./run-pryv
 
 This command will download the docker images that belong to your release from the docker repository and launch the components. If all goes well, you'll see a number of running docker containers when you start `docker ps`.
 
@@ -183,7 +191,7 @@ This command will download the docker images that belong to your release from th
 
 Each Pryv.io module sends a report to Pryv upon start, containing the following contractual information:
 
-- license Key
+- license key
 - users count
 - template version
 - hostname
@@ -197,7 +205,7 @@ Finally, the scripts `stop-config-leader`, `stop-config-follower` and `stop-pryv
 
 ### Validation
 
-Please refer to the `Installation validation` document located in the [customer resource documents](https://api.pryv.com/customer-resources/#documents) to validate that your Pryv.io platform is up and running.
+Please refer to the [installation validation](https://api.pryv.com/customer-resources/platform-validation/) document located in the [customer resources documents](https://api.pryv.com/customer-resources/) to validate that your Pryv.io platform is up and running.
 
 ### Admin panel
 
@@ -209,9 +217,10 @@ you can find default credentials in the configuration leader's logs:
 
     docker logs pryvio_config_leader | less
 
-At the beginning, you should have a line such as this:  
+Every time the service starts, you should have a line such as this:  
 
     2020-09-30T07:32:32.533Z - ESC[32minfoESC[39m: [config-leader:app] Initial user generated. Username: initial_user, password: e0c11c2989aea99
+
 
 ## Closing Remarks
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 TEMPLATE_CONFIG_FILE=template-config-follower.json
 
 CONFIG_FILE=config-follower.json
