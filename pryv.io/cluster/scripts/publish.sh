@@ -5,7 +5,6 @@ set -e
 SCRIPT_FOLDER=$(cd $(dirname "$0"); pwd)
 cd $SCRIPT_FOLDER/..
 
-
 # Get Tag
 
 tag=`git describe`
