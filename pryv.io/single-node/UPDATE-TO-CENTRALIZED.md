@@ -1,11 +1,12 @@
-
 # Upgrade to centralized guide
 
 This guide describes the variables that you should put in place when upgrading your Pryv.io platform from a distributed configuration to a centralized one.
 
+
 ## Backup current configuration
 
 Backup your latest configuration files. They should be located in your `${PRYV_CONF_ROOT}/pryv/*/conf/` folders.
+
 
 ## Platform variables
 
@@ -156,6 +157,7 @@ platform.yml
       name: Hosting 2
       description: Europe - France
 ```
+
 
 ## Custom files
 
