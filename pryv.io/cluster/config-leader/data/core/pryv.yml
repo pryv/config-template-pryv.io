@@ -32,6 +32,7 @@ services:
     environment: 
       - NUM_PROCS=4
       - STARTING_PORT=3000
+      - HOSTNAME=$HOSTNAME
     links: 
       - mongodb
       - influxdb
@@ -45,6 +46,8 @@ services:
     volumes: 
       - ${PRYV_CONF_ROOT}/pryv/mfa/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mfa/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links: 
       - core
     restart: always
@@ -59,6 +62,8 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/preview/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/preview/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links: 
       - mongodb
     restart: always
@@ -73,8 +78,9 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/hfs/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/hfs/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/hfs/log/:/app/log/
-    environment:
+    environment: 
       - NUM_PROCS=2
+      - HOSTNAME=$HOSTNAME
     links:
       - influxdb
       - core
@@ -102,6 +108,8 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
       - ${PRYV_CONF_ROOT}/pryv/mongodb/backup/:/app/backup/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     restart: always
 
   influxdb:

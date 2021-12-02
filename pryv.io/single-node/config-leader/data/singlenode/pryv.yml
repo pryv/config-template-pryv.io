@@ -42,6 +42,8 @@ services:
     volumes:
       - ${PRYV_CONF_ROOT}/pryv/register/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/register/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links:
       - core # This is special to the single config
       - redis
@@ -57,6 +59,8 @@ services:
     volumes:
       - ${PRYV_CONF_ROOT}/pryv/dns/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/dns/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links:
       - redis
     restart: always
@@ -88,6 +92,7 @@ services:
     environment: 
       - NUM_PROCS=4
       - STARTING_PORT=3000
+      - HOSTNAME=$HOSTNAME
     links:
       - mongodb
       - influxdb
@@ -102,6 +107,8 @@ services:
     volumes: 
       - ${PRYV_CONF_ROOT}/pryv/mfa/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mfa/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links: 
       - core
     restart: always
@@ -114,6 +121,8 @@ services:
     volumes: 
       - ${PRYV_CONF_ROOT}/pryv/mail/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mail/templates/:/app/bin/templates/:ro
+    environment: 
+      - HOSTNAME=$HOSTNAME
     restart: always
 
   hfs: 
@@ -128,6 +137,7 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/hfs/log/:/app/log/
     environment: 
       - NUM_PROCS=2
+      - HOSTNAME=$HOSTNAME
     links: 
       - influxdb
       - core
@@ -143,6 +153,8 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/preview/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/preview/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links:
       - mongodb
     restart: always
@@ -155,6 +167,8 @@ services:
     volumes: 
       - ${PRYV_CONF_ROOT}/pryv/webhooks/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/webhooks/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links: 
       - core
     restart: always

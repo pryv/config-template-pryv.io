@@ -31,6 +31,8 @@ services:
     volumes: 
       - ${PRYV_CONF_ROOT}/pryv/register/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/register/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links: 
       - redis
     restart: always
@@ -46,6 +48,8 @@ services:
     volumes: 
       - ${PRYV_CONF_ROOT}/pryv/dns/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/dns/log/:/app/log/
+    environment: 
+      - HOSTNAME=$HOSTNAME
     links: 
       - redis
     restart: always
