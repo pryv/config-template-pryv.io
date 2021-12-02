@@ -127,5 +127,4 @@ prepare_tar
 indexFile="../../docs/pryv.io/cluster/index.html"
 replacement="  <li><a href="${tag}\/${tarName}">${tag} - ${date}<\/a><\/li>"
 
-sed -i '' -e "s,<\/ul>,${replacement},g" $indexFile
-echo "</ul>" >> $indexFile
+sed -i '' -e "s,<\/ul>,${replacement}\n    <\/ul>,g" $indexFile
