@@ -99,9 +99,9 @@ Also, you must adapt the leader and followers urls since they depend on your dom
 
 ## Config follower Docker authentication
 
-The follower service will reboot Pryv services when applying an update from the admin panel after performing a version upgrade. In order to download the new Docker images from the Pryv private repository, the container needs to have access to a valid token.
+The follower service will reboot Pryv services when applying an update from the admin panel after performing a version upgrade. In order to download the new Docker images from the Pryv private repository, the container needs to have access to a valid authentication token.
 
-Adapt the `config-follower/config-follower.yml` mounting point for the `.docker/config.json` file to the user with whom you will perform the `docker-login` command.
+Adapt the `config-follower/config-follower.yml` mounting point for the `.docker/config.json` file to the user with whom you will perform the `docker login` command (in the steps below).
 
 
 ## SSL certificates
