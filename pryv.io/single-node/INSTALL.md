@@ -12,6 +12,7 @@ It assumes you have prepared your machines with the [infrastructure procurement 
 - Platform setup
 - System keys
 - Leader-follower keys
+- Config follower Docker authentication
 - SSL certificates
 - Launching the Installation
   - Prerequisites check
@@ -94,6 +95,13 @@ For each follower, you will need to set the same key in its configuration file `
 ```
 
 Also, you must adapt the leader and followers urls since they depend on your domain (usually `https://lead.${DOMAIN}` and `http://${ROLE}.${DOMAIN}`).
+
+
+## Config follower Docker authentication
+
+The follower service will reboot Pryv services when applying an update from the admin panel after performing a version upgrade. In order to download the new Docker images from the Pryv private repository, the container needs to have access to a valid authentication token.
+
+Adapt the `config-follower/config-follower.yml` mounting point for the `.docker/config.json` file to the user with whom you will perform the `docker login` command (in the steps below).
 
 
 ## SSL certificates
