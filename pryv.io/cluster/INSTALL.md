@@ -13,6 +13,7 @@ It assumes you have prepared your machines with the [infrastructure procurement 
 - System keys
 - Leader-follower keys
 - Slave register machine
+- Config follower Docker authentication
 - SSL certificates
 - Launching the Installation
   - Prerequisites check
@@ -129,6 +130,13 @@ Then, also uncomment the ports mapping for the redis container of `reg-master`, 
       - ./redis/log/:/app/log/
     restart: always
 ```
+
+
+## Config follower Docker authentication
+
+The follower service will reboot Pryv services when applying an update from the admin panel after performing a version upgrade. In order to download the new Docker images from the Pryv private repository, the container needs to have access to a valid token.
+
+Adapt the `config-follower/config-follower.yml` mounting point for the `.docker/config.json` file to the user with whom you will perform the `docker-login` command.
 
 
 ## SSL certificates
