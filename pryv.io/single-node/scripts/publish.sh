@@ -57,6 +57,5 @@ cd ".."
 # Append link
 
 indexFile="../../docs/pryv.io/single-node/index.html"
-replacement="  <li><a href="${tag}\/${tarName}">${tag} - ${date}<\/a><\/li>"
 
-sed -i '' -e "s,<\/ul>,${replacement}\n    <\/ul>,g" $indexFile
+perl -pi -e "s/<\/ul>/  <li><a href=\"${tag}\/${tarName}\">${tag} - ${date}<\/a><\/li>\n    <\/ul>/g" $indexFile
