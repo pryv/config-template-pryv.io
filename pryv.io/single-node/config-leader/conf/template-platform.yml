@@ -8,7 +8,7 @@ vars:
       SINGLE_MACHINE_IP_ADDRESS:
         value: REPLACE_ME
         description: "IP address of the machine"
-      REGISTER_ADMIN_KEY: 
+      REGISTER_ADMIN_KEY:
         value: REPLACE_ME
         description: "Admin Key for register machine, see: https://api.pryv.com/reference-system/#admin. Please set a strong cryptographic key. Alphanumeric of length 20 to 50."
       SINGLE_MACHINE_PUBLIC_INTERFACE_IP_ADDRESS:
@@ -22,31 +22,31 @@ vars:
       LICENSE_NAME:
         value: REPLACE_ME
         description: "License name provided with installation files"
-      TEMPLATE_VERSION: 
-        value: 1.7.8
+      TEMPLATE_VERSION:
+        value: 1.7.10
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
     settings:
-      EVENT_TYPES_URL: 
+      EVENT_TYPES_URL:
         value: https://api.pryv.com/event-types/flat.json
         description: "URL of the file listing the validated Event types. See: https://api.pryv.com/faq-api/#event-types. Default value: https://api.pryv.com/event-types/flat.json"
-      TRUSTED_APPS: 
+      TRUSTED_APPS:
         value: '*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*'
-        description: "Web pages authorized to run login API call. 
-        See https://api.pryv.com/reference-full/#trusted-apps-verification. 
+        description: "Web pages authorized to run login API call.
+        See https://api.pryv.com/reference-full/#trusted-apps-verification.
         You can remove the ones not related to your platform if you are not using Pryv's default apps
         The format is comma-separated list of {trusted-app-id}@{origin} pairs.
         Origins and appIds accept '*' wildcards, but never use wildcard appIds in production.
         Example: *@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*"
-      DEFAULT_AUTH_URL: 
+      DEFAULT_AUTH_URL:
         value: https://sw.DOMAIN/access/access.html
         description: "Default auth url used for the authorization flow (https://api.pryv.com/reference/#auth-request)."
       TRUSTED_AUTH_URLS:
         description: "List of trusted urls that can be used as entry points for the app authorization flow (https://api.pryv.com/reference/#auth-request)."
         value:
           - https://sw.DOMAIN/access/access.html
-      PASSWORD_RESET_URL: 
+      PASSWORD_RESET_URL:
         value: https://sw.DOMAIN/access/reset-password.html
         description: "URL of password reset page, used in password reset email with query parameter 'resetToken'. Default value: https://sw.DOMAIN/access/reset-password.html"
       APP_WEB_AUTH_URL:
@@ -78,17 +78,17 @@ vars:
     optional: true
     description: "https://api.pryv.com/reference/#service-info"
     settings:
-      PLATFORM_NAME: 
+      PLATFORM_NAME:
         value: REPLACE_ME
         description: "The public name of the service eg: Pryv Lab"
-      SUPPORT_URL: 
+      SUPPORT_URL:
         value: REPLACE_ME
-        description: "URL or Email link to support eg: https://pryv.com/helpdesk/or mailto:hsupport@pryv.com" 
-      TERMS_OF_USE_URL: 
+        description: "URL or Email link to support eg: https://pryv.com/helpdesk/or mailto:hsupport@pryv.com"
+      TERMS_OF_USE_URL:
         value: REPLACE_ME
         description: "URL to the Terms of use of the service. e.g. https://pryv.com/terms-of-use/"
       SERVICE_INFO_ASSETS:
-        value: 
+        value:
           definitions: "https://api.pryv.com/assets-pryv.me/index.json"
         description: "URL of platform visual assets. See: https://github.com/pryv/assets-pryv.me"
   DNS_SETTINGS:
@@ -96,23 +96,23 @@ vars:
     settings:
       NAME_SERVER_ENTRIES:
         description: |-
-          Name server entries for your Pryv.io platform domain.  
-          You should set the `name` values to the hostnames provided as name servers in the domain setup phase(https://api.pryv.com/customer-resources/pryv.io-setup/#obtain-a-domain-name).  
+          Name server entries for your Pryv.io platform domain.
+          You should set the `name` values to the hostnames provided as name servers in the domain setup phase(https://api.pryv.com/customer-resources/pryv.io-setup/#obtain-a-domain-name).
           The IP addresses should point to the machine running your Pryv.io DNS.
         value:
-          - 
+          -
             name: dns1.DOMAIN
             ip: SINGLE_MACHINE_IP_ADDRESS
-          - 
+          -
             name: dns2.DOMAIN
             ip: SINGLE_MACHINE_IP_ADDRESS
       DNS_CUSTOM_ENTRIES:
         description: "Additional DNS entries. See the DNS configuration document: https://api.pryv.com/customer-resources/#documents.
         Can be set to null if not used."
-        value: 
+        value:
           test:
             ip: REPLACE_ME
-      DNS_ROOT_DOMAIN_A_RECORD: 
+      DNS_ROOT_DOMAIN_A_RECORD:
         value: REPLACE_ME
         description: "DNS A record for ${DOMAIN} (The IP adress serving an eventual web page accessible by: http://{DOMAIN})"
       DNS_ROOT_TXT_ARRAY:
@@ -128,15 +128,15 @@ vars:
     settings:
       EMAIL_ACTIVATION:
         description: "Allows to activate/deactivate sending of welcome and password reset emails"
-        value: 
+        value:
           welcome: false
           resetPassword: false
       EMAIL_SENDER:
         description: "Sender name and email address"
-        value: 
+        value:
           name: REPLACE_ME
           address: REPLACE_ME
-      EMAIL_TEMPLATES_DEFAULT_LANG: 
+      EMAIL_TEMPLATES_DEFAULT_LANG:
         value: en
         description: "Default language for email templates eg: en"
       EMAIL_SMTP_SETTINGS:
@@ -160,7 +160,7 @@ vars:
           p Hi,
           p We have received word that you have lost your password. If you have asked for a password request please click on the link below. If you did not please delete this email.
           p <a href="#{RESET_URL}?resetToken=#{RESET_TOKEN}" target="_blank">Click here</a> to reset your Pryv password.
-          p Pryv team 
+          p Pryv team
         description: "Reset password email template in english language"
       RESET_PASSWORD_TEMPLATE_FR:
         value: |-
@@ -187,7 +187,7 @@ vars:
         description: "Reset password email subject template in german language"
       WELCOME_TEMPLATE_EN:
         value: |-
-          <img src="https://api.pryv.com/style/images/logo-256.png" alt="Logo"> 
+          <img src="https://api.pryv.com/style/images/logo-256.png" alt="Logo">
           <h1><span style="color:#bd1026">Hey</span> #{USERNAME},</h1>
           <h2><span style="color:#bd1026">Thanks for creating your Pryv account</span></h2>
           <p style="text-align: justify;">We have built Pryv so you could have a private and secure place to collect and unite your personal digital life. Connect apps and devices, get insight and share selectively.<br/></p>
@@ -197,7 +197,7 @@ vars:
         description: "Welcome email template in english language"
       WELCOME_TEMPLATE_FR:
         value: |-
-          <img src="https://api.pryv.com/style/images/logo-256.png" alt="Logo"> 
+          <img src="https://api.pryv.com/style/images/logo-256.png" alt="Logo">
           <h1><span style="color:#bd1026">Bonjour</span> #{USERNAME},</h1>
           <h2><span style="color:#bd1026">Merci pour la création de votre compte Pryv</span></h2>
           <p style="text-align: justify;">Nous avons développé Pryv pour vous fournir une place pour collecter et unifier vos données de vies, tout en respectant votre sécurité et votre vie privée. Connectez vos applications et appareils, gérez et partagez en toute conscience.<br/></p>
@@ -223,12 +223,12 @@ vars:
         description: "Welcome email subject template in french language"
       WELCOME_SUBJECT_DE:
         value: "= `Wilkommen bei Pryv`"
-        description: "Welcome email subject template in german language" 
+        description: "Welcome email subject template in german language"
   MFA_SETTINGS:
     optional: true
     name: "MFA settings"
     settings:
-      MFA_SESSIONS_TTL_SECONDS: 
+      MFA_SESSIONS_TTL_SECONDS:
         value: 1800
         description: "Duration in seconds after which MFA sessions are destroyed"
       MFA_MODE:
@@ -251,7 +251,7 @@ vars:
             headers:
               authorization: ''
               'content-type': 'application/json'
-          single: 
+          single:
             url: ''
             method: 'POST'
             body: '{"phone_number":"{{ phone_number }}"}'
@@ -262,13 +262,13 @@ vars:
     optional: true
     name: "Advanced API settings"
     settings:
-      SESSION_MAX_AGE: 
+      SESSION_MAX_AGE:
         value: 1209600000
         description: "Validity (in milliseconds) of a personal access token if unused"
-      PASSWORD_RESET_MAX_AGE: 
+      PASSWORD_RESET_MAX_AGE:
         value: 3600000
         description: "Validity (in milliseconds) of a password reset request"
-      UPDATES_IGNORE_PROTECTED_FIELDS: 
+      UPDATES_IGNORE_PROTECTED_FIELDS:
         value: false
         description: "When true, updates will ignore protected fields and print a warning log.
         When false, trying to update read-only fields will fail with a forbidden error"
@@ -290,17 +290,17 @@ vars:
         value:
           forceKeepHistory: false
           deletionMode: keep-nothing
-      SSL_CAA_ISSUER: 
+      SSL_CAA_ISSUER:
         value: letsencrypt.org
         description: "Certificate authority allowed to issue SSL certificates for this domain"
-      INVITATION_TOKENS: 
+      INVITATION_TOKENS:
         value: null
         description: "Allows to define a set of invitation tokens for user creation by providing
         an array of strings as well as no check (null) & prevent all (empty array)"
       CUSTOM_AUTH_FUNCTION:
-        description: "Custom middleware function executed for each incoming request. 
-        May serve e.g. as additional authentication or validation step. 
-        Default value: 'module.exports=function(ctx, cb){cb();}'. 
+        description: "Custom middleware function executed for each incoming request.
+        May serve e.g. as additional authentication or validation step.
+        Default value: 'module.exports=function(ctx, cb){cb();}'.
         More information: https://api.pryv.com/guides/custom-auth/"
         value: "module.exports=function(ctx, cb){cb();}"
       ACCOUNT_SYSTEM_STREAMS:
@@ -321,27 +321,27 @@ vars:
         value: false
       BACKWARD_COMPATIBILITY_TAGS:
         description: "This provides tags to streamIds conversion. When creating an event with tags, it creates streams if necessary and assigns the event to these streamIds. The new streams are created as children of a stream with id ${rootStreamId} and each streamId is assigned the ${streamIdPrefix}. Activating this has a considerable performance cost, it is recommmended to activate this if you were using tags and need to perform a transition out of them."
-        value: 
+        value:
           isActive: false
-          rootStreamId: 'tags-migrated'  
+          rootStreamId: 'tags-migrated'
           streamIdPrefix: 'tag-migrated-'
   AUDIT_SETTINGS:
     name: "Audit settings"
     settings:
       AUDIT_STORAGE_FILTER:
-        value: 
+        value:
           methods:
             include: ['accesses.create']
             exclude: []
         description: 'Audited API calls filtering for storage. This feature has a cost on performance and storage. More information available here: https://api.pryv.com/customer-resources/audit-setup/. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
       AUDIT_SYSLOG_FILTER:
-        value: 
+        value:
           methods:
             include: ['accesses.create']
             exclude: []
         description: 'Audited API calls filtering for syslog. This feature has a cost on performance and storage. More information available here: https://api.pryv.com/customer-resources/audit-setup/. Default value: {"methods":{"include":["accesses.create"],"exclude":[]}}'
-      AUDIT_SYSLOG_FORMAT: 
-        value: 
+      AUDIT_SYSLOG_FORMAT:
+        value:
           template: "{userid} {type} createdBy:{createdBy} {streamIds} {content}"
           level: notice
         description: "Audit format for syslog. For 'template', available variables are properties of Events (https://api.pryv.com/reference/#event) and userid, They must be surrounded with curly brackets like: {content}. Default value: {userid} {type} createdBy:{createdBy} {streamIds} {content}.

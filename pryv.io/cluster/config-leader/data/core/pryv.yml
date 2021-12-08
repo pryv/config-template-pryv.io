@@ -1,75 +1,75 @@
 version: '3.5'
 services:
 
-  reverse_proxy: 
+  reverse_proxy:
     image: "eu.gcr.io/pryvio/nginx:1.3.40"
     container_name: pryvio_nginx
-    networks: 
+    networks:
       - frontend
-    ports: 
+    ports:
       - "80:80"
       - "443:443"
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/nginx/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/nginx/log/:/app/log/
-    links: 
+    links:
       - core
       - hfs
       - preview
     restart: always
 
-  core: 
-    image: "eu.gcr.io/pryvio/core:1.7.7"
+  core:
+    image: "eu.gcr.io/pryvio/core:1.7.10"
     container_name: pryvio_core
     networks:
       - frontend
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/core/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/core/log/:/app/log/
       - /dev/log:/dev/log # for audit log
-    environment: 
+    environment:
       - NUM_PROCS=4
       - STARTING_PORT=3000
       - HOSTNAME=$HOSTNAME
-    links: 
+    links:
       - mongodb
       - influxdb
     restart: always
 
-  mfa: 
+  mfa:
     image: "eu.gcr.io/pryvio/service-mfa:1.1.4"
     container_name: pryvio_mfa
     networks:
       - frontend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/mfa/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mfa/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
-    links: 
+    links:
       - core
     restart: always
 
-  preview: 
-    image: "eu.gcr.io/pryvio/preview:1.7.7"
+  preview:
+    image: "eu.gcr.io/pryvio/preview:1.7.10"
     container_name: pryvio_preview
-    networks: 
+    networks:
       - frontend
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/preview/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/preview/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
-    links: 
+    links:
       - mongodb
     restart: always
 
   hfs:
-    image: "eu.gcr.io/pryvio/hfs:1.7.7"
+    image: "eu.gcr.io/pryvio/hfs:1.7.10"
     container_name: pryvio_hfs
     networks:
       - frontend
@@ -78,7 +78,7 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/hfs/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/hfs/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/hfs/log/:/app/log/
-    environment: 
+    environment:
       - NUM_PROCS=2
       - HOSTNAME=$HOSTNAME
     links:
@@ -87,14 +87,14 @@ services:
     restart: always
 
   webhooks:
-    image: "eu.gcr.io/pryvio/webhooks:1.7.7"
+    image: "eu.gcr.io/pryvio/webhooks:1.7.10"
     container_name: pryvio_webhooks
     networks:
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/webhooks/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/webhooks/log/:/app/log/
-    links: 
+    links:
       - core
     restart: always
 
@@ -108,7 +108,7 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
       - ${PRYV_CONF_ROOT}/pryv/mongodb/backup/:/app/backup/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
     restart: always
 
@@ -121,7 +121,7 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/influxdb/data/:/var/lib/influxdb
       - ${PRYV_CONF_ROOT}/pryv/influxdb/backup/:/pryv/backup/
     restart: always
-      
+
 networks:
   frontend:
     driver: bridge

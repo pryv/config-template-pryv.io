@@ -18,17 +18,17 @@ services:
       - register
     restart: always
 
-  admin_panel: 
+  admin_panel:
     image: "eu.gcr.io/pryvio/app-web-admin:1.2.0"
     container_name: pryvio_admin_panel
-    networks: 
+    networks:
       - frontend
     restart: always
 
   app_web_auth3:
     image: "docker.io/pryvio/app-web-auth3:1.0.4"
     container_name: pryvio_app_web_auth3
-    networks: 
+    networks:
       - frontend
     restart: always
 
@@ -42,7 +42,7 @@ services:
     volumes:
       - ${PRYV_CONF_ROOT}/pryv/register/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/register/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
     links:
       - core # This is special to the single config
@@ -59,7 +59,7 @@ services:
     volumes:
       - ${PRYV_CONF_ROOT}/pryv/dns/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/dns/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
     links:
       - redis
@@ -70,7 +70,7 @@ services:
     container_name: pryvio_redis
     networks:
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/redis/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/redis/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/redis/log/:/app/log/
@@ -79,7 +79,7 @@ services:
 
   # Core role START ------------------------------------------------------------
   core:
-    image: "eu.gcr.io/pryvio/core:1.7.7"
+    image: "eu.gcr.io/pryvio/core:1.7.10"
     container_name: pryvio_core
     networks:
       - frontend
@@ -89,7 +89,7 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/core/log/:/app/log/
       - /dev/log:/dev/log # for audit log
-    environment: 
+    environment:
       - NUM_PROCS=4
       - STARTING_PORT=3000
       - HOSTNAME=$HOSTNAME
@@ -99,52 +99,52 @@ services:
       - mail
     restart: always
 
-  mfa: 
+  mfa:
     image: "eu.gcr.io/pryvio/service-mfa:1.1.4"
     container_name: pryvio_mfa
     networks:
       - frontend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/mfa/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mfa/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
-    links: 
+    links:
       - core
     restart: always
 
-  mail: 
+  mail:
     image: "eu.gcr.io/pryvio/mail:1.2.3"
     container_name: pryvio_mail
-    networks: 
+    networks:
       - frontend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/mail/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mail/templates/:/app/bin/templates/:ro
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
     restart: always
 
-  hfs: 
-    image: "eu.gcr.io/pryvio/hfs:1.7.7"
+  hfs:
+    image: "eu.gcr.io/pryvio/hfs:1.7.10"
     container_name: pryvio_hfs
-    networks: 
+    networks:
       - frontend
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/hfs/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/hfs/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/hfs/log/:/app/log/
-    environment: 
+    environment:
       - NUM_PROCS=2
       - HOSTNAME=$HOSTNAME
-    links: 
+    links:
       - influxdb
       - core
     restart: always
 
   preview:
-    image: "eu.gcr.io/pryvio/preview:1.7.7"
+    image: "eu.gcr.io/pryvio/preview:1.7.10"
     container_name: pryvio_preview
     networks:
       - frontend
@@ -153,44 +153,44 @@ services:
       - ${PRYV_CONF_ROOT}/pryv/preview/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/preview/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
     links:
       - mongodb
     restart: always
 
   webhooks:
-    image: "eu.gcr.io/pryvio/webhooks:1.7.7"
+    image: "eu.gcr.io/pryvio/webhooks:1.7.10"
     container_name: pryvio_webhooks
     networks:
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/webhooks/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/webhooks/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
-    links: 
+    links:
       - core
     restart: always
 
-  mongodb: 
+  mongodb:
     image: "eu.gcr.io/pryvio/mongodb:1.6.0"
     container_name: pryvio_mongodb
-    networks: 
+    networks:
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/mongodb/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mongodb/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/mongodb/log/:/app/log/
       - ${PRYV_CONF_ROOT}/pryv/mongodb/backup/:/app/backup/
     restart: always
 
-  influxdb: 
+  influxdb:
     image: "influxdb:1.7.8"
     container_name: pryvio_influxdb
-    networks: 
+    networks:
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/influxdb/data/:/var/lib/influxdb
       - ${PRYV_CONF_ROOT}/pryv/influxdb/backup/:/pryv/backup/
     restart: always
