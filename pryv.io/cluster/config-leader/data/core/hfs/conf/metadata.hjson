@@ -25,5 +25,9 @@
       }
     },
     "tags": BACKWARD_COMPATIBILITY_TAGS
+  },
+
+  "nats": {
+    "uri": "https://core:4222"
   }
 }
