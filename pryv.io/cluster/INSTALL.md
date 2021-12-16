@@ -82,29 +82,31 @@ In the leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/c
 
 ```json
     "followers": {
-        "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
-            "url": "https://co1.DOMAIN/",
+        "FOLLOWER_KEY_core1": {
+            "url": "https://co1.DOMAIN",
             "role": "core"
         },
-        "ciWrIHB3GoNoodoSH5zaulgR48aL5MhO": {
-            "url": "https://reg.DOMAIN/",
+        "FOLLOWER_KEY_reg-master": {
+            "url": "http://pryvio_config_follower:6000",
             "role": "reg-master"
         }
 }
 ```
 
-The configuration we provide comes with a strong key, but you **must** generate a new one. We recommend using a string of alphanumeric characters of length between 20 and 50.
+You **must** replace `FOLLOWER_KEY_${ROLE}` with a strong cryptographic key. We recommend using a string of alphanumeric characters of length between 20 and 50.
 
 For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
 
 ```json
     "leader": {
         "url": "LEADER_URL",
-        "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
+        "auth": "FOLLOWER_KEY"
     }
 ```
 
-Also, you must adapt the leader and followers urls since they depend on your domain (usually `https://lead.${DOMAIN}` and `http://${ROLE}.${DOMAIN}`).
+Also, you must adapt the leader urls since they depend on your domain:
+- For reg-master: http://pryvio_config_leader:7000 
+- For others: https://lead.DOMAIN
 
 
 ## Slave register machine
