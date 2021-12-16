@@ -37,7 +37,7 @@
       "role": "core"
     },
     "FOLLOWER_KEY_reg-master": {
-      "url": "pryvio_config_follower:6000",
+      "url": "http://pryvio_config_follower:6000",
       "role": "reg-master"
     },
     "FOLLOWER_KEY_reg-slave": {
