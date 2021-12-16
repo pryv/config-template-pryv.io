@@ -94,8 +94,6 @@ For each follower, you will need to set the same key in its configuration file `
     }
 ```
 
-Also, you must adapt the leader and followers urls since they depend on your domain (usually `https://lead.${DOMAIN}` and `http://${ROLE}.${DOMAIN}`).
-
 
 ## Config follower Docker authentication
 
