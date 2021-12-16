@@ -76,21 +76,21 @@ In the leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/c
 
 ```json
     "followers": {
-        "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
+        "FOLLOWER_SINGLENODE_KEY": {
         "url": "http://pryvio_config_follower:6000",
         "role": "singlenode"
         }
     }
 ```
 
-The configuration we provide comes with a strong key, but you **must** generate a new one. We recommend using a string of alphanumeric characters of length between 20 and 50.
+You **must** replace `FOLLOWER_SINGLENODE_KEY` with a strong cryptographic key. We recommend using a string of alphanumeric characters of length between 20 and 50.
 
 For each follower, you will need to set the same key in its configuration file `${PRYV_CONF_ROOT}/config-follower/conf/config-follower.json`. It must be placed in the `leader` map as show below:
 
 ```json
     "leader": {
-        "url": "LEADER_URL",
-        "auth": "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0"
+        "url": "http://config-leader:7000",
+        "auth": "FOLLOWER_SINGLENODE_KEY"
     }
 ```
 
