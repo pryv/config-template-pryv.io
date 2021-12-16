@@ -10,15 +10,19 @@ It assumes you have prepared your machines with the [infrastructure procurement 
 - `pryv` directory
 - Run the initialisation scripts
 - Platform setup
+  - Required variables
 - System keys
 - Leader-follower keys
 - Slave register machine
 - Config follower Docker authentication
-- SSL certificates
+- SSL certificates - custom provider
 - Launching the Installation
   - Prerequisites check
+  - Authenticate with the Pryv Docker registry
+  - Config follower Docker authentication
   - Run
     - Reporting
+  - SSL certificates - Letsencrypt
   - Stop
   - Validation
   - Admin Panel
@@ -66,6 +70,16 @@ Perform the same for followers by running `init-follower`.
 ## Platform setup
 
 On the leader machine, define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/platform.yml`. The leader service will replace them in the template configuration files located in the `${PRYV_CONF_ROOT}/config-leader/data/` folder when run.
+
+
+### Required variables
+
+- DOMAIN
+- REG_MASTER_IP_ADDRESS
+- HOSTINGS_AND_CORES
+- LICENSE_NAME
+- REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS (if your DNS does not start afterwards)
+- NAME_SERVER_ENTRIES (if using Letsencrypt for your SSL certificates)
 
 
 ## System keys
@@ -134,14 +148,9 @@ Then, also uncomment the ports mapping for the redis container of `reg-master`, 
 ```
 
 
-## Config follower Docker authentication
+## SSL certificates - custom provider
 
-The follower service will reboot Pryv services when applying an update from the admin panel after performing a version upgrade. In order to download the new Docker images from the Pryv private repository, the container needs to have access to a valid authentication token.
-
-Adapt the `config-follower/config-follower.yml` mounting point for the `.docker/config.json` file to the user with whom you will perform the `docker login` command (in the steps below).
-
-
-## SSL certificates
+If you don't have a particular SSL provider in mind and wish to use Letsencrypt for your SSL certificate, you can skip this step
 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
@@ -149,10 +158,10 @@ Your certificate files for the respective roles must be placed on the leader mac
   - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-bundle.crt`
   - `${PRYV_CONF_ROOT}/config-leader/data/${ROLE}/nginx/conf/secret/${DOMAIN}-key.pem`
 
-If you wish to generate your Pryv.io certificate using Let's Encrypt, run the `renew-ssl-certificate` script **once** your platform is running.
-
 
 ## Launching the Installation
+
+To launch the installation, you will need to SSH to each Pryv.io machine and repeat the commands described below for each machine. Please start with the leader machine (usually on `reg-master`) first and then the follower machines (`core`(s), `static`, `reg-slave`).
 
 ### Prerequisites Check
 
@@ -165,21 +174,30 @@ You might have to use `docker-ce` and your versions can be newer:
     docker-compose -v
     docker-compose version 1.18.0, build 8dd22a9
 
-### Run
 
-To launch the installation, you will need to SSH to each Pryv.io machine and repeat the commands described below for each machine. Please start with the leader machine (usually on `reg-master`) first and then the follower machines (`core`(s), `static`, `reg-slave`).
+### Authenticate with the Pryv Docker registry
 
-You will first need to authenticate with the distribution host to retrieve the Pryv.io Docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
+To launch the installation, you will first need to authenticate with the distribution host to retrieve the Pryv.io Docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
 
-To log in, type:  
+To log in, type: 
 
     cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://eu.gcr.io
 
-or for an older docker engine
+or for an older Docker engine
 
     docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://eu.gcr.io
 
-Once this completes, set the required permissions on data and log directories by running the following script:
+
+### Config follower Docker authentication
+
+The follower service will reboot Pryv services when applying an update from the admin panel after performing a version upgrade. In order to download the new Docker images from the Pryv private repository, the container needs to have access to a valid authentication token.
+
+Adapt the `config-follower/config-follower.yml` mounting point for the `.docker/config.json` file to the user with whom you have performed the `docker login` command.
+
+
+### Run
+
+Set the required permissions on data and log directories by running the following script:
 
     sudo ./ensure-permissions-${ROLE}
 
@@ -208,6 +226,11 @@ Each Pryv.io module sends a report to Pryv upon start, containing the following 
 - role
 
 If you decide to opt out, please contact your account manager @ Pryv to define another way to communicate this information.
+
+### SSL certificates - Letsencrypt
+
+Run the `renew-ssl-certificate` script.
+
 
 ### Stop
 
