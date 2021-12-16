@@ -77,7 +77,7 @@ In the leader service configuration file `${PRYV_CONF_ROOT}/config-leader/conf/c
 ```json
     "followers": {
         "iAgeuao4GaD68oQb3hXAxAZkQ13KWWe0": {
-        "url": "pryvio_config_follower:6000",
+        "url": "http://pryvio_config_follower:6000",
         "role": "singlenode"
         }
     }
