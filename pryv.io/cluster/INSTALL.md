@@ -74,12 +74,13 @@ On the leader machine, define the platform-specific variables in `${PRYV_CONF_RO
 
 ### Required variables
 
-- DOMAIN
-- REG_MASTER_IP_ADDRESS
-- HOSTINGS_AND_CORES
-- LICENSE_NAME
-- REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS (if your DNS does not start afterwards)
-- NAME_SERVER_ENTRIES (if using Let's Encrypt for your SSL certificates)
+- `DOMAIN`
+- `REG_MASTER_IP_ADDRESS`
+- `HOSTINGS_AND_CORES`
+- `REGISTER_ADMIN_KEY`
+- `LICENSE_NAME`
+- `REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS` (if your DNS does not start at first boot)
+- `NAME_SERVER_ENTRIES` (if using Let's Encrypt for your SSL certificates)
 
 
 ## System keys
