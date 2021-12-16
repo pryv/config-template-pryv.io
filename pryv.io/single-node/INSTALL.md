@@ -184,8 +184,6 @@ Please refer to the [installation validation](https://api.pryv.com/customer-reso
 
 Now that the platform is up and running, you can edit its platform settings through an admin panel available at: https://adm.${DOMAIN}  
 
-You will have to enter `https://lead.${DOMAIN}` in `Config leader address` and  
-
 you can find default credentials in the configuration leader's logs:  
 
     docker logs pryvio_config_leader | less
