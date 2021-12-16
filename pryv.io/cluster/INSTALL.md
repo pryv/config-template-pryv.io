@@ -22,7 +22,7 @@ It assumes you have prepared your machines with the [infrastructure procurement 
   - Config follower Docker authentication
   - Run
     - Reporting
-  - SSL certificates - Letsencrypt
+  - SSL certificates - Let's Encrypt
   - Stop
   - Validation
   - Admin Panel
@@ -79,7 +79,7 @@ On the leader machine, define the platform-specific variables in `${PRYV_CONF_RO
 - HOSTINGS_AND_CORES
 - LICENSE_NAME
 - REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS (if your DNS does not start afterwards)
-- NAME_SERVER_ENTRIES (if using Letsencrypt for your SSL certificates)
+- NAME_SERVER_ENTRIES (if using Let's Encrypt for your SSL certificates)
 
 
 ## System keys
@@ -150,7 +150,7 @@ Then, also uncomment the ports mapping for the redis container of `reg-master`, 
 
 ## SSL certificates - custom provider
 
-If you don't have a particular SSL provider in mind and wish to use Letsencrypt for your SSL certificate, you can skip this step
+If you don't have a particular SSL provider in mind and wish to use Let's Encrypt for your SSL certificate, you can skip this step
 
 All services use Nginx to terminate inbound HTTPS connections. You should have obtained a wildcard certificate for your domain to that effect. You will need to store that certificate along with the CA chain into the appropriate locations. Please follow this [link](https://www.digicert.com/ssl-certificate-installation-nginx.htm) to find instructions on how to convert a certificate for nginx. 
 
@@ -227,7 +227,7 @@ Each Pryv.io module sends a report to Pryv upon start, containing the following 
 
 If you decide to opt out, please contact your account manager @ Pryv to define another way to communicate this information.
 
-### SSL certificates - Letsencrypt
+### SSL certificates - Let's Encrypt
 
 Run the `renew-ssl-certificate` script.
 
