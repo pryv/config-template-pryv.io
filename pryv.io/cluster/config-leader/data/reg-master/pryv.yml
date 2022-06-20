@@ -1,78 +1,78 @@
 version: '3.5'
 services:
-  reverse_proxy: 
+  reverse_proxy:
     image: "eu.gcr.io/pryvio/nginx:1.3.40"
     container_name: pryvio_nginx
-    networks: 
+    networks:
       - frontend
-    ports: 
+    ports:
       - "443:443"
       - "80:80"
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/nginx/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/nginx/log/:/app/log/
     links:
       - register
     restart: always
 
-  admin_panel: 
+  admin_panel:
     image: "eu.gcr.io/pryvio/app-web-admin:1.2.0"
     container_name: pryvio_admin_panel
-    networks: 
+    networks:
       - frontend
     restart: always
 
-  register: 
+  register:
     image: "eu.gcr.io/pryvio/register:1.6.4"
     container_name: pryvio_register
-    networks: 
+    networks:
       - frontend
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/register/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/register/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
-    links: 
+    links:
       - redis
     restart: always
 
-  dns: 
+  dns:
     image: "eu.gcr.io/pryvio/dns:1.6.4"
     container_name: pryvio_dns
-    ports: 
+    ports:
       - "REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS:53:5353/udp"
-    networks: 
+    networks:
       - frontend
       - backend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/dns/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/dns/log/:/app/log/
-    environment: 
+    environment:
       - HOSTNAME=$HOSTNAME
-    links: 
+    links:
       - redis
     restart: always
 
-  redis: 
+  redis:
     image: "eu.gcr.io/pryvio/redis:1.3.40"
     container_name: pryvio_redis
-    networks: 
+    networks:
       - backend
     #ports:  # used if reg-slave is defined
     #  - "REG_MASTER_VPN_IP_ADDRESS:6379:6379"
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/redis/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/redis/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/redis/log/:/app/log/
     restart: always
 
-  mail: 
-    image: "eu.gcr.io/pryvio/mail:1.2.3"
+  mail:
+    image: "eu.gcr.io/pryvio/mail:1.2.4"
     container_name: pryvio_mail
-    networks: 
+    networks:
       - frontend
-    volumes: 
+    volumes:
       - ${PRYV_CONF_ROOT}/pryv/mail/conf/:/app/conf/:ro
       - ${PRYV_CONF_ROOT}/pryv/mail/templates/:/app/bin/templates/:ro
     restart: always

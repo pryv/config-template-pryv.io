@@ -114,7 +114,7 @@ services:
     restart: always
 
   mail:
-    image: "eu.gcr.io/pryvio/mail:1.2.3"
+    image: "eu.gcr.io/pryvio/mail:1.2.4"
     container_name: pryvio_mail
     networks:
       - frontend
