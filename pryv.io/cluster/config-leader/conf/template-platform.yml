@@ -54,7 +54,7 @@ vars:
         value: REPLACE_ME
         description: "License name provided with installation files"
       TEMPLATE_VERSION:
-        value: 1.7.14
+        value: 1.8.0
         description: "Version of configuration template"
   API_SETTINGS:
     name: "API settings"
@@ -114,7 +114,7 @@ vars:
         description: "The public name of the service eg: Pryv Lab"
       SUPPORT_URL:
         value: REPLACE_ME
-        description: "URL or Email link to support eg: https://pryv.com/helpdesk/or mailto:hsupport@pryv.com"
+        description: "URL or Email link to support eg: https://pryv.com/helpdesk/or mailto:support@pryv.com"
       TERMS_OF_USE_URL:
         value: REPLACE_ME
         description: "URL to the Terms of use of the service. e.g. https://pryv.com/terms-of-use/"
@@ -334,6 +334,12 @@ vars:
         Default value: 'module.exports=function(ctx, cb){cb();}'.
         More information: https://api.pryv.com/guides/custom-auth/"
         value: "module.exports=function(ctx, cb){cb();}"
+      CUSTOM_DATA_STORES:
+        description: "References to custom data store implementations to be loaded by core machines.
+        Each store declaration must have keys 'id', 'name', 'path' (i.e. absolute path to Node.js module) and 'config'.
+        Default value: [].
+        For more information, contact Pryv at support@pryv.com."
+        value: "[]"
       ACCOUNT_SYSTEM_STREAMS:
         description: "Custom account fields that are saved and validated during the registration.
         Preferably these values should be modified with care, because fields like isUnique or isIndexed would not be updated
