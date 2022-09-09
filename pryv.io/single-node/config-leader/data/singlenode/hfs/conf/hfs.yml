@@ -10,6 +10,8 @@ trace:
   enable: false
   agent:
     host: "jaeger"
+userFiles:
+   path: "/app/data/users"
 metadataUpdater:
   host: "127.0.0.1"
   port: 9000

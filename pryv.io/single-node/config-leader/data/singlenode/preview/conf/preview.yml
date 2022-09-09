@@ -6,6 +6,8 @@ database:
   host: "mongodb"
   port: 27017
   name: "pryv-node"
+userFiles:
+   path: "/app/data/users"
 eventFiles:
   attachmentsDirPath: "/app/data/attachments"
   previewsDirPath: "/app/data/previews"
