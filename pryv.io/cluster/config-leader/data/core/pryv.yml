@@ -76,7 +76,7 @@ services:
       - backend
     volumes:
       - ${PRYV_CONF_ROOT}/pryv/hfs/conf/:/app/conf/:ro
-      - ${PRYV_CONF_ROOT}/pryv/hfs/data/:/app/data/
+      - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/hfs/log/:/app/log/
     environment:
       - NUM_PROCS=2
