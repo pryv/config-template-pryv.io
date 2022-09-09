@@ -79,7 +79,7 @@ services:
 
   # Core role START ------------------------------------------------------------
   core:
-    image: "eu.gcr.io/pryvio/core:1.8.0-rc4"
+    image: "eu.gcr.io/pryvio/core:1.8.0-rc5"
     container_name: pryvio_core
     networks:
       - frontend
@@ -126,7 +126,7 @@ services:
     restart: always
 
   hfs:
-    image: "eu.gcr.io/pryvio/hfs:1.8.0-rc4"
+    image: "eu.gcr.io/pryvio/hfs:1.8.0-rc5"
     container_name: pryvio_hfs
     networks:
       - frontend
@@ -144,7 +144,7 @@ services:
     restart: always
 
   preview:
-    image: "eu.gcr.io/pryvio/preview:1.8.0-rc4"
+    image: "eu.gcr.io/pryvio/preview:1.8.0-rc5"
     container_name: pryvio_preview
     networks:
       - frontend
@@ -160,7 +160,7 @@ services:
     restart: always
 
   webhooks:
-    image: "eu.gcr.io/pryvio/webhooks:1.8.0-rc4"
+    image: "eu.gcr.io/pryvio/webhooks:1.8.0-rc5"
     container_name: pryvio_webhooks
     networks:
       - backend
