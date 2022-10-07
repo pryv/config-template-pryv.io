@@ -23,6 +23,11 @@ auth:
   passwordResetRequestMaxAge: PASSWORD_RESET_MAX_AGE
   passwordResetPageURL: "PASSWORD_RESET_URL"
   adminAccessKey: "CORE_SYSTEM_KEY"
+  passwordComplexityMinCharCategories: PASSWORD_COMPLEXITY_MIN_CHAR_CATS
+  passwordComplexityMinLength: PASSWORD_COMPLEXITY_MIN_LENGTH
+  passwordAgeMaxDays: PASSWORD_AGE_MAX_DAYS
+  passwordAgeMinDays: PASSWORD_AGE_MIN_DAYS
+  passwordPreventReuseHistoryLength: PASSWORD_PREVENT_REUSE_HISTORY_LENGTH
 services:
   register:
     url: "https://reg.DOMAIN"
