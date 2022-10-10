@@ -1,6 +1,6 @@
 ---
 http:
-  ip: "0.0.0.0" 
+  ip: "0.0.0.0"
 database:
   host: "mongodb"
 influxdb:
@@ -12,6 +12,9 @@ trace:
     host: "jaeger"
 userFiles:
    path: "/app/data/users"
+eventFiles:
+  attachmentsDirPath: "/app/data/attachments"
+  previewsDirPath: "/app/data/previews"
 metadataUpdater:
   host: "127.0.0.1"
   port: 9000

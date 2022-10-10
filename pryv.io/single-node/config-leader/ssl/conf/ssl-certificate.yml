@@ -15,10 +15,10 @@ acme:
   isProduction: true
   #csrPath: "/app/conf/test-renew-ssl.pryv.io.csr"
   email: tech@pryv.com
-  dnsRebootWaitMs: 1000
+  dnsRebootWaitMs: 10000
   dnsRetryWaitMs: 1000
   dnsRetriesCount: 60
-  skipDnsChecks: false
+  skipDnsChecks: true
 logs:
   console:
     active: true
