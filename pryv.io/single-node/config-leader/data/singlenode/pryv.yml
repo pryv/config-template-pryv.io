@@ -166,6 +166,7 @@ services:
       - backend
     volumes:
       - ${PRYV_CONF_ROOT}/pryv/webhooks/conf/:/app/conf/:ro
+      - ${PRYV_CONF_ROOT}/pryv/core/data/:/app/data/
       - ${PRYV_CONF_ROOT}/pryv/webhooks/log/:/app/log/
     environment:
       - HOSTNAME=$HOSTNAME
