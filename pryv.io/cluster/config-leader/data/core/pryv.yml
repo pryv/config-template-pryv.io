@@ -39,7 +39,7 @@ services:
     restart: always
 
   mfa:
-    image: "eu.gcr.io/pryvio/service-mfa:1.1.4"
+    image: "eu.gcr.io/pryvio/mfa:1.1.8"
     container_name: pryvio_mfa
     networks:
       - frontend

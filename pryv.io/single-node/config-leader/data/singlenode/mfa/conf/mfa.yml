@@ -3,7 +3,7 @@ http:
   port: 7000
   ip: 0.0.0.0
 logs:
-  prefix: service-mfa
+  prefix: mfa
   console:
     active: true
     level: info
