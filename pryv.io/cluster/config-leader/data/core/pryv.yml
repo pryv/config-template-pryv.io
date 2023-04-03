@@ -19,7 +19,7 @@ services:
     restart: always
 
   core:
-    image: "eu.gcr.io/pryvio/core:1.8.0"
+    image: "eu.gcr.io/pryvio/core:1.8.1"
     container_name: pryvio_core
     networks:
       - frontend
