@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   reverse_proxy:
-    image: "eu.gcr.io/pryvio/nginx:1.3.40"
+    image: "eu.gcr.io/pryvio/nginx:1.9.0"
     container_name: pryvio_nginx
     networks:
       - frontend
@@ -23,7 +23,7 @@ services:
     restart: always
 
   register:
-    image: "eu.gcr.io/pryvio/register:1.6.4"
+    image: "eu.gcr.io/pryvio/register:1.7.0"
     container_name: pryvio_register
     networks:
       - frontend
@@ -38,7 +38,7 @@ services:
     restart: always
 
   dns:
-    image: "eu.gcr.io/pryvio/dns:1.6.4"
+    image: "eu.gcr.io/pryvio/dns:1.7.0"
     container_name: pryvio_dns
     ports:
       - "REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS:53:5353/udp"
@@ -55,7 +55,7 @@ services:
     restart: always
 
   redis:
-    image: "eu.gcr.io/pryvio/redis:1.3.40"
+    image: "eu.gcr.io/pryvio/redis:1.9.0"
     container_name: pryvio_redis
     networks:
       - backend
@@ -68,7 +68,7 @@ services:
     restart: always
 
   mail:
-    image: "eu.gcr.io/pryvio/mail:1.2.5"
+    image: "eu.gcr.io/pryvio/mail:1.8.1"
     container_name: pryvio_mail
     networks:
       - frontend
