@@ -101,10 +101,10 @@ vars:
           The IP addresses should point to the machine running your Pryv.io DNS.
         value:
           -
-            name: dns1.DOMAIN
+            name: REPLACE_ME-dns1.REPLACE_ME
             ip: SINGLE_MACHINE_IP_ADDRESS
           -
-            name: dns2.DOMAIN
+            name: REPLACE_ME-dns1.REPLACE_ME
             ip: SINGLE_MACHINE_IP_ADDRESS
       DNS_CUSTOM_ENTRIES:
         description: "Additional DNS entries. See the DNS configuration document: https://api.pryv.com/customer-resources/#documents.

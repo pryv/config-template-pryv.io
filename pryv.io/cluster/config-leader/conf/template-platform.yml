@@ -132,10 +132,10 @@ vars:
           The IP addresses should point to the machine(s) running your Pryv.io DNS, they should be the same when running a single DNS.
         value:
           -
-            name: dns1.DOMAIN
+            name: REPLACE_ME-dns1.REPLACE_ME
             ip: REG_MASTER_IP_ADDRESS
           -
-            name: dns2.DOMAIN
+            name: REPLACE_ME-dns2.REPLACE_ME
             ip: REG_SLAVE_IP_ADDRESS
       DNS_CUSTOM_ENTRIES:
         description: "Additional DNS entries. See the DNS configuration document: https://api.pryv.com/customer-resources/#documents.
