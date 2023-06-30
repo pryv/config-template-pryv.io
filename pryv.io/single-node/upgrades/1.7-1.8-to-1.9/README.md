@@ -20,7 +20,7 @@ Pryv.io 1.9 uses MongoDB 6.0, and a migration with `mongodump` / `mongorestore` 
    `docker-compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml up --detach mongodb`
 9. Restore backed up MongoDB data:
    `docker exec -t pryvio_mongodb /app/bin/mongodb/bin/mongorestore /app/backup/`
-5. Stop MongoDB:
+10. Stop MongoDB:
    `docker stop pryvio_mongodb`
-10. Start Pryv.io
+11. Start Pryv.io
     `./run-pryv`
