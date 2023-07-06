@@ -9,6 +9,10 @@
       "level": "info"
     }
   },
+
+  "userFiles": {
+    "path": "/app/data/users"
+  },
   
   "database": {
     "host": "mongodb",
