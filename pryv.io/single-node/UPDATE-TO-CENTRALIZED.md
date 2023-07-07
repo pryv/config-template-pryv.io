@@ -44,7 +44,7 @@ The variables that are not mentioned are new and must be filled according to the
 - UPDATES_IGNORE_PROTECTED_FIELDS: core.json - updates:ignoreProtectedFields
 - WEBHOOKS_SETTINGS: core.json - webhooks
 - VERSIONING_SETTINGS: core.json - audit
-- SSL_CAA_ISSUER: register.json - dns:certificateAuthorityAuthorization:issuer
+- SSL_CAA_ISSUERS: register.json - dns:certificateAuthorityAuthorization 
 - INVITATION_TOKENS: register.json - invitationTokens
 
 ### Single-node specific

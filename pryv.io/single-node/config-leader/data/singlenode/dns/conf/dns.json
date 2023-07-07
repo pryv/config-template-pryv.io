@@ -6,9 +6,7 @@
     "name": "reg.DOMAIN",
     "domain": "DOMAIN",
     "domains": ["DOMAIN"],
-    "certificateAuthorityAuthorization": {
-      "issuer": "SSL_CAA_ISSUER"
-    },
+    "certificateAuthorityAuthorization": SSL_CAA_ISSUERS,
     "nameserver": NAME_SERVER_ENTRIES,
     "staticDataInDomain": {
       "adm": {
