@@ -17,7 +17,8 @@ The following steps must be done **on each core server**:
    `export MONGOBKP=${PRYV_CONF_ROOT}/mongo_raw_bkp_4.2/`
    `mkdir -p $MONGOBKP`
    `mv ${PRYV_CONF_ROOT}/pryv/mongodb/data/* $MONGOBKP`
-7. Upgrade Pryv.io to v1.9.0 without starting it
+7. Upgrade Pryv.io to v1.9.0
+   start ONLY config-leader & config follower (not pryv)
 8. Start MongoDB only:
    `docker-compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml up --detach mongodb`
 9. Restore backed up MongoDB data:
