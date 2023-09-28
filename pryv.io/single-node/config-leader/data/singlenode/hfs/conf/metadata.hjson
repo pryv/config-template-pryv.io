@@ -16,6 +16,10 @@
     "name": "pryv-node"
   },
 
+  "userFiles": {
+    "path": "/app/data/users"
+  },
+
   "serviceInfoUrl": "https://reg.DOMAIN/service/info",
 
   "backwardCompatibility": {

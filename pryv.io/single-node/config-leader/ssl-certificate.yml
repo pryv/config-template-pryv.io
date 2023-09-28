@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   ssl-certificate:
-    image: "eu.gcr.io/pryvio/ssl-certificate:1.1.3"
+    image: "eu.gcr.io/pryvio/ssl-certificate:1.1.4"
     container_name: pryvio_ssl_certificate
     networks:
       - backend

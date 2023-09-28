@@ -11,7 +11,7 @@ trace:
   agent:
     host: "jaeger"
 userFiles:
-   path: "/app/data/users"
+  path: "/app/data/users"
 eventFiles:
   attachmentsDirPath: "/app/data/attachments"
   previewsDirPath: "/app/data/previews"
