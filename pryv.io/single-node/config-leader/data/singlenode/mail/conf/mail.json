@@ -23,6 +23,7 @@
     "auth": "CORE_MAIL_KEY"
   },
   "templates": {
+    "root": "/app/bin/templates",
     "defaultLang": "EMAIL_TEMPLATES_DEFAULT_LANG"
   }
 }
