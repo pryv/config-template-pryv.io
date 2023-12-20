@@ -20,7 +20,7 @@
     "path": "/app/data/users"
   },
 
-  "serviceInfoUrl": "https://register:9000/service/info",
+  "serviceInfoUrl": "http://register:9000/service/info",
 
   "backwardCompatibility": {
     "systemStreams": {

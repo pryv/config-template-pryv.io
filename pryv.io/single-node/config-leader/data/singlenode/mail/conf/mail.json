@@ -3,11 +3,13 @@
     "prefix": "",
     "console": { 
       "active": true,
-      "level": "warn",
+      "level": "info",
       "colorize": true 
     }, 
     "file": {
-      "active": false
+      "active": true,
+      "level": "info", 
+      "path": "/app/log/mail.log"
     }
   },
   "email": {
