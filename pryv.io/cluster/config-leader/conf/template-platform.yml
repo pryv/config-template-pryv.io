@@ -60,8 +60,8 @@ vars:
     name: "API settings"
     settings:
       EVENT_TYPES_URL:
-        value: https://api.pryv.com/event-types/flat.json
-        description: "URL of the file listing the validated Event types. See: https://api.pryv.com/faq-api/#event-types. Default value: https://api.pryv.com/event-types/flat.json"
+        value: https://pryv.github.io/event-types/flat.json
+        description: "URL of the file listing the validated Event types. See: https://api.pryv.com/faq-api/#event-types. Default value: https://pryv.github.io/event-types/flat.json"
       TRUSTED_APPS:
         value: '*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*'
         description: "Web pages authorized to run login API call.
