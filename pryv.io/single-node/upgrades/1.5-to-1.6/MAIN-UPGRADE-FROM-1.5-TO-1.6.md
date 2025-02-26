@@ -52,8 +52,8 @@ To upgrade Pryv.io to version 1.6, please follow these steps:
     ```
     docker rm pryvio_mongodb_migration_step_1
     docker rm pryvio_mongodb_migration_step_2
-    docker rmi eu.gcr.io/pryvio/mongodb:migration-4.0.20
-    docker rmi eu.gcr.io/pryvio/mongodb:migration-4.2.9
+    docker rmi docker.io/pryvio/mongodb:migration-4.0.20
+    docker rmi docker.io/pryvio/mongodb:migration-4.2.9
     ```
 
 More information about the new registration path, parameters and features could be found [here](https://api.pryv.com/customer-resources/system-streams/) 

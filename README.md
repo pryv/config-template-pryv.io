@@ -8,6 +8,7 @@ Template for Pryv.io configuration files; used as a means of publishing Pryv.io 
 See the [steps to publish a new release](https://github.com/pryv/intranet/blob/master/Engineering/Codebase/Publishing%20a%20new%20release.md) on the intranet.
 
 
+
 ## Customer usage
 
 Reference: [Pryv.io setup guide](https://api.pryv.com/customer-resources/pryv.io-setup/#obtain-the-license-key-credentials-and-configuration-files)

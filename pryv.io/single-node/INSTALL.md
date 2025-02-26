@@ -139,11 +139,11 @@ To launch the installation, you will first need to authenticate with the distrib
 
 To log in, type:
 
-    cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://eu.gcr.io
+    cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://docker.io
 
 or for an older Docker engine
 
-    docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://eu.gcr.io
+    docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://docker.io
 
 ### Config follower Docker authentication
 

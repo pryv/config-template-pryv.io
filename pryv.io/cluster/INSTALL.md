@@ -135,7 +135,7 @@ Then, also uncomment the ports mapping for the redis container of `reg-master`, 
 
 ```yaml
   redis:
-    image: "eu.gcr.io/pryvio/redis:1.3.38"
+    image: "docker.io/pryvio/redis:1.3.38"
     container_name: pryvio_redis
     networks:
       - backend
@@ -181,11 +181,11 @@ To launch the installation, you will first need to authenticate with the distrib
 
 To log in, type:
 
-    cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://eu.gcr.io
+    cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://docker.io
 
 or for an older Docker engine
 
-    docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://eu.gcr.io
+    docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://docker.io
 
 ### Config follower Docker authentication
 

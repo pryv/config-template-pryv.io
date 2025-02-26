@@ -2,7 +2,7 @@ version: '3.5'
 services:
 
   reverse_proxy:
-    image: "eu.gcr.io/pryvio/nginx:1.9.0"
+    image: "docker.io/pryvio/nginx:1.9.0"
     container_name: pryvio_nginx
     networks:
       - frontend
@@ -19,14 +19,14 @@ services:
     restart: always
 
   admin_panel:
-    image: "eu.gcr.io/pryvio/app-web-admin:1.2.1"
+    image: "docker.io/pryvio/app-web-admin:1.2.1"
     container_name: pryvio_admin_panel
     networks:
       - frontend
     restart: always
 
   app_web_auth3:
-    image: "docker.io/pryvio/app-web-auth3:1.0.4"
+    image: "docker.io/pryvio/app-web-auth3:1.0.8"
     container_name: pryvio_app_web_auth3
     networks:
       - frontend
@@ -34,7 +34,7 @@ services:
 
   # Register role START --------------------------------------------------------
   register:
-    image: "eu.gcr.io/pryvio/register:1.9.0"
+    image: "docker.io/pryvio/register:1.9.0"
     container_name: pryvio_register
     networks:
       - frontend
@@ -50,7 +50,7 @@ services:
     restart: always
 
   dns:
-    image: "eu.gcr.io/pryvio/dns:1.9.0"
+    image: "docker.io/pryvio/dns:1.9.2"
     container_name: pryvio_dns
     ports:
       - "SINGLE_MACHINE_PUBLIC_INTERFACE_IP_ADDRESS:53:5353/udp"
@@ -66,7 +66,7 @@ services:
     restart: always
 
   redis:
-    image: "eu.gcr.io/pryvio/redis:1.9.0"
+    image: "docker.io/pryvio/redis:1.9.0"
     container_name: pryvio_redis
     networks:
       - backend
@@ -79,7 +79,7 @@ services:
 
   # Core role START ------------------------------------------------------------
   core:
-    image: "eu.gcr.io/pryvio/core:1.9.0"
+    image: "docker.io/pryvio/core:1.9.2"
     container_name: pryvio_core
     networks:
       - frontend
@@ -100,7 +100,7 @@ services:
     restart: always
 
   mfa:
-    image: "eu.gcr.io/pryvio/mfa:1.1.8"
+    image: "docker.io/pryvio/mfa:1.1.9"
     container_name: pryvio_mfa
     networks:
       - frontend
@@ -114,7 +114,7 @@ services:
     restart: always
 
   mail:
-    image: "eu.gcr.io/pryvio/mail:1.9.0"
+    image: "docker.io/pryvio/mail:1.9.0"
     container_name: pryvio_mail
     networks:
       - frontend
@@ -127,7 +127,7 @@ services:
     restart: always
 
   hfs:
-    image: "eu.gcr.io/pryvio/hfs:1.9.0"
+    image: "docker.io/pryvio/hfs:1.9.2"
     container_name: pryvio_hfs
     networks:
       - frontend
@@ -145,7 +145,7 @@ services:
     restart: always
 
   preview:
-    image: "eu.gcr.io/pryvio/preview:1.9.0"
+    image: "docker.io/pryvio/preview:1.9.2"
     container_name: pryvio_preview
     networks:
       - frontend
@@ -161,7 +161,7 @@ services:
     restart: always
 
   webhooks:
-    image: "eu.gcr.io/pryvio/webhooks:1.9.0"
+    image: "docker.io/pryvio/webhooks:1.9.2"
     container_name: pryvio_webhooks
     networks:
       - backend
@@ -176,7 +176,7 @@ services:
     restart: always
 
   mongodb:
-    image: "eu.gcr.io/pryvio/mongodb:1.9.0"
+    image: "docker.io/pryvio/mongodb:1.9.2"
     container_name: pryvio_mongodb
     networks:
       - backend
