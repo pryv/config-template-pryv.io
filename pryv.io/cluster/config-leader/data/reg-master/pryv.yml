@@ -23,7 +23,7 @@ services:
     restart: always
 
   register:
-    image: "docker.io/pryvio/register:1.9.0"
+    image: "docker.io/pryvio/register:1.9.2"
     container_name: pryvio_register
     networks:
       - frontend
@@ -38,7 +38,7 @@ services:
     restart: always
 
   dns:
-    image: "docker.io/pryvio/dns:1.9.0"
+    image: "docker.io/pryvio/dns:1.9.2"
     container_name: pryvio_dns
     ports:
       - "REG_MASTER_PUBLIC_INTERFACE_IP_ADDRESS:53:5353/udp"

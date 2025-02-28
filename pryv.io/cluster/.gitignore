@@ -8,7 +8,7 @@ fromYaml/
 *-ca.pem
 *-cert.pem
 
-!rec.la-bundle.crt
-!rec.la-ca.pem
-!rec.la-cert.crt
-!rec.la-key.pem
+!backloop.dev-bundle.crt
+!backloop.dev-ca.pem
+!backloop.dev-cert.crt
+!backloop.dev-key.pem

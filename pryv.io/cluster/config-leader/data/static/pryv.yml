@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   reverse_proxy:
-    image: "docker.io/pryvio/nginx:1.3.40"
+    image: "docker.io/pryvio/nginx:1.9.0"
     container_name: pryvio_nginx
     networks:
       - frontend
@@ -13,7 +13,7 @@ services:
     restart: always
 
   app_web_auth3:
-    image: "docker.io/pryvio/app-web-auth3:1.0.4"
+    image: "docker.io/pryvio/app-web-auth3:1.0.8"
     container_name: pryvio_app_web_auth3
     networks: 
       - frontend

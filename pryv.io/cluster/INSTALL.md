@@ -135,7 +135,7 @@ Then, also uncomment the ports mapping for the redis container of `reg-master`, 
 
 ```yaml
   redis:
-    image: "docker.io/pryvio/redis:1.3.38"
+    image: "docker.io/pryvio/redis:1.9.0"
     container_name: pryvio_redis
     networks:
       - backend

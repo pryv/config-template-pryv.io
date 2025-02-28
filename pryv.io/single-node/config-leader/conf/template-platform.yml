@@ -32,13 +32,13 @@ vars:
         value: https://pryv.github.io/event-types/flat.json
         description: "URL of the file listing the validated Event types. See: https://api.pryv.com/faq-api/#event-types. Default value: https://pryv.github.io/event-types/flat.json"
       TRUSTED_APPS:
-        value: '*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*'
+        value: '*@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.backloop.dev*'
         description: "Web pages authorized to run login API call.
         See https://api.pryv.com/reference-full/#trusted-apps-verification.
         You can remove the ones not related to your platform if you are not using Pryv's default apps
         The format is comma-separated list of {trusted-app-id}@{origin} pairs.
         Origins and appIds accept '*' wildcards, but never use wildcard appIds in production.
-        Example: *@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.rec.la*"
+        Example: *@https://*.DOMAIN*, *@https://pryv.github.io*, *@https://*.backloop.dev*"
       DEFAULT_AUTH_URL:
         value: https://sw.DOMAIN/access/access.html
         description: "Default auth url used for the authorization flow (https://api.pryv.com/reference/#auth-request)."
