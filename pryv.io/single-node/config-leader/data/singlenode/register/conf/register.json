@@ -134,7 +134,7 @@
     "api": "https://{username}.DOMAIN"
   },
   "reporting": {
-    "licenseName": "LICENSE_NAME",
+    "licenseName": "Pryv.io",
     "role": "reg-master",
     "templateVersion": "TEMPLATE_VERSION"
   }

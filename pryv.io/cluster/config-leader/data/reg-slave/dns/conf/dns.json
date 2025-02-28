@@ -106,7 +106,7 @@
   },
   "invitationTokens": INVITATION_TOKENS,
   "reporting": {
-    "licenseName": "LICENSE_NAME",
+    "licenseName": "Pryv.io",
     "role": "reg-slave",
     "templateVersion": "TEMPLATE_VERSION"
   }

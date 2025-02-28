@@ -42,7 +42,7 @@ services:
     welcomeTemplate: "welcome-email"
     resetPasswordTemplate: "reset-password"
 reporting:
-  licenseName: "LICENSE_NAME"
+  licenseName: "Pryv.io"
   templateVersion: "TEMPLATE_VERSION"
 updates:
   ignoreProtectedFields: UPDATES_IGNORE_PROTECTED_FIELDS

@@ -51,7 +51,7 @@ vars:
     name: "Miscellaneous settings"
     settings:
       LICENSE_NAME:
-        value: REPLACE_ME
+        value: Pryv.io
         description: "License name provided with installation files"
       TEMPLATE_VERSION:
         value: 1.9.0

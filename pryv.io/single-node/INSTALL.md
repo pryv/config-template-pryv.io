@@ -70,7 +70,6 @@ Define the platform-specific variables in `${PRYV_CONF_ROOT}/config-leader/conf/
 - `DOMAIN`
 - `SINGLE_MACHINE_IP_ADDRESS`
 - `REGISTER_ADMIN_KEY`
-- `LICENSE_NAME`
 - `SINGLE_MACHINE_PUBLIC_INTERFACE_IP_ADDRESS` (if your DNS does not start at first boot)
 - `NAME_SERVER_ENTRIES` (if using Let's Encrypt for your SSL certificates)
 
@@ -133,23 +132,11 @@ You might have to use `docker-ce` and your versions can be newer:
     docker-compose -v
     docker-compose version 1.18.0, build 8dd22a9
 
-### Authenticate with the Pryv Docker registry
-
-To launch the installation, you will first need to authenticate with the distribution host to retrieve the Pryv.io Docker images. You should have received a JSON file with credentials (`pryv-docker-key.json`) with the delivery of the configuration files.
-
-To log in, type:
-
-    cat pryv-docker-key.json | docker login -u _json_key --password-stdin https://docker.io
-
-or for an older Docker engine
-
-    docker login -u _json_key -p "$(cat pryv-docker-key.json)" https://docker.io
-
 ### Config follower Docker authentication
 
 The follower service will reboot Pryv services when applying an update from the admin panel after performing a version upgrade. In order to download the new Docker images from the Pryv private repository, the container needs to have access to a valid authentication token.
 
-Adapt the `config-follower/config-follower.yml` mounting point for the `.docker/config.json` file to the user with whom you have performed the `docker login` command.
+Adapt the `config-follower/config-follower.yml` mounting point for the `.docker/config.json` file.
 
 ### Run
 

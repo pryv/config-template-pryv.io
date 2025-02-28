@@ -10,7 +10,6 @@ services:
       - ../pryv:/app/pryv/
       - ./conf/:/app/conf/
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      # adapt host mounting point to match the user with whom you performed 'docker login'
       - /home/docker/.docker/config.json:/root/.docker/config.json 
     restart: always
     environment:
