@@ -10,4 +10,4 @@ export HOSTNAME=$HOSTNAME
 
 # run
 echo "Running Pryv/core component."
-docker-compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml up -d
+docker compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml up -d

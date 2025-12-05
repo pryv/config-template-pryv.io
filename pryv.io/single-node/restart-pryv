@@ -9,8 +9,8 @@ export HOSTNAME=$HOSTNAME
 [[ -e ${PRYV_CONF_ROOT}/pryv/pryv.yml ]] || { echo >&2 "The file ${PRYV_CONF_ROOT}/pryv/pryv.yml was not found."; exit 1; }
 
 # stop
-docker-compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml down
+docker compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml down
 
 # run
 echo "Running Pryv/core component."
-docker-compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml up -d
+docker compose -f ${PRYV_CONF_ROOT}/pryv/pryv.yml up -d

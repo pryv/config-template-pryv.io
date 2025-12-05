@@ -13,4 +13,5 @@ services:
 networks:
   backend:
     driver: bridge
-    name: pryv_backend
+    external: true
+    name: backend

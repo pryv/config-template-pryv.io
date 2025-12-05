@@ -7,8 +7,8 @@ export PRYV_CONF_ROOT="/var/pryv"
 [[ -e ${PRYV_CONF_ROOT}/config-leader/config-leader.yml ]] || { echo >&2 "The file ${PRYV_CONF_ROOT}/config-leader/config-leader.yml was not found."; exit 1; }
 
 # stop
-docker-compose -f ${PRYV_CONF_ROOT}/config-leader/config-leader.yml down
+docker compose -f ${PRYV_CONF_ROOT}/config-leader/config-leader.yml down
 
 # run
 echo "Running Pryv/config-leader component."
-docker-compose -f ${PRYV_CONF_ROOT}/config-leader/config-leader.yml up -d
+docker compose -f ${PRYV_CONF_ROOT}/config-leader/config-leader.yml up -d

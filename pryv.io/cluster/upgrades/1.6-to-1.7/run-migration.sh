@@ -7,8 +7,8 @@ cd $SCRIPT_FOLDER
 
 echo "Running Pryv/core component."
 
-docker-compose -f audit-migration.yml up -d
+docker compose -f audit-migration.yml up -d
 
 docker exec pryvio_core_migration_1.7 /app/bin/scripts/migrations/audit1.6-1.7/run_in_container.sh
 
-docker-compose -f audit-migration.yml down
+docker compose -f audit-migration.yml down

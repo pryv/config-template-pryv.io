@@ -7,4 +7,4 @@ export PRYV_CONF_ROOT="/var/pryv"
 lines="${1:-500}"
 
 echo "Fetching Pryv logs to pryv-services.log"
-docker-compose -f pryv/pryv.yml logs --tail=$lines > pryv-services.log
+docker compose -f pryv/pryv.yml logs --tail=$lines > pryv-services.log

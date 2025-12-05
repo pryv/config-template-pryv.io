@@ -22,4 +22,5 @@ services:
 networks:
   frontend:
     driver: bridge
-    name: pryv_frontend
+    external: true
+    name: frontend

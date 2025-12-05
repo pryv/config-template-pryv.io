@@ -169,10 +169,7 @@ Please run these commands and compare the output with values below.
 You might have to use `docker-ce` and your versions can be newer:
 
     docker -v
-    Docker version 17.05.0-ce, build 89658be
-
-    docker-compose -v
-    docker-compose version 1.18.0, build 8dd22a9
+    Docker version 29.1.2, build 890dcca
 
 ### Config follower Docker authentication
 

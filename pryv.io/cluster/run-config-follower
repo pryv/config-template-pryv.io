@@ -8,4 +8,4 @@ export PRYV_CONF_ROOT="/var/pryv"
 
 # run
 echo "Running Pryv/config-follower component."
-docker-compose -f ${PRYV_CONF_ROOT}/config-follower/config-follower.yml up -d
+docker compose -f ${PRYV_CONF_ROOT}/config-follower/config-follower.yml up -d
